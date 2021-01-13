@@ -28,7 +28,7 @@ import BarreNavLeft from "@/components/BarreNavLeft.vue";
 
 <style scoped>
 	body{
-		color: #8BADBE;
+		color: #F1FAFF;
     }
     .container{
 color:#112631

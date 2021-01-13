@@ -15,9 +15,9 @@ import MenuBurger from "@/components/MenuBurger.vue";
 </script>
 
 <style scoped>
-nav {
+.BarreNavLeft {
 		width: 20vw;
-		background: #8BADBE;
+        background: #8BADBE;
 		min-width: 150px;
 		max-width: 0px;
 		padding: 20px;
@@ -29,6 +29,6 @@ nav {
     
     img {
 		border-radius: 50%;
-        width: 100px;
+        width: 10px;
     }
 </style>

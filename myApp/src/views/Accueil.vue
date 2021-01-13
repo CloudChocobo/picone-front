@@ -4,11 +4,14 @@
             <div class="barreNavLeft">
             <BarreNavLeft></BarreNavLeft>
             </div>
-                <div class="container">Bonjour Thierry</div>
+                <div class="container">
                     <div class="icone">
 						<img src="../assets/proches.svg" alt="" />
-                        <div class="texte">Proches</div>
                     </div>
+                    <div class="icone1">
+						<img src="../assets/docteur.svg" alt="" />
+                    </div>
+                </div>
         </ion-content>
     </ion-page>
 </template>
@@ -27,15 +30,44 @@ import BarreNavLeft from "@/components/BarreNavLeft.vue";
     };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 	body{
-		color: #8BADBE;
+		color: #F1FAFF;
     }
-    .container{
-color:#112631
-    }
+.container {
+		display: flex;
+		flex-direction: column;
+		background-color: white;
+		border-radius: 10px;
+		padding: 17px;
+		width: 100%;}
+
+        .container.icone {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+.container.icone1 {
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+		align-items: center;
+	}
 </style>
 
-
-			BarrreNavLeft,
-	import BarreNaLeft
+   .container{
+position: absolute;
+width: 1136px;
+height: 573px;
+float:right;
+position:absolute;
+    }
+    
+.icone{
+        
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:50%;
+    }
