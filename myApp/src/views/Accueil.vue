@@ -1,47 +1,34 @@
 <template>
-<ion-page>
-        <ion-content :fullscreen="true">
-            <BarreNavLeft></BarreNavLeft>
-            <div class="texte">
+    <Page>
+        <div class="texte">
             <p>Bonjour<br>
             Quel est votre interlocuteur?</p>
+        </div>
+        <div class="container"> 
+            <div class="icone">
+                <img src="../assets/proches.svg" alt="" />
             </div>
-                <div class="container"> 
-               <div class="icone">
-						<img src="../assets/proches.svg" 
-                        alt="" />
-                    </div>
-                    <div class="icone1">
-						<img src="../assets/docteur.svg" alt="" />
-                    </div>
-                </div>
-        </ion-content>
-    </ion-page>
+            <div class="icone1">
+                <img src="../assets/docteur.svg" alt="" />
+            </div>
+        </div>
+        <Barre-defilement></Barre-defilement>  
+    </Page>
 </template>
 
 <script>
-import {IonPage, IonContent} from "@ionic/vue";
-import BarreNavLeft from "@/components/BarreNavLeft.vue";
-
+import BarreDefilement from "@/components/BarreDefilement.vue";
+import Page from "@/components/Page.vue";
     export default {
         name: "Accueil",
         components: {
-			IonPage,
-			IonContent,
-			BarreNavLeft,
+            BarreDefilement,
+            Page,
         }
     };
 </script>
 
 <style scoped>
-.BarreNavLeft {
-display: flex;
-flex-direction: column;
-height: 100% !important;
-width: 10% !important;
-background: #8BADBE !important;
-}
-
 body{
 color: #F1FAFF;
 }
