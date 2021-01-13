@@ -1,12 +1,15 @@
 <template>
 <ion-page>
         <ion-content :fullscreen="true">
-            <div class="barreNavLeft">
             <BarreNavLeft></BarreNavLeft>
+            <div class="texte">
+            <p>Bonjour<br>
+            Quel est votre interlocuteur?</p>
             </div>
-                <div class="container">
-                    <div class="icone">
-						<img src="../assets/proches.svg" alt="" />
+                <div class="container"> 
+               <div class="icone">
+						<img src="../assets/proches.svg" 
+                        alt="" />
                     </div>
                     <div class="icone1">
 						<img src="../assets/docteur.svg" alt="" />
@@ -30,44 +33,51 @@ import BarreNavLeft from "@/components/BarreNavLeft.vue";
     };
 </script>
 
-<style lang="postcss" scoped>
-	body{
-		color: #F1FAFF;
+<style scoped>
+.BarreNavLeft {
+display: flex;
+flex-direction: column;
+height: 100% !important;
+width: 10% !important;
+background: #8BADBE !important;
+}
+
+body{
+color: #F1FAFF;
+}
+
+.icone1{
+text-align: center;
+	float: left;
+	margin: auto;
+    gap:10px;
+    width:25%;
+    
+}
+.icone{
+text-align: center;
+align-items: center;
+display:inline-block;
+margin-left: 23%;
+
+width:25%;
+}
+.container{
+text-align: center;
+align-items: center;
+list-style-type: none;
+flex-wrap: wrap;
+display: flex;
     }
-.container {
-		display: flex;
-		flex-direction: column;
-		background-color: white;
-		border-radius: 10px;
-		padding: 17px;
-		width: 100%;}
-
-        .container.icone {
-		display: flex;
-		flex-direction: column;
-		gap: 14px;
-	}
-
-.container.icone1 {
-		display: flex;
-		gap: 10px;
-		flex-direction: column;
-		align-items: center;
-	}
+.texte {
+    display: flex;
+    font-size: 50px;
+    margin-left: 250px;
+    color: #536974;
+    position: relative;
+    text-align:center;
+    margin-top:10px;
+    
+}    
 </style>
 
-   .container{
-position: absolute;
-width: 1136px;
-height: 573px;
-float:right;
-position:absolute;
-    }
-    
-.icone{
-        
-        display:block;
-        margin-left:auto;
-        margin-right:auto;
-        width:50%;
-    }

@@ -9,26 +9,31 @@
 import MenuBurger from "@/components/MenuBurger.vue";
     export default {
         name: "BarreNavLeft",
-        props: [],
         components: {MenuBurger},
     };
 </script>
 
-<style scoped>
-.BarreNavLeft {
+    <style scoped>
+	.BarreNavLeft {
+        position: absolute;
 		width: 20vw;
-        background: #8BADBE;
-		min-width: 150px;
-		max-width: 0px;
-		padding: 20px;
+		background: #8BADBE;
+		height: 100%;
+		max-width: 100px;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
+        align-items: center;
 		gap: 10px;
+        flex-wrap: column;
+	}
+    .MenuBurger{
+        margin-top: 200px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: column;
+        justify-content: center;
     }
-    
-    img {
-		border-radius: 50%;
-        width: 10px;
-    }
+
 </style>
+

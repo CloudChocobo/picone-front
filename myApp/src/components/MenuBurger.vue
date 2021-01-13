@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
     export default {
         name: "MenuBurger",
         props: [],
@@ -16,9 +15,14 @@
         },
     };
 </script>
-img {
-		border-radius: 50%;
-		width: 100px;
-<style scoped>
 
+<style scoped>
+    .MenuBurger{
+        display: flex;
+        flex-direction: column;
+        height: 50%;
+        width: 50%;
+        border-radius: 50%;
+        align-items: center;
+    }
 </style>
