@@ -11,18 +11,15 @@
             <div class="icone1">
                 <img src="../assets/Medecin.png" alt="" />
             </div>
-        </div>
-        <Barre-defilement></Barre-defilement>  
+        </div> 
     </Page>
 </template>
 
 <script>
-import BarreDefilement from "@/components/BarreDefilement.vue";
 import Page from "@/components/Page.vue";
     export default {
         name: "Accueil",
         components: {
-            BarreDefilement,
             Page,
         }
     };
@@ -64,9 +61,6 @@ display: flex;
     margin-top:10px;
     
 }    
-.Barre-defilement{
-    display:flex;
-    align-items: flex-end;
-}
+
 </style>
 
