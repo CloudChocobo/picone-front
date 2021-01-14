@@ -6,10 +6,10 @@
         </div>
         <div class="container"> 
             <div class="icone">
-                <img src="../assets/proches.svg" alt="" />
+                <img src="../assets/Proches.png" alt="" />
             </div>
             <div class="icone1">
-                <img src="../assets/docteur.svg" alt="" />
+                <img src="../assets/Medecin.png" alt="" />
             </div>
         </div>
         <Barre-defilement></Barre-defilement>  

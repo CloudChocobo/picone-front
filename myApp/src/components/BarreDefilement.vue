@@ -1,11 +1,9 @@
 <template>
   <ion-list>
- <ion-item>
-      <ion-range ref="rangeDualKnobs" dual-knobs="true" min="0" max="3" step="1" snaps="true"></ion-range>
+    <ion-item>
+      <ion-range min="1" max="3" step="1" snaps="true" color="secondary"></ion-range>
     </ion-item>
-
   </ion-list>
-  
 </template>
 
 <script>
@@ -20,8 +18,11 @@ export default defineComponent({
 });
 </script>
  <style scoped>
- .knob {
+ .knob{
    background-color: blue;
+ }
+ .item-native{
+   background-color: white;
  }
 .tick{
   /* color:  */
@@ -29,5 +30,4 @@ export default defineComponent({
   .range-bar{
 /* backgr */
   }
-</style> 
-
+  </style>
