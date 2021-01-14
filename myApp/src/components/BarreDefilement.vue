@@ -1,41 +1,56 @@
 <template>
-    <ion-item>
+    <div class="container">
       <ion-range min="1" max="3" step="1" snaps="true" color="secondary">
-      </ion-range>
-    </ion-item>
+      <ion-label slot="start">lent</ion-label>
+      <ion-label slot="end">rapide</ion-label>
+        </ion-range>
+    </div>
 </template>
 
 <script>
-import { IonItem, IonRange } from '@ionic/vue';
+import { IonLabel, IonRange } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  components: {  IonItem, IonRange },
-  mounted() {
-    this.$refs.rangeDualKnobs.value = { lower: 0, upper: 3 };
-  }
+  components: { IonRange, IonLabel },
 });
 </script>
  <style scoped>
 
- ion-item{
+ .container{
    display: flex;
-  align-self: flex-end;
-
+   width: 50%;
+   flex-direction: row;
+   justify-content: space-between;
+   align-content: space-around;
+   align-items: space-around;
  }
+
 ion-range{
   --bar-background: #F1FAFF;
   --border-color:#F1FAFF;
   --bar-background-active: #F1FAFF;
   --bar-border-radius: 0px;
-  --knob-size: 50px;
+  --knob-size: 40px;
   --pin-color: #536974;
   --bar-height: 20px;
   --height: 20px;
-  --width: 50px;
 }
 
-.range-slider {
-  --width: 50px;
+ion-label{
+  display: flex;
+  font-size: 30px;
+  color:#536974;
+  flex-direction:row;
+  align-content: space-around;
+  align-items: space-around;
 }
+
+/* .input-wrapper {
+  width:50%;
+  color: #F1FAFF;
+} */
+/* .range-slider {
+  --width: 50px;
+} */
   </style>
