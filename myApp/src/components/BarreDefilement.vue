@@ -1,33 +1,41 @@
 <template>
-  <ion-list>
     <ion-item>
-      <ion-range min="1" max="3" step="1" snaps="true" color="secondary"></ion-range>
+      <ion-range min="1" max="3" step="1" snaps="true" color="secondary">
+      </ion-range>
     </ion-item>
-  </ion-list>
 </template>
 
 <script>
-import { IonItem, IonList, IonRange } from '@ionic/vue';
+import { IonItem, IonRange } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  components: {  IonItem, IonList, IonRange },
+  components: {  IonItem, IonRange },
   mounted() {
     this.$refs.rangeDualKnobs.value = { lower: 0, upper: 3 };
   }
 });
 </script>
  <style scoped>
- .knob{
-   background-color: blue;
+
+ ion-item{
+   display: flex;
+  align-self: flex-end;
+
  }
- .item-native{
-   background-color: white;
- }
-.tick{
-  /* color:  */
+ion-range{
+  --bar-background: #F1FAFF;
+  --border-color:#F1FAFF;
+  --bar-background-active: #F1FAFF;
+  --bar-border-radius: 0px;
+  --knob-size: 50px;
+  --pin-color: #536974;
+  --bar-height: 20px;
+  --height: 20px;
+  --width: 50px;
 }
-  .range-bar{
-/* backgr */
-  }
+
+.range-slider {
+  --width: 50px;
+}
   </style>

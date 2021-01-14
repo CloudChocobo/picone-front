@@ -29,9 +29,7 @@ import Page from "@/components/Page.vue";
 </script>
 
 <style scoped>
-body{
-color: #F1FAFF;
-}
+
 
 .icone1{
 text-align: center;
@@ -66,5 +64,9 @@ display: flex;
     margin-top:10px;
     
 }    
+.Barre-defilement{
+    display:flex;
+    align-items: flex-end;
+}
 </style>
 
