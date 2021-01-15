@@ -3,6 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 import Accueil from "@/views/Accueil.vue";
 import Humeur from "@/views/Humeur.vue";
 import Theme from "@/views/Theme.vue";
+import EcranZero from "@/views/EcranZero.vue";
 
 
 
@@ -28,7 +29,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/Theme",
     component: Theme,
   },
-
+  {
+    name: "EcranZero",
+    path: "/EcranZero",
+    component: EcranZero,
+  },
 ]
 
 const router = createRouter({

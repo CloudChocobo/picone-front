@@ -1,6 +1,6 @@
 <template>
 	<div class="BackButton" @click="() => router.push('/home')">
-		<img src="../assets/***.svg" alt="" />
+		<img src="../assets/Back.png" alt="" />
 		<div class="label">{{ label }}</div>
 	</div>
 </template>

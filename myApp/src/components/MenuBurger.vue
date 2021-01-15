@@ -1,7 +1,7 @@
 
 <template>
     <div class="MenuBurger">
-<img src="../assets/iconeMenu.svg" alt=""/>
+<img src="../assets/IconeParam.svg" alt=""/>
 
     </div>
 </template>
@@ -20,9 +20,10 @@
     .MenuBurger{
         display: flex;
         flex-direction: column;
-        height: 50%;
-        width: 50%;
+        height: 90%;
+        width: 90%;
         border-radius: 50%;
         align-items: center;
+
     }
 </style>

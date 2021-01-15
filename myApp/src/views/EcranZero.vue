@@ -1,15 +1,14 @@
 <template>
     <Page>
         <div class="texte">
-            <p>Bonjour<br>
-            Quel est votre interlocuteur?</p>
+            <p>Bonjour</p>
         </div>
         <div class="container"> 
             <div class="icone">
-                <img src="../assets/Proches.svg" alt="" />
+                <img src="../assets/IconeParam.svg" alt="" />
             </div>
             <div class="icone1">
-                <img src="../assets/Medecin.svg" alt="" />
+                <img src="../assets/Conversation.svg" alt="" />
             </div>
         </div> 
     </Page>
@@ -18,7 +17,7 @@
 <script>
 import Page from "@/components/Page.vue";
     export default {
-        name: "Accueil",
+        name: "EcranZero",
         components: {
             Page,
         }

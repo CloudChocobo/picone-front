@@ -28,7 +28,7 @@ import MenuBurger from "@/components/MenuBurger.vue";
         flex-wrap: column;
 	}
     .MenuBurger{
-        margin-top: 200px;
+        margin-top:75px;
         display: flex;
         flex-direction: column;
         flex-wrap: column;

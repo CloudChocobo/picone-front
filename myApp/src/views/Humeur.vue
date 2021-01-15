@@ -6,8 +6,10 @@
             </div>
                 <div class="container">Comment  vous sentez-vous?</div>
                     <div class="icone">
-						<img src="../assets/proches.svg" alt="" />
-                        <div class="texte">Proches</div>
+						<img src="../assets/bien.svg" alt="" />
+                        <img src="../assets/moyen.svg" alt="" />
+                        <img src="../assets/triste.svg" alt="" />
+                        <img src="../assets/enervé.svg" alt="" />
                     </div>              
         </ion-content>
     </ion-page>
@@ -34,7 +36,28 @@ import BarreNavLeft from "@/components/BarreNavLeft.vue";
         color: #F1FAFF;
     }
     .container{
-color:#112631
+    display: flex;
+    font-size: 50px;
+    margin-left: 250px;
+    color: #536974;
+    position: relative;
+    text-align:center;
+    margin-top:60px;
+    
+    }
+    .icone{
+display: flex;
+flex-direction: row;
+max-width: 40%;
+justify-content: space-around;
+align-items:flex-end;
+margin-top: 200px;
+margin-left: 350px;
+    }
+    img{
+        display:flex;
+        flex-direction: row;
+        max-width: 50%;
     }
 </style>
 

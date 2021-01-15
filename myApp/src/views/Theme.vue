@@ -6,7 +6,7 @@
             </div>
                 <div class="container">Choissez votre thème de discussion</div>
                     <div class="icone">
-						<img src="../assets/proches.svg" alt="" />
+						<img src="../assets/Proches.svg" alt="" />
                         <div class="texte">Proches</div>
                     </div>
         </ion-content>

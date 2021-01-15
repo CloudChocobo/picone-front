@@ -1,32 +1,26 @@
 
 <template>
-	<div class="lol">
-    <Image id="jaisoif"></Image>
-	<Image id="jaimal" :isEntoured={images[selectedImage] == "jaimal"}></Image></div>
+    <div class="cont">
+<img src="../assets/***.png" alt="" />
+		<div class="label">{{ label }}</div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "",
-		props: [],
-		methods:{
-			cycleThroughImages(){
-				setInterval(()=>{
-					selectedImage += 1;
-					if(selectedImage > images.length - 1 ) selectedImage = 0;
-				},1000),
-			},
-		},
+        name: "Image",
+        props: ["label"],
         data() {
-            return {
-				selectedImage: 1,
-				images: ['jaisoif', 'jaimal'],
-			};
-		},
-		created(){
-			cycleThroughImages();
-		}
+            return {};
+        },
     };
 </script>
 
-<style scoped></style>
+<style scoped>
+.img{
+text-align: center;
+align-items: center;
+display:inline-block;
+width:25%;
+}
+</style>
