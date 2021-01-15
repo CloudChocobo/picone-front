@@ -10,7 +10,14 @@
                         <img src="../assets/moyen.svg" alt="" />
                         <img src="../assets/triste.svg" alt="" />
                         <img src="../assets/enervé.svg" alt="" />
-                    </div>              
+                    </div>     
+                    <div class="icone2">
+						<img src="../assets/bien.svg" alt="" />
+                        <img src="../assets/moyen.svg" alt="" />
+                        <img src="../assets/triste.svg" alt="" />
+                        <img src="../assets/enervé.svg" alt="" />
+                    </div>   
+                            
         </ion-content>
     </ion-page>
 </template>
@@ -51,13 +58,23 @@ flex-direction: row;
 max-width: 40%;
 justify-content: space-around;
 align-items:flex-end;
-margin-top: 200px;
+margin-top: 100px;
+/* margin-top: 200px; */
 margin-left: 350px;
     }
     img{
         display:flex;
         flex-direction: row;
-        max-width: 50%;
+        max-width: 35%;
+    }
+    .icone2{
+display: flex;
+flex-direction: row;
+max-width: 40%;
+justify-content: space-around;
+align-items:flex-end;
+margin-top: 7px;
+margin-left: 350px;
     }
 </style>
 

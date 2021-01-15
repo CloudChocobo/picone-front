@@ -27,7 +27,6 @@ import Page from "@/components/Page.vue";
 
 <style scoped>
 
-
 .icone1{
 text-align: center;
 	float: left;
@@ -50,7 +49,7 @@ align-items: center;
 list-style-type: none;
 flex-wrap: wrap;
 display: flex;
-margin-top:60px;
+margin-top:100px;
     }
 .texte {
     display: flex;

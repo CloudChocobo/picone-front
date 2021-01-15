@@ -10,28 +10,28 @@ import EcranZero from "@/views/EcranZero.vue";
 const routes: Array<RouteRecordRaw> = [
 {
 		path: "",
-    redirect: "/home",
+    redirect: "/accueil",
     component: Accueil,
 	},
 
   {
     name: "home",
-    path: "/home",
+    path: "/accueil",
     component: Accueil,
   },
   {
     name: "Humeur",
-    path: "/Humeur",
+    path: "/humeur",
     component: Humeur,
   },
   {
     name: "Theme",
-    path: "/Theme",
+    path: "/theme",
     component: Theme,
   },
   {
     name: "EcranZero",
-    path: "/EcranZero",
+    path: "/ecranzero",
     component: EcranZero,
   },
 ]

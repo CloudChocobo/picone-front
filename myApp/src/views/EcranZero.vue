@@ -1,14 +1,15 @@
 <template>
     <Page>
         <div class="texte">
-            <p>Bonjour</p>
+            <p>Projet PICONE</p>
         </div>
         <div class="container"> 
             <div class="icone">
-                <img src="../assets/IconeParam.svg" alt="" />
-            </div>
-            <div class="icone1">
                 <img src="../assets/Conversation.svg" alt="" />
+            </div>
+
+            <div class="icone1">
+                <img src="../assets/IconeParam.svg" alt="" />
             </div>
         </div> 
     </Page>
@@ -49,12 +50,12 @@ align-items: center;
 list-style-type: none;
 flex-wrap: wrap;
 display: flex;
-margin-top:60px;
+margin-top:130px;
     }
 .texte {
     display: flex;
     font-size: 50px;
-    margin-left: 250px;
+    margin-left: 400px;
     color: #536974;
     position: relative;
     text-align:center;
