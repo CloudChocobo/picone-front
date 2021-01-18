@@ -1,14 +1,11 @@
 
 <template>
 	<ion-page>
-		
         <ion-content :fullscreen="true">
-			<header>
-			<BarreNavHorizontale></BarreNavHorizontale>
-			</header>
 			<div class="page">
-				
+				<MenuAdmin></MenuAdmin>
 				<main>
+                
 					<slot></slot>
 				</main>
 			</div>
@@ -17,12 +14,12 @@
 </template>
 
 <script>
-	import BarreNavHorizontale from "@/components/BarreNavHorizontale.vue";
+	import MenuAdmin from "@/components/MenuAdmin.vue";
 	export default {
-		name: "Page",
+		name: "PageAdmin",
 		props: [],
 		components: {
-			BarreNavHorizontale
+			MenuAdmin
 		},
 		methods: {},
 		data() {
@@ -32,13 +29,6 @@
 </script>
 
 <style scoped>
-
-.header{
-   height:100px;
-   width:100%;
-   background-color:#8BADBE;
-}
-</style>
 .BarreNavLeft {
 	display: flex;
 	flex-direction: column;
@@ -46,3 +36,4 @@
 	width: 10% !important;
 	background: #8BADBE !important;
 }
+</style>

@@ -1,15 +1,15 @@
 <template>
     <Page>
         <div class="texte">
-            <p>Bonjour<br>
-            Quel est votre interlocuteur?</p>
+            <p>Projet PICONE</p>
         </div>
         <div class="container"> 
-            <div class="icone">
-                <img src="../assets/Proches.svg" alt="" />
+            <div class="icone" @click="() => router.push('/humeur')">
+                <img src="../assets/Conversation.png" alt="" />
             </div>
-            <div class="icone1">
-                <img src="../assets/Medecin.svg" alt="" />
+
+            <div class="icone1" @click="() => router.push('/AdminAccueil')">
+                <img src="../assets/IconeParam.png" alt="" />
             </div>
         </div> 
     </Page>
@@ -17,15 +17,23 @@
 
 <script>
 import Page from "@/components/Page.vue";
-    export default {
+import {useRouter} from "vue-router";
+export default {
         name: "Accueil",
         components: {
-            Page,
-        }
-    };
+            Page
+           
+        },
+        setup() {
+			const router = useRouter();
+			return {router};       
+    }
+        
+};
 </script>
 
 <style scoped>
+
 
 .icone1{
 text-align: center;
@@ -49,18 +57,15 @@ align-items: center;
 list-style-type: none;
 flex-wrap: wrap;
 display: flex;
-margin-top:100px;
+margin-top:130px;
     }
 .texte {
     display: flex;
     font-size: 50px;
-    margin-left: 250px;
+    margin-left: 400px;
     color: #536974;
     position: relative;
     text-align:center;
-    margin-top:10px;
-    
+    margin-top:10px;   
 }    
-
-</style>
-
+</style>  

@@ -1,7 +1,7 @@
 
 <template>
     <div class="MenuBurger">
-<img src="../assets/IconeParam.svg" alt=""/>
+<img src="../assets/IconeParam.png" alt=""/>
 
     </div>
 </template>

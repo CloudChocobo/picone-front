@@ -1,34 +1,11 @@
 
 <template>
- <div class="GrilleImage">
-      <slot></slot>
  <ion-grid>
-  <ion-row>
-    <ion-col col-2>This column will take 3 columns</ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col col-4>This column will take 4 columns</ion-col>
-  </ion-row>
-</ion-grid>
-
-
-    
-       
-    </div>
-</template>
-
-<script>
-
-
-    export default {
-        name: "GrilleImage",
-        props: [],
-        data() {
-            return {};
-        },
-    };
-</script>
-
-<style scoped>
-
-</style>
+   <ion-row>
+     <!-- on va utiliser v for pour faire une boucle dans array icone, pour le moment array s appelle icone mai son peut changer  -->
+     <ion-col size="4" :key="icone" v-for="icone in icone">
+<ion-img :src="icone.webviewPath"></ion-img>
+     </ion-col>
+   </ion-row>
+ </ion-grid>
+<style scoped></style>

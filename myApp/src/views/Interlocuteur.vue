@@ -1,15 +1,15 @@
 <template>
     <Page>
         <div class="texte">
-            <p>Projet PICONE</p>
+            <p>Bonjour<br>
+            Quel est votre interlocuteur?</p>
         </div>
         <div class="container"> 
             <div class="icone">
-                <img src="../assets/Conversation.svg" alt="" />
+                <img src="../assets/Proches.png" alt="" />
             </div>
-
             <div class="icone1">
-                <img src="../assets/IconeParam.svg" alt="" />
+                <img src="../assets/Medecin.png" alt="" />
             </div>
         </div> 
     </Page>
@@ -18,7 +18,7 @@
 <script>
 import Page from "@/components/Page.vue";
     export default {
-        name: "EcranZero",
+        name: "Interlocuteur",
         components: {
             Page,
         }
@@ -26,7 +26,6 @@ import Page from "@/components/Page.vue";
 </script>
 
 <style scoped>
-
 
 .icone1{
 text-align: center;
@@ -50,12 +49,12 @@ align-items: center;
 list-style-type: none;
 flex-wrap: wrap;
 display: flex;
-margin-top:130px;
+margin-top:100px;
     }
 .texte {
     display: flex;
     font-size: 50px;
-    margin-left: 400px;
+    margin-left: 250px;
     color: #536974;
     position: relative;
     text-align:center;

@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import Accueil from "@/views/Accueil.vue";
+import Interlocuteur from "@/views/Interlocuteur.vue";
 import Humeur from "@/views/Humeur.vue";
 import Theme from "@/views/Theme.vue";
-import EcranZero from "@/views/EcranZero.vue";
-
+import Accueil from "@/views/Accueil.vue";
+import AdminAccueil from "@/views/AdminAccueil.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -13,11 +13,15 @@ const routes: Array<RouteRecordRaw> = [
     redirect: "/accueil",
     component: Accueil,
 	},
-
   {
-    name: "home",
-    path: "/accueil",
-    component: Accueil,
+    name: "AdminAccueil",
+    path: "/Adminaccueil",
+    component: AdminAccueil,
+  },
+  {
+    name: "Interlocuteur",
+    path: "/interlocuteur",
+    component: Interlocuteur,
   },
   {
     name: "Humeur",
@@ -30,9 +34,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Theme,
   },
   {
-    name: "EcranZero",
-    path: "/ecranzero",
-    component: EcranZero,
+    name: "Accueil",
+    path: "/accueil",
+    component: Accueil,
   },
 ]
 
