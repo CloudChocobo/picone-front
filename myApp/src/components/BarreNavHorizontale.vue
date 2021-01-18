@@ -20,7 +20,54 @@ import NextButton from "@/components/NextButton.vue";
  <!-- css a revoir pour le placement   -->
     <style scoped>
     
-	.BarreHorizontale {
+	
+    .MenuBurger{
+       
+        display: flex;
+        flex-direction: row;
+        flex-wrap: row;
+        float:left;
+        width: 8%;
+     margin-left: 10px;
+        margin-top:5px;
+        
+        }
+        .BarreHorizontale{
+   height:90px;
+   width:100%;
+   background-color:#8BADBE;
+
+
+
+}
+.NextButton{
+      
+        display: inline;
+        flex-direction: row;
+        flex-wrap: row;
+        width: 10%;
+        float:right;
+        margin-right:10px;
+        justify-content:center;
+        margin-top:20px;
+        
+
+
+
+}
+.BackButton{
+      
+        display: inline-block;
+        flex-direction: row;
+        flex-wrap: row;
+         width: 10%;
+        margin-left:10px;
+         justify-content:center;
+        margin-top:20px;
+}
+        </style>
+
+        .BarreHorizontale {
         position: absolute;
 		width: 20vw;
 		background: #8BADBE;
@@ -33,15 +80,3 @@ import NextButton from "@/components/NextButton.vue";
 		gap: 10px;
         flex-wrap: row;
 	}
-    .MenuBurger{
-        margin-top:75px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: column;
-        }
-        .header{
-   height:100px;
-   width:100%;
-   background-color:#8BADBE;
-}
-        </style>

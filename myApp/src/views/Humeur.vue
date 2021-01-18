@@ -1,44 +1,38 @@
 <template>
 <ion-page>
         <ion-content :fullscreen="true">
-            <div class="barreNavLeft">
-            <BarreNavLeft></BarreNavLeft>
-            </div>
+            <Page>
                 <div class="container">Comment  vous sentez-vous?</div>
                     <div class="icone" @click="() => router.push('/interlocuteur')">
 						<img src="../assets/bien.png" alt="" />
-                    </div>
-                     <div class="icone">
                         <img src="../assets/moyen.png" alt="" />
                         <img src="../assets/triste.png" alt="" />
                         <img src="../assets/enervé.png" alt="" />
                     </div>     
-                    <div class="icone2">
-						<img src="../assets/bien.png" alt="" />
-                        <img src="../assets/moyen.png" alt="" />
-                        <img src="../assets/triste.png" alt="" />
-                        <img src="../assets/enervé.png" alt="" />
-                    </div>   
-                            
+            </Page>                
         </ion-content>
     </ion-page>
 </template>
 
 <script>
 import {IonPage, IonContent} from "@ionic/vue";
-import BarreNavLeft from "@/components/BarreNavLeft.vue";
-import {router} from "vue-router";
+import {useRouter} from "vue-router";
+import Page from "@/components/Page.vue";
     export default {
         name: "Humeur",
         components: {
 			IonPage,
-			IonContent,
-            BarreNavLeft,
-           
+            IonContent,
+            Page,
         },
-    };
-
+        setup() {
+			const router = useRouter();
+			return {router};       
+    }
+        
+};
 </script>
+
 
 <style scoped>
 	body{
