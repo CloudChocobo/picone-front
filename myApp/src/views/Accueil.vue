@@ -8,7 +8,7 @@
                 <img src="../assets/Conversation.png" alt="" />
             </div>
 
-            <div class="icone1" @click="() => router.push('/AdminAccueil')">
+            <div class="icone1" @click="() => router.push('/adminAccueil')">
                 <img src="../assets/IconeParam.png" alt="" />
             </div>
         </div> 

@@ -2,7 +2,7 @@
     <Page>
         <div class="texte">
             <p>Bonjour<br>
-            Quel est votre interlocuteur?</p>
+            Qui s'exprime?</p>
         </div>
         <div class="container"> 
             <div class="icone" @click="() => router.push('/action')">

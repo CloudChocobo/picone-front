@@ -8,19 +8,17 @@
                 <div class="container">
                 <GrilleImage>
                     <div class="icone" @click="() => router.push('/nourriture')">
-						<img src="../assets/nourriture/nourriture.png" alt="nourriture" />
+						<img src="../assets/action/manger.png" alt="nourriture" />
                         </div>
                         <div class="icone" @click="() => router.push('/nourriture')">
-                        <img src="../assets/médical/médical.png" alt="médical" />
+                        <img src="../assets/action/dormir.png" alt="dormir" />
                         </div>
                         <div class="icone" @click="() => router.push('/nourriture')">
-                        <img src="../assets/hygiène/hygiene.png" alt="hygiène" />
+                        <img src="../assets/action/caca.png" alt="WC" />
                         </div>
-                        <img src="../assets/enervé.png" alt="enervé" />
-                        <img src="../assets/bien.png" alt="bien" />
-                        <img src="../assets/moyen.png" alt="moyen" />
-                        <img src="../assets/triste.png" alt="triste" />
-                        <img src="../assets/enervé.png" alt="enervé" />
+                        <div class="icone" @click="() => router.push('/nourriture')">
+                        <img src="../assets/action/seLaver.png" alt="seLaver" />
+                        </div>
                         </GrilleImage> 
                            </div>
                            <footer>

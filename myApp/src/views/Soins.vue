@@ -10,8 +10,7 @@
                     <!--<div class="icone" @click="() => router.push('/interlocuteur')"> -->
 						<img src="../assets/médical/malade.png" alt="malade" />
                         <img src="../assets/médical/medocs.png" alt="médicaments" />
-                        <img src="../assets/nourriture/nomedocs.png" alt="pas_de_médicaments" />
-                        <img src="../assets/nourriture/seringue.png" alt="seringue" />
+                        
                         </GrilleImage> 
                            </div>
                            <footer>
