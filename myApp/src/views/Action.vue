@@ -40,7 +40,7 @@ import Page from "@/components/Page.vue";
 import Discussion from "@/components/Discussion.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
     export default {
-        name: "Thème",
+        name: "Action",
         components: {
 			IonPage,
             IonContent,

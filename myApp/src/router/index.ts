@@ -5,7 +5,10 @@ import Humeur from "@/views/Humeur.vue";
 import Theme from "@/views/Theme.vue";
 import Accueil from "@/views/Accueil.vue";
 import AdminAccueil from "@/views/AdminAccueil.vue";
-
+import Nourriture from "@/views/Nourriture.vue";
+import Action from "@/views/Action.vue";
+import JeTu from "@/views/JeTu.vue";
+import Soins from "@/views/Soins.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
@@ -15,13 +18,23 @@ const routes: Array<RouteRecordRaw> = [
 	},
   {
     name: "AdminAccueil",
-    path: "/Adminaccueil",
+    path: "/adminaccueil",
     component: AdminAccueil,
+  },
+  {
+    name: "JeTu",
+    path: "/jeTu",
+    component: JeTu,
   },
   {
     name: "Interlocuteur",
     path: "/interlocuteur",
     component: Interlocuteur,
+  },
+  {
+    name: "Action",
+    path: "/action",
+    component: Action,
   },
   {
     name: "Humeur",
@@ -37,6 +50,16 @@ const routes: Array<RouteRecordRaw> = [
     name: "Accueil",
     path: "/accueil",
     component: Accueil,
+  },
+  {
+    name: "Nourriture",
+    path: "/nourriture",
+    component: Nourriture,
+  },
+  {
+    name: "Soins",
+    path: "/soins",
+    component: Soins,
   },
 ]
 

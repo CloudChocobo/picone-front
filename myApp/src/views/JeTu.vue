@@ -5,10 +5,10 @@
             Quel est votre interlocuteur?</p>
         </div>
         <div class="container"> 
-            <div class="icone" @click="() => router.push('/theme')">
+            <div class="icone" @click="() => router.push('/action')">
                 <img src="../assets/Proches.png" alt="" />
             </div>
-            <div class="icone1" @click="() => router.push('/theme')">
+            <div class="icone1" @click="() => router.push('/action')">
                 <img src="../assets/Medecin.png" alt="" />
             </div>
         </div> 
@@ -19,7 +19,7 @@
 import {useRouter} from "vue-router";
 import Page from "@/components/Page.vue";
     export default {
-        name: "Interlocuteur",
+        name: "JeTu",
         components: {
             Page,
         },

@@ -3,24 +3,15 @@
         <ion-content :fullscreen="true">
             <Page>
                 <div class="texte">
-            Choisissez votre thème.
+            Choisissez votre élément.
         </div>
                 <div class="container">
                 <GrilleImage>
-                    <div class="icone" @click="() => router.push('/nourriture')">
-						<img src="../assets/nourriture/nourriture.png" alt="nourriture" />
-                        </div>
-                        <div class="icone" @click="() => router.push('/nourriture')">
-                        <img src="../assets/médical/médical.png" alt="médical" />
-                        </div>
-                        <div class="icone" @click="() => router.push('/nourriture')">
-                        <img src="../assets/hygiène/hygiene.png" alt="hygiène" />
-                        </div>
-                        <img src="../assets/enervé.png" alt="enervé" />
-                        <img src="../assets/bien.png" alt="bien" />
-                        <img src="../assets/moyen.png" alt="moyen" />
-                        <img src="../assets/triste.png" alt="triste" />
-                        <img src="../assets/enervé.png" alt="enervé" />
+                    <!--<div class="icone" @click="() => router.push('/interlocuteur')"> -->
+						<img src="../assets/médical/malade.png" alt="malade" />
+                        <img src="../assets/médical/medocs.png" alt="médicaments" />
+                        <img src="../assets/nourriture/nomedocs.png" alt="pas_de_médicaments" />
+                        <img src="../assets/nourriture/seringue.png" alt="seringue" />
                         </GrilleImage> 
                            </div>
                            <footer>
@@ -40,7 +31,7 @@ import Page from "@/components/Page.vue";
 import Discussion from "@/components/Discussion.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
     export default {
-        name: "Thème",
+        name: "Soins",
         components: {
 			IonPage,
             IonContent,

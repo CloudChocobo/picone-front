@@ -1,7 +1,7 @@
 
 <template>
     <div class="cont">
-<img src="../assets/***.png" alt="" />
+<!-- <img src="../assets/***.png" alt="" /> -->
 		<div class="label">{{ label }}</div>
     </div>
 </template>
