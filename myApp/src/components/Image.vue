@@ -1,15 +1,15 @@
 
 <template>
     <div class="cont">
-<!-- <img src="../assets/***.png" alt="" /> -->
-		<div class="label">{{ label }}</div>
+        <img src="">{{ img }}/>
+        <div class="label">{{ label }}</div>
     </div>
 </template>
 
 <script>
     export default {
         name: "Image",
-        props: ["label"],
+        props: ["label", "img"],
         data() {
             return {};
         },
@@ -24,3 +24,4 @@ display:inline-block;
 width:25%;
 }
 </style>
+<img src="" alt=""> 

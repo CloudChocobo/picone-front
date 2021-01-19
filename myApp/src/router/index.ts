@@ -9,6 +9,7 @@ import Nourriture from "@/views/Nourriture.vue";
 import Action from "@/views/Action.vue";
 import JeTu from "@/views/JeTu.vue";
 import Soins from "@/views/Soins.vue";
+import Test from "@/views/Test.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
@@ -60,6 +61,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Soins",
     path: "/soins",
     component: Soins,
+  },
+ {
+    name: "Test",
+    path: "/test",
+    component: Test,
   },
 ]
 

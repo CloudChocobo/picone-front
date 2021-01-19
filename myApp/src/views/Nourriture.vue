@@ -13,7 +13,7 @@
                         <img src="../assets/nourriture/poisson.png" alt="poisson" />
                         <img src="../assets/nourriture/petitpois.png" alt="petit_pois" />
                         <img src="../assets/nourriture/pastèque.png" alt="pastèque" />
-                        <img src="../assets/nourriture/bretzel.png" alt="bretzel" />
+                        <img src="../assets/nourriture/poulet.png" alt="poulet" />
                         <img src="../assets/nourriture/bière.png" alt="bière" />
                         <img src="../assets/nourriture/thé.png" alt="thé" />
                         </GrilleImage> 
