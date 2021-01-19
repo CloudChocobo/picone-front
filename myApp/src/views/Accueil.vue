@@ -47,8 +47,7 @@ text-align: center;
 text-align: center;
 align-items: center;
 display:inline-block;
-margin-left: 23%;
-
+margin-left: 18%;
 width:25%;
 }
 .container{
@@ -57,12 +56,12 @@ align-items: center;
 list-style-type: none;
 flex-wrap: wrap;
 display: flex;
-margin-top:130px;
+margin-top:110px;
     }
 .texte {
     display: flex;
     font-size: 50px;
-    margin-left: 400px;
+    margin-left: 350px;
     color: #536974;
     position: relative;
     text-align:center;

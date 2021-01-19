@@ -1,33 +1,84 @@
 <template>
 <ion-page>
-        <ion-content :fullscreen="true">
-                <div class="container">Choissez votre thème de discussion</div>
-                    <div class="icone">
-						<img src="../assets/Proches.png" alt="" />
-                        <div class="texte">Proches</div>
-                    </div>
+        <ion-content :fullscreen="false">
+            <Page>
+                <div class="container">Choisissez votre thème.</div>
+                <GrilleImage>
+                    <!-- <div class="icone" @click="() => router.push('/interlocuteur')"> -->
+						<img src="../assets/bien.png" alt="" />
+                        <img src="../assets/moyen.png" alt="" />
+                        <img src="../assets/triste.png" alt="" />
+                        <img src="../assets/enervé.png" alt="" />
+                        <img src="../assets/bien.png" alt="" />
+                        <img src="../assets/moyen.png" alt="" />
+                        <img src="../assets/triste.png" alt="" />
+                        <img src="../assets/enervé.png" alt="" />
+                        </GrilleImage> 
+                           
+            </Page>                
         </ion-content>
     </ion-page>
 </template>
 
 <script>
 import {IonPage, IonContent} from "@ionic/vue";
+import {useRouter} from "vue-router";
+import Page from "@/components/Page.vue";
+import GrilleImage from "@/components/GrilleImage.vue";
     export default {
-        name: "Theme",
+        name: "Humeur",
         components: {
 			IonPage,
-			IonContent,
-			
+            IonContent,
+            Page,
+            GrilleImage,
         },
-    };
+        setup() {
+			const router = useRouter();
+			return {router};       
+    }
+        
+};
 </script>
 
+
 <style scoped>
-	body{
-		color: #F1FAFF;
+	/* body{
+        color: #F1FAFF;
     }
     .container{
-color:#112631
+    display: flex;
+    font-size: 50px;
+    margin-left: 250px;
+    color: #536974;
+    position: relative;
+    text-align:center;
+    margin-top:60px;
+    
     }
+    .icone{
+display: flex;
+flex-direction: row;
+max-width: 40%;
+justify-content: space-around;
+align-items:flex-end;
+margin-top: 100px;
+/* margin-top: 200px; */
+/* margin-left: 350px;
+    }
+    img{
+        display:flex;
+        flex-direction: row;
+        max-width: 35%;
+    }
+    .icone2{
+display: flex;
+flex-direction: row;
+max-width: 40%;
+justify-content: space-around;
+align-items:flex-end;
+margin-top: 7px;
+margin-left: 350px;
+    } */ 
 </style>
 
