@@ -1,15 +1,14 @@
 <template>
     <Page>
         <div class="texte">
-            <p>Bonjour<br>
-            Qui s'exprime?</p>
+            Veuillez commencer votre phrase.
         </div>
         <div class="container"> 
             <div class="icone" @click="() => router.push('/action')">
-                <img src="../assets/Proches.png" alt="" />
+                <img src="../assets/je.png" alt="je" />
             </div>
             <div class="icone1" @click="() => router.push('/action')">
-                <img src="../assets/Medecin.png" alt="" />
+                <img src="../assets/tu.png" alt="tu" />
             </div>
         </div> 
     </Page>
@@ -59,11 +58,10 @@ margin-top:100px;
 .texte {
     display: flex;
     font-size: 50px;
-    margin-left: 250px;
+    margin-left: 180px;
     color: #536974;
     position: relative;
     text-align:center;
-    margin-top:10px;
     
 }    
 

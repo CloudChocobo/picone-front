@@ -2,7 +2,10 @@
 <ion-page>
         <ion-content :fullscreen="true">
             <Page>
-                <div class="container">Comment  vous sentez-vous?</div>
+                <div class="container">
+                    <p>Bonjour<br>
+                    Comment  vous sentez-vous?</p>
+                    </div>
                     <div class="icone" @click="() => router.push('/jeTu')">
 						<img src="../assets/bien.png" alt="" />
                         <img src="../assets/moyen.png" alt="" />

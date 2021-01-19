@@ -3,21 +3,21 @@
         <ion-content :fullscreen="true">
             <Page>
                 <div class="texte">
-            Choisissez votre thème.
+            Choisissez votre action.
         </div>
                 <div class="container">
                 <GrilleImage>
-                    <div class="icone" @click="() => router.push('/nourriture')">
-						<img src="../assets/action/manger.png" alt="nourriture" />
-                        </div>
-                        <div class="icone" @click="() => router.push('/nourriture')">
-                        <img src="../assets/action/dormir.png" alt="dormir" />
-                        </div>
-                        <div class="icone" @click="() => router.push('/nourriture')">
+						<div class="icone" @click="() => router.push('/nourriture')">
                         <img src="../assets/action/caca.png" alt="WC" />
                         </div>
                         <div class="icone" @click="() => router.push('/nourriture')">
                         <img src="../assets/action/seLaver.png" alt="seLaver" />
+                        </div>
+                        <div class="icone" @click="() => router.push('/nourriture')">
+                        <img src="../assets/action/manger.png" alt="nourriture" />
+                        </div>
+                        <div class="icone" @click="() => router.push('/nourriture')">
+                        <img src="../assets/action/dormir.png" alt="dormir" />
                         </div>
                         </GrilleImage> 
                            </div>
