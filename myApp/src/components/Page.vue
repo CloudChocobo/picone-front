@@ -17,8 +17,7 @@
 </template>
 
 <script>
-	import BarreNavHorizontale from "@/components/BarreNavHorizontale.vue";
-	
+	import BarreNavHorizontale from "@/components/BarreNavHorizontale.vue";	
 	export default {
 		name: "Page",
 		props: [],
@@ -40,10 +39,3 @@
    background-color:#8BADBE;
 }
 </style>
-.BarreNavLeft {
-	display: flex;
-	flex-direction: column;
-	height: 100% !important;
-	width: 10% !important;
-	background: #8BADBE !important;
-}

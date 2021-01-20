@@ -1,11 +1,10 @@
 
 <template>
 	<ion-page>
-        <ion-content :fullscreen="true">
+        <ion-content :fullscreen="false">
 			<div class="page">
-				<MenuAdmin></MenuAdmin>
+				<MenuAdmin>testtesttest</MenuAdmin>
 				<main>
-                
 					<slot></slot>
 				</main>
 			</div>
@@ -29,11 +28,11 @@
 </script>
 
 <style scoped>
-.BarreNavLeft {
+.MenuAdmin {
 	display: flex;
 	flex-direction: column;
-	height: 100% !important;
-	width: 10% !important;
-	background: #8BADBE !important;
+	height: 100%;
+	width: 10%;
+	background:#8BADBE;
 }
 </style>

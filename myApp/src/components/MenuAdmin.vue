@@ -1,5 +1,5 @@
 <template>
-  <ion-menu side="start" menu-id="first" content-id="main">
+  <!-- <ion-menu side="start" menu-id="first" content-id="main">
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Paramètres</ion-title>
@@ -14,26 +14,27 @@
         <ion-item>Menu Item</ion-item>
       </ion-list>
     </ion-content>
-  </ion-menu>
+  </ion-menu> -->
 
   <ion-menu side="start" menu-id="custom" class="my-custom-menu" content-id="main">
     <ion-header>
-      <ion-toolbar color="tertiary">
-        <ion-title>Custom Menu</ion-title>
+      <ion-toolbar>
+        <ion-title>Paramètres</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
+        <ion-item>Profil Patient</ion-item>
+        <ion-item>Vitesse</ion-item>
+        <ion-item>Affichage et Luminosité</ion-item>
+        <ion-item>Fond d'écran et Police</ion-item>
+        <ion-item>Configuration Tuiles</ion-item>
+        <ion-item>Personnalisation photos</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
 
-  <ion-menu side="end" type="push" content-id="main">
+  <!-- <ion-menu side="end" type="push" content-id="main">
     <ion-header>
       <ion-toolbar color="danger">
         <ion-title>End Menu</ion-title>
@@ -48,15 +49,11 @@
         <ion-item>Menu Item</ion-item>
       </ion-list>
     </ion-content>
-  </ion-menu>
+  </ion-menu> -->
 
   <ion-router-outlet id="main"></ion-router-outlet>
 </template>
-<style>
-.my-custom-menu {
-  --width: 500px;
-}
-</style>
+
 
 <script>
 import { 
@@ -68,7 +65,7 @@ import {
   IonRouterOutlet,
   IonTitle, 
   IonToolbar,
-  menuController
+  menuController,
 } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
@@ -81,7 +78,8 @@ export default defineComponent({
     IonMenu, 
     IonRouterOutlet,
     IonTitle, 
-    IonToolbar
+    IonToolbar,
+ 
   },
   methods: {
     openFirst() {
@@ -98,3 +96,21 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+ion-toolbar {
+   color : #536974;
+  background: #8BADBE;
+}
+ ion-title{
+  color : #536974;
+  background: #8BADBE;
+ }
+.input-wrapper{
+  color : #536974;
+  background: #8BADBE;
+}
+ .my-custom-menu {
+  --width: 300px;
+}
+</style>
