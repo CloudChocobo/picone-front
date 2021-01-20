@@ -24,4 +24,3 @@ display:inline-block;
 width:25%;
 }
 </style>
-<img src="" alt=""> 

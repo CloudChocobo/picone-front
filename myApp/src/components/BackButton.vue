@@ -1,5 +1,5 @@
 <template>
-	<div class="BackButton" @click="() => router.push('/home')">
+	<div class="BackButton" @click="() => router.go(-1)">
 		<img src="../assets/Back.png" alt="" />
 		<div class="label">{{ label }}</div>
 	</div>

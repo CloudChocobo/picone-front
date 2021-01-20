@@ -12,9 +12,17 @@
 import MenuBurger from "@/components/MenuBurger.vue";
 import BackButton from "@/components/BackButton.vue";
 import NextButton from "@/components/NextButton.vue";
+import {useRouter} from "vue-router";
     export default {
         name: "BarreHorizontale",
-        components: {MenuBurger, BackButton, NextButton},
+        components: {MenuBurger, BackButton, NextButton
+        },
+        setup() {
+			const router = useRouter();
+			return {
+				router,
+			};
+		},
     };
 </script>
  <!-- css a revoir pour le placement   -->

@@ -18,6 +18,7 @@
 
 <script>
 	import BarreNavHorizontale from "@/components/BarreNavHorizontale.vue";
+	
 	export default {
 		name: "Page",
 		props: [],

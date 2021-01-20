@@ -1,5 +1,5 @@
 <template>
-	<div class="NextButton" @click="() => router.push('/home')">
+	<div class="NextButton" @click="() => router.go(+1)">
 		<img src="../assets/Next.png" alt="" />
 		<div class="label">{{ label }}</div>
 	</div>
