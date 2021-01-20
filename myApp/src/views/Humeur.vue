@@ -7,10 +7,10 @@
                     Comment  vous sentez-vous?</p>
                     </div>
                     <div class="icone" @click="() => router.push('/jeTu')">
-						<img src="../assets/bien.png" alt="" />
-                        <img src="../assets/moyen.png" alt="" />
-                        <img src="../assets/triste.png" alt="" />
-                        <img src="../assets/enervé.png" alt="" />
+						<img src="../assets/bien.png" alt=""/>
+                        <img src="../assets/moyen.png" alt=""/>
+                        <img src="../assets/triste.png" alt=""/>
+                        <img src="../assets/enervé.png" alt=""/>
                     </div>     
             </Page>                
         </ion-content>
