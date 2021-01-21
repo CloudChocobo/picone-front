@@ -65,6 +65,7 @@ img {
   display: flex;
   flex-direction: row;
   max-width: 35%;
+  margin-right: 20px;
 }
 .icone2 {
   display: flex;
