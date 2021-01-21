@@ -9,14 +9,19 @@ import Nourriture from "@/views/Nourriture.vue";
 import Action from "@/views/Action.vue";
 import JeTu from "@/views/JeTu.vue";
 import Soins from "@/views/Soins.vue";
-import Test from "@/views/Test.vue";
+import Noemie from "@/views/Noemie.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
-		path: "",
+		path: "/",
     redirect: "/accueil",
     component: Accueil,
-	},
+  },
+  {
+    name: "Accueil",
+    path: "/accueil",
+    component: Accueil,
+  },
   {
     name: "AdminAccueil",
     path: "/adminaccueil",
@@ -48,11 +53,6 @@ const routes: Array<RouteRecordRaw> = [
     component: Theme,
   },
   {
-    name: "Accueil",
-    path: "/accueil",
-    component: Accueil,
-  },
-  {
     name: "Nourriture",
     path: "/nourriture",
     component: Nourriture,
@@ -63,9 +63,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Soins,
   },
  {
-    name: "Test",
-    path: "/test",
-    component: Test,
+    name: "Noemie",
+    path: "/noemie",
+    component: Noemie,
   },
 ]
 

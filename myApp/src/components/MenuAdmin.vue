@@ -16,7 +16,12 @@
     </ion-content>
   </ion-menu> -->
 
-  <ion-menu side="start" menu-id="custom" class="my-custom-menu" content-id="main">
+  <ion-menu
+    side="start"
+    menu-id="custom"
+    class="my-custom-menu"
+    content-id="main"
+  >
     <ion-header>
       <ion-toolbar>
         <ion-title>Paramètres</ion-title>
@@ -56,61 +61,60 @@
 
 
 <script>
-import { 
-  IonContent, 
-  IonHeader, 
-  IonItem, 
-  IonList, 
-  IonMenu, 
+import {
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonList,
+  IonMenu,
   IonRouterOutlet,
-  IonTitle, 
+  IonTitle,
   IonToolbar,
   menuController,
-} from '@ionic/vue';
-import { defineComponent } from 'vue';
+} from "@ionic/vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {
-    IonContent, 
-    IonHeader, 
-    IonItem, 
-    IonList, 
-    IonMenu, 
+    IonContent,
+    IonHeader,
+    IonItem,
+    IonList,
+    IonMenu,
     IonRouterOutlet,
-    IonTitle, 
+    IonTitle,
     IonToolbar,
- 
   },
   methods: {
     openFirst() {
-      menuController.enable(true, 'first');
-      menuController.open('first');
+      menuController.enable(true, "first");
+      menuController.open("first");
     },
     openEnd() {
-      menuController.open('end');
+      menuController.open("end");
     },
     openCustom() {
-      menuController.enable(true, 'custom');
-      menuController.open('custom');
-    }
-  }
+      menuController.enable(true, "custom");
+      menuController.open("custom");
+    },
+  },
 });
 </script>
 
 <style scoped>
 ion-toolbar {
-   color : #536974;
-  background: #8BADBE;
+  color: #536974;
+  background: #8badbe;
 }
- ion-title{
-  color : #536974;
-  background: #8BADBE;
- }
-.input-wrapper{
-  color : #536974;
-  background: #8BADBE;
+ion-title {
+  color: #536974;
+  background: #8badbe;
 }
- .my-custom-menu {
+.input-wrapper {
+  color: #536974;
+  background: #8badbe;
+}
+.my-custom-menu {
   --width: 300px;
 }
 </style>

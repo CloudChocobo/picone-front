@@ -1,71 +1,66 @@
 <template>
-<ion-page>
-        <ion-content :fullscreen="true">
-            <Page>
-                <div class="texte">
-            Choisissez votre élément.
+  <ion-page>
+    <ion-content :fullscreen="true">
+      <Page>
+        <div class="texte">Choisissez votre élément.</div>
+        <div class="container">
+          <GrilleImage>
+            <!--<div class="icone" @click="() => router.push('/interlocuteur')"> -->
+            <img src="../assets/médical/malade.png" alt="malade" />
+            <img src="../assets/médical/medocs.png" alt="médicaments" />
+          </GrilleImage>
         </div>
-                <div class="container">
-                <GrilleImage>
-                    <!--<div class="icone" @click="() => router.push('/interlocuteur')"> -->
-						<img src="../assets/médical/malade.png" alt="malade" />
-                        <img src="../assets/médical/medocs.png" alt="médicaments" />
-                        
-                        </GrilleImage> 
-                           </div>
-                           <footer>
-                            <div class="rectangle_discussion">
-                        <Discussion>poulet</Discussion>
-                  </div>         
-                           </footer>
-            </Page>              
-        </ion-content>
-    </ion-page>
+        <footer>
+          <div class="rectangle_discussion">
+            <Discussion>poulet</Discussion>
+          </div>
+        </footer>
+      </Page>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script>
-import {IonPage, IonContent} from "@ionic/vue";
-import {useRouter} from "vue-router";
+import { IonPage, IonContent } from "@ionic/vue";
+import { useRouter } from "vue-router";
 import Page from "@/components/Page.vue";
 import Discussion from "@/components/Discussion.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
-    export default {
-        name: "Soins",
-        components: {
-			IonPage,
-            IonContent,
-            Page,
-            GrilleImage,
-            Discussion,
-        },
-        setup() {
-			const router = useRouter();
-			return {router};       
-    }
-        
+export default {
+  name: "Soins",
+  components: {
+    IonPage,
+    IonContent,
+    Page,
+    GrilleImage,
+    Discussion,
+  },
+  setup() {
+    const router = useRouter();
+    return { router };
+  },
 };
 </script>
 
 
 <style scoped>
 .texte {
-    display: flex;
-    font-size: 50px;
-    margin-left:270px;
-    color: #536974;
-    position: relative;
-    text-align:center;
-    margin-top:10px;   
-}  
-
-.footer{
-      margin-left:10%;
-     
+  display: flex;
+  font-size: 50px;
+  margin-left: 270px;
+  color: #536974;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
 }
-.rectangle_discussion{
-    margin-left:10%;
-    margin-right:10%;
-    margin-top:2%;
+
+.footer {
+  margin-left: 10%;
+}
+.rectangle_discussion {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
 }
 </style>
 
