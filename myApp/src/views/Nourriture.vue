@@ -23,10 +23,6 @@
               <img src="../assets/nourriture/poulet.png" alt="poulet" />
               <img src="../assets/nourriture/poulet.png" alt="poulet" />
               <img src="../assets/nourriture/poulet.png" alt="poulet" />
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
             </Discussion>
           </div>
         </footer>

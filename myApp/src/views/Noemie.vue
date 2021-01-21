@@ -26,6 +26,7 @@ import Page from "@/components/Page.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
 
+
 export default {
   name: "Noemie",
   components: {
@@ -34,6 +35,7 @@ export default {
     Page,
     Carte,
     Panier,
+  
   },
   props: [],
   setup() {
