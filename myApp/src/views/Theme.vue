@@ -12,13 +12,13 @@
               <img src="../assets/médical/médical.png" alt="médical" />
             </div>
             <div class="icone" @click="() => router.push('/nourriture')">
-              <img src="../assets/hygiène/hygiene.png" alt="hygiène" />
+              <img src="../assets/hygiene/hygiene.png" alt="hygiene" />
             </div>
-            <img src="../assets/enervé.png" alt="enervé" />
+            <img src="../assets/enerve.png" alt="enerve" />
             <img src="../assets/bien.png" alt="bien" />
             <img src="../assets/moyen.png" alt="moyen" />
             <img src="../assets/triste.png" alt="triste" />
-            <img src="../assets/enervé.png" alt="enervé" />
+            <img src="../assets/enerve.png" alt="enerve" />
           </GrilleImage>
         </div>
         <footer>

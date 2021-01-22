@@ -1,7 +1,7 @@
 <template>
   <Page>
     <div class="texte">
-      <p>Projet PICONE</p>
+      <p>PICONE</p>
     </div>
     <div class="container">
       <div class="icone" @click="() => router.push('/humeur')">

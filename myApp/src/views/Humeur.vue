@@ -12,7 +12,7 @@
           <img src="../assets/bien.png" alt="" />
           <img src="../assets/moyen.png" alt="" />
           <img src="../assets/triste.png" alt="" />
-          <img src="../assets/enervé.png" alt="" />
+          <img src="../assets/enerve.png" alt="" />
         </div>
       </Page>
     </ion-content>
