@@ -2,9 +2,9 @@
 <template>
   <div>
     <div class="cartes">
-      <div  :id={id}>
+      <div :id="id">
         {{ description }}
-        <img :src={image} />
+        <img :src="image" />
         <button v-on:click="addItemToPanier(carte)"></button>
       </div>
     </div>

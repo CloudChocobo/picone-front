@@ -12,8 +12,6 @@
             :key="index"
             @click="addItemToPanier(carte)"
           />
-                              <ion-img :src="carte.image"></ion-img>
-
         </main>
         <footer>
           <div class="boite_discussion">
@@ -34,14 +32,11 @@
 </template>
 
 <script>
-import { IonPage, IonContent } from "@ionic/vue";
+import { IonPage, IonContent} from "@ionic/vue";
 import { useRouter } from "vue-router";
 import Page from "@/components/Page.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
-
-
-
 export default {
   name: "Noemie",
   components: {
@@ -59,24 +54,27 @@ export default {
   },
 
   data: () => {
-    return {   discussion: "panier",
-    panier: [],
-    cartes: [ 
-        {
-        description: "bien",
-        image: require('/src/assets/bien.png'),
-        },
-        {
-          description: "triste",
-          image:"src=\"require(@assets/cartes/triste.png)\"",
-        },
-        {
-          description:"enerve",
-          image :"src=\"require( `../assets/enerve${this.enerve}.png`)\"",
-        },
-       //require(`../assets/profile_screens/${filename}`) 
-       //src="~@/assets/image.png"
-     ],
+    return { 
+      discussion: "panier",
+      panier: [],
+      cartes: [ 
+          {
+            description: "bien",
+            image: require('/src/assets/bien.png'),
+          },
+          {
+            description:"moyen",
+            image : require('/src/assets/moyen.png'),
+          },
+          {
+            description: "triste",
+            image: require('/src/assets/triste.png'),
+          },
+          {
+            description:"enerve",
+            image : require('/src/assets/enerve.png'),
+          },
+      ]
     };
   },
   
@@ -113,6 +111,7 @@ export default {
 }
 .cartes {
   display: grid;
-  grid-template: 2fr 2fr;
+  grid-template: 1fr 2fr;
+  
 }
 </style>
