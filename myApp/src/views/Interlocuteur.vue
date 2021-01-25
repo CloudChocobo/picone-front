@@ -8,7 +8,7 @@
     </div>
     <div class="container">
       <div class="icone" @click="() => router.push('/theme')">
-        <img src="../assets/proches.png" alt="" />
+        <img src="../assets/Proches.png" alt="" />
       </div>
       <div class="icone1" @click="() => router.push('/theme')">
         <img src="../assets/Medecin.png" alt="" />
