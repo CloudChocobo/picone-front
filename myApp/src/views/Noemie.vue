@@ -4,7 +4,9 @@
     <ion-content :fullscreen="true">
       <Page>
         <div class="texte">test test</div>
+        
         <main>
+          <GrilleImage>
           <Carte
             v-for="(carte, index) in cartes"
             :image="carte.image"
@@ -12,9 +14,11 @@
             :key="index"
             @click="addItemToPanier(carte)"
           />
+          </GrilleImage>
         </main>
+        
         <footer>
-          <div class="boite_discussion">
+          <!-- <div class="rectangle_discussion"> -->
             <Panier>
               <Carte
                 v-for="(carte, index) in panier"
@@ -24,8 +28,9 @@
                 @click="removeItemFromPanier(index)"
               />
             </Panier>
-          </div>
+          <!-- </div> -->
         </footer>
+
       </Page>
     </ion-content>
   </ion-page>
@@ -37,6 +42,7 @@ import { useRouter } from "vue-router";
 import Page from "@/components/Page.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
+import GrilleImage from "@/components/GrilleImage.vue";
 export default {
   name: "Noemie",
   components: {
@@ -45,6 +51,7 @@ export default {
     Page,
     Carte,
     Panier,
+    GrilleImage,
   
   },
   props: [],
@@ -94,7 +101,7 @@ export default {
 .texte {
   display: flex;
   font-size: 50px;
-  margin-left: 270px;
+  margin-left: 340px;
   color: #536974;
   position: relative;
   text-align: center;
@@ -109,9 +116,16 @@ export default {
   margin-right: 10%;
   margin-top: 2%;
 }
-.cartes {
-  display: grid;
-  grid-template: 1fr 2fr;
-  
+.rectangle_discussion .Discussion{
+  grid-template-rows: fit-content(100%);
 }
+data {
+visibility:collapse ;
+display:block;
+width:400%;
+grid-gap: 10px;
+grid-auto-rows:10px;
+
+}
+
 </style>

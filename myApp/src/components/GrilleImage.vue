@@ -11,8 +11,8 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   /*grid-template-columns:repeat( auto-fit, minmax(200px, 1fr) );*/
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 90%;
+  margin-left:7%;
+  /* margin-right: 3%; */
 }
 </style>
