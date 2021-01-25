@@ -10,7 +10,6 @@
         "test:e2e": "vue-cli-service test:e2e",
         "lint": "vue-cli-service lint",
         "android": "vue-cli-service build && ionic capacitor build android"
-
     },
     "dependencies": {
         "@ionic/vue": "^5.4.0",

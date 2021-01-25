@@ -5,26 +5,12 @@
       <Page>
         <div class="texte">test test</div>
         <main>
-          <Carte
-            v-for="(carte, index) in cartes"
-            :image="carte.image"
-            :description="carte.description"
-            :key="index"
-            @click="addItemToPanier(carte)"
-          />
-                              <ion-img :src="carte.image"></ion-img>
-
+          <Carte v-for="(carte,index) in cartes" :image="carte.image" :description="carte.description" :key="index" @click="addItemToPanier(carte)"/>
         </main>
         <footer>
           <div class="boite_discussion">
             <Panier>
-              <Carte
-                v-for="(carte, index) in panier"
-                :image="carte.image"
-                :description="carte.description"
-                :key="index"
-                @click="removeItemFromPanier(index)"
-              />
+                   <Carte v-for="(carte,index) in panier" :image="carte.image" :description="carte.description" :key="index" @click="removeItemFromPanier(index)"/>
             </Panier>
           </div>
         </footer>
@@ -39,7 +25,6 @@ import { useRouter } from "vue-router";
 import Page from "@/components/Page.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
-
 
 
 export default {
@@ -59,28 +44,18 @@ export default {
   },
 
   data: () => {
-    return {   discussion: "panier",
-    panier: [],
-    cartes: [ 
+    return {
+      discussion: "panier",
+      panier: [],
+      cartes: [
         {
-        description: "bien",
-        image: require('/src/assets/bien.png'),
+          description: "moyen",
+          image: "../assets/moyen.png",
+          
         },
-        {
-          description: "triste",
-          image:"src=\"require(@assets/cartes/triste.png)\"",
-        },
-        {
-          description:"enerve",
-          image :"src=\"require( `../assets/enerve${this.enerve}.png`)\"",
-        },
-       //require(`../assets/profile_screens/${filename}`) 
-       //src="~@/assets/image.png"
-     ],
+      ],
     };
   },
-  
-  
   methods: {
     addItemToPanier(carte) {
       this.panier.push(carte);

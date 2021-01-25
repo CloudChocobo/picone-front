@@ -67,6 +67,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/noemie",
     component: Noemie,
   },
+
 ]
 
 const router = createRouter({

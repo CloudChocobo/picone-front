@@ -4,8 +4,8 @@
     <div class="cartes">
       <div  :id={id}>
         {{ description }}
-        <img :scr={image} />
-        <button v-on:click="addItemToPanier(carte)">+</button>
+        <img :src={image} />
+        <button v-on:click="addItemToPanier(carte)"></button>
       </div>
     </div>
   </div>
