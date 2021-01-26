@@ -1,20 +1,34 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <Page>
+      <PageV2>
         <div class="container">
+          <div
+            class="iconesInTopBar"
+            id="firstIcones"
+            v-for="(item, index) in items"
+            :key="index"
+            :class="{ selected: currentId === item.id }"
+          >
+            <img :src="require(`@/assets/${item.image}`)" alt="" />
+          </div>
           <p>
             Bonjour<br />
             Comment vous sentez-vous?
           </p>
         </div>
-        <div class="icone" @click="() => router.push('/jeTu')">
-          <img src="../assets/bien.png" alt="" />
-          <img src="../assets/moyen.png" alt="" />
-          <img src="../assets/triste.png" alt="" />
-          <img src="../assets/enerve.png" alt="" />
+        <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
+        <div class="bidouille"></div>
+        <div
+          class="icone"
+          @click="() => router.push('/jeTu')"
+          v-for="(mood, index) in moods"
+          :key="index"
+          :class="{ selected: currentId === mood.id }"
+        >
+          <img :src="require(`@/assets/${mood.image}`)" alt="" />
         </div>
-      </Page>
+      </PageV2>
     </ion-content>
   </ion-page>
 </template>
@@ -22,59 +36,147 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import Page from "@/components/Page.vue";
+import PageV2 from "@/components/PageV2.vue";
 export default {
   name: "Humeur",
+  props: ["class"],
+
   components: {
     IonPage,
     IonContent,
-    Page,
+    PageV2,
   },
+
+  data() {
+    return {
+      currentIndex: 0,
+      currentId: "",
+      items: [
+        {
+          image: "IconeMenu.png",
+          id:"IconeMenu",
+        },
+        {
+          image: "effacerPhrase.png",
+          id:"effacerPhrase",
+        },
+      ],
+      moods: [
+        {
+          image: "bien.png",
+          id:"bien",
+        },
+        {
+          image: "moyen.png",
+          id:"moyen",
+        },
+        {
+          image: "triste.png",
+          id:"triste",
+        },
+        {
+          image: "enerve.png",
+          id:"enerve",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    startLoop() {
+      const selectables= this.items.concat(this.moods);
+      setInterval(() => {
+        this.currentIndex++;
+        if (this.currentIndex > selectables.length - 1) {
+          this.currentIndex = 0;
+        }
+        this.currentId = selectables[this.currentIndex].id;
+      }, 1500);
+    },
+
+    methodRouter(id) {
+      console.log(id);
+      this.router.push("/jeTu");
+    },
+
+    startEventListener(){
+      window.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+          this.methodRouter(this.currentId);
+        }
+      });
+    }
+  },
+
   setup() {
     const router = useRouter();
     return { router };
   },
+
+  mounted() {
+    this.startLoop();
+    this.startEventListener();
+  },
 };
 </script>
 
-
 <style scoped>
-body {
-  color: #f1faff;
-}
 .container {
-  display: flex;
-  font-size: 50px;
-  margin-left: 250px;
+  font-size: 45px;
   color: #536974;
-  position: relative;
   text-align: center;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
-.icone {
-  display: flex;
-  flex-direction: row;
-  max-width: 40%;
-  justify-content: space-around;
-  align-items: flex-end;
-  margin-top: 100px;
-  /* margin-top: 200px; */
-  margin-left: 350px;
-}
-img {
-  display: flex;
-  flex-direction: row;
-  max-width: 35%;
-  margin-right: 20px;
-}
-.icone2 {
-  display: flex;
-  flex-direction: row;
-  max-width: 40%;
-  justify-content: space-around;
-  align-items: flex-end;
-  margin-top: 7px;
-  margin-left: 350px;
-}
-</style>
 
+.bidouille {
+  display: inline-block;
+  width: 17%;
+}
+
+div#firstIcones img {
+  width: 7%;
+  border-radius: 33%;
+}
+
+.iconesInTopBar {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  top: -80px;
+  left: -400px;
+  display: inline;
+}
+
+p {
+  position: relative;
+  top: -110px;
+}
+
+.icone {
+  display: inline;
+  position: relative;
+  top: -50px;
+}
+
+img {
+  max-width: 15%;
+  /* margin-top: 5%; */
+  margin-right: 2%;
+  border-radius: 55px;
+}
+
+img:hover {
+  transform: scale(1.2);
+  border-radius: 55px;
+  border: 10px solid #202abb9d;
+}
+
+.selected img {
+  transform: scale(1.2);
+  border: 10px solid #202abb9d;
+}
+
+/* #validation {
+  display: none;
+} */
+</style>

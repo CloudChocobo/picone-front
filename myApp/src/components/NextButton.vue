@@ -18,3 +18,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+/* MODIF */
+img:hover {
+  transform: scale(1.2);
+  border-radius: 10px;
+  border: 5px solid #202abb9d;
+}
+/* MODIF */
+</style>
