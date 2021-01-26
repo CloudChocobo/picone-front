@@ -2,9 +2,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <Page>
-        <div class="texte">test test</div>
-        
+      <PageV2>
         <main>
           <GrilleImage>
           <Carte
@@ -31,15 +29,15 @@
           <!-- </div> -->
         </footer>
 
-      </Page>
+      </PageV2>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonContent} from "@ionic/vue";
+import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import Page from "@/components/Page.vue";
+import PageV2 from "@/components/PageV2.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
@@ -48,11 +46,10 @@ export default {
   components: {
     IonPage,
     IonContent,
-    Page,
+    PageV2,
     Carte,
     Panier,
     GrilleImage,
-  
   },
   props: [],
   setup() {
@@ -61,39 +58,51 @@ export default {
   },
 
   data: () => {
-    return { 
+    return {
+      currentIndex: 0,
+      currentId: "",
+      items: [
+        {
+          image: "IconeMenu.png",
+          id: "IconeMenu",
+        },
+        {
+          image: "effacerPhrase.png",
+          id: "effacerPhrase",
+        },
+      ],
       discussion: "panier",
       panier: [],
-      cartes: [ 
-          {
-            description: "bien",
-            image: require('/src/assets/bien.png'),
-          },
-          {
-            description:"moyen",
-            image : require('/src/assets/moyen.png'),
-          },
-          {
-            description: "triste",
-            image: require('/src/assets/triste.png'),
-          },
-          {
-            description:"enerve",
-            image : require('/src/assets/enerve.png'),
-          },
-      ]
+      cartes: [
+        {
+          description: "bien",
+          image: require("/src/assets/bien.png"),
+        },
+        {
+          description: "moyen",
+          image: require("/src/assets/moyen.png"),
+        },
+        {
+          description: "triste",
+          image: require("/src/assets/triste.png"),
+        },
+        {
+          description: "enerve",
+          image: require("/src/assets/enerve.png"),
+        },
+      ],
     };
   },
-  
-  
+
   methods: {
     addItemToPanier(carte) {
       this.panier.push(carte);
     },
     removeItemFromPanier(index) {
-      this.panier.splice(index , 1);
+      this.panier.splice(index, 1);
     },
   },
+
 };
 </script>
 
@@ -116,16 +125,21 @@ export default {
   margin-right: 10%;
   margin-top: 2%;
 }
-.rectangle_discussion .Discussion{
+.rectangle_discussion .Discussion {
   grid-template-rows: fit-content(100%);
 }
 data {
-visibility:collapse ;
-display:block;
-width:400%;
-grid-gap: 10px;
-grid-auto-rows:10px;
-
+  visibility: collapse;
+  display: block;
+  width: 400%;
+  grid-gap: 10px;
+  grid-auto-rows: 10px;
+}
+.container {
+  font-size: 45px;
+  color: #536974;
+  text-align: center;
+  /* margin-top: 60px; */
 }
 
 </style>
