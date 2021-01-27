@@ -12,6 +12,25 @@ import Soins from "@/views/Soins.vue";
 import Noemie from "@/views/Noemie.vue";
 import Test from "@/views/Test.vue";
 import ModalTest from "@/views/ModalTest.vue";
+import NoemieNourriture from "@/views/NoemieNourriture.vue";
+import NoemieAccueil from "@/views/NoemieAccueil.vue";
+import NoemieAction from "@/views/NoemieAction.vue";
+import NoemieHumeur from "@/views/NoemieHumeur.vue";
+import NoemieInterlocuteur from "@/views/NoemieInterlocuteur.vue";
+import NoemieJeTu from "@/views/NoemieJeTu.vue";
+import NoemieSoin from "@/views/NoemieSoin.vue";
+import NoemieFruits from "@/views/NoemieFruits.vue"
+import NoemiePlats from "@/views/NoemiePlats.vue";
+import NoemieLegumes from "@/views/NoemieLegumes.vue";
+import NoemieBoissons from "@/views/NoemieBoissons.vue";
+import NoemieWc from "@/views/NoemieWc.vue";
+import NoemieMobilier from "@/views/NoemieMobilier.vue";
+import NoemieLoisirs from "@/views/NoemieLoisirs.vue";
+import NoemieVetements from "@/views/NoemieVetements.vue";
+import NoemieCorps from "@/views/NoemieCorps.vue";
+import NoemieDouleurs from "@/views/NoemieDouleurs.vue";
+import NoemieDessert from "@/views/NoemieDessert.vue";
+import NoemieSeLaver from "@/views/NoemieSeLaver.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
@@ -26,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     name: "ModalTest",
-    path: "/ModalTest",
+    path: "/modaltest",
     component: ModalTest,
   },
   {
@@ -79,7 +98,102 @@ const routes: Array<RouteRecordRaw> = [
     path: "/test",
     component: Test,
   },
+   {
+    name: "NoemieNourriture",
+    path: "/noemienourriture",
+    component: NoemieNourriture,
+  },
+     {
+    name: "NoemieAccueil",
+    path: "/noemieaccueil",
+    component: NoemieAccueil,
+  },
+     {
+    name: "NoemieAction",
+    path: "/noemieaction",
+    component: NoemieAction,
+  },
+     {
+    name: "NoemieHumeur",
+    path: "/noemiehumeur",
+    component: NoemieHumeur,
+  },
 
+  {
+    name: "NoemieSoin",
+    path: "/noemiesoin",
+    component: NoemieSoin,
+  },
+     {
+    name: "NoemieInterlocuteur",
+    path: "/noemieinterlocuteur",
+    component: NoemieInterlocuteur,
+  },  
+     {
+    name: "NoemieJeTu",
+    path: "/noemiejetu",
+    component: NoemieJeTu,
+  },  
+     {
+    name: "NoemieFruits",
+    path: "/noemiefruits",
+    component: NoemieFruits,
+  },  
+       {
+    name: "NoemiePlats",
+    path: "/noemiplats",
+    component: NoemiePlats,
+  }, 
+       {
+    name: "NoemieLegumes",
+    path: "/noemielegumes",
+    component: NoemieLegumes,
+  }, 
+         {
+    name: "NoemieBoissons",
+    path: "/noemieboissons",
+    component: NoemieBoissons,
+  },  
+           {
+    name: "NoemieWc",
+    path: "/noemiewc",
+    component: NoemieWc,
+  },  
+           {
+    name: "NoemieMobilier",
+    path: "/noemiemobilier",
+    component: NoemieMobilier,
+  }, 
+           {
+    name: "NoemieLoisirs",
+    path: "/noemieloisirs",
+    component: NoemieLoisirs,
+  }, 
+           {
+    name: "NoemieVetements",
+    path: "/noemievetements",
+    component: NoemieVetements,
+  }, 
+           {
+    name: "NoemieCorps",
+    path: "/noemiecorps",
+    component: NoemieCorps,
+  }, 
+           {
+    name: "NoemieDouleurs",
+    path: "/noemiedouleurs",
+    component: NoemieDouleurs,
+  }, 
+           {
+    name: "NoemieDessert",
+    path: "/noemiedessert",
+    component: NoemieDessert,
+  }, 
+           {
+    name: "NoemieSeLaver",
+    path: "/noemieselaver",
+    component: NoemieSeLaver,
+  }, 
 ]
 
 const router = createRouter({

@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <Page>
+      <Page @cancelLastAction="removeItemFromPanier">
         <div class="texte">Choisissez votre élément.</div>
         <div class="container">
           <GrilleImage>
@@ -10,10 +10,10 @@
             <img src="../assets/nourriture/pain.png" alt="pain" />
             <img src="../assets/nourriture/poisson.png" alt="poisson" />
             <img src="../assets/nourriture/petitpois.png" alt="petit_pois" />
-            <img src="../assets/nourriture/pastèque.png" alt="pastèque" />
+            <img src="../assets/nourriture/pasteque.png" alt="pasteque" />
             <img src="../assets/nourriture/poulet.png" alt="poulet" />
-            <img src="../assets/nourriture/bière.png" alt="bière" />
-            <img src="../assets/nourriture/thé.png" alt="thé" />
+            <img src="../assets/nourriture/biere.png" alt="biere" />
+            <img src="../assets/nourriture/the.png" alt="the" />
           </GrilleImage>
         </div>
         <footer>
@@ -58,6 +58,8 @@ export default {
     // removeItemFromPanier(index) {
     //   this.panier.splice(index, 1);
     // },
+
+    
 };
 </script>
 

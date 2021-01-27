@@ -3,7 +3,10 @@
     <ion-content :fullscreen="true">
       <PageV2>
         <div class="container">
-          <div
+
+ <!-- Désactivation temporaire - icone de TopBar du défilement -->
+
+          <!-- <div
             class="iconesInTopBar"
             id="firstIcones"
             v-for="(item, index) in items"
@@ -11,8 +14,9 @@
             :class="{ selected: currentId === item.id }"
           >
             <img :src="require(`@/assets/${item.image}`)" alt="" />
-          </div>
-          <p>Veuillez commencer votre phrase.</p>
+          </div> -->
+          <p>Veuillez<br />
+          commencer votre phrase.</p>
         </div>
         <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
         <div class="bidouille"></div>
@@ -45,18 +49,24 @@ export default {
   },
   data() {
     return {
-      currentIndex: 0,
-      currentId: "",
-      items: [
-        {
-          image: "IconeMenu.png",
-          id:"IconeMenu",
-        },
-        // {
-        //   image: "effacerPhrase.png",
-        //   id:"effacerPhrase",
-        // },
-      ],
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+      // currentIndex: 0,
+      // currentId: "",
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+      // items: [
+      //   {
+      //     image: "IconeMenu.png",
+      //     id:"IconeMenu",
+      //   },
+      //   {
+      //     image: "effacerPhrase.png",
+      //     id:"effacerPhrase",
+      //   },
+      // ],
       pronoms: [
         {
           image: "je.png",
@@ -71,19 +81,21 @@ export default {
   },
 
   methods: {
-    startLoop() {
-      const selectables= this.items.concat(this.pronoms);
-      setInterval(() => {
-        this.currentIndex++;
-        if (this.currentIndex > selectables.length - 1) {
-          this.currentIndex = 0;
-        }
-        this.currentId = selectables[this.currentIndex].id;
-      }, 1500);
-    },
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+    // startLoop() {
+    //   const selectables= this.items.concat(this.pronoms);
+    //   setInterval(() => {
+    //     this.currentIndex++;
+    //     if (this.currentIndex > selectables.length - 1) {
+    //       this.currentIndex = 0;
+    //     }
+    //     this.currentId = selectables[this.currentIndex].id;
+    //   }, 1500);
+    // },
 
     methodRouter() {
-      // console.log(id);
       this.router.push("/action");
     },
 
@@ -103,7 +115,10 @@ export default {
   },
 
   mounted() {
-    this.startLoop();
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+    // this.startLoop();
     this.startEventListener();
   },
 };
@@ -114,7 +129,6 @@ export default {
   font-size: 45px;
   color: #536974;
   text-align: center;
-  /* margin-top: 60px; */
 }
 
 .bidouille {
@@ -138,7 +152,7 @@ div#firstIcones img {
 
 p {
   position: relative;
-  top: -110px;
+  top: -40px;
 }
 
 .icone {
@@ -149,12 +163,11 @@ p {
 
 img {
   max-width: 15%;
-  /* margin-top: 5%; */
   margin-right: 2%;
   border-radius: 55px;
 }
 
-img:hover {
+img :hover {
   transform: scale(1.2);
   border-radius: 55px;
   border: 10px solid #202abb9d;
@@ -165,8 +178,4 @@ img:hover {
   border: 10px solid #202abb9d;
 }
 
-/* #validation {
-  display: none;
-} */
 </style>
-

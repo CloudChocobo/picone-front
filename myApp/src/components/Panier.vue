@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="rectangle_discussion">
-    <Discussion>
-      <div class="cartes">
-        <slot></slot>
-      </div>
-    </Discussion>
+      <Discussion>
+        <div class="cartes">
+          <slot></slot>
+        </div>
+      </Discussion>
     </div>
   </div>
 </template>
@@ -14,12 +14,11 @@
 import Discussion from "@/components/Discussion.vue";
 export default {
   name: "Panier",
-  components: {Discussion},
+  components: { Discussion },
 };
 </script>
 
 <style scoped>
-
 /* .footer {
   margin-left: 10%;
 } */
@@ -33,12 +32,15 @@ export default {
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);
 } */
-
-.cartes{
-      /* position: absolute; */
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   grid-auto-rows: auto;
-   width: auto;
+.Discussion {
+  margin-left: 50px;
+}
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  /* position: absolute; */
+  /* grid-auto-rows: auto; */
+  /* width: auto; */
 }
 </style>

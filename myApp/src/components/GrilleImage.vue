@@ -7,10 +7,13 @@
 <style scoped>
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 15%);
-  grid-template-rows: repeat(2, 15%);
-  justify-content: center;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(2, auto);
+  /* column-gap: 10px;
+  row-gap: 10px; */
+  /* justify-content: center; */
   margin-top: 2%;
+  margin-left: 0;
   /* column-gap: 0px; */
   /* Pour 4 colonnes :*/
   /* width: 90%; */

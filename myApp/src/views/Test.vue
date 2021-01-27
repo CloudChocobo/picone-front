@@ -14,8 +14,8 @@
           </div>
           <p>
             Bonjour<br />
-            Comment vous sentez-vous? toujours pas bien! \O/<br>
-            je suis en PLS youhouuuuuuuuuuuuuu<br>
+            Comment vous sentez-vous? toujours pas bien! \O/<br />
+            je suis en PLS youhouuuuuuuuuuuuuu<br />
             du papier, un crayon! et basta !:D
           </p>
         </div>
@@ -56,29 +56,29 @@ export default {
       items: [
         {
           image: "IconeMenu.png",
-          id:"IconeMenu",
+          id: "IconeMenu",
         },
         {
           image: "effacerPhrase.png",
-          id:"effacerPhrase",
+          id: "effacerPhrase",
         },
       ],
       moods: [
         {
           image: "bien.png",
-          id:"bien",
+          id: "bien",
         },
         {
           image: "moyen.png",
-          id:"moyen",
+          id: "moyen",
         },
         {
           image: "triste.png",
-          id:"triste",
+          id: "triste",
         },
         {
           image: "enerve.png",
-          id:"enerve",
+          id: "enerve",
         },
       ],
     };
@@ -86,7 +86,7 @@ export default {
 
   methods: {
     startLoop() {
-      const selectables= this.items.concat(this.moods);
+      const selectables = this.items.concat(this.moods);
       setInterval(() => {
         this.currentIndex++;
         if (this.currentIndex > selectables.length - 1) {
@@ -101,14 +101,13 @@ export default {
       this.router.push("/jeTu");
     },
 
-    startEventListener(){
+    startEventListener() {
       window.addEventListener("keyup", (event) => {
         if (event.key === "Enter") {
           this.methodRouter(this.currentId);
         }
-        
       });
-    }
+    },
   },
 
   setup() {

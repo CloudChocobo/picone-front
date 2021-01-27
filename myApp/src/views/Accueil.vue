@@ -3,7 +3,10 @@
     <ion-content :fullscreen="true">
       <PageV2>
         <div class="container">
-          <div
+
+          <!-- Désactivation temporaire - icone de TopBar du défilement -->
+
+          <!-- <div
             class="iconesInTopBar"
             id="firstIcones"
             v-for="(item, index) in items"
@@ -11,7 +14,7 @@
             :class="{ selected: currentId === item.id }"
           >
             <img :src="require(`@/assets/${item.image}`)" alt="" />
-          </div>
+          </div> -->
           <p>PICONE</p>
         </div>
         <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
@@ -46,18 +49,24 @@ export default {
 
   data() {
     return {
-      currentIndex: 0,
-      currentId: "",
-      items: [
-        {
-          image: "IconeMenu.png",
-          id: "IconeMenu",
-        },
-        // {
-        //   image: "effacerPhrase.png",
-        //   id: "effacerPhrase",
-        // },
-      ],
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+      // currentIndex: 0,
+      // currentId: "",
+
+// Désactivation temporaire - icone de TopBar du défilement
+      
+      // items: [
+      //   {
+      //     image: "IconeMenu.png",
+      //     id: "IconeMenu",
+      //   },
+      //   {
+      //     image: "effacerPhrase.png",
+      //     id: "effacerPhrase",
+      //   },
+      // ],
       choices: [
         {
           image: "Conversation.png",
@@ -71,19 +80,21 @@ export default {
     };
   },
   methods: {
-    startLoop() {
-      const selectables = this.items.concat(this.choices);
-      setInterval(() => {
-        this.currentIndex++;
-        if (this.currentIndex > selectables.length - 1) {
-          this.currentIndex = 0;
-        }
-        this.currentId = selectables[this.currentIndex].id;
-      }, 1500);
-    },
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+    // startLoop() {
+    //   const selectables = this.items.concat(this.choices);
+    //   setInterval(() => {
+    //     this.currentIndex++;
+    //     if (this.currentIndex > selectables.length - 1) {
+    //       this.currentIndex = 0;
+    //     }
+    //     this.currentId = selectables[this.currentIndex].id;
+    //   }, 1500);
+    // },
 
     methodRouter() {
-      // console.log(id);
       this.router.push("/humeur");
       // faire un if this.currentId === Truc
       // this.router.push...
@@ -105,7 +116,10 @@ export default {
   },
 
   mounted() {
-    this.startLoop();
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+    // this.startLoop();
     this.startEventListener();
   },
 };
@@ -139,7 +153,7 @@ div#firstIcones img {
 
 p {
   position: relative;
-  top: -110px;
+  top: -40px;
 }
 
 .icone {
@@ -154,7 +168,7 @@ img {
   border-radius: 55px;
 }
 
-img:hover {
+img :hover {
   transform: scale(1.2);
   border-radius: 55px;
   border: 10px solid #202abb9d;

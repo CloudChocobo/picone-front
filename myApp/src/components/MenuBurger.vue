@@ -16,14 +16,14 @@ export default {
 </script>
 
 <style scoped>
-.MenuBurger {
+/* .MenuBurger {
   display: flex;
   flex-direction: column;
   height: 90%;
   width: 90%;
   border-radius: 50%;
   align-items: center;
-}
+} */
 
 /* MODIF */
 img:hover {

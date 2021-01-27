@@ -4,6 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
+          <div class="texte">Choisissez votre aliment.</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"
@@ -39,8 +40,9 @@ import PageV2 from "@/components/PageV2.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
+//import {nourriture} from "@/data.ts";
 export default {
-  name: "Noemie",
+  name: "NoemieNourriture",
   components: {
     IonPage,
     IonContent,
@@ -59,50 +61,50 @@ export default {
     return {
       currentIndex: 0,
       currentId: "",
-      // items: [
-      //   {
-      //     image: "IconeMenu.png",
-      //     id: "IconeMenu",
-      //   },
-      //   {
-      //     image: "gomme.png",
-      //     id: "gomme",
-      //   },
-      // ],
+      items: [
+        {
+          image: "IconeMenu.png",
+          id: "IconeMenu",
+        },
+        {
+          image: "gomme.png",
+          id: "gomme",
+        },
+      ],
       discussion: "panier",
       panier: [],
       cartes: [
         {
-          image: require("/src/assets/bien.png"),
-          description: "bien",
+          image: require("/src/assets/nourriture/poulet.png"),
+          description: "poulet",
         },
         {
-          image: require("/src/assets/moyen.png"),
-          description: "moyen",
+          image: require("/src/assets/nourriture/bretzel.png"),
+          description: "bretzel",
         },
         {
-          image: require("/src/assets/triste.png"),
-          description: "triste",
+          image: require("/src/assets/nourriture/poisson.png"),
+          description: "poisson",
         },
         {
-          image: require("/src/assets/enerve.png"),
-          description: "enerve",
+          image: require("/src/assets/nourriture/pomme.png"),
+          description: "pomme",
+        },
+          {
+          image: require("/src/assets/nourriture/petitpois.png"),
+          description: "petitpois",
         },
         {
-          image: require("/src/assets/bien.png"),
-          description: "bien",
+          image: require("/src/assets/nourriture/the.png"),
+          description: "thé",
         },
         {
-          image: require("/src/assets/moyen.png"),
-          description: "moyen",
+          image: require("/src/assets/nourriture/biere.png"),
+          description: "bière",
         },
         {
-          image: require("/src/assets/triste.png"),
-          description: "triste",
-        },
-        {
-          image: require("/src/assets/enerve.png"),
-          description: "enerve",
+          image: require("/src/assets/nourriture/pain.png"),
+          description: "pain",
         },
       ],
     };
@@ -151,10 +153,6 @@ export default {
   margin-top: 1%;
   width: 17%;
 }
-
-/* .Panier {
-
-} */
 
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);

@@ -39,8 +39,9 @@ import PageV2 from "@/components/PageV2.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
+//import {nourriture} from "@/data.ts";
 export default {
-  name: "Noemie",
+  name: "NoemieAccueil",
   components: {
     IonPage,
     IonContent,

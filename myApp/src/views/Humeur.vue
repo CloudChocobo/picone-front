@@ -1,9 +1,12 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2 >
+      <PageV2>
         <div class="container">
-          <div
+
+          <!-- Désactivation temporaire - icone de TopBar du défilement -->
+
+          <!-- <div
             class="iconesInTopBar"
             id="firstIcones"
             v-for="(item, index) in items"
@@ -11,7 +14,7 @@
             :class="{ selected: currentId === item.id }"
           >
             <img :src="require(`@/assets/${item.image}`)" alt="" />
-          </div>
+          </div> -->
           <p>
             Bonjour<br />
             Comment vous sentez-vous?
@@ -49,22 +52,25 @@ export default {
 
   data() {
     return {
-      currentIndex: 0,
-      currentId: "",
-      items: [
-        {
-          image: "IconeMenu.png",
-          id: "IconeMenu",
-        },
-        {
-          image: "effacerPhrase.png",
-          id: "effacerPhrase",
-        },
-        {
-          image: "Back.png",
-          id: "Back",
-        },
-      ],
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+      // currentIndex: 0,
+      // currentId: "",
+      // items: [
+      //   {
+      //     image: "IconeMenu.png",
+      //     id: "IconeMenu",
+      //   },
+      //   {
+      //     image: "effacerPhrase.png",
+      //     id: "effacerPhrase",
+      //   },
+      //   {
+      //     image: "Back.png",
+      //     id: "Back",
+      //   },
+      // ],
       moods: [
         {
           image: "bien.png",
@@ -87,18 +93,21 @@ export default {
   },
 
   methods: {
-    startLoop() {
-      const selectables = this.items.concat(this.moods);
-      setInterval(() => {
-        this.currentIndex++;
-        if (this.currentIndex > selectables.length - 1) {
-          this.currentIndex = 0;
-        }
-        this.currentId = selectables[this.currentIndex].id;
-      }, 1500);
-    },
 
-    methodRouter(id) {
+// Désactivation temporaire - icone de TopBar du défilement
+
+    // startLoop() {
+    //   const selectables = this.items.concat(this.moods);
+    //   setInterval(() => {
+    //     this.currentIndex++;
+    //     if (this.currentIndex > selectables.length - 1) {
+    //       this.currentIndex = 0;
+    //     }
+    //     this.currentId = selectables[this.currentIndex].id;
+    //   }, 1500);
+    // },
+
+    methodRouter() {
       if (this.currentId === "Back") {
         this.router.go(-1);
       } else {
@@ -126,7 +135,10 @@ export default {
   },
 
   mounted() {
-    this.startLoop();
+
+// Désactivation temporaire - icone de TopBar du défilement
+
+    // this.startLoop();
     this.startEventListener();
   },
 };
@@ -162,7 +174,7 @@ div#firstIcones img {
 
 p {
   position: relative;
-  top: -110px;
+  top: -40px;
 }
 
 .icone {
