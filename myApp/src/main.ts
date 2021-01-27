@@ -1,5 +1,6 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import { createStore } from 'vuex';
+import App from './App.vue';
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
@@ -23,9 +24,35 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+const store = createStore({
+  state () {
+    return {
+      panier: []
+    }
+  },
+  mutations: {
+    addElementToPanier(state: any, elementAAjouter: any){
+      if(state.panier.length <3){
+        state.panier.push(elementAAjouter);
+      }
+    },
+    removeElementFromPanier(state: any){
+      if(state.panier.length > 0){
+        state.panier.pop();
+      }
+    }
+  },
+  getters: {
+    contenuPanier (state) {
+      return state.panier;
+    }
+  }
+})
+
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(store);
   
 router.isReady().then(() => {
   app.mount('#app');
