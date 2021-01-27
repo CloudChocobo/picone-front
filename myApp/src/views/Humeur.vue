@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2>
+      <PageV2 >
         <div class="container">
           <div
             class="iconesInTopBar"
@@ -98,7 +98,7 @@ export default {
       }, 1500);
     },
 
-    methodRouter() {
+    methodRouter(id) {
       if (this.currentId === "Back") {
         this.router.go(-1);
       } else {

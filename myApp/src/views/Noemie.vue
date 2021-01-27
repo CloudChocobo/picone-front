@@ -2,7 +2,8 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2>
+      <PageV2 @cancelLastAction="removeItemFromPanier">
+
         <main>
           <GrilleImage>
           <Carte
@@ -23,7 +24,7 @@
                 :image="carte.image"
                 :description="carte.description"
                 :key="index"
-                @click="removeItemFromPanier(index)"
+               
               />
             </Panier>
           <!-- </div> -->
@@ -98,8 +99,10 @@ export default {
     addItemToPanier(carte) {
       this.panier.push(carte);
     },
-    removeItemFromPanier(index) {
-      this.panier.splice(index, 1);
+    removeItemFromPanier() {
+      //this.panier.splice(index, 1);
+      this.panier.pop();
+      console.log("coucou");
     },
   },
 

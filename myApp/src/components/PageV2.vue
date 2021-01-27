@@ -3,10 +3,7 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <header>
-        <BarreNavHorizontaleV2>
-          <!-- <MenuBurger></MenuBurger>
-          <Gomme></Gomme>
-          <BackButton></BackButton> -->
+        <BarreNavHorizontaleV2 @cancelLastAction="$emit('cancelLastAction')">
         </BarreNavHorizontaleV2>
       </header>
       <div class="pageV2">
@@ -19,22 +16,15 @@
 </template>
 
 <script>
-// import BackButton from "@/components/BackButton.vue"
-import BarreNavHorizontaleV2 from "@/components/BarreNavHorizontaleV2.vue"
-// import Gomme from "@/components/Gomme.vue"
-// import MenuBurger from "@/components/MenuBurger.vue"
+import BarreNavHorizontaleV2 from "@/components/BarreNavHorizontaleV2.vue";
 
 export default {
   name: "PageV2",
   props: [],
   components: {
     BarreNavHorizontaleV2,
-    // BackButton,Gomme,MenuBurger,
   },
-  methods: {},
-  data() {
-    return {};
-  },
+  emits: ["cancelLastAction"],
 };
 </script>
 
@@ -44,5 +34,4 @@ export default {
   width: 100%;
   background-color: #8badbe;
 }
-
 </style>

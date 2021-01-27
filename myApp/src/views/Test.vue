@@ -14,7 +14,9 @@
           </div>
           <p>
             Bonjour<br />
-            Comment vous sentez-vous? toujours pas bien! \O/
+            Comment vous sentez-vous? toujours pas bien! \O/<br>
+            je suis en PLS youhouuuuuuuuuuuuuu<br>
+            du papier, un crayon! et basta !:D
           </p>
         </div>
         <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->

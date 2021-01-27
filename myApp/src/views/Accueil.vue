@@ -53,10 +53,10 @@ export default {
           image: "IconeMenu.png",
           id: "IconeMenu",
         },
-        {
-          image: "effacerPhrase.png",
-          id: "effacerPhrase",
-        },
+        // {
+        //   image: "effacerPhrase.png",
+        //   id: "effacerPhrase",
+        // },
       ],
       choices: [
         {
