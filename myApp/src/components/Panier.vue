@@ -37,8 +37,9 @@ export default {
 }
 .cartes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 150px);
   margin-top: 3%;
+   gap: 15px;
     /* grid-template-rows: repeat(2, 1fr); */
   /* position: absolute; */
   /* grid-auto-rows: auto; */

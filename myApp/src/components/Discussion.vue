@@ -25,7 +25,7 @@ export default {
 .Discussion {
   /* display: grid; */
   width: 90%;
-  height: 240px;
+  height: 210px;
   background-color: #ffffff;
   border: 10px solid #8badbe;
   border-radius: 15px;

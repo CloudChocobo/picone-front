@@ -39,7 +39,7 @@ export default {
   font-weight: bold;
   color: #536974;
   text-align: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 img {

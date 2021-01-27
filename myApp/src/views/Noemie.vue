@@ -4,6 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
+          <div class="texte">Phrase qui me fait ...</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"
@@ -126,11 +127,11 @@ export default {
 .texte {
   display: flex;
   font-size: 50px;
-  margin-left: 270px;
+  margin-left: 27%;
   color: #536974;
   position: relative;
   text-align: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .footer {
