@@ -20,14 +20,16 @@ export default {
 
 <style scoped>
 
-.footer {
+/* .footer {
   margin-left: 10%;
-}
-.rectangle_discussion {
-  margin-left: 10%;
-  margin-right: 10%;
+} */
+
+/* .rectangle_discussion {
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 2%;
-}
+} */
+
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);
 } */

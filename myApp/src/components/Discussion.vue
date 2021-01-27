@@ -1,8 +1,8 @@
 <template>
   <div class="Discussion">
     <div class="Texte">
-      <div class="Selection">  
-      <slot></slot>
+      <div class="Selection">
+        <slot></slot>
       </div>
       <div class="fin">
         <Point></Point>
@@ -17,43 +17,51 @@ import Point from "@/components/Point.vue";
 import Interrogation from "@/components/Interrogation.vue";
 export default {
   name: "Discussion",
-  components: {Point, Interrogation},
+  components: { Point, Interrogation },
 };
 </script>
  <!-- css a revoir pour le placement   -->
     <style scoped>
 .Discussion {
-  display: grid;
-  height: 200px;
-  width: 100%;
+  /* display: grid; */
+  width: 90%;
+  height: 240px;
   background-color: #ffffff;
   border: 10px solid #8badbe;
   border-radius: 15px;
+  position:absolute;
+  bottom: 0;
+  margin-bottom: 20px;
 }
-.Selection{
-    position: absolute;
-   grid-template-columns: repeat(4, 1fr);
-   grid-template-rows: repeat(2, 1fr);
-   width: 45%;
-   height: 20%;
-   gap: 10px;
+.Selection {
+  position: absolute;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-rows: repeat(2, 1fr); */
+  /* width: 45%; */
+  /* height: 20%; */
+  /* gap: 10px; */
 }
 
 .texte {
-width: 10%;
-
+  width: 10%;
 }
 
-.fin{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 5px;
+.fin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* gap: 5px; */
 }
-.Point{
-    width: 10%
+
+.Point {
+  width: 10%;
+  margin-top: 2%;
+  margin-right: 2%;
 }
-.Interrogation{
-    width: 10%;
+
+.Interrogation {
+  width: 10%;
+  margin-top: 1%;
+  margin-right: 2%;
 }
 </style>

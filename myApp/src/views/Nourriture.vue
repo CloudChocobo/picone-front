@@ -19,6 +19,8 @@
         <footer>
           <div class="rectangle_discussion">
             <Discussion>
+              <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
+              <div class="bidouille"></div>
               <img src="../assets/nourriture/poulet.png" alt="poulet" />
               <img src="../assets/nourriture/poulet.png" alt="poulet" />
               <img src="../assets/nourriture/poulet.png" alt="poulet" />
@@ -50,6 +52,12 @@ export default {
     const router = useRouter();
     return { router };
   },
+    //   addItemToPanier(carte) {
+    //   this.panier.push(carte);
+    // },
+    // removeItemFromPanier(index) {
+    //   this.panier.splice(index, 1);
+    // },
 };
 </script>
 
@@ -68,13 +76,25 @@ export default {
 .footer {
   margin-left: 10%;
 }
+
 .rectangle_discussion {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 2%;
 }
-.rectangle_discussion .Discussion{
-  grid-template-rows: fit-content(40%);
+
+.bidouille {
+  display: inline-block;
+  width: 2%;
 }
+
+.Discussion img {
+  margin-top: 1%;
+  width: 17%;
+}
+
+/* .rectangle_discussion .Discussion{
+  grid-template-rows: fit-content(40%);
+} */
 </style>
 

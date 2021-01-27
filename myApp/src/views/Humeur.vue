@@ -54,29 +54,33 @@ export default {
       items: [
         {
           image: "IconeMenu.png",
-          id:"IconeMenu",
+          id: "IconeMenu",
         },
         {
           image: "effacerPhrase.png",
-          id:"effacerPhrase",
+          id: "effacerPhrase",
+        },
+        {
+          image: "Back.png",
+          id: "Back",
         },
       ],
       moods: [
         {
           image: "bien.png",
-          id:"bien",
+          id: "bien",
         },
         {
           image: "moyen.png",
-          id:"moyen",
+          id: "moyen",
         },
         {
           image: "triste.png",
-          id:"triste",
+          id: "triste",
         },
         {
           image: "enerve.png",
-          id:"enerve",
+          id: "enerve",
         },
       ],
     };
@@ -84,7 +88,7 @@ export default {
 
   methods: {
     startLoop() {
-      const selectables= this.items.concat(this.moods);
+      const selectables = this.items.concat(this.moods);
       setInterval(() => {
         this.currentIndex++;
         if (this.currentIndex > selectables.length - 1) {
@@ -94,18 +98,26 @@ export default {
       }, 1500);
     },
 
-    methodRouter(id) {
-      console.log(id);
-      this.router.push("/jeTu");
+    methodRouter() {
+      if (this.currentId === "Back") {
+        this.router.go(-1);
+      } else {
+        this.router.push("/jeTu");
+      }
     },
+    // methodRouter(id) {
+    //   console.log(id);
+    //   this.router.push("/jeTu");
+    // },
 
-    startEventListener(){
+    startEventListener() {
       window.addEventListener("keyup", (event) => {
         if (event.key === "Enter") {
-          this.methodRouter(this.currentId);
+          this.methodRouter();
+          // this.methodRouter(this.currentId);
         }
       });
-    }
+    },
   },
 
   setup() {
@@ -143,7 +155,8 @@ div#firstIcones img {
   margin: 0px;
   padding: 0px;
   top: -80px;
-  left: -400px;
+  left: -447px;
+  /* left: -400px; */
   display: inline;
 }
 

@@ -12,18 +12,21 @@
           >
             <img :src="require(`@/assets/${item.image}`)" alt="" />
           </div>
-          <p>PICONE</p>
+          <p>
+            Bonjour<br />
+            Comment vous sentez-vous?
+          </p>
         </div>
         <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
         <div class="bidouille"></div>
         <div
           class="icone"
-          @click="() => router.push('/humeur')"
-          v-for="(choice, index) in choices"
+          @click="() => router.push('/jeTu')"
+          v-for="(mood, index) in moods"
           :key="index"
-          :class="{ selected: currentId === choice.id }"
+          :class="{ selected: currentId === mood.id }"
         >
-          <img :src="require(`@/assets/${choice.image}`)" alt="" />
+          <img :src="require(`@/assets/${mood.image}`)" alt="" />
         </div>
       </PageV2>
     </ion-content>
@@ -35,7 +38,7 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
 export default {
-  name: "Accueil",
+  name: "Humeur",
   props: ["class"],
 
   components: {
@@ -51,28 +54,37 @@ export default {
       items: [
         {
           image: "IconeMenu.png",
-          id: "IconeMenu",
+          id:"IconeMenu",
         },
         {
           image: "effacerPhrase.png",
-          id: "effacerPhrase",
+          id:"effacerPhrase",
         },
       ],
-      choices: [
+      moods: [
         {
-          image: "Conversation.png",
-          id: "Conversation",
+          image: "bien.png",
+          id:"bien",
         },
         {
-          image: "IconeParam.png",
-          id: "IconeParam",
+          image: "moyen.png",
+          id:"moyen",
+        },
+        {
+          image: "triste.png",
+          id:"triste",
+        },
+        {
+          image: "enerve.png",
+          id:"enerve",
         },
       ],
     };
   },
+
   methods: {
     startLoop() {
-      const selectables = this.items.concat(this.choices);
+      const selectables= this.items.concat(this.moods);
       setInterval(() => {
         this.currentIndex++;
         if (this.currentIndex > selectables.length - 1) {
@@ -82,21 +94,19 @@ export default {
       }, 1500);
     },
 
-    methodRouter() {
-      // console.log(id);
-      this.router.push("/humeur");
-      // faire un if this.currentId === Truc
-      // this.router.push...
+    methodRouter(id) {
+      console.log(id);
+      this.router.push("/jeTu");
     },
 
-    startEventListener() {
+    startEventListener(){
       window.addEventListener("keyup", (event) => {
         if (event.key === "Enter") {
-          this.methodRouter();
-          // this.methodRouter(this.currentId);
+          this.methodRouter(this.currentId);
         }
+        
       });
-    },
+    }
   },
 
   setup() {
@@ -116,11 +126,12 @@ export default {
   font-size: 45px;
   color: #536974;
   text-align: center;
+  /* margin-top: 60px; */
 }
 
 .bidouille {
   display: inline-block;
-  width: 35%;
+  width: 17%;
 }
 
 div#firstIcones img {
@@ -133,7 +144,7 @@ div#firstIcones img {
   margin: 0px;
   padding: 0px;
   top: -80px;
-  left: -447px;
+  left: -400px;
   display: inline;
 }
 
@@ -150,6 +161,7 @@ p {
 
 img {
   max-width: 15%;
+  /* margin-top: 5%; */
   margin-right: 2%;
   border-radius: 55px;
 }
@@ -165,4 +177,7 @@ img:hover {
   border: 10px solid #202abb9d;
 }
 
+/* #validation {
+  display: none;
+} */
 </style>

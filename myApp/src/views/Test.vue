@@ -2,24 +2,7 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <PageV2>
-      <header>
-        <BarreNavHorizontaleV2>
-          <MenuBurger></MenuBurger>
-          <Gomme>
-             <Panier>
-              <Carte
-            v-for="(carte, index) in panier"
-                :image="carte.image"
-                :description="carte.description"
-                :key="index"
-                @click="removeItemFromPanier(index)"
-              />
-              </Panier>
-          </Gomme>
-          <BackButton></BackButton>
-        </BarreNavHorizontaleV2>
-      </header>
-        <!-- <div class="container">
+        <div class="container">
           <div
             class="iconesInTopBar"
             id="firstIcones"
@@ -29,38 +12,12 @@
           >
             <img :src="require(`@/assets/${item.image}`)" alt="" />
           </div>
-           </div> -->
-           <main>          
-            <h1>
+          <p>
             Bonjour<br />
-            Etes vous déprimé? Voulez-vous être vendredi soir? 
-          </h1>
-          <GrilleImage>
-          <Carte
-            v-for="(carte, index) in cartes"
-            :image="carte.image"
-            :description="carte.description"
-            :key="index"
-            @click="addItemToPanier(carte)"
-          />
-          </GrilleImage>
-        </main>
-<footer>
-          <div class="rectangle_discussion">
-            <Panier>
-              <Carte
-                v-for="(carte, index) in panier"
-                :image="carte.image"
-                :description="carte.description"
-                :key="index"/>
-                <!-- @click="removeItemFromPanier(index)" -->
-              
-            </Panier>
-          </div>
-        </footer>
-
-       
-        <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge)
+            Comment vous sentez-vous? toujours pas bien! \O/
+          </p>
+        </div>
+        <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
         <div class="bidouille"></div>
         <div
           class="icone"
@@ -70,7 +27,7 @@
           :class="{ selected: currentId === mood.id }"
         >
           <img :src="require(`@/assets/${mood.image}`)" alt="" />
-        </div> -->
+        </div>
       </PageV2>
     </ion-content>
   </ion-page>
@@ -80,27 +37,14 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
-import Panier from "@/components/Panier.vue";
-import Carte from "@/components/Carte.vue";
-import GrilleImage from "@/components/GrilleImage.vue";
-import BackButton from "@/components/BackButton.vue"
-import Gomme from "@/components/Gomme.vue"
-import MenuBurger from "@/components/MenuBurger.vue"
 export default {
-  name: "Test",
-  props: ["class", "Panier"],
+  name: "Humeur",
+  props: ["class"],
 
   components: {
     IonPage,
     IonContent,
     PageV2,
-    Panier,
-    Carte,
-    GrilleImage,
-    BackButton,
-    Gomme,
-    MenuBurger,
-   
   },
 
   data() {
@@ -117,37 +61,29 @@ export default {
           id:"effacerPhrase",
         },
       ],
-      discussion: "panier",
-      panier: [],
-      cartes: [
+      moods: [
         {
-          description: "bien",
-          image: require("/src/assets/bien.png"),
+          image: "bien.png",
+          id:"bien",
         },
         {
-          description: "moyen",
-          image: require("/src/assets/moyen.png"),
+          image: "moyen.png",
+          id:"moyen",
         },
         {
-          description: "triste",
-          image: require("/src/assets/triste.png"),
+          image: "triste.png",
+          id:"triste",
         },
         {
-          description: "enerve",
-          image: require("/src/assets/enerve.png"),
+          image: "enerve.png",
+          id:"enerve",
         },
       ],
     };
   },
 
   methods: {
-    addItemToPanier(carte) {
-      this.panier.push(carte);
-    },
-    //removeItemFromPanier(index) {
-    //  this.panier.splice(index, 1);
-    //},
-    startLoop(){
+    startLoop() {
       const selectables= this.items.concat(this.moods);
       setInterval(() => {
         this.currentIndex++;
@@ -162,20 +98,16 @@ export default {
       console.log(id);
       this.router.push("/jeTu");
     },
-  methodRemoveItemFromPanier(carte) {
-    this.$emit("removeItemFromPanier", carte);
-      
-      }
-    },
 
     startEventListener(){
       window.addEventListener("keyup", (event) => {
         if (event.key === "Enter") {
           this.methodRouter(this.currentId);
         }
+        
       });
-    },
-  
+    }
+  },
 
   setup() {
     const router = useRouter();
@@ -248,11 +180,5 @@ img:hover {
 /* #validation {
   display: none;
 } */
-.BackButton{
-  width: 30px;
-}
-
-.rectangle_discussion{
-  margin-top:30px;
-}
 </style>
+

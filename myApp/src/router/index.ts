@@ -10,7 +10,8 @@ import Action from "@/views/Action.vue";
 import JeTu from "@/views/JeTu.vue";
 import Soins from "@/views/Soins.vue";
 import Noemie from "@/views/Noemie.vue";
-import Test from "@/views/Test.vue"
+import Test from "@/views/Test.vue";
+import ModalTest from "@/views/ModalTest.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
@@ -22,6 +23,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Accueil",
     path: "/accueil",
     component: Accueil,
+  },
+  {
+    name: "ModalTest",
+    path: "/ModalTest",
+    component: ModalTest,
   },
   {
     name: "AdminAccueil",

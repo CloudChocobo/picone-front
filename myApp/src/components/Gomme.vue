@@ -1,16 +1,10 @@
 <template>
   <div class="Gomme" >
      <div :id="id">
-       {{ description }}
-    <img src="../assets/effacerPhrase.png" alt="" />
-              <Carte
-                v-for="(carte, index) in panier"
-                :image="carte.image"
-                :description="carte.description"
-                :key="index"
-                @click="removeItemFromPanier(index)"
-              />
-    <button v-on:click="removeItemFromPanier(carte)"></button>
+   
+    <img src="../assets/effacerPhrase.png" alt="gomme" />
+      
+    <button @click="removeItemFromPanier(item.id)"></button>
   </div>
   </div>
 </template>
@@ -21,14 +15,18 @@ export default {
   name: "Gomme",
   props: ["id","description", "image" ],
  methods: {
-       removeItemFromPanier(index) {
-      this.panier.splice(index, 1);
-    },
-  },
+    //    removeItemFromPanier(index) {
+    //   this.panier.splice(index, 1);
+    // },
   //   removeItemFromPanier(carte) {
   //     this.$emit("removeItemFromPanier", carte);
   //  }
-  // methodRemoveItemFromPanier(id) {
+    //    removeItemFromPanier(index) {
+    //   this.$panier.dispatch('removeItemFronPanier',itemId);
+    // },
+  },
+
+  // emoveItemFromPanier(id) {
   //     console.log(id);
   //     if (this.Panier.lenght>1){
   //       this.item.pop()

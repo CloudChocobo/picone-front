@@ -17,11 +17,12 @@
             <div class="icone" @click="() => router.push('/nourriture')">
               <img src="../assets/action/dormir.png" alt="dormir" />
             </div>
+
           </GrilleImage>
         </div>
         <footer>
           <div class="rectangle_discussion">
-            <Discussion>poulet</Discussion>
+            <Discussion></Discussion>
           </div>
         </footer>
       </Page>
@@ -53,6 +54,7 @@ export default {
 
 
 <style scoped>
+
 .texte {
   display: flex;
   font-size: 50px;
@@ -63,13 +65,29 @@ export default {
   margin-top: 10px;
 }
 
+/* .icone {
+  margin-right: -90px;
+  margin-bottom: -15px;
+} */
+
+img {
+  /* max-width: 55%;
+  margin-top: 5%;
+  margin-right: 2%; */
+  /* width: 10%; */
+  border-radius: 55px;
+}
+
 .footer {
   margin-left: 10%;
 }
 .rectangle_discussion {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 2%;
+
+  /* font-size: 50px;
+  color: #536974; */
 }
 </style>
 
