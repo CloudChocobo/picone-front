@@ -111,6 +111,7 @@ export default {
   methods: {
     addItemToPanier(carte) {
       this.panier.push(carte);
+      //limit:3;
     },
     removeItemFromPanier() {
       //this.panier.splice(index, 1);

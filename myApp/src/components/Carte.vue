@@ -6,8 +6,8 @@
 
     <div class="cartes">
       <div :id="id">
-        <img :src="image" />
-        {{ description }}
+        <div><img :src="image" /></div>
+        <div>{{ description }} </div>
         <button v-on:click="addItemToPanier(carte)"></button>
       </div>
     </div>
@@ -34,18 +34,23 @@ export default {
 
 <style scoped>
 
-.cartes description {
-  font-size: 20px;
+.cartes {
+  font-size: 30px;
+  font-weight: bold;
+  color: #536974;
+  text-align: center;
+  overflow: hidden;
 }
 
 img {
-  /* text-align: center; */
-  /* align-items: row; */
-  /* display: inline-block; */
-  width: 55%;
-  
+  width: 100%;
+  object-fit:cover;
 }
 
-
+img :hover {
+  transform: scale(1.2);
+  border-radius: 55px;
+  border: 10px solid #202abb9d;
+}
 
 </style>
