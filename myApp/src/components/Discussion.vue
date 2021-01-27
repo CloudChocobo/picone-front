@@ -25,13 +25,13 @@ export default {
 .Discussion {
   /* display: grid; */
   width: 90%;
-  height: 210px;
+  height: 220px;
   background-color: #ffffff;
   border: 10px solid #8badbe;
   border-radius: 15px;
   position:absolute;
   bottom: 0;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .Selection {
   position: absolute;
@@ -50,6 +50,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-top: -10px;
   /* gap: 5px; */
 }
 
