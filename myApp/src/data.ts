@@ -17,7 +17,7 @@ export const libraryCartes = {
     nourriture:
         {
             fruits :{image: rootHebergementImage+"fruits.png", description: "fruits"},
-            legumes : {image:rootHebergementImage+"legumes.png", description: "legumes", redirectsTo:"legumes"},
+            legumes : {image:rootHebergementImage+"legumes.png", description: "legumes", redirectsTo:"Noemielegumes"},
             plats : {image: rootHebergementImage+"preparations.png",description:"plats"},
             boissons : {image:rootHebergementImage+"boissons.png", description: "boissons", redirectsTo:"boissons"},
             tacos : {image:rootHebergementImage+"tacos.png", description: "tacos"},
@@ -93,6 +93,14 @@ export const libraryCartes = {
             jusDeFruit : {image:rootHebergementImage+"jusDeFruit.png", description: "jus fruits"},
 
         },
+
+    legumes : 
+
+    {
+        tomate : {image:rootHebergementImage+"tomate.png", description: "tomate"},
+        aubergine: {image:rootHebergementImage+"aubergine.png", description: "aubergine"},
+        carotte : {image:rootHebergementImage+"carotte.png", description: "carotte"},
+    }
 
 };
 
