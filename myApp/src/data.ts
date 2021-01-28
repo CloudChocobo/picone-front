@@ -48,11 +48,11 @@ export const libraryCartes = {
 
     actions:
         {
-            seLaver: {image: rootHebergementImage + "seLaver.png", description: "se laver", redirectsTo:"corps"},
+            seLaver: {image: rootHebergementImage + "seLaver.png", description: "se laver", redirectsTo:"seLaver"},
             manger : {image:rootHebergementImage+"manger.png", description: "manger",redirectsTo:"Nourriture" },
             boire : {image: rootHebergementImage+"boire.png", description: "boire", redirectsTo:"Boissons"},
-            seSoigner : {image:rootHebergementImage+"seSoigner.png", description: "se soigner"},
-            toilettes : {image: rootHebergementImage+"allerAuxToilettes.png", description: "toilettes"},
+            seSoigner : {image:rootHebergementImage+"seSoigner.png", description: "soins", redirectsTo:"Soin"},
+            toilettes : {image: rootHebergementImage+"allerAuxToilettes.png", description: "besoins", redirectsTo:"wc"},
             dormir : {image: rootHebergementImage+"dormir.png", description: "dormir"},
             meLever : {image: rootHebergementImage+"seLever.png", description: "me lever"},
             //PLUS : {image: rootHebergementImage+"PLUS.png", description: "plus", redirectsTo:"actions2"},  
@@ -90,8 +90,8 @@ export const libraryCartes = {
             tacos : {image:rootHebergementImage+"tacos.png", description: "tacos"},
             //  croqueMonsieur : {image:rootHebergementImage+"croqueMonsieur.png", description: "croque monsieur"},
             //  taboule : {image:rootHebergementImage+"taboule.png", description: "taboulé"},
-            //  veloute : {image:rootHebergementImage+"veloute.png", description: "velouté"},
-            //  soupe : {image:rootHebergementImage+"soupe.png", description: "soupe"},
+            puree : {image:rootHebergementImage+"puree.png", description: "purée"},
+            soupe : {image:rootHebergementImage+"soupe.png", description: "soupe"},
      
         },
         
@@ -129,17 +129,17 @@ export const libraryCartes = {
             dos : {image:rootHebergementImage+"dos.png", description: "dos"},
             poitrine : {image:rootHebergementImage+"poitrine.png", description: "poitrine"},
             ventre : {image:rootHebergementImage+"ventre.png", description: "ventre"},
-            epaule : {image:rootHebergementImage+"epaule.png", description: "épaule"}
+            epaule : {image:rootHebergementImage+"epaule.png", description: "épaule"},
             // tete : {image:rootHebergementImage+"tete.png", description: "tête"},
         //  bras : {image:rootHebergementImage+"bras.png", description: "bras"},
          // jambes: {image:rootHebergementImage+"jambes.png", description: "j"mbes},
-        //  oreilles : {image:rootHebergementImage+"oreilles.png", description: "oreilles"},
+            oreilles : {image:rootHebergementImage+"oreilles.png", description: "oreilles"},
         //  nez : {image:rootHebergementImage+"nez.png", description: "nez"},
         //  pieds   : {image:rootHebergementImage+"pieds.png", description: "pieds"},
         //  doigts : {image:rootHebergementImage+"doigts.png", description: "doigts"},
          // bouche: {image:rootHebergementImage+"bouche.png", description: "bouche"},
-        //  yeux : {image:rootHebergementImage+"yeux.png", description: "yeux"},
-        ,
+           oeil : {image:rootHebergementImage+"oeil.png", description: "oeil"},
+        
             
         },
 
@@ -158,11 +158,12 @@ export const libraryCartes = {
             eau : {image:rootHebergementImage+"eau.png", description: "eau"},
             cafe : {image:rootHebergementImage+"cafe.png", description: "café"},
             jusDeFruit : {image:rootHebergementImage+"jusDeFruit.png", description: "jus fruits"},
-    //      vin : {image:rootHebergementImage+"vin.png", description: "vin"},
-        //  biere : {image:rootHebergementImage+"biere.png", description: "bière"},
+            vin : {image:rootHebergementImage+"vin.png", description: "vin"},
+            coca : {image:rootHebergementImage+"coca.png", description: "coca"},
+           // biere : {image:rootHebergementImage+"biere.png", description: "bière"},
          // lait: {image:rootHebergementImage+"lait.png", description: "lait"},
-        //  the : {image:rootHebergementImage+"the.png", description: "thé"},
-        //  chocolatChaud : {image:rootHebergementImage+"chocolatChaud.png", description: "chocolat chaud"},
+             the : {image:rootHebergementImage+"the.png", description: "thé"},
+         //chocolatChaud : {image:rootHebergementImage+"chocolatChaud.png", description: "chocolat chaud"},
         },
 
     legumes : 
@@ -187,16 +188,20 @@ export const libraryCartes = {
     fruits : 
 
      {
-          fruits :{image: rootHebergementImage+"fruits.png", description: "fruits"},
-    //     pomme : {image:rootHebergementImage+"pomme.png", description: "pomme"},
-    //     cerise: {image:rootHebergementImage+"cerise.png", description: "cerise"},
-    //     poire : {image:rootHebergementImage+"poire.png", description: "poire"},
-    //     banane : {image:rootHebergementImage+"banane.png", description: "banane"},
-    //     fraise : {image:rootHebergementImage+"fraise.png", description: "fraise"},
-    //     raisin : {image:rootHebergementImage+"raisin.png", description: "raisin"},
-    //     kiwi : {image:rootHebergementImage+"kiwi.png", description: "kiwi"},
-    //     pasteque : {image:rootHebergementImage+"pasteque.png", description: "pastèque"},
-     //     orange : {image:rootHebergementImage+"orange.png", description: "orange"},
+        fruits :{image: rootHebergementImage+"fruits.png", description: "fruits"},
+        pomme : {image:rootHebergementImage+"pomme.png", description: "pomme"},
+        cerise: {image:rootHebergementImage+"cerise.png", description: "cerise"},
+        poire : {image:rootHebergementImage+"poire.png", description: "poire"},
+        banane : {image:rootHebergementImage+"banane.png", description: "banane"},
+        fraise : {image:rootHebergementImage+"fraise.png", description: "fraise"},
+        raisin : {image:rootHebergementImage+"raisin.png", description: "raisin"},
+        kiwi : {image:rootHebergementImage+"kiwi.png", description: "kiwi"},
+     },
+     
+     fruits2 :
+     {
+        pasteque : {image:rootHebergementImage+"pasteque.png", description: "pastèque"},
+        orange : {image:rootHebergementImage+"orange.png", description: "orange"},
     //     citron : {image:rootHebergementImage+"citron.png", description: "citron"},
     //     mangue : {image:rootHebergementImage+"mangue.png", description: "mangue"},
     //     melon : {image:rootHebergementImage+"melon.png", description: "melon"},
@@ -205,10 +210,9 @@ export const libraryCartes = {
     //     framboise : {image:rootHebergementImage+"framboise.png", description: "framboise"},
      },
 
-
-   // vetements : 
-
-    // {
+   
+     vetements : 
+     {
     //     pull : {image:rootHebergementImage+"pull.png", description: "pull"},
     //     pantalon: {image:rootHebergementImage+"pantalon.png", description: "pantalon"},
     //     slip : {image:rootHebergementImage+"slip.png", description: "slip"},
@@ -218,56 +222,56 @@ export const libraryCartes = {
     //    gilet : {image:rootHebergementImage+"gilet.png", description: "gilet"},
     //     tShirt : {image:rootHebergementImage+"tShirt.png", description: "t-shirt"},
     //     soutienGorge : {image:rootHebergementImage+"soutienGorge.png", description: "soutien-gorge"},
-    // },
+    },
 
-     // dessert : 
+      dessert : 
 
-    // {
+    {
+        fruits :{image: rootHebergementImage+"fruits.png", description: "fruits"},
     //     gateau : {image:rootHebergementImage+"gateau.png", description: "gâteau"},
     //     chocolat: {image:rootHebergementImage+"chocolat.png", description: "chocolat"},
-    //     yaourt : {image:rootHebergementImage+"yaourt.png", description: "yaourt"},
-    //     fromage: {image:rootHebergementImage+"fromage.png", description: "fromage"},
+        yaourt : {image:rootHebergementImage+"yaourt.png", description: "yaourt"},
+        fromage: {image:rootHebergementImage+"fromage.png", description: "fromage"},
     //     compote : {image:rootHebergementImage+"compote.png", description: "compote"},
     //     tarte : {image:rootHebergementImage+"tarte.png", description: "tarte"},
     //    cremeDessert : {image:rootHebergementImage+"cremeDessert.png", description: "crème-dessert"},
     //     mousseAuChocolat : {image:rootHebergementImage+"mousseAuChocolat.png", description: "mousse au chocolat"},
-    // },
+    },
 
 
-      // seLaver : 
+      seLaver : 
 
-    // {
+     {
     //     savon : {image:rootHebergementImage+"savon.png", description: "savon"},
-    //     brosseADents: {image:rootHebergementImage+"brosseADents.png", description: "brosse à dents"},
+           brosseADents: {image:rootHebergementImage+"dentifriceBrosseADent.png", description: "brosse à dents"},
     //     peigne : {image:rootHebergementImage+"peigne.png", description: "peigne"},
     //     couche: {image:rootHebergementImage+"couche.png", description: "couche"},
     //     dentifrice : {image:rootHebergementImage+"dentifrice.png", description: "dentifrice"},
     //     shampoing: {image:rootHebergementImage+"shampoing.png", description: "shampoing"},
     //    rasoir : {image:rootHebergementImage+"rasoir.png", description: "rasoir"},
     //     laitCorporel : {image:rootHebergementImage+"laitCorporel.png", description: "lait corporel"},
-    // },
+     },
 
 
 
-       // soin : 
+        soin : 
 
-    // {
+     {
     //     piqure: {image:rootHebergementImage+"piqure.png", description: "piqûre"},
     //     medicaments: {image:rootHebergementImage+"medicaments.png", description: "médicaments"},
     //     bandages : {image:rootHebergementImage+"bandages.png", description: "bandages"},
     //     pansement: {image:rootHebergementImage+"pansement.png", description: "pansement"},
     
-    // },
+    },
 
 
 
-       // wc : 
+        wc : 
 
-    // {
-    //     uriner: {image:rootHebergementImage+"uriner.png", description: "uriner"},
-    //     defequer: {image:rootHebergementImage+"defequer.png", description: "déféquer"},
+     {
+    uriner: {image:rootHebergementImage+"uriner.png", description: "uriner"},
+      defequer: {image:rootHebergementImage+"defequer.png", description: "déféquer"},
    
-    
-    // },
+     },
 };
 
