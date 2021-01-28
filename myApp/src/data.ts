@@ -235,12 +235,12 @@ export const libraryCartes = {
      {
     //     pull : {image:rootHebergementImage+"pull.png", description: "pull"},
     //     pantalon: {image:rootHebergementImage+"pantalon.png", description: "pantalon"},
-    //     slip : {image:rootHebergementImage+"slip.png", description: "slip"},
+           slip : {image:rootHebergementImage+"slip.png", description: "slip"},
     //     robe : {image:rootHebergementImage+"robe.png", description: "robe"},
     //     jupe : {image:rootHebergementImage+"jupe.png", description: "jupe"},
     //     pyjamas : {image:rootHebergementImage+"pyjamas.png", description: "pyjamas"},
     //    gilet : {image:rootHebergementImage+"gilet.png", description: "gilet"},
-        tShirt : {image:rootHebergementImage+"tShirt.png", description: "t-shirt"},
+           tShirt : {image:rootHebergementImage+"tShirt.png", description: "t-shirt"},
     //     soutienGorge : {image:rootHebergementImage+"soutienGorge.png", description: "soutien-gorge"},
     },
 
