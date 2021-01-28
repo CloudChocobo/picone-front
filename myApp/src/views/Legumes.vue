@@ -75,10 +75,13 @@ export default {
     },
     doAction(carte){
       if(carte.redirectsTo){
-        this.$router.push("/"+carte.redirectsTo);
-      } else {
+        if (carte.description == "plus"){
+                  this.$router.push("/"+carte.redirectsTo);
+        } else {
         this.addItemToPanier(carte);
+        this.$router.push("/"+carte.redirectsTo);
       }
+    }}
     }
   },
    computed: { panier(){ return this.$store.state.panier } }

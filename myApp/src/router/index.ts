@@ -7,6 +7,7 @@ import Noemie from "@/views/Noemie.vue";
 import ModalTest from "@/views/ModalTest.vue";
 import Nourriture from "@/views/Nourriture.vue";
 import Actions from "@/views/Actions.vue";
+import Actions2 from "@/views/Actions2.vue";
 import Humeur from "@/views/Humeur.vue";
 import Interlocuteur from "@/views/Interlocuteur.vue";
 import DebutPhrase from "@/views/DebutPhrase.vue";
@@ -66,6 +67,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Actions",
     path: "/actions",
     component: Actions,
+  },
+       {
+    name: "Actions2",
+    path: "/actions2",
+    component: Actions2,
   },
      {
     name: "Humeur",

@@ -42,7 +42,7 @@ import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
 import {libraryCartes}  from "@/data.ts" ;
 export default {
-  name: "SeLaver",
+  name: "Actions2",
   components: {
     IonPage,
     IonContent,
@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cartes : libraryCartes.nourriture,
+      cartes : libraryCartes.actions2,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",

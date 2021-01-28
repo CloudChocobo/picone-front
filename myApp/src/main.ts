@@ -32,7 +32,7 @@ const store = createStore({
   },
   mutations: {
     addElementToPanier(state: any, elementAAjouter: any){
-      if(state.panier.length <3){
+      if(state.panier.length <4){
         state.panier.push(elementAAjouter);
       }
     },

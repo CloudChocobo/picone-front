@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cartes : libraryCartes.nourriture,
+      cartes : libraryCartes.actions,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -75,13 +75,15 @@ export default {
     },
     doAction(carte){
       if(carte.redirectsTo){
-        this.$router.push("/"+carte.redirectsTo);
-      } else {
+        if (carte.description == "plus"){
+                  this.$router.push("/"+carte.redirectsTo);
+        } else {
         this.addItemToPanier(carte);
+        this.$router.push("/"+carte.redirectsTo);
       }
-    }
+    }}
   },
-   computed: { panier(){ return this.$store.state.panier } }
+   computed: { panier(){ return this.$store.state.panier } },
 };
 </script>
 
