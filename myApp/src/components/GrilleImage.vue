@@ -13,7 +13,7 @@
   margin-bottom: -25px;
   margin-left: 15%;
   grid-column-gap: 15px;
-  grid-row-gap: 30px;
+  grid-row-gap: 50px;
   /* column-gap: 10px;
   row-gap: 10px; */
   /* justify-content: center; */

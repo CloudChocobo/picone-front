@@ -42,9 +42,9 @@ export default {
   /* overflow: hidden; */
 }
 
-/* .description{
-
-} */
+.description{
+  margin-top:-10px;
+}
 
 img {
   width: 100%;

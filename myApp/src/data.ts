@@ -55,6 +55,7 @@ export const libraryCartes = {
             toilettes : {image: rootHebergementImage+"allerAuxToilettes.png", description: "besoins", redirectsTo:"wc"},
             dormir : {image: rootHebergementImage+"dormir.png", description: "dormir"},
             meLever : {image: rootHebergementImage+"seLever.png", description: "me lever"},
+            sHabiller : {image: rootHebergementImage+"sHabiller.png", description: "s'habiller", redirectsTo:"vetements"},
             //PLUS : {image: rootHebergementImage+"PLUS.png", description: "plus", redirectsTo:"actions2"},  
            
         },
@@ -239,7 +240,7 @@ export const libraryCartes = {
     //     jupe : {image:rootHebergementImage+"jupe.png", description: "jupe"},
     //     pyjamas : {image:rootHebergementImage+"pyjamas.png", description: "pyjamas"},
     //    gilet : {image:rootHebergementImage+"gilet.png", description: "gilet"},
-    //     tShirt : {image:rootHebergementImage+"tShirt.png", description: "t-shirt"},
+        tShirt : {image:rootHebergementImage+"tShirt.png", description: "t-shirt"},
     //     soutienGorge : {image:rootHebergementImage+"soutienGorge.png", description: "soutien-gorge"},
     },
 
@@ -248,11 +249,11 @@ export const libraryCartes = {
     {
         fruits :{image: rootHebergementImage+"fruits.png", description: "fruits"},
         gateau : {image:rootHebergementImage+"gateau.png", description: "gâteau"},
-    //     chocolat: {image:rootHebergementImage+"chocolat.png", description: "chocolat"},
+        chocolat: {image:rootHebergementImage+"chocolat.png", description: "chocolat"},
         yaourt : {image:rootHebergementImage+"yaourt.png", description: "yaourt"},
         fromage: {image:rootHebergementImage+"fromage.png", description: "fromage"},
-    //     compote : {image:rootHebergementImage+"compote.png", description: "compote"},
-    //     tarte : {image:rootHebergementImage+"tarte.png", description: "tarte"},
+        compote : {image:rootHebergementImage+"compote.png", description: "compote"},
+        tarte : {image:rootHebergementImage+"tarte.png", description: "tarte"},
     //    cremeDessert : {image:rootHebergementImage+"cremeDessert.png", description: "crème-dessert"},
     //     mousseAuChocolat : {image:rootHebergementImage+"mousseAuChocolat.png", description: "mousse au chocolat"},
     },
