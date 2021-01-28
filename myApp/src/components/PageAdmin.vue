@@ -1,24 +1,23 @@
-
 <template>
-  <ion-page>
     <ion-content :fullscreen="false">
       <div class="page">
-        <MenuAdmin>testtesttest</MenuAdmin>
+        <MenuAdmin></MenuAdmin>
         <main>
           <slot></slot>
         </main>
       </div>
     </ion-content>
-  </ion-page>
 </template>
 
 <script>
+
 import MenuAdmin from "@/components/MenuAdmin.vue";
 export default {
   name: "PageAdmin",
   props: [],
   components: {
     MenuAdmin,
+   
   },
   methods: {},
   data() {

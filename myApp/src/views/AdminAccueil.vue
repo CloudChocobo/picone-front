@@ -1,11 +1,15 @@
 <template>
+<ion-page>
+  <ion-content :fullscreen="true">
   <PageAdmin>
     <ion-header>
       <ion-toolbar>
         <ion-buttons side="start">
           <ion-menu-button></ion-menu-button>
-        </ion-buttons>
+        <BackButton></BackButton>
         <ion-title> Home </ion-title>
+        </ion-buttons>
+        
       </ion-toolbar>
     </ion-header>
     <div class="texte">
@@ -15,14 +19,26 @@
       <img src="../assets/boutonMenu.png" alt="" />
     </div>
   </PageAdmin>
+  </ion-content>
+</ion-page>
 </template>
 
 <script>
+import BackButton from "@/components/BackButton.vue";
 import PageAdmin from "@/components/PageAdmin.vue";
-import { IonHeader, IonToolbar, IonTitle, IonMenuButton } from "@ionic/vue";
+import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton } from "@ionic/vue";
 export default {
   name: "AdminAccueil",
-  components: { PageAdmin, IonHeader, IonToolbar, IonTitle, IonMenuButton },
+  components: {
+    IonPage,
+    IonContent,
+    PageAdmin,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonMenuButton,
+    BackButton,
+  },
 };
 </script>
 
@@ -36,7 +52,14 @@ export default {
   text-align: center;
   margin-top: 10px;
 }
+ion-title {
+  justify-items: center;
+  font-size: 30px;
+  color: #536974;
+  position: relative;
+  text-align: center;
 
+}
 ion-toolbar {
   color: #536974;
 }
@@ -49,5 +72,10 @@ ion-buttons {
 .image {
   display: flex;
   margin-left: 250px;
+}
+.BackButton {
+  width: 5%;
+  margin-left: 3%;
+  margin-top: 2%;
 }
 </style>

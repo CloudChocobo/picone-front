@@ -1,20 +1,4 @@
 <template>
-  <!-- <ion-menu side="start" menu-id="first" content-id="main">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Paramètres</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Navigation</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu> -->
 
   <ion-menu
     side="start"
@@ -28,6 +12,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      
       <ion-list>
         <ion-item>Profil Patient</ion-item>
         <ion-item>Vitesse</ion-item>
@@ -36,25 +21,9 @@
         <ion-item>Configuration Tuiles</ion-item>
         <ion-item>Personnalisation photos</ion-item>
       </ion-list>
+    <BackButton></BackButton>
     </ion-content>
   </ion-menu>
-
-  <!-- <ion-menu side="end" type="push" content-id="main">
-    <ion-header>
-      <ion-toolbar color="danger">
-        <ion-title>End Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu> -->
 
   <ion-router-outlet id="main"></ion-router-outlet>
 </template>
@@ -73,6 +42,7 @@ import {
   menuController,
 } from "@ionic/vue";
 import { defineComponent } from "vue";
+import BackButton from "@/components/BackButton.vue";
 
 export default defineComponent({
   components: {
@@ -84,6 +54,7 @@ export default defineComponent({
     IonRouterOutlet,
     IonTitle,
     IonToolbar,
+    BackButton,
   },
   methods: {
     openFirst() {
@@ -116,5 +87,10 @@ ion-title {
 }
 .my-custom-menu {
   --width: 300px;
+}
+.BackButton {
+  width: 25%;
+  margin-left: 3%;
+  margin-top: 2%;
 }
 </style>
