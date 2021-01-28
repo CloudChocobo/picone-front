@@ -1,33 +1,33 @@
+
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2>
-        <div class="container">
-          <div
-            class="iconesInTopBar"
-            id="firstIcones"
-            v-for="(item, index) in items"
-            :key="index"
-            :class="{ selected: currentId === item.id }"
-          >
-            <img :src="require(`@/assets/${item.image}`)" alt="" />
-          </div>
-          <p>
-            Bonjour<br />
-            Comment vous sentez-vous?
-          </p>
-        </div>
-        <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
-        <div class="bidouille"></div>
-        <div
-          class="icone"
-          @click="() => router.push('/jeTu')"
-          v-for="(mood, index) in moods"
-          :key="index"
-          :class="{ selected: currentId === mood.id }"
-        >
-          <img :src="require(`@/assets/${mood.image}`)" alt="" />
-        </div>
+      <PageV2 @cancelLastAction="removeItemFromPanier">
+        <main>
+          <div class="texte">Choisissez un icône :</div>
+          <GrilleImage>
+            <Carte
+              v-for="(carte, index) in cartes"
+              :image="carte.image"
+              :description="carte.description"
+              :key="index"
+              @click="doAction(carte)"
+            />
+          </GrilleImage>
+        </main>
+
+        <footer>
+          <!-- <div class="rectangle_discussion"> -->
+          <Panier>
+            <Carte
+              v-for="(carte, index) in panier"
+              :image="carte.image" 
+              :description="carte.description" 
+              :key="index"
+            />
+          </Panier>
+          <!-- </div> -->
+        </footer>
       </PageV2>
     </ion-content>
   </ion-page>
@@ -37,147 +37,90 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
+import Carte from "@/components/Carte.vue";
+import Panier from "@/components/Panier.vue";
+import GrilleImage from "@/components/GrilleImage.vue";
+import {libraryCartes}  from "@/data.ts" ;
 export default {
-  name: "Humeur",
-  props: ["class"],
-
+  name: "Temps",
   components: {
     IonPage,
     IonContent,
     PageV2,
+    Carte,
+    Panier,
+    GrilleImage,
   },
-
-  data() {
-    return {
-      currentIndex: 0,
-      currentId: "",
-      items: [
-        {
-          image: "IconeMenu.png",
-          id:"IconeMenu",
-        },
-        {
-          image: "effacerPhrase.png",
-          id:"effacerPhrase",
-        },
-      ],
-      moods: [
-        {
-          image: "bien.png",
-          id:"bien",
-        },
-        {
-          image: "moyen.png",
-          id:"moyen",
-        },
-        {
-          image: "triste.png",
-          id:"triste",
-        },
-        {
-          image: "enerve.png",
-          id:"enerve",
-        },
-      ],
-    };
-  },
-
-  methods: {
-    startLoop() {
-      const selectables= this.items.concat(this.moods);
-      setInterval(() => {
-        this.currentIndex++;
-        if (this.currentIndex > selectables.length - 1) {
-          this.currentIndex = 0;
-        }
-        this.currentId = selectables[this.currentIndex].id;
-      }, 1500);
-    },
-
-    methodRouter(id) {
-      console.log(id);
-      this.router.push("/jeTu");
-    },
-
-    startEventListener(){
-      window.addEventListener("keyup", (event) => {
-        if (event.key === "Enter") {
-          this.methodRouter(this.currentId);
-        }
-        
-      });
-    }
-  },
-
+  props: [],
   setup() {
     const router = useRouter();
     return { router };
   },
 
-  mounted() {
-    this.startLoop();
-    this.startEventListener();
+  data: () => {
+    return {
+      cartes : libraryCartes.nourriture,
+      currentIndex: 0,
+      currentId: "",
+      discussion: "panier",
+    };
   },
+
+  methods: {
+    addItemToPanier(carte) {
+      this.$store.commit('addElementToPanier', carte);
+    },
+    removeItemFromPanier() {
+      this.$store.commit('removeElementFromPanier');
+    },
+    doAction(carte){
+      if(carte.redirectsTo){
+        this.$router.push("/"+carte.redirectsTo);
+      } else {
+        this.addItemToPanier(carte);
+      }
+    }
+  },
+   computed: { panier(){ return this.$store.state.panier } }
 };
 </script>
 
 <style scoped>
-.container {
-  font-size: 45px;
+.texte {
+  display: flex;
+  font-size: 50px;
+  margin-left: 27%;
   color: #536974;
+  position: relative;
   text-align: center;
-  /* margin-top: 60px; */
+  /* margin-top: 10px; */
+}
+
+.footer {
+  margin-left: 10%;
+}
+
+.rectangle_discussion {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
 }
 
 .bidouille {
   display: inline-block;
+  width: 2%;
+}
+
+.Discussion img {
+  margin-top: 1%;
   width: 17%;
 }
 
-div#firstIcones img {
-  width: 7%;
-  border-radius: 33%;
-}
+/* .Panier {
 
-.iconesInTopBar {
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  top: -80px;
-  left: -400px;
-  display: inline;
-}
+} */
 
-p {
-  position: relative;
-  top: -110px;
-}
-
-.icone {
-  display: inline;
-  position: relative;
-  top: -50px;
-}
-
-img {
-  max-width: 15%;
-  /* margin-top: 5%; */
-  margin-right: 2%;
-  border-radius: 55px;
-}
-
-img:hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-}
-
-.selected img {
-  transform: scale(1.2);
-  border: 10px solid #202abb9d;
-}
-
-/* #validation {
-  display: none;
+/* .rectangle_discussion .Discussion{
+  grid-template-rows: fit-content(40%);
 } */
 </style>

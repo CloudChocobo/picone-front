@@ -4,14 +4,14 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
-          <div class="texte">Choisissez votre aliment.</div>
+          <div class="texte">Choisissez un icône :</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"
               :image="carte.image"
               :description="carte.description"
               :key="index"
-              @click="addItemToPanier(carte)"
+              @click="doAction(carte)"
             />
           </GrilleImage>
         </main>
@@ -21,8 +21,8 @@
           <Panier>
             <Carte
               v-for="(carte, index) in panier"
-              :image="carte.image"
-              :description="carte.description"
+              :image="carte.image" 
+              :description="carte.description" 
               :key="index"
             />
           </Panier>
@@ -40,9 +40,9 @@ import PageV2 from "@/components/PageV2.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
-//import {nourriture} from "@/data.ts";
+import {libraryCartes}  from "@/data.ts" ;
 export default {
-  name: "NoemieNourriture",
+  name: "Soin",
   components: {
     IonPage,
     IonContent,
@@ -59,67 +59,29 @@ export default {
 
   data: () => {
     return {
+      cartes : libraryCartes.nourriture,
       currentIndex: 0,
       currentId: "",
-      items: [
-        {
-          image: "IconeMenu.png",
-          id: "IconeMenu",
-        },
-        {
-          image: "gomme.png",
-          id: "gomme",
-        },
-      ],
       discussion: "panier",
-      panier: [],
-      cartes: [
-        {
-          image: require("/src/assets/nourriture/poulet.png"),
-          description: "poulet",
-        },
-        {
-          image: require("/src/assets/nourriture/bretzel.png"),
-          description: "bretzel",
-        },
-        {
-          image: require("/src/assets/nourriture/poisson.png"),
-          description: "poisson",
-        },
-        {
-          image: require("/src/assets/nourriture/pomme.png"),
-          description: "pomme",
-        },
-          {
-          image: require("/src/assets/nourriture/petitpois.png"),
-          description: "petitpois",
-        },
-        {
-          image: require("/src/assets/nourriture/the.png"),
-          description: "thé",
-        },
-        {
-          image: require("/src/assets/nourriture/biere.png"),
-          description: "bière",
-        },
-        {
-          image: require("/src/assets/nourriture/pain.png"),
-          description: "pain",
-        },
-      ],
     };
   },
 
   methods: {
     addItemToPanier(carte) {
-      this.panier.push(carte);
+      this.$store.commit('addElementToPanier', carte);
     },
     removeItemFromPanier() {
-      //this.panier.splice(index, 1);
-      this.panier.pop();
-      console.log("coucou");
+      this.$store.commit('removeElementFromPanier');
     },
+    doAction(carte){
+      if(carte.redirectsTo){
+        this.$router.push("/"+carte.redirectsTo);
+      } else {
+        this.addItemToPanier(carte);
+      }
+    }
   },
+   computed: { panier(){ return this.$store.state.panier } }
 };
 </script>
 
@@ -127,11 +89,11 @@ export default {
 .texte {
   display: flex;
   font-size: 50px;
-  margin-left: 270px;
+  margin-left: 27%;
   color: #536974;
   position: relative;
   text-align: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .footer {
@@ -153,6 +115,10 @@ export default {
   margin-top: 1%;
   width: 17%;
 }
+
+/* .Panier {
+
+} */
 
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);

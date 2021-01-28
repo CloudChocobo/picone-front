@@ -1,37 +1,34 @@
+
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2>
-        <div class="container">
+      <PageV2 @cancelLastAction="removeItemFromPanier">
+        <main>
+          <div class="texte">Choisissez un icône :</div>
+          <GrilleImage>
+            <Carte
+              v-for="(carte, index) in cartes"
+              :image="carte.image"
+              :description="carte.description"
+              :key="index"
+              @click="doAction(carte)"
+            />
+          </GrilleImage>
+        </main>
 
-          <!-- Désactivation temporaire - icone de TopBar du défilement -->
-
-          <!-- <div
-            class="iconesInTopBar"
-            id="firstIcones"
-            v-for="(item, index) in items"
-            :key="index"
-            :class="{ selected: currentId === item.id }"
-          >
-            <img :src="require(`@/assets/${item.image}`)" alt="" />
-          </div> -->
-          <p>
-            Bonjour<br />
-            Quel est votre interlocuteur?
-          </p>
-        </div>
-        <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
-        <div class="bidouille"></div>
-        <div
-          class="icone"
-          @click="() => router.push('/jeTu')"
-          v-for="(speaker, index) in speakers"
-          :key="index"
-          :class="{ selected: currentId === speaker.id }"
-        >
-          <img :src="require(`@/assets/${speaker.image}`)" alt="" />
-        </div>
-  </PageV2>
+        <footer>
+          <!-- <div class="rectangle_discussion"> -->
+          <Panier>
+            <Carte
+              v-for="(carte, index) in panier"
+              :image="carte.image" 
+              :description="carte.description" 
+              :key="index"
+            />
+          </Panier>
+          <!-- </div> -->
+        </footer>
+      </PageV2>
     </ion-content>
   </ion-page>
 </template>
@@ -40,154 +37,90 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
+import Carte from "@/components/Carte.vue";
+import Panier from "@/components/Panier.vue";
+import GrilleImage from "@/components/GrilleImage.vue";
+import {libraryCartes}  from "@/data.ts" ;
 export default {
   name: "Interlocuteur",
-  props: ["class"],
-
   components: {
     IonPage,
     IonContent,
     PageV2,
+    Carte,
+    Panier,
+    GrilleImage,
   },
-   data() {
-    return {
-
-// Désactivation temporaire - icone de TopBar du défilement
-
-      // currentIndex: 0,
-      // currentId: "",
-      // items: [
-      //   {
-      //     image: "IconeMenu.png",
-      //     id: "IconeMenu",
-      //   },
-      //   {
-      //     image: "effacerPhrase.png",
-      //     id: "effacerPhrase",
-      //   },
-      //   {
-      //     image: "Back.png",
-      //     id: "Back",
-      //   },
-      // ],
-      speakers: [
-        {
-          image: "Proches.png",
-          id: "Proches",
-        },
-        {
-          image: "Medecin.png",
-          id: "Medecin",
-        },
-      ],
-    };
-  },
-
-   methods: {
-
-// Désactivation temporaire - icone de TopBar du défilement
-
-    // startLoop() {
-    //   const selectables = this.items.concat(this.moods);
-    //   setInterval(() => {
-    //     this.currentIndex++;
-    //     if (this.currentIndex > selectables.length - 1) {
-    //       this.currentIndex = 0;
-    //     }
-    //     this.currentId = selectables[this.currentIndex].id;
-    //   }, 1500);
-    // },
-
-    methodRouter() {
-      if (this.currentId === "Back") {
-        this.router.go(-1);
-      } else {
-        this.router.push("/jeTu");
-      }
-    },
-    // methodRouter(id) {
-    //   console.log(id);
-    //   this.router.push("/jeTu");
-    // },
-
-    startEventListener() {
-      window.addEventListener("keyup", (event) => {
-        if (event.key === "Enter") {
-          this.methodRouter();
-          // this.methodRouter(this.currentId);
-        }
-      });
-    },
-  },
-
-
- setup() {
+  props: [],
+  setup() {
     const router = useRouter();
     return { router };
   },
 
-  mounted() {
-
-// Désactivation temporaire - icone de TopBar du défilement
-
-    // this.startLoop();
-    this.startEventListener();
+  data: () => {
+    return {
+      cartes : libraryCartes.nourriture,
+      currentIndex: 0,
+      currentId: "",
+      discussion: "panier",
+    };
   },
+
+  methods: {
+    addItemToPanier(carte) {
+      this.$store.commit('addElementToPanier', carte);
+    },
+    removeItemFromPanier() {
+      this.$store.commit('removeElementFromPanier');
+    },
+    doAction(carte){
+      if(carte.redirectsTo){
+        this.$router.push("/"+carte.redirectsTo);
+      } else {
+        this.addItemToPanier(carte);
+      }
+    }
+  },
+   computed: { panier(){ return this.$store.state.panier } }
 };
 </script>
 
 <style scoped>
-.container {
-  font-size: 45px;
+.texte {
+  display: flex;
+  font-size: 50px;
+  margin-left: 27%;
   color: #536974;
+  position: relative;
   text-align: center;
+  /* margin-top: 10px; */
+}
+
+.footer {
+  margin-left: 10%;
+}
+
+.rectangle_discussion {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
 }
 
 .bidouille {
   display: inline-block;
-  width: 35%;
+  width: 2%;
 }
 
-div#firstIcones img {
-  width: 7%;
-  border-radius: 33%;
+.Discussion img {
+  margin-top: 1%;
+  width: 17%;
 }
 
-.iconesInTopBar {
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  top: -80px;
-  left: -447px;
-  display: inline;
-}
+/* .Panier {
 
-p {
-  position: relative;
-  top: -40px;
-}
+} */
 
-.icone {
-  display: inline;
-  position: relative;
-  top: -50px;
-}
-
-img {
-  max-width: 15%;
-  margin-right: 2%;
-  border-radius: 55px;
-}
-
-img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-}
-
-.selected img {
-  transform: scale(1.2);
-  border: 10px solid #202abb9d;
-}
-
+/* .rectangle_discussion .Discussion{
+  grid-template-rows: fit-content(40%);
+} */
 </style>

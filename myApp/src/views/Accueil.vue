@@ -26,7 +26,8 @@
           :key="index"
           :class="{ selected: currentId === choice.id }"
         >
-          <img :src="require(`@/assets/${choice.image}`)" alt="" />
+      <!-- <img :src="require(`${niveaubonus}${choice.image}`)" alt="" />    -->
+        <img :src="require(`@/assets/${choice.image}`)" alt="" />
         </div>
       </PageV2>
     </ion-content>
@@ -37,6 +38,7 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
+
 export default {
   name: "Accueil",
   props: ["class"],
@@ -67,14 +69,15 @@ export default {
       //     id: "effacerPhrase",
       //   },
       // ],
+      //niveaubonus : "https://niveaubonus.fr/picone/src/icones/",
       choices: [
         {
           image: "Conversation.png",
           id: "Conversation",
         },
         {
-          image: "IconeParam.png",
-          id: "IconeParam",
+          image: "boutonMenu.png",
+          id: "BoutonMenu",
         },
       ],
     };
@@ -180,3 +183,127 @@ img :hover {
 }
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

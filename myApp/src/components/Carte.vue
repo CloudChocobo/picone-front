@@ -7,7 +7,7 @@
     <div class="cartes">
       <div :id="id">
         <div><img :src="image" /></div>
-        <div>{{ description }} </div>
+        <div class="description">{{ description }} </div>
         <button v-on:click="addItemToPanier(carte)"></button>
       </div>
     </div>
@@ -41,6 +41,10 @@ export default {
   text-align: center;
   /* overflow: hidden; */
 }
+
+/* .description{
+
+} */
 
 img {
   width: 100%;

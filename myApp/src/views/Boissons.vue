@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
-          <div class="texte">Phrase qui me fait ...</div>
+          <div class="texte">Choisissez un icône :</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"
@@ -42,7 +42,7 @@ import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
 import {libraryCartes}  from "@/data.ts" ;
 export default {
-  name: "NoemieLegumes",
+  name: "Boissons",
   components: {
     IonPage,
     IonContent,
@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cartes : libraryCartes.legumes,
+      cartes : libraryCartes.boissons,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",

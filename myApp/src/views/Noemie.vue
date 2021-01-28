@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
-          <div class="texte">Phrase qui me fait ...</div>
+          <div class="texte">Choisissez un icône :</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"

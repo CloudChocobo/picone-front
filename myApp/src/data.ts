@@ -1,6 +1,51 @@
 export const rootHebergementImage = "https://niveaubonus.fr/picone/src/icones/";
 export const libraryCartes = {
      
+    // pour ajouter un nouvel ensemble d'icone :
+    // créer un nouveau pattern ici
+    // créer le fichier .vue dans views correspondant au nom du pattern (exemple : "actions" a son propre fichier .vue)
+    // attention maximum 8 lignes par pattern
+    // la clé redirectsTo permet de créer  un routing vers un nouveau fichier .vue lorque l'on clique sur l'icone
+    // si pas de redirectsTo => pas de routing, l'icone s'ajoute dans le panier sans changer de routing
+    // redirectsTo doit comporter le nom exact du fichier .vue visé (exemple : " redirectsTo: "Légumes" "pour faire le routing vers "Légumes.vue" )
+    // donc attention aux majuscules/minuscules
+
+    /*
+    Dans le fichier .vue créer correspondant au nom du pattern, pensez à modifier le chemin vers le bon endroit dans libraryCarte importé dans data ()
+    "
+     data: () => {
+    return {
+      cartes : libraryCartes.objets,  <============ ici, pensez à changer le nom du pattern visé (exemple : si vous voulez utilisez fruits, écrivez : "libraryCartes.fruits")
+      currentIndex: 0,
+      currentId: "",
+      discussion: "panier",
+    };
+    "
+  },
+    */
+
+   humeur :
+   {
+       
+       smileyTriste : {image:rootHebergementImage+"smileyTriste.png", description: "triste",redirectsTo:"debutPhrase"},
+       smileyMalade : {image:rootHebergementImage+"smileyMalade.png", description: "malade",redirectsTo:"debutPhrase"},
+       smileyMoyen : {image:rootHebergementImage+"smileyMoyen.png", description: "moyen",redirectsTo:"debutPhrase"},
+       smileyDormir : {image:rootHebergementImage+"smileyDormir.png", description: "fatigué",redirectsTo:"debutPhrase"},
+       
+
+   },
+
+   debutPhrase:
+   {
+       je: {image: rootHebergementImage + "je.png", description: "je",redirectsTo:"Actions"},
+       tu : {image:rootHebergementImage+"tu.png", description: "tu",redirectsTo:"Actions"},
+       oui : {image: rootHebergementImage+"oui.png", description: "oui",redirectsTo:"Actions"},
+       non : {image: rootHebergementImage+"non.png", description: "non",redirectsTo:"Actions"},
+       merci : {image:rootHebergementImage+"merci.png", description: "merci",redirectsTo:"Actions"},
+
+   },
+   
+
     actions:
         {
             seLaver: {image: rootHebergementImage + "seLaver.png", description: "se laver"},
@@ -10,14 +55,15 @@ export const libraryCartes = {
             toilettes : {image: rootHebergementImage+"allerAuxToilettes.png", description: "toilettes"},
             dormir : {image: rootHebergementImage+"dormir.png", description: "dormir"},
             meLever : {image: rootHebergementImage+"meLever.png", description: "me lever"},
-            marcher : {image: rootHebergementImage+"marcher.png", description: "marcher"}
+            marcher : {image: rootHebergementImage+"marcher.png", description: "marcher"},
+            avoirFaim : {image:rootHebergementImage+"avoirFaim.png", description: "avoir faim"},
 
         },
 
     nourriture:
         {
-            fruits :{image: rootHebergementImage+"fruits.png", description: "fruits"},
-            legumes : {image:rootHebergementImage+"legumes.png", description: "legumes", redirectsTo:"Noemielegumes"},
+            fruits :{image: rootHebergementImage+"fruits.png", description: "fruits", redirectsTo:"fruits"},
+            legumes : {image:rootHebergementImage+"legumes.png", description: "legumes", redirectsTo:"legumes"},
             plats : {image: rootHebergementImage+"preparations.png",description:"plats"},
             boissons : {image:rootHebergementImage+"boissons.png", description: "boissons", redirectsTo:"boissons"},
             tacos : {image:rootHebergementImage+"tacos.png", description: "tacos"},
@@ -31,8 +77,8 @@ export const libraryCartes = {
             yaourt : {image:rootHebergementImage+"yaourt.png", description: "yaourt"}
 
         },
-//
-        douleur :
+        
+    douleur :
             {
                 smileyTriste : {image: rootHebergementImage+"smileyTriste.png", description: "triste"},
                 smileyMalade : {image:rootHebergementImage+"smileyMalade.png", description: "malade"},
@@ -41,15 +87,7 @@ export const libraryCartes = {
 
             },
 
-        sensations :
-            {
-                avoirFaim : {image:rootHebergementImage+"avoirFaim.png", description: "avoir faim"},
-                smileyTriste : {image:rootHebergementImage+"smileyTriste.png", description: "triste"},
-                smileyMalade : {image:rootHebergementImage+"smileyMalade.png", description: "malade"},
-                smileyDormir : {image:rootHebergementImage+"smileyDormir.png", description: "fatigué"},
-                allerAuxToilettes : {image:rootHebergementImage+"allerAuxToilettes.png", description: "toilettes"}
 
-            },
 
     objets :
         {
@@ -100,7 +138,8 @@ export const libraryCartes = {
         tomate : {image:rootHebergementImage+"tomate.png", description: "tomate"},
         aubergine: {image:rootHebergementImage+"aubergine.png", description: "aubergine"},
         carotte : {image:rootHebergementImage+"carotte.png", description: "carotte"},
-    }
+    },
+
 
 };
 

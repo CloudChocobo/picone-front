@@ -4,13 +4,14 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
+          <div class="texte">Choisissez un icône :</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"
               :image="carte.image"
               :description="carte.description"
               :key="index"
-              @click="addItemToPanier(carte)"
+              @click="doAction(carte)"
             />
           </GrilleImage>
         </main>
@@ -20,8 +21,8 @@
           <Panier>
             <Carte
               v-for="(carte, index) in panier"
-              :image="carte.image"
-              :description="carte.description"
+              :image="carte.image" 
+              :description="carte.description" 
               :key="index"
             />
           </Panier>
@@ -39,9 +40,9 @@ import PageV2 from "@/components/PageV2.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
-//import {jetu} from "@/data.ts";
+import {libraryCartes}  from "@/data.ts" ;
 export default {
-  name: "NoemieJeTu",
+  name: "Legumes",
   components: {
     IonPage,
     IonContent,
@@ -58,67 +59,29 @@ export default {
 
   data: () => {
     return {
+      cartes : libraryCartes.legumes,
       currentIndex: 0,
       currentId: "",
-      // items: [
-      //   {
-      //     image: "IconeMenu.png",
-      //     id: "IconeMenu",
-      //   },
-      //   {
-      //     image: "gomme.png",
-      //     id: "gomme",
-      //   },
-      // ],
       discussion: "panier",
-      panier: [],
-      cartes: [
-        {
-          image: require("/src/assets/bien.png"),
-          description: "bien",
-        },
-        {
-          image: require("/src/assets/moyen.png"),
-          description: "moyen",
-        },
-        {
-          image: require("/src/assets/triste.png"),
-          description: "triste",
-        },
-        {
-          image: require("/src/assets/enerve.png"),
-          description: "enerve",
-        },
-        {
-          image: require("/src/assets/bien.png"),
-          description: "bien",
-        },
-        {
-          image: require("/src/assets/moyen.png"),
-          description: "moyen",
-        },
-        {
-          image: require("/src/assets/triste.png"),
-          description: "triste",
-        },
-        {
-          image: require("/src/assets/enerve.png"),
-          description: "enerve",
-        },
-      ],
     };
   },
 
   methods: {
     addItemToPanier(carte) {
-      this.panier.push(carte);
+      this.$store.commit('addElementToPanier', carte);
     },
     removeItemFromPanier() {
-      //this.panier.splice(index, 1);
-      this.panier.pop();
-      console.log("coucou");
+      this.$store.commit('removeElementFromPanier');
     },
+    doAction(carte){
+      if(carte.redirectsTo){
+        this.$router.push("/"+carte.redirectsTo);
+      } else {
+        this.addItemToPanier(carte);
+      }
+    }
   },
+   computed: { panier(){ return this.$store.state.panier } }
 };
 </script>
 
@@ -126,11 +89,11 @@ export default {
 .texte {
   display: flex;
   font-size: 50px;
-  margin-left: 270px;
+  margin-left: 27%;
   color: #536974;
   position: relative;
   text-align: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .footer {

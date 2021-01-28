@@ -12,7 +12,7 @@
       <p>Bienvenue dans les paramètres</p>
     </div>
     <div class="image">
-      <img src="../assets/IconeParam.png" alt="" />
+      <img src="../assets/boutonMenu.png" alt="" />
     </div>
   </PageAdmin>
 </template>

@@ -1,34 +1,34 @@
+
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <Page @cancelLastAction="removeItemFromPanier">
-        <div class="texte">Choisissez votre élément.</div>
-        <div class="container">
+      <PageV2 @cancelLastAction="removeItemFromPanier">
+        <main>
+          <div class="texte">Choisissez un icône :</div>
           <GrilleImage>
-            <!--<div class="icone" @click="() => router.push('/interlocuteur')"> -->
-            <img src="../assets/nourriture/pomme.png" alt="pomme" />
-            <img src="../assets/nourriture/pain.png" alt="pain" />
-            <img src="../assets/nourriture/poisson.png" alt="poisson" />
-            <img src="../assets/nourriture/petitpois.png" alt="petit_pois" />
-            <img src="../assets/nourriture/pasteque.png" alt="pasteque" />
-            <img src="../assets/nourriture/poulet.png" alt="poulet" />
-            <img src="../assets/nourriture/biere.png" alt="biere" />
-            <img src="../assets/nourriture/the.png" alt="the" />
+            <Carte
+              v-for="(carte, index) in cartes"
+              :image="carte.image"
+              :description="carte.description"
+              :key="index"
+              @click="doAction(carte)"
+            />
           </GrilleImage>
-        </div>
+        </main>
+
         <footer>
-          <div class="rectangle_discussion">
-            <Discussion>
-              <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
-              <div class="bidouille"></div>
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
-              <img src="../assets/nourriture/poulet.png" alt="poulet" />
-            </Discussion>
-          </div>
+          <!-- <div class="rectangle_discussion"> -->
+          <Panier>
+            <Carte
+              v-for="(carte, index) in panier"
+              :image="carte.image" 
+              :description="carte.description" 
+              :key="index"
+            />
+          </Panier>
+          <!-- </div> -->
         </footer>
-      </Page>
+      </PageV2>
     </ion-content>
   </ion-page>
 </template>
@@ -36,43 +36,64 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import Page from "@/components/Page.vue";
-import Discussion from "@/components/Discussion.vue";
+import PageV2 from "@/components/PageV2.vue";
+import Carte from "@/components/Carte.vue";
+import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
+import {libraryCartes}  from "@/data.ts" ;
 export default {
   name: "Nourriture",
   components: {
     IonPage,
     IonContent,
-    Page,
+    PageV2,
+    Carte,
+    Panier,
     GrilleImage,
-    Discussion,
   },
+  props: [],
   setup() {
     const router = useRouter();
     return { router };
   },
-    //   addItemToPanier(carte) {
-    //   this.panier.push(carte);
-    // },
-    // removeItemFromPanier(index) {
-    //   this.panier.splice(index, 1);
-    // },
 
-    
+  data: () => {
+    return {
+      cartes : libraryCartes.nourriture,
+      currentIndex: 0,
+      currentId: "",
+      discussion: "panier",
+    };
+  },
+
+  methods: {
+    addItemToPanier(carte) {
+      this.$store.commit('addElementToPanier', carte);
+    },
+    removeItemFromPanier() {
+      this.$store.commit('removeElementFromPanier');
+    },
+    doAction(carte){
+      if(carte.redirectsTo){
+        this.$router.push("/"+carte.redirectsTo);
+      } else {
+        this.addItemToPanier(carte);
+      }
+    }
+  },
+   computed: { panier(){ return this.$store.state.panier } }
 };
 </script>
-
 
 <style scoped>
 .texte {
   display: flex;
   font-size: 50px;
-  margin-left: 270px;
+  margin-left: 27%;
   color: #536974;
   position: relative;
   text-align: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .footer {
@@ -95,8 +116,11 @@ export default {
   width: 17%;
 }
 
+/* .Panier {
+
+} */
+
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);
 } */
 </style>
-
