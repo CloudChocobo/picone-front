@@ -100,7 +100,7 @@ export const libraryCartes = {
     //             smileyTriste : {image: rootHebergementImage+"smileyTriste.png", description: "triste"},
     //             smileyMalade : {image:rootHebergementImage+"smileyMalade.png", description: "malade"},
     //             smileyDormir : {image:rootHebergementImage+"smileyDormir.png", description: "fatigué"},
-    //             allerAuxToilettes : {image:rootHebergementImage+"allerAuxToilettes.png", description: "toilettes"}
+    //             
 
     //         },
 
@@ -120,7 +120,8 @@ export const libraryCartes = {
             lit : {image:rootHebergementImage+"lit.png", description: "lit"},
             chaise : {image:rootHebergementImage+"telecommande.png", description: "chaise"},
             table : {image:rootHebergementImage+"bouteille.png", description: "table"},
-            tableDeChevet : {image:rootHebergementImage+"tableDeChevet.png", description: "table chevet"}
+            tableDeChevet : {image:rootHebergementImage+"tableDeChevet.png", description: "table chevet"},
+            fauteuil : {image:rootHebergementImage+"fauteuil.png", description: "fauteuil"}
 
         },
 
@@ -134,7 +135,13 @@ export const libraryCartes = {
             bras : {image:rootHebergementImage+"bras.png", description: "bras"},
             jambes: {image:rootHebergementImage+"jambe.png", description: "jambes"},
             oreilles : {image:rootHebergementImage+"oreilles.png", description: "oreilles"},
-        //  nez : {image:rootHebergementImage+"nez.png", description: "nez"},
+        
+         },
+
+         corps2 :
+         
+         {
+                     //  nez : {image:rootHebergementImage+"nez.png", description: "nez"},
         //  pieds   : {image:rootHebergementImage+"pieds.png", description: "pieds"},
         //  doigts : {image:rootHebergementImage+"doigts.png", description: "doigts"},
          // bouche: {image:rootHebergementImage+"bouche.png", description: "bouche"},
@@ -149,6 +156,8 @@ export const libraryCartes = {
                 medecin : {image:rootHebergementImage+"medecin.png", description: "médecin"},
                 proches : {image:rootHebergementImage+"proches.png", description: "proches"}
         //     petitEnfant : {image:rootHebergementImage+"petitEnfant.png", description: "petit-enfant"},
+         //     fille : {image:rootHebergementImage+"fille.png", description: "fille"},
+          //     garcon : {image:rootHebergementImage+"garcon.png", description: "garçon"},
 
             },
 
@@ -178,10 +187,11 @@ export const libraryCartes = {
         tomate : {image:rootHebergementImage+"tomate.png", description: "tomate"},
         aubergine: {image:rootHebergementImage+"aubergine.png", description: "aubergine"},
         carotte : {image:rootHebergementImage+"carotte.png", description: "carotte"},
-    //  patate : {image:rootHebergementImage+"patate.png", description: "patate"},
-    //  petitPois : {image:rootHebergementImage+"petitPois.png", description: "petit pois"},
-    //  haricot : {image:rootHebergementImage+"haricot.png", description: "haricot"},
+        patate : {image:rootHebergementImage+"patate.png", description: "patate"},
+        petitPois : {image:rootHebergementImage+"petitPois.png", description: "petit pois"},
+        haricotVert : {image:rootHebergementImage+"haricotVert.png", description: "haricot"},
     //  poivron : {image:rootHebergementImage+"poivron.png", description: "poivron"},
+},
 
 // legumes2 :
 //{
@@ -191,7 +201,8 @@ export const libraryCartes = {
     //  asperge : {image:rootHebergementImage+"asperge.png", description: "asperge"},
     //  chou : {image:rootHebergementImage+"chou.png", description: "chou"},
     //  navet : {image:rootHebergementImage+"navet.png", description: "navet"},
-    },
+    //  },
+
     
     fruits : 
 
@@ -215,7 +226,7 @@ export const libraryCartes = {
     //     melon : {image:rootHebergementImage+"melon.png", description: "melon"},
     //     peche : {image:rootHebergementImage+"peche.png", description: "pêche"},
     //     prune : {image:rootHebergementImage+"prune.png", description: "prune"},
-    //     framboise : {image:rootHebergementImage+"framboise.png", description: "framboise"},
+        framboise : {image:rootHebergementImage+"framboise.png", description: "framboise"},
      },
 
    
@@ -236,7 +247,7 @@ export const libraryCartes = {
 
     {
         fruits :{image: rootHebergementImage+"fruits.png", description: "fruits"},
-    //     gateau : {image:rootHebergementImage+"gateau.png", description: "gâteau"},
+        gateau : {image:rootHebergementImage+"gateau.png", description: "gâteau"},
     //     chocolat: {image:rootHebergementImage+"chocolat.png", description: "chocolat"},
         yaourt : {image:rootHebergementImage+"yaourt.png", description: "yaourt"},
         fromage: {image:rootHebergementImage+"fromage.png", description: "fromage"},
@@ -250,12 +261,12 @@ export const libraryCartes = {
       seLaver : 
 
      {
-    //     savon : {image:rootHebergementImage+"savon.png", description: "savon"},
+           douche : {image:rootHebergementImage+"douche.png", description: "se doucher"},
            brosseADents: {image:rootHebergementImage+"dentifriceBrosseADent.png", description: "brosse à dents"},
     //     peigne : {image:rootHebergementImage+"peigne.png", description: "peigne"},
     //     couche: {image:rootHebergementImage+"couche.png", description: "couche"},
     //     dentifrice : {image:rootHebergementImage+"dentifrice.png", description: "dentifrice"},
-    //     shampoing: {image:rootHebergementImage+"shampoing.png", description: "shampoing"},
+            laverMain: {image:rootHebergementImage+"laverMain.png", description: "laver main"},
     //    rasoir : {image:rootHebergementImage+"rasoir.png", description: "rasoir"},
     //     laitCorporel : {image:rootHebergementImage+"laitCorporel.png", description: "lait corporel"},
      },
@@ -266,9 +277,9 @@ export const libraryCartes = {
 
      {
     //     piqure: {image:rootHebergementImage+"piqure.png", description: "piqûre"},
-    //     medicaments: {image:rootHebergementImage+"medicaments.png", description: "médicaments"},
-    //     bandages : {image:rootHebergementImage+"bandages.png", description: "bandages"},
-    //     pansement: {image:rootHebergementImage+"pansement.png", description: "pansement"},
+           medicaments: {image:rootHebergementImage+"medicaments.png", description: "médicaments"},
+     //      bandages : {image:rootHebergementImage+"bandages.png", description: "bandages"},
+        pansement: {image:rootHebergementImage+"pansement.png", description: "pansement"},
     
     },
 

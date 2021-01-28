@@ -5,8 +5,9 @@
         <slot></slot>
       </div>
       <div class="fin">
-        <Point></Point>
-        <Interrogation></Interrogation>
+        <Point 
+        @click="() => router.push('/debutPhrase')"></Point>
+        <Interrogation @click="() => router.push('/debutPhrase')"></Interrogation>
       </div>
     </div>
   </div>
@@ -15,11 +16,27 @@
 <script>
 import Point from "@/components/Point.vue";
 import Interrogation from "@/components/Interrogation.vue";
+import { useRouter } from "vue-router";
 export default {
   name: "Discussion",
-  components: { Point, Interrogation },
+  components: { 
+    Point,
+    Interrogation,
+    },
+    methodRouter() {
+      this.router.push("/debutPhrase");
+    },
+  setup() {
+    const router = useRouter();
+    return { router };
+  },
 };
+
+
 </script>
+
+
+
  <!-- css a revoir pour le placement   -->
     <style scoped>
 .Discussion {

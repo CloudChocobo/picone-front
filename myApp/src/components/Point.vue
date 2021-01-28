@@ -1,10 +1,11 @@
 <template>
   <div class="Point">
-    <img src="../assets/affirmation.png" alt="" />
+    <img src="../assets/affirmation.png" />
   </div>
 </template>
 
 <script>
+
 export default {
   name: "Point",
 };
