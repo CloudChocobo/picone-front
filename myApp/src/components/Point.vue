@@ -1,6 +1,7 @@
 <template>
   <div class="Point">
     <img src="../assets/affirmation.png" />
+   
   </div>
 </template>
 
@@ -8,6 +9,12 @@
 
 export default {
   name: "Point",
+  props: [],
+  methods: {}
 };
+
+
+
+
 </script>
 

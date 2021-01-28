@@ -6,8 +6,8 @@
       </div>
       <div class="fin">
         <Point 
-        @click="() => router.push('/debutPhrase')"></Point>
-        <Interrogation @click="() => router.push('/debutPhrase')"></Interrogation>
+        @click="() => router.push('/recapitulatif')"></Point>
+     
       </div>
     </div>
   </div>
@@ -15,13 +15,12 @@
 
 <script>
 import Point from "@/components/Point.vue";
-import Interrogation from "@/components/Interrogation.vue";
+
 import { useRouter } from "vue-router";
 export default {
   name: "Discussion",
   components: { 
     Point,
-    Interrogation,
     },
     methodRouter() {
       this.router.push("/debutPhrase");
@@ -40,7 +39,6 @@ export default {
  <!-- css a revoir pour le placement   -->
     <style scoped>
 .Discussion {
-  /* display: grid; */
   width: 90%;
   height: 220px;
   background-color: #ffffff;
@@ -73,7 +71,7 @@ export default {
 
 .Point {
   width: 10%;
-  margin-top: 2%;
+  margin-top: 10%;
   margin-right: 2%;
 }
 

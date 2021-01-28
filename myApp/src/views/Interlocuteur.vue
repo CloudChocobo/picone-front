@@ -2,10 +2,10 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2 @cancelLastAction="removeItemFromPanier">
+      <PageV3>
         <main>
           <div class="texte">Choisissez votre interlocuteur :</div>
-          <GrilleImage>
+          <div class="grille"><GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"
               :image="carte.image"
@@ -13,7 +13,7 @@
               :key="index"
               @click="doAction(carte)"
             />
-          </GrilleImage>
+          </GrilleImage></div>
         </main>
 
         <footer>
@@ -28,7 +28,7 @@
           </Panier>
           <!-- </div> -->
         </footer>
-      </PageV2>
+      </PageV3>
     </ion-content>
   </ion-page>
 </template>
@@ -36,7 +36,7 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageV2 from "@/components/PageV2.vue";
+import PageV3 from "@/components/PageV3.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
 import GrilleImage from "@/components/GrilleImage.vue";
@@ -46,7 +46,7 @@ export default {
   components: {
     IonPage,
     IonContent,
-    PageV2,
+    PageV3,
     Carte,
     Panier,
     GrilleImage,
@@ -89,11 +89,16 @@ export default {
 .texte {
   display: flex;
   font-size: 50px;
-  margin-left: 27%;
+  margin-left: 19%;
   color: #536974;
   position: relative;
   text-align: center;
   /* margin-top: 10px; */
+}
+
+.grille {
+  margin-top:30px;
+  margin-left:22%;
 }
 
 .footer {
@@ -116,11 +121,8 @@ export default {
   width: 17%;
 }
 
-/* .Panier {
+footer{ 
+  display: none;
+  }
 
-} */
-
-/* .rectangle_discussion .Discussion{
-  grid-template-rows: fit-content(40%);
-} */
 </style>

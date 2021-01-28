@@ -40,8 +40,21 @@ const store = createStore({
       if(state.panier.length > 0){
         state.panier.pop();
       }
-    }
-  },
+    },
+      clearPanier(state: any){
+        console.log(state.panier[0]);
+        
+          //return state.panier.splice(0, state.panier.length)
+          //state.panier.splice(0);
+          //state.panier.map((x: any) => x.splice())
+          for (let i=0; i<state.panier.length; i++ ){
+            delete state.panier[i];
+          }
+    
+},
+    },
+
+
   getters: {
     contenuPanier (state) {
       return state.panier;

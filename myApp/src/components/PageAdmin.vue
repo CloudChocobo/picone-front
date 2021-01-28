@@ -34,4 +34,5 @@ export default {
   width: 10%;
   background: #8badbe;
 }
+
 </style>

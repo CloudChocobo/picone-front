@@ -22,12 +22,10 @@ export default {
 
 <style scoped>
 
-/* MODIF */
-img:hover {
+/* img:hover {
   transform: scale(1.2);
   border-radius: 10px;
   border: 5px solid #202abb9d;
-}
-/* MODIF */
+} */
 
 </style>

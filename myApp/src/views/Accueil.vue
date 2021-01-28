@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2>
+      <PageV3>
         <div class="container">
 
           <!-- Désactivation temporaire - icone de TopBar du défilement -->
@@ -32,7 +32,7 @@
       <!-- <img :src="require(`${niveaubonus}${choice.image}`)" alt="" />    -->
         <!-- <img :src="require(`@/assets/${choice.image}`)" alt="" /> -->
         </div>
-      </PageV2>
+      </PageV3>
     </ion-content>
   </ion-page>
 </template>
@@ -40,7 +40,7 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageV2 from "@/components/PageV2.vue";
+import PageV3 from "@/components/PageV3.vue";
 
 export default {
   name: "Accueil",
@@ -49,7 +49,7 @@ export default {
   components: {
     IonPage,
     IonContent,
-    PageV2,
+    PageV3,
   },
 
   data() {

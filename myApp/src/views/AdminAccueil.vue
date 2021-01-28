@@ -7,7 +7,7 @@
         <ion-buttons side="start">
           <ion-menu-button></ion-menu-button>
         <BackButton></BackButton>
-        <ion-title> Home </ion-title>
+        <ion-title></ion-title>
         </ion-buttons>
         
       </ion-toolbar>
@@ -50,7 +50,7 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
-  margin-top: 10px;
+  margin-top: -4%;
 }
 ion-title {
   justify-items: center;
@@ -62,6 +62,7 @@ ion-title {
 }
 ion-toolbar {
   color: #536974;
+  height:90px;
 }
 ion-buttons {
   background: #8badbe;
@@ -69,13 +70,20 @@ ion-buttons {
 .toolbar-container {
   background: #8badbe;
 }
+
 .image {
   display: flex;
   margin-left: 250px;
 }
 .BackButton {
-  width: 5%;
+  width: 8%;
   margin-left: 3%;
   margin-top: 2%;
 }
+
+/* .button-inner {
+  width: 25%;
+  margin-left: 3%;
+  margin-top: 2%;
+} */
 </style>

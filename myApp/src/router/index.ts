@@ -25,6 +25,7 @@ import Douleurs from "@/views/Douleurs.vue";
 import Dessert from "@/views/Dessert.vue";
 import SeLaver from "@/views/SeLaver.vue";
 import Objets from "@/views/Objets.vue";
+import Recapitulatif from "@/views/Recapitulatif.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
@@ -158,6 +159,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Objets",
     path: "/objets",
     component: Objets,
+  }, 
+               {
+    name: "Recapitulatif",
+    path: "/recapitulatif",
+    component: Recapitulatif,
   }, 
 ]
 

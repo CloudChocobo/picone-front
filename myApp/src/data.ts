@@ -48,7 +48,7 @@ export const libraryCartes = {
 
     actions:
         {
-            seLaver: {image: rootHebergementImage + "seLaver.png", description: "se laver", redirectsTo:"seLaver"},
+            seLaver: {image: rootHebergementImage + "seLaver.png", description: "hygiène", redirectsTo:"seLaver"},
             manger : {image:rootHebergementImage+"manger.png", description: "manger",redirectsTo:"Nourriture" },
             boire : {image: rootHebergementImage+"boire.png", description: "boire", redirectsTo:"Boissons"},
             seSoigner : {image:rootHebergementImage+"seSoigner.png", description: "soins", redirectsTo:"Soin"},
@@ -287,9 +287,8 @@ export const libraryCartes = {
 
 
         wc : 
-
      {
-    uriner: {image:rootHebergementImage+"uriner.png", description: "uriner"},
+        uriner: {image:rootHebergementImage+"uriner.png", description: "uriner"},
       defequer: {image:rootHebergementImage+"defequer.png", description: "déféquer"},
    
      },

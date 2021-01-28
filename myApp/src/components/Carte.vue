@@ -35,28 +35,28 @@ export default {
 <style scoped>
 
 .cartes {
-  font-size: 30px;
+  font-size: 23px;
   font-weight: bold;
   color: #536974;
   text-align: center;
-  /* overflow: hidden; */
 }
 
 .description{
-  margin-top:-10px;
+  margin-top:-5px;
 }
 
 img {
   /* width: 100%; */
   width: 150px;
   height: 150px;
+  border-radius: 55px;
   object-fit:cover;
 }
 
-img :hover {
+/* img :hover {
   transform: scale(1.2);
   border-radius: 55px;
   border: 10px solid #202abb9d;
-}
+} */
 
 </style>

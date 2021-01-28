@@ -81,6 +81,7 @@ ion-title {
   color: #536974;
   background: #8badbe;
 }
+
 .input-wrapper {
   color: #536974;
   background: #8badbe;
@@ -88,9 +89,11 @@ ion-title {
 .my-custom-menu {
   --width: 300px;
 }
-.BackButton {
-  width: 25%;
+
+/* .button-native {
+  width: 8%;
   margin-left: 3%;
   margin-top: 2%;
-}
+} */
+
 </style>

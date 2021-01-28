@@ -1,26 +1,19 @@
 
 <template>
-  <div class="BarreHorizontaleV2">
+  <div class="BarreHorizontaleV3">
     <MenuBurger></MenuBurger>
     <BackButton></BackButton>
-    <Gomme @click="cancelLastAction"></Gomme>
   </div>
 </template>
 
 <script>
 import BackButton from "@/components/BackButton.vue";
-import Gomme from "@/components/Gomme.vue";
 import MenuBurger from "@/components/MenuBurger.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "BarreHorizontaleV2",
-  components: { BackButton, Gomme, MenuBurger },
-  methods: {
-    cancelLastAction() {
-      this.$emit("cancelLastAction");
-    },
-  },
-  emits: ["cancelLastAction"],
+  components: { BackButton, MenuBurger },
+
   setup() {
     const router = useRouter();
     return {
@@ -31,10 +24,11 @@ export default {
 </script>
 
 <style scoped>
-.BarreHorizontaleV2 {
+
+.BarreHorizontaleV3 {
   height: 90px;
   width: 100%;
-  display: flex;
+    display: flex;
   background-color: #8badbe;
 }
 
@@ -44,27 +38,10 @@ export default {
   margin-top: 5px;
 }
 
-/* .MenuBurger :hover {
-  transform: scale(1.2);
-  border-radius: 25px;
-  border: 10px solid #202abb9d;
-} */
-
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
-
 .BackButton {
   width: 8%;
   margin-left: 3%;
   margin-top: 2%;
 }
 
-.Gomme {
-  width: 8%;
-  margin-left: 3%;
-  margin-top: 5px;
-}
 </style>

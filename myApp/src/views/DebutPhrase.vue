@@ -93,8 +93,13 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
-  /* margin-top: 10px; */
 }
+
+/* img :hover {
+  transform: scale(1.2);
+  border-radius: 55px;
+  border: 10px solid #202abb9d;
+} */
 
 .footer {
   margin-left: 10%;
@@ -111,16 +116,15 @@ export default {
   width: 2%;
 }
 
+.PageV2 img :hover {
+  transform: scale(1.2);
+  border-radius: 55px;
+  border: 10px solid #202abb9d;
+}
+
 .Discussion img {
   margin-top: 1%;
   width: 17%;
 }
 
-/* .Panier {
-
-} */
-
-/* .rectangle_discussion .Discussion{
-  grid-template-rows: fit-content(40%);
-} */
 </style>
