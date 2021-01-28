@@ -74,11 +74,11 @@ export default {
       this.$store.commit('removeElementFromPanier');
     },
     doAction(carte){
-      if(carte.redirectsTo){
+
         this.$router.push("/"+carte.redirectsTo);
-      } else {
+
         this.addItemToPanier(carte);
-      }
+  
     }
   },
    computed: { panier(){ return this.$store.state.panier } }

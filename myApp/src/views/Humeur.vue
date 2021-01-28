@@ -116,6 +116,9 @@ export default {
   width: 17%;
 }
 
+footer{ 
+  display: none;
+  }
 /* .Panier {
 
 } */

@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cartes : libraryCartes.douleur,
+      cartes : libraryCartes.corps,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -123,4 +123,4 @@ export default {
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);
 } */
-</style>
+</style>a
