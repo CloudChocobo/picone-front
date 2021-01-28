@@ -20,14 +20,17 @@
         <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
         <div class="bidouille"></div>
         <div
-          class="icone"
-          @click="() => router.push('/humeur')"
+          class="icone">
+          <img src= "@/assets/Conversation.png" @click="() => router.push('/humeur')"/>
+          <img src= "@/assets/boutonMenu.png" @click="() => router.push('/adminAccueil')"/>
+<!--           
           v-for="(choice, index) in choices"
           :key="index"
           :class="{ selected: currentId === choice.id }"
-        >
+        > -->
+
       <!-- <img :src="require(`${niveaubonus}${choice.image}`)" alt="" />    -->
-        <img :src="require(`@/assets/${choice.image}`)" alt="" />
+        <!-- <img :src="require(`@/assets/${choice.image}`)" alt="" /> -->
         </div>
       </PageV2>
     </ion-content>
