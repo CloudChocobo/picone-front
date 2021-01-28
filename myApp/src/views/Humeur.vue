@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
-          <div class="texte">Choisissez une icône :</div>
+          <div class="texte">Comment vous sentez vous?</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"
@@ -75,13 +75,11 @@ export default {
     },
     doAction(carte){
       if(carte.redirectsTo){
-        if (carte.description == "plus"){
-                  this.$router.push("/"+carte.redirectsTo);
-        } else {
-        this.addItemToPanier(carte);
         this.$router.push("/"+carte.redirectsTo);
+      } else {
+        this.addItemToPanier(carte);
       }
-    }}
+    }
   },
    computed: { panier(){ return this.$store.state.panier } }
 };
@@ -91,7 +89,7 @@ export default {
 .texte {
   display: flex;
   font-size: 50px;
-  margin-left: 27%;
+  margin-left: 17%;
   color: #536974;
   position: relative;
   text-align: center;

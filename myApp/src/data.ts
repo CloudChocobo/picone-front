@@ -85,9 +85,13 @@ export const libraryCartes = {
         {
             poulet : {image:rootHebergementImage+"poulet.png", description: "poulet"},
             sandwich : {image:rootHebergementImage+"sandwich.png", description: "sandwich"},
-            gateau : {image:rootHebergementImage+"gateau.png", description: "gâteau"},
-            yaourt : {image:rootHebergementImage+"yaourt.png", description: "yaourt"}
-
+            coucous : {image:rootHebergementImage+"couscous.png", description: "couscous"},
+            steakFrites : {image:rootHebergementImage+"steakFrites.png", description: "steak-frites"}
+            //  croqueMonsieur : {image:rootHebergementImage+"croqueMonsieur.png", description: "croque monsieur"},
+            //  taboule : {image:rootHebergementImage+"taboule.png", description: "taboulé"},
+            //  veloute : {image:rootHebergementImage+"veloute.png", description: "velouté"},
+            //  soupe : {image:rootHebergementImage+"soupe.png", description: "soupe"},
+     
         },
         
     douleur :
@@ -160,6 +164,11 @@ export const libraryCartes = {
     //  haricot : {image:rootHebergementImage+"haricot.png", description: "haricot"},
     //  poivron : {image:rootHebergementImage+"poivron.png", description: "poivron"},
     //  salade : {image:rootHebergementImage+"salade.png", description: "salade"},
+    //  bettrave : {image:rootHebergementImage+"bettrave.png", description: "bettrave"},
+    //  champignon : {image:rootHebergementImage+"champignon.png", description: "champignon"},
+    //  asperge : {image:rootHebergementImage+"asperge.png", description: "asperge"},
+    //  chou : {image:rootHebergementImage+"chou.png", description: "chou"},
+    //  navet : {image:rootHebergementImage+"navet.png", description: "navet"},
     },
     
     // fruits : 
@@ -173,7 +182,55 @@ export const libraryCartes = {
     //     raisin : {image:rootHebergementImage+"raisin.png", description: "raisin"},
     //     kiwi : {image:rootHebergementImage+"kiwi.png", description: "kiwi"},
     //     pasteque : {image:rootHebergementImage+"pasteque.png", description: "pastèque"},
+     //     orange : {image:rootHebergementImage+"orange.png", description: "orange"},
+    //     citron : {image:rootHebergementImage+"citron.png", description: "citron"},
+    //     mangue : {image:rootHebergementImage+"mangue.png", description: "mangue"},
+    //     melon : {image:rootHebergementImage+"melon.png", description: "melon"},
+    //     peche : {image:rootHebergementImage+"peche.png", description: "pêche"},
+    //     prune : {image:rootHebergementImage+"prune.png", description: "prune"},
+    //     framboise : {image:rootHebergementImage+"framboise.png", description: "framboise"},
     // },
 
+
+   // vetements : 
+
+    // {
+    //     pull : {image:rootHebergementImage+"pull.png", description: "pull"},
+    //     pantalon: {image:rootHebergementImage+"pantalon.png", description: "pantalon"},
+    //     slip : {image:rootHebergementImage+"slip.png", description: "slip"},
+    //     robe : {image:rootHebergementImage+"robe.png", description: "robe"},
+    //     jupe : {image:rootHebergementImage+"jupe.png", description: "jupe"},
+    //     pyjamas : {image:rootHebergementImage+"pyjamas.png", description: "pyjamas"},
+    //    gilet : {image:rootHebergementImage+"gilet.png", description: "gilet"},
+    //     tShirt : {image:rootHebergementImage+"tShirt.png", description: "t-shirt"},
+    //     soutienGorge : {image:rootHebergementImage+"soutienGorge.png", description: "soutien-gorge"},
+    // },
+
+     // dessert : 
+
+    // {
+    //     gateau : {image:rootHebergementImage+"gateau.png", description: "gâteau"},
+    //     chocolat: {image:rootHebergementImage+"chocolat.png", description: "chocolat"},
+    //     yaourt : {image:rootHebergementImage+"yaourt.png", description: "yaourt"},
+    //     fromage: {image:rootHebergementImage+"fromage.png", description: "fromage"},
+    //     compote : {image:rootHebergementImage+"compote.png", description: "compote"},
+    //     tarte : {image:rootHebergementImage+"tarte.png", description: "tarte"},
+    //    cremeDessert : {image:rootHebergementImage+"cremeDessert.png", description: "crème-dessert"},
+    //     mousseAuChocolat : {image:rootHebergementImage+"mousseAuChocolat.png", description: "mousse au chocolat"},
+    // },
+
+
+      // se laver : 
+
+    // {
+    //     savon : {image:rootHebergementImage+"savon.png", description: "savon"},
+    //     brosseADents: {image:rootHebergementImage+"brosseADents.png", description: "brosse à dents"},
+    //     peigne : {image:rootHebergementImage+"yaourt.png", description: "yaourt"},
+    //     fromage: {image:rootHebergementImage+"fromage.png", description: "fromage"},
+    //     compote : {image:rootHebergementImage+"compote.png", description: "compote"},
+    //     tarte : {image:rootHebergementImage+"tarte.png", description: "tarte"},
+    //    cremeDessert : {image:rootHebergementImage+"cremeDessert.png", description: "crème-dessert"},
+    //     mousseAuChocolat : {image:rootHebergementImage+"mousseAuChocolat.png", description: "mousse au chocolat"},
+    // },
 };
 

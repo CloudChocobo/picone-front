@@ -73,15 +73,13 @@ export default {
     removeItemFromPanier() {
       this.$store.commit('removeElementFromPanier');
     },
-     doAction(carte){
+    doAction(carte){
       if(carte.redirectsTo){
-        if (carte.description == "plus"){
-                  this.$router.push("/"+carte.redirectsTo);
-        } else {
-        this.addItemToPanier(carte);
         this.$router.push("/"+carte.redirectsTo);
+      } else {
+        this.addItemToPanier(carte);
       }
-    }}
+    }
   },
    computed: { panier(){ return this.$store.state.panier } }
 };
