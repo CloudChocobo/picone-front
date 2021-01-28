@@ -132,7 +132,7 @@ export const libraryCartes = {
             {
                 medecin : {image:rootHebergementImage+"medecin.png", description: "médecin"},
                 proches : {image:rootHebergementImage+"proches.png", description: "proches"}
-        //     petit-enfant : {image:rootHebergementImage+"petitEnfant.png", description: "fille"},
+        //     petitEnfant : {image:rootHebergementImage+"petitEnfant.png", description: "petit-enfant"},
 
             },
 
