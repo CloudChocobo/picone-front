@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
-          <div class="texte">Choisissez un icône :</div>
+          <div class="texte">Précisez la notion :</div>
           <GrilleImage>
             <Carte
               v-for="(carte, index) in cartes"

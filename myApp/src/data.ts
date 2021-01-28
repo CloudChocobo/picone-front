@@ -130,9 +130,9 @@ export const libraryCartes = {
             poitrine : {image:rootHebergementImage+"poitrine.png", description: "poitrine"},
             ventre : {image:rootHebergementImage+"ventre.png", description: "ventre"},
             epaule : {image:rootHebergementImage+"epaule.png", description: "épaule"},
-            // tete : {image:rootHebergementImage+"tete.png", description: "tête"},
-        //  bras : {image:rootHebergementImage+"bras.png", description: "bras"},
-         // jambes: {image:rootHebergementImage+"jambes.png", description: "j"mbes},
+            tete : {image:rootHebergementImage+"tete.png", description: "tête"},
+            bras : {image:rootHebergementImage+"bras.png", description: "bras"},
+            jambes: {image:rootHebergementImage+"jambe.png", description: "jambes"},
             oreilles : {image:rootHebergementImage+"oreilles.png", description: "oreilles"},
         //  nez : {image:rootHebergementImage+"nez.png", description: "nez"},
         //  pieds   : {image:rootHebergementImage+"pieds.png", description: "pieds"},
@@ -160,11 +160,16 @@ export const libraryCartes = {
             jusDeFruit : {image:rootHebergementImage+"jusDeFruit.png", description: "jus fruits"},
             vin : {image:rootHebergementImage+"vin.png", description: "vin"},
             coca : {image:rootHebergementImage+"coca.png", description: "coca"},
-           // biere : {image:rootHebergementImage+"biere.png", description: "bière"},
-         // lait: {image:rootHebergementImage+"lait.png", description: "lait"},
+            biere : {image:rootHebergementImage+"biere.png", description: "bière"},
+            lait: {image:rootHebergementImage+"lait.png", description: "lait"},
              the : {image:rootHebergementImage+"the.png", description: "thé"},
-         //chocolatChaud : {image:rootHebergementImage+"chocolatChaud.png", description: "chocolat chaud"},
+
         },
+
+    boissons2 :
+{
+        //chocolatChaud : {image:rootHebergementImage+"chocolatChaud.png", description: "chocolat chaud"},
+},
 
     legumes : 
 
@@ -177,6 +182,9 @@ export const libraryCartes = {
     //  petitPois : {image:rootHebergementImage+"petitPois.png", description: "petit pois"},
     //  haricot : {image:rootHebergementImage+"haricot.png", description: "haricot"},
     //  poivron : {image:rootHebergementImage+"poivron.png", description: "poivron"},
+
+// legumes2 :
+//{
     //  salade : {image:rootHebergementImage+"salade.png", description: "salade"},
     //  bettrave : {image:rootHebergementImage+"bettrave.png", description: "bettrave"},
     //  champignon : {image:rootHebergementImage+"champignon.png", description: "champignon"},
@@ -202,7 +210,7 @@ export const libraryCartes = {
      {
         pasteque : {image:rootHebergementImage+"pasteque.png", description: "pastèque"},
         orange : {image:rootHebergementImage+"orange.png", description: "orange"},
-    //     citron : {image:rootHebergementImage+"citron.png", description: "citron"},
+        citron : {image:rootHebergementImage+"citron.png", description: "citron"},
     //     mangue : {image:rootHebergementImage+"mangue.png", description: "mangue"},
     //     melon : {image:rootHebergementImage+"melon.png", description: "melon"},
     //     peche : {image:rootHebergementImage+"peche.png", description: "pêche"},
