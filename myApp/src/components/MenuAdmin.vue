@@ -90,10 +90,10 @@ ion-title {
   --width: 300px;
 }
 
-/* .button-native {
-  width: 8%;
-  margin-left: 3%;
-  margin-top: 2%;
-} */
+.BackButton {
+width: 30%;
+margin-top:7%;
+margin-left:30%;
+}
 
 </style>

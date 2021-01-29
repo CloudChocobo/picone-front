@@ -8,14 +8,13 @@
         <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="bidouille"></div>
          <div class="finPhrase">
              <div class="point">
-                <div :id="id" @click="clearPanier($store.panier)">
+                <div :id="id" @click="[clearPanier($store.panier) , router.push(`/debutPhrase`)]">
                     <img src= "@/assets/affirmation.png" />
                 </div>
             </div>
             <div class="interrogation">
-                <div :id="id">
-                     <img src= "@/assets/question.png"/>
-                     <button @click="clearPanier(item)"></button>
+                <div :id="id" @click="[clearPanier($store.panier) , router.push(`/debutPhrase`)]" >
+                    <img src= "@/assets/question.png"  />
                 </div>
             </div>
           </div>

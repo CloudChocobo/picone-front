@@ -42,15 +42,7 @@ const store = createStore({
       }
     },
       clearPanier(state: any){
-        console.log(state.panier[0]);
-        
-          //return state.panier.splice(0, state.panier.length)
-          //state.panier.splice(0);
-          //state.panier.map((x: any) => x.splice())
-          for (let i=0; i<state.panier.length; i++ ){
-            delete state.panier[i];
-          }
-    
+          state.panier = []   
 },
     },
 

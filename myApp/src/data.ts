@@ -217,6 +217,8 @@ export const libraryCartes = {
         raisin : {image:rootHebergementImage+"raisin.png", description: "raisin"},
         kiwi : {image:rootHebergementImage+"kiwi.png", description: "kiwi"},
      },
+
+
      
      fruits2 :
      {
