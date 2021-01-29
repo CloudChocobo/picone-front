@@ -48,7 +48,7 @@ export const libraryCartes = {
 
     actions:
         {
-            seLaver: {image: rootHebergementImage + "seLaver.png", description: "hygiène", redirectsTo:"seLaver"},
+            seLaver: {image: rootHebergementImage + "seLaver.png", description: "se laver", redirectsTo:"seLaver"},
             manger : {image:rootHebergementImage+"manger.png", description: "manger",redirectsTo:"Nourriture" },
             boire : {image: rootHebergementImage+"boire.png", description: "boire", redirectsTo:"Boissons"},
             seSoigner : {image:rootHebergementImage+"seSoigner.png", description: "soins", redirectsTo:"Soin"},
