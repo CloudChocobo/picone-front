@@ -1,5 +1,5 @@
-
-<template>
+<!-- barre horizontale côté administrateur-->
+<template> 
   <div class="BarreHorizontaleV3">
     <MenuBurger></MenuBurger>
     <BackButton></BackButton>

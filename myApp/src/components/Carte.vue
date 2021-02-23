@@ -1,4 +1,4 @@
-
+<!-- correspond à 1 image et 1 label-->
 <template>
   <div>
     <GrilleImage>

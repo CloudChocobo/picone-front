@@ -1,3 +1,4 @@
+<!-- composant générique bouton-->
 <template>
   <IonButton :color="realCouleur" :router-link="route ? route : null">
     <IonIcon v-if="icone" class="buttonIcon" :icon="iconData"></IonIcon>

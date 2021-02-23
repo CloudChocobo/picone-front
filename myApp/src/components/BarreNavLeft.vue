@@ -1,4 +1,4 @@
-
+<!-- barre nav gauche administrateur-->
 <template>
   <div class="BarreNavLeft">
     <MenuBurger></MenuBurger>
