@@ -12,7 +12,8 @@ Picone est un projet de logiciel pour personnes aphasiques.
 Un prototype avait déjà été réalisé il y a  environ 10 ans par Céline Jost suivant un projet de Brigitte Le Pévédic
 Dans le cadre de notre formation nous avions comme projet de poursuivre le développement de ce logiciel. 
 Nous avons entamé la partie front et back du logiciel. Le back utilisera une base de données graphique...TO BE CONTINUED
-Les stagiaires Aurélie, Noémie, Franck, Marvin et Kévin
+
+Les auteurs de ce projet sont Aurélie Huber , Noémie Bezzaz, Franck Isambert, Marvin De Jesus Dasilva et Kévin Deveza.
 
 
 ### Setup dev
