@@ -8,7 +8,7 @@
       <div :id="id">
         <div><img :src="image" /></div>
         <div class="description">{{ description }} </div>
-        <button v-on:click="addItemToDialogBox(carte)"></button>
+        <button v-on:click="addItemToDialogBox(card)"></button>
       </div>
     </div>
   <!-- </div> -->

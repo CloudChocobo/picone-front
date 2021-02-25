@@ -25,9 +25,9 @@
           <!-- <div class="rectangle_discussion"> -->
           <Panier>
             <Card
-              v-for="(carte, index) in panier"
-              :image="carte.image" 
-              :description="carte.description" 
+              v-for="(card, index) in panier"
+              :image="card.image" 
+              :description="card.description" 
               :key="index"
             />
           </Panier>
@@ -42,7 +42,7 @@
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
-import Carte from "@/components/Carte.vue";
+import Card from "@/components/Card.vue";
 import Panier from "@/components/Panier.vue";
 import { libraryCartes } from "@/data.ts";
 
@@ -52,7 +52,7 @@ export default {
     IonPage,
     IonContent,
     PageV2,
-    Carte,
+    Card,
     Panier,
     
   },
