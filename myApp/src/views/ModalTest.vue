@@ -5,12 +5,12 @@
       <PageV2>
         <main>
           <ImageGrid>
-          <Carte
+          <Card
             v-for="(carte, index) in cartes"
             :image="carte.image"
             :description="carte.description"
             :key="index"
-            @click="addItemToPanier(carte)"
+            @click="addItemToDialogBox(carte)"
           />
           </ImageGrid>
         </main>
@@ -18,7 +18,7 @@
         <footer>
           <!-- <div class="rectangle_discussion"> -->
             <Panier>
-              <Carte
+              <Card
                 v-for="(carte, index) in panier"
                 :image="carte.image"
                 :description="carte.description"
@@ -96,7 +96,7 @@ export default {
   },
 
   methods: {
-    addItemToPanier(carte) {
+    addItemToDialogBox(carte) {
       this.panier.push(carte);
     },
     removeItemFromPanier(index) {

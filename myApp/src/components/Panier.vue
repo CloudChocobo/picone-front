@@ -2,7 +2,7 @@
   <div>
     <div class="rectangle_discussion">
       <Discussion>
-        <div class="cartes">
+        <div class="cards">
           <slot></slot>
         </div>
       </Discussion>
@@ -35,7 +35,7 @@ export default {
 .Discussion {
   margin-left: 50px;
 }
-.cartes {
+.cards {
   display: grid;
   grid-template-columns: repeat(4, 150px);
   margin-top: 3%;

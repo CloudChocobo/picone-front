@@ -6,7 +6,7 @@
         <main>
           <div class="text">Choisissez un objet :</div>
           <ImageGrid>
-            <Carte
+            <Card
               v-for="(carte, index) in cartes"
               :image="carte.image"
               :description="carte.description"
@@ -19,7 +19,7 @@
         <footer>
           <!-- <div class="rectangle_discussion"> -->
           <Panier>
-            <Carte
+            <Card
               v-for="(carte, index) in panier"
               :image="carte.image" 
               :description="carte.description" 
@@ -67,7 +67,7 @@ export default {
   },
 
   methods: {
-    addItemToPanier(carte) {
+    addItemToDialogBox(carte) {
       this.$store.commit('addElementToPanier', carte);
     },
     removeItemFromPanier() {
@@ -77,7 +77,7 @@ export default {
       if(carte.redirectsTo){
         this.$router.push("/"+carte.redirectsTo);
       } else {
-        this.addItemToPanier(carte);
+        this.addItemToDialogBox(carte);
       }
     }
   },

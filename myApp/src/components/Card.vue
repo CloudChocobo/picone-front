@@ -4,11 +4,11 @@
     <ImageGrid>
     <!-- <div class="container"> -->
 
-    <div class="cartes">
+    <div class="cards">
       <div :id="id">
         <div><img :src="image" /></div>
         <div class="description">{{ description }} </div>
-        <button v-on:click="addItemToPanier(carte)"></button>
+        <button v-on:click="addItemToDialogBox(carte)"></button>
       </div>
     </div>
   <!-- </div> -->
@@ -20,13 +20,13 @@
 <script>
 import ImageGrid from "@/components/ImageGrid.vue";
 export default {
-  name: "Carte",
+  name: "Card",
   components: {ImageGrid},
   props: ["id", "description", "image"],
 
   methods: {
-    addItemToPanier(carte) {
-      this.$emit("addItemToPanier", carte);
+    addItemToDialogBox(card) {
+      this.$emit("addItemToDialogBox", card);
     },
   },
 };
@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 
-.cartes {
+.cards {
   font-size: 23px;
   font-weight: bold;
   color: #536974;

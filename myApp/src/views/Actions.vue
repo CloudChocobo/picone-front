@@ -6,12 +6,12 @@
         <main>
           <div class="text">Choisissez une action :</div>
           <ImageGrid>
-            <Carte
-              v-for="(carte, index) in cartes"
-              :image="carte.image"
-              :description="carte.description"
+            <Card
+              v-for="(card, index) in cards"
+              :image="card.image"
+              :description="card.description"
               :key="index"
-              @click="doAction(carte)"
+              @click="doAction(card)"
             />
           </ImageGrid>
         </main>
@@ -19,10 +19,10 @@
         <footer>
           <!-- <div class="rectangle_discussion"> -->
           <Panier>
-            <Carte
-              v-for="(carte, index) in panier"
-              :image="carte.image" 
-              :description="carte.description" 
+            <Card
+              v-for="(card, index) in panier"
+              :image="card.image" 
+              :description="card.description" 
               :key="index"
             />
           </Panier>
@@ -37,17 +37,17 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
-import Carte from "@/components/Carte.vue";
+import Card from "@/components/Card.vue";
 import Panier from "@/components/Panier.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
-import {libraryCartes}  from "@/data.ts" ;
+import {libraryCards}  from "@/data.ts" ;
 export default {
   name: "Actions",
   components: {
     IonPage,
     IonContent,
     PageV2,
-    Carte,
+    Card,
     Panier,
     ImageGrid,
   },
@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cartes : libraryCartes.actions,
+      cards : libraryCards.actions,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -67,16 +67,16 @@ export default {
   },
 
   methods: {
-    addItemToPanier(carte) {
-      this.$store.commit('addElementToPanier', carte);
+    addItemToDialogBox(card) {
+      this.$store.commit('addElementToPanier', card);
     },
     removeItemFromPanier() {
       this.$store.commit('removeElementFromPanier');
     },
-    doAction(carte){
+    doAction(card){
 
-        this.addItemToPanier(carte);
-        this.$router.push("/"+carte.redirectsTo);
+        this.addItemToDialogBox(card);
+        this.$router.push("/"+card.redirectsTo);
       }
  
   },

@@ -24,7 +24,7 @@
         <footer>
           <!-- <div class="rectangle_discussion"> -->
           <Panier>
-            <Carte
+            <Card
               v-for="(carte, index) in panier"
               :image="carte.image" 
               :description="carte.description" 
@@ -83,7 +83,7 @@ export default {
       this.$store.commit("clearPanier", this.$store.panier);
     },
 
-    addItemToPanier(carte) {
+    addItemToDialogBox(carte) {
       this.$store.commit("addElementToPanier", carte);
     },
     removeItemFromPanier() {
@@ -93,7 +93,7 @@ export default {
       if (carte.redirectsTo) {
         this.$router.push("/" + carte.redirectsTo);
       } else {
-        this.addItemToPanier(carte);
+        this.addItemToDialogBox(carte);
       }
     },
   },
