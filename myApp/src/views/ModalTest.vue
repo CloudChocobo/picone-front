@@ -23,7 +23,7 @@
                 :image="card.image"
                 :description="card.description"
                 :key="index"
-                @click="removeItemFromPanier(index)"
+                @click="removeItemFromDialogBox(index)"
               />
             </Panier>
           <!-- </div> -->
@@ -74,7 +74,7 @@ export default {
       ],
       discussion: "panier",
       panier: [],
-      cartes: [
+      cards: [
         {
           description: "bien",
           image: require("/src/assets/bien.png"),
@@ -99,7 +99,7 @@ export default {
     addItemToDialogBox(card) {
       this.panier.push(card);
     },
-    removeItemFromPanier(index) {
+    removeItemFromDialogBox(index) {
       this.panier.splice(index, 1);
     },
   },

@@ -3,7 +3,7 @@
     <div :id="id">
       <img src="../assets/gomme.png" alt="Gomme" />
 
-      <button @click="removeItemFromPanier(item.id)"></button>
+      <button @click="removeItemFromDialogBox(item.id)"></button>
     </div>
   </div>
 </template>
@@ -13,13 +13,13 @@ export default {
   name: "Eraser",
   props: ["id", "description", "image"],
   methods: {
-    //    removeItemFromPanier(index) {
+    //    removeItemFromDialogBox(index) {
     //   this.panier.splice(index, 1);
     // },
-    //   removeItemFromPanier(carte) {
-    //     this.$emit("removeItemFromPanier", carte);
+    //   removeItemFromDialogBox(carte) {
+    //     this.$emit("removeItemFromDialogBox", carte);
     //  }
-    //    removeItemFromPanier(index) {
+    //    removeItemFromDialogBox(index) {
     //   this.$panier.dispatch('removeItemFronPanier',itemId);
     // },
   },

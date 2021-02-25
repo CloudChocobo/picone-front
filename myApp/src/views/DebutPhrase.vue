@@ -2,7 +2,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2 @cancelLastAction="removeItemFromPanier">
+      <PageV2 @cancelLastAction="removeItemFromDialogBox">
         <main>
           <div class="text">Débutez votre phrase :</div>
           <ImageGrid>
@@ -70,7 +70,7 @@ export default {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToPanier', card);
     },
-    removeItemFromPanier() {
+    removeItemFromDialogBox() {
       this.$store.commit('removeElementFromPanier');
     },
     doAction(card){

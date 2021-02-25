@@ -1,5 +1,5 @@
 export const rootHebergementImage = "https://niveaubonus.fr/picone/src/icones/";
-export const libraryCartes = {
+export const libraryCards = {
      
     // pour ajouter un nouvel ensemble d'icone :
     // créer un nouveau pattern ici
@@ -15,7 +15,7 @@ export const libraryCartes = {
     "
      data: () => {
     return {
-      cartes : libraryCartes.objets,  <============ ici, pensez à changer le nom du pattern visé (exemple : si vous voulez utilisez fruits, écrivez : "libraryCartes.fruits")
+      cards : libraryCards.objets,  <============ ici, pensez à changer le nom du pattern visé (exemple : si vous voulez utilisez fruits, écrivez : "libraryCards.fruits")
       currentIndex: 0,
       currentId: "",
       discussion: "panier",

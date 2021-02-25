@@ -2,7 +2,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2 @cancelLastAction="removeItemFromPanier">
+      <PageV2 @cancelLastAction="removeItemFromDialogBox">
      <div class="container">
                 <div class="text">Terminez votre phrase</div>
         <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="invisibleBlockAlignment"></div>
@@ -44,7 +44,7 @@ import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
 import Card from "@/components/Card.vue";
 import Panier from "@/components/Panier.vue";
-import { libraryCartes } from "@/data.ts";
+import { libraryCards } from "@/data.ts";
 
 export default {
   name: "Recapitulatif",
@@ -64,7 +64,7 @@ export default {
 
   data: () => {
     return {
-      cards: libraryCartes.nourriture,
+      cards: libraryCards.nourriture,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -86,7 +86,7 @@ export default {
     addItemToDialogBox(card) {
       this.$store.commit("addElementToPanier", card);
     },
-    removeItemFromPanier() {
+    removeItemFromDialogBox() {
       this.$store.commit("removeElementFromPanier");
     },
     doAction(card) {

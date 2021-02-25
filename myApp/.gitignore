@@ -3,6 +3,7 @@
 
 *~
 *.sw[mnpcod]
+
 .tmp
 *.tmp
 *.tmp.*

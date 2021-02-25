@@ -40,7 +40,7 @@ import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import Card from "@/components/Card.vue";
 import Panier from "@/components/Panier.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
-import {libraryCartes}  from "@/data.ts" ;
+import {libraryCards}  from "@/data.ts" ;
 export default {
   name: "Mood",
   components: {
@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCartes.Mood,
+      cards : libraryCards.Mood,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -70,7 +70,7 @@ export default {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToPanier', card);
     },
-    removeItemFromPanier() {
+    removeItemFromDialogBox() {
       this.$store.commit('removeElementFromPanier');
     },
     doAction(card){

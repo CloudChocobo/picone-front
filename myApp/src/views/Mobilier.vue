@@ -2,7 +2,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2 @cancelLastAction="removeItemFromPanier">
+      <PageV2 @cancelLastAction="removeItemFromDialogBox">
         <main>
           <div class="text">Choisissez un meuble :</div>
           <ImageGrid>
@@ -40,7 +40,7 @@ import PageV2 from "@/components/PageV2.vue";
 import Card from "@/components/Card.vue";
 import Panier from "@/components/Panier.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
-import {libraryCartes}  from "@/data.ts" ;
+import {libraryCards}  from "@/data.ts" ;
 export default {
   name: "Mobilier",
   components: {
@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCartes.mobilier,
+      cards : libraryCards.mobilier,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -70,7 +70,7 @@ export default {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToPanier', card);
     },
-    removeItemFromPanier() {
+    removeItemFromDialogBox() {
       this.$store.commit('removeElementFromPanier');
     },
     doAction(card){
