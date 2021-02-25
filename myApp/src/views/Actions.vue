@@ -4,8 +4,8 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
         <main>
-          <div class="texte">Choisissez une action :</div>
-          <GrilleImage>
+          <div class="text">Choisissez une action :</div>
+          <ImageGrid>
             <Carte
               v-for="(carte, index) in cartes"
               :image="carte.image"
@@ -13,7 +13,7 @@
               :key="index"
               @click="doAction(carte)"
             />
-          </GrilleImage>
+          </ImageGrid>
         </main>
 
         <footer>
@@ -39,7 +39,7 @@ import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
-import GrilleImage from "@/components/GrilleImage.vue";
+import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCartes}  from "@/data.ts" ;
 export default {
   name: "Actions",
@@ -49,7 +49,7 @@ export default {
     PageV2,
     Carte,
     Panier,
-    GrilleImage,
+    ImageGrid,
   },
   props: [],
   setup() {
@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style scoped>
-.texte {
+.text {
   display: flex;
   font-size: 50px;
   margin-left: 27%;
@@ -105,7 +105,7 @@ export default {
   margin-top: 2%;
 }
 
-.bidouille {
+.invisibleBlockAlignment {
   display: inline-block;
   width: 2%;
 }

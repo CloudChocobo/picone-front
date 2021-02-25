@@ -1,7 +1,7 @@
 <!-- correspond à 1 image et 1 label-->
 <template>
   <div>
-    <GrilleImage>
+    <ImageGrid>
     <!-- <div class="container"> -->
 
     <div class="cartes">
@@ -12,16 +12,16 @@
       </div>
     </div>
   <!-- </div> -->
-  </GrilleImage>
+  </ImageGrid>
   </div>
 
 </template>
 
 <script>
-import GrilleImage from "@/components/GrilleImage.vue";
+import ImageGrid from "@/components/ImageGrid.vue";
 export default {
   name: "Carte",
-  components: {GrilleImage},
+  components: {ImageGrid},
   props: ["id", "description", "image"],
 
   methods: {

@@ -24,7 +24,7 @@ export const libraryCartes = {
   },
     */
 
-   humeur :
+   Mood :
    {
        smileyBien : {image:rootHebergementImage+"smileyBien.png", description: "bien",redirectsTo:"debutPhrase"},
        smileyMoyen : {image:rootHebergementImage+"smileyMoyen.png", description: "moyen",redirectsTo:"debutPhrase"},

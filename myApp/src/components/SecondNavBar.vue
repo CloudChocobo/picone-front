@@ -1,20 +1,20 @@
-
+<!-- navigation bar with the addition of the eraser-->
 <template>
   <div class="BarreHorizontaleV2">
-    <MenuBurger></MenuBurger>
+    <UserParameter></UserParameter>
     <BackButton></BackButton>
-    <Gomme @click="cancelLastAction"></Gomme>
+    <Eraser @click="cancelLastAction"></Eraser>
   </div>
 </template>
 
 <script>
 import BackButton from "@/components/BackButton.vue";
-import Gomme from "@/components/Gomme.vue";
-import MenuBurger from "@/components/MenuBurger.vue";
+import Eraser from "@/components/Eraser.vue";
+import UserParameter from "@/components/UserParameter.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "BarreHorizontaleV2",
-  components: { BackButton, Gomme, MenuBurger },
+  components: { BackButton, Eraser, UserParameter },
   methods: {
     cancelLastAction() {
       this.$emit("cancelLastAction");
@@ -38,13 +38,13 @@ export default {
   background-color: #8badbe;
 }
 
-.MenuBurger {
+.UserParameter {
   width: 8%;
   margin-left: 1%;
   margin-top: 5px;
 }
 
-/* .MenuBurger :hover {
+/* .UserParameter :hover {
   transform: scale(1.2);
   border-radius: 25px;
   border: 10px solid #202abb9d;
@@ -62,7 +62,7 @@ export default {
   margin-top: 2%;
 }
 
-.Gomme {
+.Eraser {
   width: 8%;
   margin-left: 3%;
   margin-top: 5px;

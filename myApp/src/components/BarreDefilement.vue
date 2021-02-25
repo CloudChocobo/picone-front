@@ -1,18 +1,18 @@
 <template>
   <div class="container">
     <ion-range min="1" max="3" step="1" snaps="true" color="secondary">
-      <ion-label slot="start">lent</ion-label>
-      <ion-label slot="end">rapide</ion-label>
+      <!--<ion-label slot="start">lent</ion-label>
+      <ion-label slot="end">rapide</ion-label>-->
     </ion-range>
   </div>
 </template>
 
 <script>
-import { IonLabel, IonRange } from "@ionic/vue";
+import { IonRange } from "@ionic/vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  components: { IonRange, IonLabel },
+  components: { IonRange },
 });
 </script>
  <style scoped>
@@ -36,14 +36,14 @@ ion-range {
   --height: 20px;
 }
 
-ion-label {
+<!--ion-label {
   display: flex;
   font-size: 30px;
   color: #536974;
   flex-direction: row;
   align-content: space-around;
   align-items: space-around;
-}
+}-->
 
 /* .input-wrapper {
   width:50%;

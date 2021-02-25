@@ -1,10 +1,10 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV3>
+      <PageWithFirstNavBar>
         <div class="container">
 
-          <!-- Désactivation temporaire - icone de TopBar du défilement -->
+          <!-- Désactivation temporaire - icone de TopBar du défilement / pour Kévin et Marvin à faire -->
 
           <!-- <div
             class="iconesInTopBar"
@@ -17,12 +17,12 @@
           </div> -->
           <p>PICONE</p>
         </div>
-        <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) -->
-        <div class="bidouille"></div>
+        <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge)pour la mise en page des images  -->
+        <div class="invisibleBlockAlignment"></div>
         <div
           class="icone">
-          <img src= "@/assets/Conversation.png" @click="() => router.push('/humeur')"/>
-          <img src= "@/assets/boutonMenu.png" @click="() => router.push('/adminAccueil')"/>
+          <img src= "@/assets/Conversation.png" @click="() => router.push('/Mood')"/>
+          <img src= "@/assets/boutonMenu.png" @click="() => router.push('/adminHome')"/>
 <!--           
           v-for="(choice, index) in choices"
           :key="index"
@@ -32,7 +32,7 @@
       <!-- <img :src="require(`${niveaubonus}${choice.image}`)" alt="" />    -->
         <!-- <img :src="require(`@/assets/${choice.image}`)" alt="" /> -->
         </div>
-      </PageV3>
+      </PageWithFirstNavBar>
     </ion-content>
   </ion-page>
 </template>
@@ -40,16 +40,16 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageV3 from "@/components/PageV3.vue";
+import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 
 export default {
-  name: "Accueil",
+  name: "Home",
   props: ["class"],
 
   components: {
     IonPage,
     IonContent,
-    PageV3,
+    PageWithFirstNavBar,
   },
 
   data() {
@@ -101,7 +101,7 @@ export default {
     // },
 
     methodRouter() {
-      this.router.push("/humeur");
+      this.router.push("/Mood");
       // faire un if this.currentId === Truc
       // this.router.push...
     },
@@ -138,7 +138,7 @@ export default {
   text-align: center;
 }
 
-.bidouille {
+.invisibleBlockAlignment {
   display: inline-block;
   width: 35%;
 }

@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 
-import Accueil from "@/views/Accueil.vue";
-import AdminAccueil from "@/views/AdminAccueil.vue";
+import Home from "@/views/Home.vue";
+import AdminHome from "@/views/AdminHome.vue";
 import Noemie from "@/views/Noemie.vue";
 import ModalTest from "@/views/ModalTest.vue";
 import Nourriture from "@/views/Nourriture.vue";
 import Actions from "@/views/Actions.vue";
 import Actions2 from "@/views/Actions2.vue";
-import Humeur from "@/views/Humeur.vue";
+import Mood from "@/views/Mood.vue";
 import Interlocuteur from "@/views/Interlocuteur.vue";
 import DebutPhrase from "@/views/DebutPhrase.vue";
 import Soin from "@/views/Soin.vue";
@@ -30,13 +30,13 @@ import Recapitulatif from "@/views/Recapitulatif.vue";
 const routes: Array<RouteRecordRaw> = [
 {
 		path: "/",
-    redirect: "/accueil",
-    component: Accueil,
+    redirect: "/Home",
+    component: Home,
   },
   {
-    name: "Accueil",
-    path: "/accueil",
-    component: Accueil,
+    name: "Home",
+    path: "/Home",
+    component: Home,
   },
   {
     name: "ModalTest",
@@ -44,9 +44,9 @@ const routes: Array<RouteRecordRaw> = [
     component: ModalTest,
   },
   {
-    name: "AdminAccueil",
-    path: "/adminaccueil",
-    component: AdminAccueil,
+    name: "AdminHome",
+    path: "/adminHome",
+    component: AdminHome,
   },
  
  {
@@ -60,9 +60,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Nourriture,
   },
      {
-    name: "Accueil",
-    path: "/accueil",
-    component: Accueil,
+    name: "Home",
+    path: "/Home",
+    component: Home,
   },
      {
     name: "Actions",
@@ -75,9 +75,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Actions2,
   },
      {
-    name: "Humeur",
-    path: "/humeur",
-    component: Humeur,
+    name: "Mood",
+    path: "/Mood",
+    component: Mood,
   },
 
   {

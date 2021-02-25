@@ -1,13 +1,13 @@
 
 <template>
-  <div class="MenuBurger">
-    <img src="../assets/IconeMenu.png" alt="" />
+  <div class="UserParameter">
+    <img src="../assets/IconeMenu.png" alt="roue paramètre utilisateur" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "MenuBurger",
+  name: "UserParameter",
   props: [],
   data() {
     return {};

@@ -3,8 +3,8 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <header>
-        <BarreNavHorizontaleV2 @cancelLastAction="$emit('cancelLastAction')">
-        </BarreNavHorizontaleV2>
+        <SecondNavBar @cancelLastAction="$emit('cancelLastAction')">
+        </SecondNavBar>
       </header>
       <div class="pageV2">
         <main>
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import BarreNavHorizontaleV2 from "@/components/BarreNavHorizontaleV2.vue";
+import SecondNavBar from "@/components/SecondNavBar.vue";
 
 export default {
   name: "PageV2",
   props: [],
   components: {
-    BarreNavHorizontaleV2,
+    SecondNavBar,
   },
   emits: ["cancelLastAction"],
 };

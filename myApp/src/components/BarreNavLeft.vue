@@ -1,15 +1,15 @@
 <!-- barre nav gauche administrateur-->
 <template>
   <div class="BarreNavLeft">
-    <MenuBurger></MenuBurger>
+    <UserParameter></UserParameter>
   </div>
 </template>
 
 <script>
-import MenuBurger from "@/components/MenuBurger.vue";
+import UserParameter from "@/components/UserParameter.vue";
 export default {
   name: "BarreNavLeft",
-  components: { MenuBurger },
+  components: { UserParameter },
 };
 </script>
 
@@ -27,7 +27,7 @@ export default {
   gap: 10px;
   flex-wrap: column;
 }
-.MenuBurger {
+.UserParameter {
   margin-top: 75px;
   display: flex;
   flex-direction: column;

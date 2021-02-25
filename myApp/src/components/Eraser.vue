@@ -1,7 +1,7 @@
 <template>
-  <div class="Gomme">
+  <div class="Eraser">
     <div :id="id">
-      <img src="../assets/gomme.png" alt="gomme" />
+      <img src="../assets/gomme.png" alt="Gomme" />
 
       <button @click="removeItemFromPanier(item.id)"></button>
     </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "Gomme",
+  name: "Eraser",
   props: ["id", "description", "image"],
   methods: {
     //    removeItemFromPanier(index) {

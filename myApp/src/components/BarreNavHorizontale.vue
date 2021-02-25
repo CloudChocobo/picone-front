@@ -1,7 +1,7 @@
-
+<!-- suppression à vérifier-->
 <template>
   <div class="BarreHorizontale">
-    <MenuBurger></MenuBurger>
+    <UserParameter></UserParameter>
     <BackButton></BackButton>
 
     <NextButton></NextButton>
@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import MenuBurger from "@/components/MenuBurger.vue";
+import UserParameter from "@/components/UserParameter.vue";
 import BackButton from "@/components/BackButton.vue";
 import NextButton from "@/components/NextButton.vue";
 
 import { useRouter } from "vue-router";
 export default {
   name: "BarreHorizontale",
-  components: { MenuBurger, BackButton, NextButton},
+  components: { UserParameter, BackButton, NextButton},
   setup() {
     const router = useRouter();
     return {
@@ -28,7 +28,7 @@ export default {
 </script>
  <!-- css a revoir pour le placement   -->
     <style scoped>
-.MenuBurger {
+.UserParameter {
   display: flex;
   flex-direction: row;
   flex-wrap: row;

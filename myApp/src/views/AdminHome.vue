@@ -12,7 +12,7 @@
         
       </ion-toolbar>
     </ion-header>
-    <div class="texte">
+    <div class="text">
       <p>Bienvenue dans les paramètres</p>
     </div>
     <div class="image">
@@ -28,7 +28,7 @@ import BackButton from "@/components/BackButton.vue";
 import PageAdmin from "@/components/PageAdmin.vue";
 import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton } from "@ionic/vue";
 export default {
-  name: "AdminAccueil",
+  name: "AdminHome",
   components: {
     IonPage,
     IonContent,
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-.texte {
+.text {
   display: flex;
   font-size: 50px;
   margin-left: 200px;

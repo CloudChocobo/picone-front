@@ -1,6 +1,6 @@
 <template>
   <div class="Discussion">
-    <div class="Texte">
+    <div class="text">
       <div class="Selection">
         <slot></slot>
       </div>
@@ -57,7 +57,7 @@ export default {
   /* gap: 10px; */
 }
 
-.texte {
+.text {
   width: 10%;
 }
 

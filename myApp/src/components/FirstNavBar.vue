@@ -1,18 +1,18 @@
-<!-- barre horizontale côté administrateur-->
+<!-- horizontal navigation bar with only the back button and the user parameter icon for the speed--> 
 <template> 
-  <div class="BarreHorizontaleV3">
-    <MenuBurger></MenuBurger>
+  <div class="FirstNavBar">
+    <UserParameter></UserParameter>
     <BackButton></BackButton>
   </div>
 </template>
 
 <script>
 import BackButton from "@/components/BackButton.vue";
-import MenuBurger from "@/components/MenuBurger.vue";
+import UserParameter from "@/components/UserParameter.vue";
 import { useRouter } from "vue-router";
 export default {
-  name: "BarreHorizontaleV2",
-  components: { BackButton, MenuBurger },
+  name: "FirstNavBar",
+  components: { BackButton, UserParameter },
 
   setup() {
     const router = useRouter();
@@ -25,14 +25,14 @@ export default {
 
 <style scoped>
 
-.BarreHorizontaleV3 {
+.FirstNavBar {
   height: 90px;
   width: 100%;
     display: flex;
   background-color: #8badbe;
 }
 
-.MenuBurger {
+.UserParameter {
   width: 8%;
   margin-left: 1%;
   margin-top: 5px;

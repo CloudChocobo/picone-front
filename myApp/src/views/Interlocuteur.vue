@@ -2,10 +2,10 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV3>
+      <PageWithFirstNavBar>
         <main>
-          <div class="texte">Choisissez votre interlocuteur :</div>
-          <div class="grille"><GrilleImage>
+          <div class="text">Choisissez votre interlocuteur :</div>
+          <div class="grille"><ImageGrid>
             <Carte
               v-for="(carte, index) in cartes"
               :image="carte.image"
@@ -13,7 +13,7 @@
               :key="index"
               @click="doAction(carte)"
             />
-          </GrilleImage></div>
+          </ImageGrid></div>
         </main>
 
         <footer>
@@ -28,7 +28,7 @@
           </Panier>
           <!-- </div> -->
         </footer>
-      </PageV3>
+      </PageWithFirstNavBar>
     </ion-content>
   </ion-page>
 </template>
@@ -36,20 +36,20 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageV3 from "@/components/PageV3.vue";
+import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
-import GrilleImage from "@/components/GrilleImage.vue";
+import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCartes}  from "@/data.ts" ;
 export default {
   name: "Interlocuteur",
   components: {
     IonPage,
     IonContent,
-    PageV3,
+    PageWithFirstNavBar,
     Carte,
     Panier,
-    GrilleImage,
+    ImageGrid,
   },
   props: [],
   setup() {
@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style scoped>
-.texte {
+.text {
   display: flex;
   font-size: 50px;
   margin-left: 19%;
@@ -111,7 +111,7 @@ export default {
   margin-top: 2%;
 }
 
-.bidouille {
+.invisibleBlockAlignment {
   display: inline-block;
   width: 2%;
 }

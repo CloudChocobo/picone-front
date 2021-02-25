@@ -1,11 +1,11 @@
-
+<!-- template with the FirstNavBar (which has no eraser)-->
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
       <header>
-        <BarreNavHorizontaleV3></BarreNavHorizontaleV3>
+        <FirstNavBar></FirstNavBar>
       </header>
-      <div class="pageV3">
+      <div class="PageWithFirstNavBar">
         <main>
           <slot></slot>
         </main>
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import BarreNavHorizontaleV3 from "@/components/BarreNavHorizontaleV3.vue";
+import FirstNavBar from "@/components/FirstNavBar.vue";
 
 export default {
-  name: "PageV3",
+  name: "PageWithFirstNavBar",
   props: [],
   components: {
-    BarreNavHorizontaleV3,
+    FirstNavBar,
   },
 };
 </script>

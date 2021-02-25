@@ -4,8 +4,8 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromPanier">
      <div class="container">
-                <div class="texte">Terminez votre phrase</div>
-        <!-- div "bidouille" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="bidouille"></div>
+                <div class="text">Terminez votre phrase</div>
+        <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="invisibleBlockAlignment"></div>
          <div class="finPhrase">
              <div class="point">
                 <div :id="id" @click="[clearPanier($store.panier) , router.push(`/debutPhrase`)]">
@@ -112,7 +112,7 @@ export default {
   text-align: center;
 }
 
-.bidouille {
+.invisibleBlockAlignment {
   display: inline-block;
   width: 2%;
 }
@@ -121,7 +121,7 @@ img {
   margin-right: 2%;
   border-radius: 55px;
 }
-.texte {
+.text {
   display: flex;
   font-size: 50px;
   margin-left: 27%;
@@ -141,7 +141,7 @@ img {
   margin-top: 2%;
 }
 
-.bidouille {
+.invisibleBlockAlignment {
   display: inline-block;
   width: 2%;
 }

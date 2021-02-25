@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2>
         <main>
-          <GrilleImage>
+          <ImageGrid>
           <Carte
             v-for="(carte, index) in cartes"
             :image="carte.image"
@@ -12,7 +12,7 @@
             :key="index"
             @click="addItemToPanier(carte)"
           />
-          </GrilleImage>
+          </ImageGrid>
         </main>
         
         <footer>
@@ -41,7 +41,7 @@ import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
 import Carte from "@/components/Carte.vue";
 import Panier from "@/components/Panier.vue";
-import GrilleImage from "@/components/GrilleImage.vue";
+import ImageGrid from "@/components/ImageGrid.vue";
 export default {
   name: "ModalTest",
   components: {
@@ -50,7 +50,7 @@ export default {
     PageV2,
     Carte,
     Panier,
-    GrilleImage,
+    ImageGrid,
   },
   props: [],
   setup() {
@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style scoped>
-.texte {
+.text {
   display: flex;
   font-size: 50px;
   margin-left: 340px;
