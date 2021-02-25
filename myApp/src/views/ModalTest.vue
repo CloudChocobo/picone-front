@@ -6,11 +6,11 @@
         <main>
           <ImageGrid>
           <Card
-            v-for="(carte, index) in cartes"
-            :image="carte.image"
-            :description="carte.description"
+            v-for="(card, index) in cards"
+            :image="card.image"
+            :description="card.description"
             :key="index"
-            @click="addItemToDialogBox(carte)"
+            @click="addItemToDialogBox(card)"
           />
           </ImageGrid>
         </main>
@@ -19,9 +19,9 @@
           <!-- <div class="rectangle_discussion"> -->
             <Panier>
               <Card
-                v-for="(carte, index) in panier"
-                :image="carte.image"
-                :description="carte.description"
+                v-for="(card, index) in panier"
+                :image="card.image"
+                :description="card.description"
                 :key="index"
                 @click="removeItemFromPanier(index)"
               />
@@ -39,7 +39,7 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 
 import PageV2 from "@/components/PageV2.vue";
-import Carte from "@/components/Carte.vue";
+import Card from "@/components/Card.vue";
 import Panier from "@/components/Panier.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 export default {
@@ -48,7 +48,7 @@ export default {
     IonPage,
     IonContent,
     PageV2,
-    Carte,
+    Card,
     Panier,
     ImageGrid,
   },
@@ -96,8 +96,8 @@ export default {
   },
 
   methods: {
-    addItemToDialogBox(carte) {
-      this.panier.push(carte);
+    addItemToDialogBox(card) {
+      this.panier.push(card);
     },
     removeItemFromPanier(index) {
       this.panier.splice(index, 1);

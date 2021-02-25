@@ -21,7 +21,7 @@
           <Panier>
             <Card
               v-for="(card, index) in panier"
-              :image="carte.image" 
+              :image="card.image" 
               :description="card.description" 
               :key="index"
             />

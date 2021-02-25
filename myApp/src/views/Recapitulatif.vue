@@ -64,7 +64,7 @@ export default {
 
   data: () => {
     return {
-      cartes: libraryCartes.nourriture,
+      cards: libraryCartes.nourriture,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -83,17 +83,17 @@ export default {
       this.$store.commit("clearPanier", this.$store.panier);
     },
 
-    addItemToDialogBox(carte) {
-      this.$store.commit("addElementToPanier", carte);
+    addItemToDialogBox(card) {
+      this.$store.commit("addElementToPanier", card);
     },
     removeItemFromPanier() {
       this.$store.commit("removeElementFromPanier");
     },
-    doAction(carte) {
-      if (carte.redirectsTo) {
-        this.$router.push("/" + carte.redirectsTo);
+    doAction(card) {
+      if (card.redirectsTo) {
+        this.$router.push("/" + card.redirectsTo);
       } else {
-        this.addItemToDialogBox(carte);
+        this.addItemToDialogBox(card);
       }
     },
   },

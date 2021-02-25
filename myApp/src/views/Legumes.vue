@@ -7,11 +7,11 @@
           <div class="text">Choisissez un légume :</div>
           <ImageGrid>
             <Card
-              v-for="(carte, index) in cartes"
-              :image="carte.image"
-              :description="carte.description"
+              v-for="(card, index) in cards"
+              :image="card.image"
+              :description="card.description"
               :key="index"
-              @click="doAction(carte)"
+              @click="doAction(card)"
             />
           </ImageGrid>
         </main>
@@ -20,9 +20,9 @@
           <!-- <div class="rectangle_discussion"> -->
           <Panier>
             <Card
-              v-for="(carte, index) in panier"
-              :image="carte.image" 
-              :description="carte.description" 
+              v-for="(card, index) in panier"
+              :image="card.image" 
+              :description="card.description" 
               :key="index"
             />
           </Panier>
@@ -37,7 +37,7 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
-import Carte from "@/components/Carte.vue";
+import Card from "@/components/Card.vue";
 import Panier from "@/components/Panier.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCartes}  from "@/data.ts" ;
@@ -47,7 +47,7 @@ export default {
     IonPage,
     IonContent,
     PageV2,
-    Carte,
+    Card,
     Panier,
     ImageGrid,
   },
@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cartes : libraryCartes.legumes,
+      cards : libraryCartes.legumes,
       currentIndex: 0,
       currentId: "",
       discussion: "panier",
@@ -67,17 +67,17 @@ export default {
   },
 
   methods: {
-    addItemToDialogBox(carte) {
-      this.$store.commit('addElementToPanier', carte);
+    addItemToDialogBox(card) {
+      this.$store.commit('addElementToPanier', card);
     },
     removeItemFromPanier() {
       this.$store.commit('removeElementFromPanier');
     },
-    doAction(carte){
-      if(carte.redirectsTo){
-        this.$router.push("/"+carte.redirectsTo);
+    doAction(card){
+      if(card.redirectsTo){
+        this.$router.push("/"+card.redirectsTo);
       } else {
-        this.addItemToDialogBox(carte);
+        this.addItemToDialogBox(card);
       }
     }
   },
