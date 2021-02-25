@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="text">Choisissez un loisir :</div>
+          <div class="text">Choisissez un légume :</div>
           <ImageGrid>
             <Card
               v-for="(card, index) in cards"
@@ -20,7 +20,7 @@
           <!-- <div class="rectangle_discussion"> -->
           <Basket>
             <Card
-              v-for="(card, index) in panier"
+              v-for="(card, index) in basket"
               :image="card.image" 
               :description="card.description" 
               :key="index"
@@ -42,7 +42,7 @@ import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
-  name: "Loisirs",
+  name: "Veggetables",
   components: {
     IonPage,
     IonContent,
@@ -59,10 +59,10 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.loisirs,
+      cards : libraryCards.veggetables,
       currentIndex: 0,
       currentId: "",
-      discussion: "panier",
+      discussion: "basket",
     };
   },
 
@@ -81,7 +81,7 @@ export default {
       }
     }
   },
-   computed: { panier(){ return this.$store.state.panier } }
+   computed: { basket(){ return this.$store.state.basket } }
 };
 </script>
 

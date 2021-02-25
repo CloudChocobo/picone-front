@@ -6,7 +6,7 @@ export const libraryCards = {
     // créer le fichier .vue dans views correspondant au nom du pattern (exemple : "actions" a son propre fichier .vue)
     // attention maximum 8 lignes par pattern
     // la clé redirectsTo permet de créer  un routing vers un nouveau fichier .vue lorque l'on clique sur l'icone
-    // si pas de redirectsTo => pas de routing, l'icone s'ajoute dans le panier sans changer de routing
+    // si pas de redirectsTo => pas de routing, l'icone s'ajoute dans le basket sans changer de routing
     // redirectsTo doit comporter le nom exact du fichier .vue visé (exemple : " redirectsTo: "Légumes" "pour faire le routing vers "Légumes.vue" )
     // donc attention aux majuscules/minuscules
 
@@ -18,7 +18,7 @@ export const libraryCards = {
       cards : libraryCards.objets,  <============ ici, pensez à changer le nom du pattern visé (exemple : si vous voulez utilisez fruits, écrivez : "libraryCards.fruits")
       currentIndex: 0,
       currentId: "",
-      discussion: "panier",
+      discussion: "basket",
     };
     "
   },
@@ -49,8 +49,8 @@ export const libraryCards = {
     actions:
         {
             seLaver: {image: rootHebergementImage + "seLaver.png", description: "se laver", redirectsTo:"seLaver"},
-            manger : {image:rootHebergementImage+"manger.png", description: "manger",redirectsTo:"Nourriture" },
-            boire : {image: rootHebergementImage+"boire.png", description: "boire", redirectsTo:"Boissons"},
+            manger : {image:rootHebergementImage+"manger.png", description: "manger",redirectsTo:"Food" },
+            boire : {image: rootHebergementImage+"boire.png", description: "boire", redirectsTo:"Drinks"},
             seSoigner : {image:rootHebergementImage+"seSoigner.png", description: "soins", redirectsTo:"Soin"},
             toilettes : {image: rootHebergementImage+"allerAuxToilettes.png", description: "besoins", redirectsTo:"wc"},
             dormir : {image: rootHebergementImage+"dormir.png", description: "dormir"},
@@ -63,8 +63,8 @@ export const libraryCards = {
         actions2:
         {
             marcher : {image: rootHebergementImage+"marcher.png", description: "marcher"},
-            manger : {image:rootHebergementImage+"manger.png", description: "manger",redirectsTo:"Nourriture" },
-            boire : {image: rootHebergementImage+"boire.png", description: "boire", redirectsTo:"Boissons"},
+            manger : {image:rootHebergementImage+"manger.png", description: "manger",redirectsTo:"Food" },
+            boire : {image: rootHebergementImage+"boire.png", description: "boire", redirectsTo:"Drinks"},
             seSoigner : {image:rootHebergementImage+"seSoigner.png", description: "se soigner"},
             toilettes : {image: rootHebergementImage+"allerAuxToilettes.png", description: "toilettes"},
             dormir : {image: rootHebergementImage+"dormir.png", description: "dormir"},
@@ -73,12 +73,12 @@ export const libraryCards = {
 
         },
 
-    nourriture:
+    food:
         {
             fruits :{image: rootHebergementImage+"fruits.png", description: "fruits", redirectsTo:"fruits"},
             legumes : {image:rootHebergementImage+"legumes.png", description: "legumes", redirectsTo:"Legumes"},
             plats : {image: rootHebergementImage+"preparations.png",description:"plats", redirectsTo:"Plats"},
-            boissons : {image:rootHebergementImage+"boissons.png", description: "boissons", redirectsTo:"Boissons"},
+            drinks : {image:rootHebergementImage+"boissons.png", description: "boissons", redirectsTo:"Drinks"},
             desserts : {image:rootHebergementImage+"desserts.png", description: "desserts", redirectsTo:"Dessert"},
         },
 
@@ -96,7 +96,7 @@ export const libraryCards = {
      
         },
         
-    // douleur :
+    // pain :
     //         {
     //             smileyTriste : {image: rootHebergementImage+"smileyTriste.png", description: "triste"},
     //             smileyMalade : {image:rootHebergementImage+"smileyMalade.png", description: "malade"},
@@ -126,7 +126,7 @@ export const libraryCards = {
 
         },
 
-    corps :
+    body :
         {
             dos : {image:rootHebergementImage+"dos.png", description: "dos"},
             poitrine : {image:rootHebergementImage+"poitrine.png", description: "poitrine"},
@@ -139,8 +139,7 @@ export const libraryCards = {
         
          },
 
-         corps2 :
-         
+         body2 :
          {
                      //  nez : {image:rootHebergementImage+"nez.png", description: "nez"},
         //  pieds   : {image:rootHebergementImage+"pieds.png", description: "pieds"},
@@ -162,7 +161,7 @@ export const libraryCards = {
 
             },
 
-    boissons :
+    drinks :
 
         {
             eau : {image:rootHebergementImage+"eau.png", description: "eau"},
@@ -176,7 +175,7 @@ export const libraryCards = {
 
         },
 
-    boissons2 :
+    drinks2 :
 {
         //chocolatChaud : {image:rootHebergementImage+"chocolatChaud.png", description: "chocolat chaud"},
 },

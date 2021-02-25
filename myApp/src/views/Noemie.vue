@@ -20,7 +20,7 @@
           <!-- <div class="rectangle_discussion"> -->
           <Basket>
             <Card
-              v-for="(card, index) in panier"
+              v-for="(card, index) in basket"
               :image="cartd.image" 
               :description="card.description" 
               :key="index"
@@ -62,7 +62,7 @@ export default {
       cards : libraryCards.nourriture,
       currentIndex: 0,
       currentId: "",
-      discussion: "panier",
+      discussion: "basket",
     };
   },
 
@@ -81,7 +81,7 @@ export default {
       }
     }
   },
-   computed: { panier(){ return this.$store.state.panier } }
+   computed: { basket(){ return this.$store.state.basket } }
 };
 </script>
 

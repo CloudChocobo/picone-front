@@ -19,7 +19,7 @@
           <!-- <div class="rectangle_discussion"> -->
             <Basket>
               <Card
-                v-for="(card, index) in panier"
+                v-for="(card, index) in basket"
                 :image="card.image"
                 :description="card.description"
                 :key="index"
@@ -72,8 +72,8 @@ export default {
           id: "effacerPhrase",
         },
       ],
-      discussion: "panier",
-      panier: [],
+      discussion: "basket",
+      basket: [],
       cards: [
         {
           description: "bien",
@@ -97,10 +97,10 @@ export default {
 
   methods: {
     addItemToDialogBox(card) {
-      this.panier.push(card);
+      this.basket.push(card);
     },
     removeItemFromDialogBox(index) {
-      this.panier.splice(index, 1);
+      this.basket.splice(index, 1);
     },
   },
 

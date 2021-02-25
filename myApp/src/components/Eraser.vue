@@ -14,13 +14,13 @@ export default {
   props: ["id", "description", "image"],
   methods: {
     //    removeItemFromDialogBox(index) {
-    //   this.panier.splice(index, 1);
+    //   this.basket.splice(index, 1);
     // },
     //   removeItemFromDialogBox(carte) {
     //     this.$emit("removeItemFromDialogBox", carte);
     //  }
     //    removeItemFromDialogBox(index) {
-    //   this.$panier.dispatch('removeItemFronBasket',itemId);
+    //   this.$basket.dispatch('removeItemFronBasket',itemId);
     // },
   },
 

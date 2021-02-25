@@ -5,27 +5,27 @@ import Home from "@/views/Home.vue";
 import AdminHome from "@/views/AdminHome.vue";
 import Noemie from "@/views/Noemie.vue";
 import ModalTest from "@/views/ModalTest.vue";
-import Nourriture from "@/views/Nourriture.vue";
+import Food from "@/views/Food.vue";
 import Actions from "@/views/Actions.vue";
 import Actions2 from "@/views/Actions2.vue";
 import Mood from "@/views/Mood.vue";
-import Interlocuteur from "@/views/Interlocuteur.vue";
-import DebutPhrase from "@/views/DebutPhrase.vue";
-import Soin from "@/views/Soin.vue";
+import Interlocutor from "@/views/Interlocutor.vue";
+import StartTalking from "@/views/StartTalking.vue";
+import Care from "@/views/Care.vue";
 import Fruits from "@/views/Fruits.vue"
-import Plats from "@/views/Plats.vue";
-import Legumes from "@/views/Legumes.vue";
-import Boissons from "@/views/Boissons.vue";
+import Dishes from "@/views/Dishes.vue";
+import Veggetables from "@/views/Veggetables.vue";
+import Drinks from "@/views/Drinks.vue";
 import Wc from "@/views/Wc.vue";
-import Mobilier from "@/views/Mobilier.vue";
-import Loisirs from "@/views/Loisirs.vue";
-import Vetements from "@/views/Vetements.vue";
-import Corps from "@/views/Corps.vue";
-import Douleurs from "@/views/Douleurs.vue";
+import Furniture from "@/views/Furniture.vue";
+import Hobbies from "@/views/Hobbies.vue";
+import Clothes from "@/views/Clothes.vue";
+import Body from "@/views/Body.vue";
+import Pain from "@/views/Pain.vue";
 import Dessert from "@/views/Dessert.vue";
-import SeLaver from "@/views/SeLaver.vue";
-import Objets from "@/views/Objets.vue";
-import Recapitulatif from "@/views/Recapitulatif.vue";
+import Hygiene from "@/views/Hygiene.vue";
+import Objects from "@/views/Objects.vue";
+import Recap from "@/views/Recap.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
@@ -55,9 +55,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Noemie,
   },
    {
-    name: "Nourriture",
-    path: "/nourriture",
-    component: Nourriture,
+    name: "Food",
+    path: "/food",
+    component: Food,
   },
      {
     name: "Home",
@@ -81,19 +81,19 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    name: "Soin",
-    path: "/soin",
-    component: Soin,
+    name: "Care",
+    path: "/care",
+    component: Care,
   },
      {
-    name: "Interlocuteur",
-    path: "/interlocuteur",
-    component: Interlocuteur,
+    name: "Interlocutor",
+    path: "/interlocutor",
+    component: Interlocutor,
   },  
      {
-    name: "DebutPhrase",
-    path: "/debutphrase",
-    component: DebutPhrase,
+    name: "StartTalking",
+    path: "/startTalking",
+    component: StartTalking,
   },  
      {
     name: "Fruits",
@@ -101,19 +101,19 @@ const routes: Array<RouteRecordRaw> = [
     component: Fruits,
   },  
        {
-    name: "Plats",
-    path: "/plats",
-    component: Plats,
+    name: "Dishes",
+    path: "/dishes",
+    component: Dishes,
   }, 
        {
-    name: "Legumes",
-    path: "/legumes",
-    component: Legumes,
+    name: "Veggetables",
+    path: "/veggetables",
+    component: Veggetables,
   }, 
          {
-    name: "Boissons",
-    path: "/boissons",
-    component: Boissons,
+    name: "Drinks",
+    path: "/drinks",
+    component: Drinks,
   },  
            {
     name: "Wc",
@@ -121,29 +121,29 @@ const routes: Array<RouteRecordRaw> = [
     component: Wc,
   },  
            {
-    name: "Mobilier",
-    path: "/mobilier",
-    component: Mobilier,
+    name: "Furniture",
+    path: "/furniture",
+    component: Furniture,
   }, 
            {
-    name: "Loisirs",
-    path: "/loisirs",
-    component: Loisirs,
+    name: "Hobbies",
+    path: "/hobbies",
+    component: Hobbies,
   }, 
            {
-    name: "Vetements",
-    path: "/vetements",
-    component: Vetements,
+    name: "Clothes",
+    path: "/clothes",
+    component: Clothes,
   }, 
            {
-    name: "Corps",
-    path: "/corps",
-    component: Corps,
+    name: "Body",
+    path: "/body",
+    component: Body,
   }, 
            {
-    name: "Douleurs",
-    path: "/douleurs",
-    component: Douleurs,
+    name: "Pain",
+    path: "/pain",
+    component: Pain,
   }, 
            {
     name: "Dessert",
@@ -151,19 +151,19 @@ const routes: Array<RouteRecordRaw> = [
     component: Dessert,
   }, 
            {
-    name: "SeLaver",
-    path: "/selaver",
-    component: SeLaver,
+    name: "Hygiene",
+    path: "/hygiene",
+    component: Hygiene,
   }, 
              {
-    name: "Objets",
-    path: "/objets",
-    component: Objets,
+    name: "Objects",
+    path: "/objects",
+    component: Objects,
   }, 
                {
-    name: "Recapitulatif",
-    path: "/recapitulatif",
-    component: Recapitulatif,
+    name: "Recap",
+    path: "/recap",
+    component: Recap,
   }, 
 ]
 

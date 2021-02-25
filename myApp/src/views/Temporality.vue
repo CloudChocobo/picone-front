@@ -2,10 +2,10 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageWithFirstNavBar>
+      <PageV2 @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="text">Choisissez votre interlocuteur :</div>
-          <div class="grille"><ImageGrid>
+          <div class="text">Précisez la notion :</div>
+          <ImageGrid>
             <Card
               v-for="(card, index) in cards"
               :image="card.image"
@@ -13,14 +13,14 @@
               :key="index"
               @click="doAction(card)"
             />
-          </ImageGrid></div>
+          </ImageGrid>
         </main>
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
           <Basket>
             <Card
-              v-for="(card, index) in panier"
+              v-for="(card, index) in basket"
               :image="card.image" 
               :description="card.description" 
               :key="index"
@@ -28,7 +28,7 @@
           </Basket>
           <!-- </div> -->
         </footer>
-      </PageWithFirstNavBar>
+      </PageV2>
     </ion-content>
   </ion-page>
 </template>
@@ -36,17 +36,17 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
+import PageV2 from "@/components/PageV2.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
-  name: "Interlocuteur",
+  name: "Temporality",
   components: {
     IonPage,
     IonContent,
-    PageWithFirstNavBar,
+    PageV2,
     Card,
     Basket,
     ImageGrid,
@@ -59,10 +59,10 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.personnes,
+      cards : libraryCards.temporality,
       currentIndex: 0,
       currentId: "",
-      discussion: "panier",
+      discussion: "basket",
     };
   },
 
@@ -81,7 +81,7 @@ export default {
       }
     }
   },
-   computed: { panier(){ return this.$store.state.panier } }
+   computed: { basket(){ return this.$store.state.basket } }
 };
 </script>
 
@@ -89,16 +89,11 @@ export default {
 .text {
   display: flex;
   font-size: 50px;
-  margin-left: 19%;
+  margin-left: 27%;
   color: #536974;
   position: relative;
   text-align: center;
   /* margin-top: 10px; */
-}
-
-.grille {
-  margin-top:30px;
-  margin-left:22%;
 }
 
 .footer {
@@ -121,8 +116,11 @@ export default {
   width: 17%;
 }
 
-footer{ 
-  display: none;
-  }
+/* .Basket {
 
+} */
+
+/* .rectangle_discussion .Discussion{
+  grid-template-rows: fit-content(40%);
+} */
 </style>

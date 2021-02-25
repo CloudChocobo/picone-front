@@ -8,12 +8,12 @@
         <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="invisibleBlockAlignment"></div>
          <div class="finPhrase">
              <div class="point">
-                <div :id="id" @click="[clearBasket($store.panier) , router.push(`/debutPhrase`)]">
+                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/debutPhrase`)]">
                     <img src= "@/assets/affirmation.png" />
                 </div>
             </div>
             <div class="interrogation">
-                <div :id="id" @click="[clearBasket($store.panier) , router.push(`/debutPhrase`)]" >
+                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/debutPhrase`)]" >
                     <img src= "@/assets/question.png"  />
                 </div>
             </div>
@@ -25,7 +25,7 @@
           <!-- <div class="rectangle_discussion"> -->
           <Basket>
             <Card
-              v-for="(card, index) in panier"
+              v-for="(card, index) in basket"
               :image="card.image" 
               :description="card.description" 
               :key="index"
@@ -47,7 +47,7 @@ import Basket from "@/components/Basket.vue";
 import { libraryCards } from "@/data.ts";
 
 export default {
-  name: "Recapitulatif",
+  name: "Recap",
   components: {
     IonPage,
     IonContent,
@@ -64,10 +64,10 @@ export default {
 
   data: () => {
     return {
-      cards: libraryCards.nourriture,
+      cards: libraryCards.recap,
       currentIndex: 0,
       currentId: "",
-      discussion: "panier",
+      discussion: "basket",
     };
   },
 
@@ -80,7 +80,7 @@ export default {
       // this.router.push...
     },
     clearBasket() {
-      this.$store.commit("clearBasket", this.$store.panier);
+      this.$store.commit("clearBasket", this.$store.basket);
     },
 
     addItemToDialogBox(card) {
@@ -98,8 +98,8 @@ export default {
     },
   },
   computed: {
-    panier() {
-      return this.$store.state.panier;
+    basket() {
+      return this.$store.state.basket;
     },
   },
 };

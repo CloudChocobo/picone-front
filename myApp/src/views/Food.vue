@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageV2 @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="text">Débutez votre phrase :</div>
+          <div class="text">Précisez votre choix :</div>
           <ImageGrid>
             <Card
               v-for="(card, index) in cards"
@@ -20,7 +20,7 @@
           <!-- <div class="rectangle_discussion"> -->
           <Basket>
             <Card
-              v-for="(card, index) in panier"
+              v-for="(card, index) in basket"
               :image="card.image" 
               :description="card.description" 
               :key="index"
@@ -42,7 +42,7 @@ import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
-  name: "DebutPhrase",
+  name: "Food",
   components: {
     IonPage,
     IonContent,
@@ -59,10 +59,10 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.debutPhrase,
+      cards : libraryCards.nourriture,
       currentIndex: 0,
       currentId: "",
-      discussion: "panier",
+      discussion: "basket",
     };
   },
 
@@ -74,14 +74,14 @@ export default {
       this.$store.commit('removeElementFromBasket');
     },
     doAction(card){
-
+      if(card.redirectsTo){
         this.$router.push("/"+card.redirectsTo);
-
+      } else {
         this.addItemToDialogBox(card);
-  
+      }
     }
   },
-   computed: { panier(){ return this.$store.state.panier } }
+   computed: { basket(){ return this.$store.state.basket } }
 };
 </script>
 
@@ -93,13 +93,8 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
+  /* margin-top: 10px; */
 }
-
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
 
 .footer {
   margin-left: 10%;
@@ -116,15 +111,16 @@ export default {
   width: 2%;
 }
 
-.PageV2 img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-}
-
 .Discussion img {
   margin-top: 1%;
   width: 17%;
 }
 
+/* .Basket {
+
+} */
+
+/* .rectangle_discussion .Discussion{
+  grid-template-rows: fit-content(40%);
+} */
 </style>

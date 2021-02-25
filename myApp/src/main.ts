@@ -27,29 +27,29 @@ import './theme/variables.css';
 const store = createStore({
   state () {
     return {
-      panier: []
+      basket: []
     }
   },
   mutations: {
     addElementToBasket(state: any, elementAAjouter: any){
-      if(state.panier.length <4){
-        state.panier.push(elementAAjouter);
+      if(state.basket.length <4){
+        state.basket.push(elementAAjouter);
       }
     },
     removeElementFromBasket(state: any){
-      if(state.panier.length > 0){
-        state.panier.pop();
+      if(state.basket.length > 0){
+        state.basket.pop();
       }
     },
       clearBasket(state: any){
-          state.panier = []   
+          state.basket = []   
 },
     },
 
 
   getters: {
     contenuBasket (state) {
-      return state.panier;
+      return state.basket;
     }
   }
 })
