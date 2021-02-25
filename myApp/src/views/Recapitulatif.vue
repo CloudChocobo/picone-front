@@ -8,12 +8,12 @@
         <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="invisibleBlockAlignment"></div>
          <div class="finPhrase">
              <div class="point">
-                <div :id="id" @click="[clearPanier($store.panier) , router.push(`/debutPhrase`)]">
+                <div :id="id" @click="[clearBasket($store.panier) , router.push(`/debutPhrase`)]">
                     <img src= "@/assets/affirmation.png" />
                 </div>
             </div>
             <div class="interrogation">
-                <div :id="id" @click="[clearPanier($store.panier) , router.push(`/debutPhrase`)]" >
+                <div :id="id" @click="[clearBasket($store.panier) , router.push(`/debutPhrase`)]" >
                     <img src= "@/assets/question.png"  />
                 </div>
             </div>
@@ -23,14 +23,14 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Panier>
+          <Basket>
             <Card
               v-for="(card, index) in panier"
               :image="card.image" 
               :description="card.description" 
               :key="index"
             />
-          </Panier>
+          </Basket>
           <!-- </div> -->
         </footer>
       </PageV2>
@@ -43,7 +43,7 @@ import { IonPage, IonContent, IonButton } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageV2 from "@/components/PageV2.vue";
 import Card from "@/components/Card.vue";
-import Panier from "@/components/Panier.vue";
+import Basket from "@/components/Basket.vue";
 import { libraryCards } from "@/data.ts";
 
 export default {
@@ -53,7 +53,7 @@ export default {
     IonContent,
     PageV2,
     Card,
-    Panier,
+    Basket,
     
   },
   props: [],
@@ -79,15 +79,15 @@ export default {
       // faire un if this.currentId === Truc
       // this.router.push...
     },
-    clearPanier() {
-      this.$store.commit("clearPanier", this.$store.panier);
+    clearBasket() {
+      this.$store.commit("clearBasket", this.$store.panier);
     },
 
     addItemToDialogBox(card) {
-      this.$store.commit("addElementToPanier", card);
+      this.$store.commit("addElementToBasket", card);
     },
     removeItemFromDialogBox() {
-      this.$store.commit("removeElementFromPanier");
+      this.$store.commit("removeElementFromBasket");
     },
     doAction(card) {
       if (card.redirectsTo) {
@@ -151,7 +151,7 @@ img {
   width: 17%;
 }
 
-/* .Panier {
+/* .Basket {
 
 } */
 

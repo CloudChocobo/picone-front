@@ -70,7 +70,7 @@ export default {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToPanier', card);
     },
-    removeItemFromDialogBox() {
+    removeItemFromPanier() {
       this.$store.commit('removeElementFromPanier');
     },
     doAction(card){

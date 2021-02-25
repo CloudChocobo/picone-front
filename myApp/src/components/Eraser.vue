@@ -20,13 +20,13 @@ export default {
     //     this.$emit("removeItemFromDialogBox", carte);
     //  }
     //    removeItemFromDialogBox(index) {
-    //   this.$panier.dispatch('removeItemFronPanier',itemId);
+    //   this.$panier.dispatch('removeItemFronBasket',itemId);
     // },
   },
 
-  // emoveItemFromPanier(id) {
+  // emoveItemFromBasket(id) {
   //     console.log(id);
-  //     if (this.Panier.lenght>1){
+  //     if (this.Basket.lenght>1){
   //       this.item.pop()
   //     }
   //   },

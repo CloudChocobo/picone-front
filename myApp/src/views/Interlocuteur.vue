@@ -18,14 +18,14 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Panier>
+          <Basket>
             <Card
               v-for="(card, index) in panier"
               :image="card.image" 
               :description="card.description" 
               :key="index"
             />
-          </Panier>
+          </Basket>
           <!-- </div> -->
         </footer>
       </PageWithFirstNavBar>
@@ -38,7 +38,7 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import Card from "@/components/Card.vue";
-import Panier from "@/components/Panier.vue";
+import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
@@ -48,7 +48,7 @@ export default {
     IonContent,
     PageWithFirstNavBar,
     Card,
-    Panier,
+    Basket,
     ImageGrid,
   },
   props: [],
@@ -68,10 +68,10 @@ export default {
 
   methods: {
     addItemToDialogBox(card) {
-      this.$store.commit('addElementToPanier', card);
+      this.$store.commit('addElementToBasket', card);
     },
     removeItemFromDialogBox() {
-      this.$store.commit('removeElementFromPanier');
+      this.$store.commit('removeElementFromBasket');
     },
     doAction(card){
       if(card.redirectsTo){

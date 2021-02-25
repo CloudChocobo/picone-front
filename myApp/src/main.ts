@@ -31,24 +31,24 @@ const store = createStore({
     }
   },
   mutations: {
-    addElementToPanier(state: any, elementAAjouter: any){
+    addElementToBasket(state: any, elementAAjouter: any){
       if(state.panier.length <4){
         state.panier.push(elementAAjouter);
       }
     },
-    removeElementFromPanier(state: any){
+    removeElementFromBasket(state: any){
       if(state.panier.length > 0){
         state.panier.pop();
       }
     },
-      clearPanier(state: any){
+      clearBasket(state: any){
           state.panier = []   
 },
     },
 
 
   getters: {
-    contenuPanier (state) {
+    contenuBasket (state) {
       return state.panier;
     }
   }

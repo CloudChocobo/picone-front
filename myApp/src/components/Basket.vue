@@ -13,7 +13,7 @@
 <script>
 import Discussion from "@/components/Discussion.vue";
 export default {
-  name: "Panier",
+  name: "Basket",
   components: { Discussion },
 };
 </script>

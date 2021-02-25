@@ -17,7 +17,7 @@
         
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-            <Panier>
+            <Basket>
               <Card
                 v-for="(card, index) in panier"
                 :image="card.image"
@@ -25,7 +25,7 @@
                 :key="index"
                 @click="removeItemFromDialogBox(index)"
               />
-            </Panier>
+            </Basket>
           <!-- </div> -->
         </footer>
 
@@ -40,7 +40,7 @@ import { useRouter } from "vue-router";
 
 import PageV2 from "@/components/PageV2.vue";
 import Card from "@/components/Card.vue";
-import Panier from "@/components/Panier.vue";
+import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 export default {
   name: "ModalTest",
@@ -49,7 +49,7 @@ export default {
     IonContent,
     PageV2,
     Card,
-    Panier,
+    Basket,
     ImageGrid,
   },
   props: [],
