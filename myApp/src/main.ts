@@ -24,13 +24,17 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+//uses Vuex 4
+//keeps values from one page to another without having to import them from components to components
 const store = createStore({
   state () {
-    return {
+    return { 
+      //store values :
       basket: []
     }
   },
   mutations: {
+    //store values modifier functions:
     addElementToBasket(state: any, elementAAjouter: any){
       if(state.basket.length <4){
         state.basket.push(elementAAjouter);
