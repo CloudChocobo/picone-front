@@ -1,4 +1,4 @@
-<!-- composant générique bouton-->
+<!-- composant générique Button les gars si vous souhaitez le virer be my guest
 <template>
   <IonButton :color="realCouleur" :router-link="route ? route : null">
     <IonIcon v-if="icone" class="buttonIcon" :icon="iconData"></IonIcon>
@@ -11,7 +11,7 @@ import { IonButton, IonIcon } from "@ionic/vue";
 import * as icons from "ionicons/icons";
 
 export default {
-  name: "Bouton",
+  name: "Button",
   props: ["couleur", "route", "icone"],
   components: { IonButton, IonIcon },
   methods: {
@@ -54,3 +54,4 @@ export default {
 }
 </style>
 
+-->

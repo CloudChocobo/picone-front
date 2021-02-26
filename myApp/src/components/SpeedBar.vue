@@ -1,8 +1,9 @@
+<!-- à terminer
 <template>
   <div class="container">
     <ion-range min="1" max="3" step="1" snaps="true" color="secondary">
       <!--<ion-label slot="start">lent</ion-label>
-      <ion-label slot="end">rapide</ion-label>-->
+      <ion-label slot="end">rapide</ion-label>
     </ion-range>
   </div>
 </template>
@@ -36,20 +37,13 @@ ion-range {
   --height: 20px;
 }
 
-<!--ion-label {
+ion-label {
   display: flex;
   font-size: 30px;
   color: #536974;
   flex-direction: row;
   align-content: space-around;
   align-items: space-around;
-}-->
-
-/* .input-wrapper {
-  width:50%;
-  color: #F1FAFF;
-} */
-/* .range-slider {
-  --width: 50px;
-} */
+}
 </style>
+-->

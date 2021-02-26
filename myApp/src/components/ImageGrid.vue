@@ -14,10 +14,4 @@
   grid-column-gap: 15px;
   grid-row-gap: 45px;
 }
-
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
 </style>

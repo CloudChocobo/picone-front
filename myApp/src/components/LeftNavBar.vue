@@ -1,6 +1,6 @@
-<!-- barre nav gauche administrateur-->
+<!-- leftnav bar  administrateur-->
 <template>
-  <div class="BarreNavLeft">
+  <div class="LeftNavBar">
     <UserParameter></UserParameter>
   </div>
 </template>
@@ -8,13 +8,13 @@
 <script>
 import UserParameter from "@/components/UserParameter.vue";
 export default {
-  name: "BarreNavLeft",
+  name: "LeftNavBar",
   components: { UserParameter },
 };
 </script>
 
     <style scoped>
-.BarreNavLeft {
+.LeftNavBar {
   position: absolute;
   width: 20vw;
   background: #8badbe;

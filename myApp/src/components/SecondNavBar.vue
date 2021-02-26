@@ -1,6 +1,6 @@
 <!-- navigation bar with the addition of the eraser-->
 <template>
-  <div class="BarreHorizontaleV2">
+  <div class="HorizontalBarV2">
     <UserParameter></UserParameter>
     <BackButton></BackButton>
     <Eraser @click="cancelLastAction"></Eraser>
@@ -13,7 +13,7 @@ import Eraser from "@/components/Eraser.vue";
 import UserParameter from "@/components/UserParameter.vue";
 import { useRouter } from "vue-router";
 export default {
-  name: "BarreHorizontaleV2",
+  name: "HorizontalBarV2",
   components: { BackButton, Eraser, UserParameter },
   methods: {
     cancelLastAction() {
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style scoped>
-.BarreHorizontaleV2 {
+.HorizontalBarV2 {
   height: 90px;
   width: 100%;
   display: flex;

@@ -1,3 +1,4 @@
+<!-- back to the previous page -->
 <template>
   <div class="BackButton" @click="() => router.go(-1)">
     <img src="../assets/Back.png" alt="" />
@@ -21,11 +22,4 @@ export default {
 
 
 <style scoped>
-
-/* img:hover {
-  transform: scale(1.2);
-  border-radius: 10px;
-  border: 5px solid #202abb9d;
-} */
-
 </style>

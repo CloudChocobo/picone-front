@@ -1,4 +1,4 @@
-
+<!-- template with the FirstNavBar (which has the eraser)-->
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
@@ -19,7 +19,7 @@
 import SecondNavBar from "@/components/SecondNavBar.vue";
 
 export default {
-  name: "PageV2",
+  name: "PageWithSecondNavBar",
   props: [],
   components: {
     SecondNavBar,

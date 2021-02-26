@@ -1,16 +1,13 @@
-<!-- correspond à 1 image et 1 label-->
+<!-- we used this component to represent one icon and label in the grid; each card is clickable  and can be added in the dialogue box-->
 <template>
   <div>
     <ImageGrid>
-    <!-- <div class="container"> -->
-
     <div class="card" v-on:click="addItemToDialogBox(card)">
       <div :id="id">
         <div><img :src="image" /></div>
         <div class="description">{{ description }} </div>
       </div>
     </div>
-  <!-- </div> -->
   </ImageGrid>
   </div>
 
@@ -32,7 +29,6 @@ export default {
 </script>
 
 <style scoped>
-
 .card {
   font-size: 23px;
   font-weight: bold;
@@ -40,23 +36,13 @@ export default {
   text-align: center;
   cursor: pointer;
 }
-
 .description{
   margin-top:-5px;
 }
-
 img {
-  /* width: 100%; */
   width: 150px;
   height: 150px;
   border-radius: 55px;
   object-fit:cover;
 }
-
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
-
 </style>

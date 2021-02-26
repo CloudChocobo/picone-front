@@ -1,3 +1,4 @@
+<!-- it's to remove item from dialogue box-->
 <template>
   <div class="Eraser">
     <div :id="id">
@@ -12,34 +13,9 @@
 export default {
   name: "Eraser",
   props: ["id", "description", "image"],
-  methods: {
-    //    removeItemFromDialogBox(index) {
-    //   this.basket.splice(index, 1);
-    // },
-    //   removeItemFromDialogBox(carte) {
-    //     this.$emit("removeItemFromDialogBox", carte);
-    //  }
-    //    removeItemFromDialogBox(index) {
-    //   this.$basket.dispatch('removeItemFronBasket',itemId);
-    // },
-  },
-
-  // emoveItemFromBasket(id) {
-  //     console.log(id);
-  //     if (this.Basket.lenght>1){
-  //       this.item.pop()
-  //     }
-  //   },
 };
 </script>
 
 
 <style scoped>
-
-/* img:hover {
-  transform: scale(1.2);
-  border-radius: 10px;
-  border: 5px solid #202abb9d;
-} */
-
 </style>

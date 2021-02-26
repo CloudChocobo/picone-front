@@ -2,7 +2,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2>
+      <PageWithSecondNavBar>
         <main>
           <ImageGrid>
           <Card
@@ -29,7 +29,7 @@
           <!-- </div> -->
         </footer>
 
-      </PageV2>
+      </PageWithSecondNavBar>
     </ion-content>
   </ion-page>
 </template>
@@ -38,7 +38,7 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 
-import PageV2 from "@/components/PageV2.vue";
+import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
@@ -47,7 +47,7 @@ export default {
   components: {
     IonPage,
     IonContent,
-    PageV2,
+    PageWithSecondNavBar,
     Card,
     Basket,
     ImageGrid,

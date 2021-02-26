@@ -2,7 +2,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2 @cancelLastAction="removeItemFromDialogBox">
+      <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
      <div class="container">
                 <div class="text">Terminez votre phrase</div>
         <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="invisibleBlockAlignment"></div>
@@ -33,15 +33,15 @@
           </Basket>
           <!-- </div> -->
         </footer>
-      </PageV2>
+      </PageWithSecondNavBar>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonContent, IonButton } from "@ionic/vue";
+import { IonPage, IonContent} from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageV2 from "@/components/PageV2.vue";
+import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import { libraryCards } from "@/data.ts";
@@ -51,7 +51,7 @@ export default {
   components: {
     IonPage,
     IonContent,
-    PageV2,
+    PageWithSecondNavBar,
     Card,
     Basket,
     

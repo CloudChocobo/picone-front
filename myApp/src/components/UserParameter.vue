@@ -1,4 +1,4 @@
-
+<!-- speed parameter on the user side, only parameter the user can use -->
 <template>
   <div class="UserParameter">
     <img src="../assets/IconeMenu.png" alt="roue paramètre utilisateur" />
@@ -16,11 +16,5 @@ export default {
 </script>
 
 <style scoped>
-
-/* img:hover {
-  transform: scale(1.2);
-  border-radius: 25px;
-  border: 5px solid #202abb9d;
-} */
 </style>
 

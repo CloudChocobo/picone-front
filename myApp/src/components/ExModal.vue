@@ -1,3 +1,4 @@
+<!-- les gars si vous souhaitez faire une fenetre modal c est un composant modal de ionic. sinon vous pouvez le virer 
 <template>
   <IonVuePage :title="'Modal'">
     <ion-button @click="openModal">Open Modal</ion-button>
@@ -42,3 +43,4 @@ export default {
   },
 }
 </script>
+-->

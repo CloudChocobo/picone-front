@@ -1,10 +1,12 @@
+<!-- dialogue box to screen selected cards-->
 <template>
   <div class="Discussion">
     <div class="text">
       <div class="Selection">
         <slot></slot>
       </div>
-      <div class="fin">
+      <!-- class=end means end of the sentence-->
+      <div class="end"> 
         <Point @click="() => router.push('/recap')"></Point>
       </div>
     </div>
@@ -30,9 +32,6 @@ export default {
 };
 </script>
 
-
-
- <!-- css a revoir pour le placement   -->
  <style scoped>
 .Discussion {
   width: 90%;
@@ -45,37 +44,18 @@ export default {
   margin-bottom: 5px;
 }
 .Selection {
-  
   flex:1 0 auto;
-  /* grid-template-columns: repeat(4, 1fr); */
-  /* grid-template-rows: repeat(2, 1fr); */
-  /* width: 45%; */
-  /* height: 20%; */
-  /* gap: 10px; */
 }
 
-
-.fin {
+.end {
   display: flex;
   flex-direction: column;
   justify-content:center;
   flex:0 0 10%;
-
-
-  /* gap: 5px; */
-
-}
-
-
-.Interrogation {
-  width: 10%;
-  margin-top: 1%;
-  margin-right: 2%;
 }
 
 .text {
 	display:flex;
 	height: 100%;
 }
-
 </style>
