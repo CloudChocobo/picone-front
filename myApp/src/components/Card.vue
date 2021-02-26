@@ -4,11 +4,10 @@
     <ImageGrid>
     <!-- <div class="container"> -->
 
-    <div class="cards">
+    <div class="card" v-on:click="addItemToDialogBox(card)">
       <div :id="id">
         <div><img :src="image" /></div>
         <div class="description">{{ description }} </div>
-        <button v-on:click="addItemToDialogBox(card)"></button>
       </div>
     </div>
   <!-- </div> -->
@@ -34,11 +33,12 @@ export default {
 
 <style scoped>
 
-.cards {
+.card {
   font-size: 23px;
   font-weight: bold;
   color: #536974;
   text-align: center;
+  cursor: pointer;
 }
 
 .description{

@@ -38,7 +38,7 @@ export default {
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 150px);
-  margin-top: 3%;
+  /*margin-top: 3%; peut-etre c est inutile*/
    gap: 15px;
     /* grid-template-rows: repeat(2, 1fr); */
   /* position: absolute; */

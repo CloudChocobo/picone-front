@@ -8,12 +8,12 @@
         <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) --><div class="invisibleBlockAlignment"></div>
          <div class="finPhrase">
              <div class="point">
-                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/debutPhrase`)]">
+                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/startTalking`)]">
                     <img src= "@/assets/affirmation.png" />
                 </div>
             </div>
             <div class="interrogation">
-                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/debutPhrase`)]" >
+                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/startTalking`)]" >
                     <img src= "@/assets/question.png"  />
                 </div>
             </div>
@@ -75,7 +75,7 @@ export default {
 
   methods: {    
       methodRouter() {
-      this.router.push("/debutPhrase");
+      this.router.push("/startTalking");
       // faire un if this.currentId === Truc
       // this.router.push...
     },

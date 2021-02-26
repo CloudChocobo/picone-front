@@ -5,9 +5,7 @@
         <slot></slot>
       </div>
       <div class="fin">
-        <Point 
-        @click="() => router.push('/recapitulatif')"></Point>
-     
+        <Point @click="() => router.push('/recap')"></Point>
       </div>
     </div>
   </div>
@@ -23,21 +21,19 @@ export default {
     Point,
     },
     methodRouter() {
-      this.router.push("/debutPhrase");
+      this.router.push("/startTalking");
     },
   setup() {
     const router = useRouter();
     return { router };
   },
 };
-
-
 </script>
 
 
 
  <!-- css a revoir pour le placement   -->
-    <style scoped>
+ <style scoped>
 .Discussion {
   width: 90%;
   height: 220px;
@@ -49,7 +45,8 @@ export default {
   margin-bottom: 5px;
 }
 .Selection {
-  position: absolute;
+  
+  flex:1 0 auto;
   /* grid-template-columns: repeat(4, 1fr); */
   /* grid-template-rows: repeat(2, 1fr); */
   /* width: 45%; */
@@ -57,27 +54,28 @@ export default {
   /* gap: 10px; */
 }
 
-.text {
-  width: 10%;
-}
 
 .fin {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-top: -10px;
+  justify-content:center;
+  flex:0 0 10%;
+
+
   /* gap: 5px; */
+
 }
 
-.Point {
-  width: 10%;
-  margin-top: 10%;
-  margin-right: 2%;
-}
 
 .Interrogation {
   width: 10%;
   margin-top: 1%;
   margin-right: 2%;
 }
+
+.text {
+	display:flex;
+	height: 100%;
+}
+
 </style>

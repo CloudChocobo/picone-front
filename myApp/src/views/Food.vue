@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.nourriture,
+      cards : libraryCards.food,
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
