@@ -95,12 +95,6 @@ export default {
   text-align: center;
 }
 
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
-
 .footer {
   margin-left: 10%;
 }

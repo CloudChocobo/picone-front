@@ -3,29 +3,28 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
-        <main>
-          <div class="text">Terminez votre phrase:</div>
-          <ImageGrid>
-            <Card
-              v-for="(card, index) in cards"
-              :image="card.image"
-              :description="card.description"
-              :key="index"
-              @click="doAction(card)"
-            />
-          </ImageGrid>
-        </main>
+     <div class="container">
+                <div class="text">Voici votre phrase</div>
+        <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) -->
+        <div class="invisibleBlockAlignment"></div>
+             <div class="point">
+                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/startTalking`)]">
+                    <img src= "@/assets/affirmation.png" />
+                </div>
+            </div>
+          </div>
+       
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket2>
+          <Basket3>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
               :description="card.description" 
               :key="index"
             />
-          </Basket2>
+          </Basket3>
           <!-- </div> -->
         </footer>
       </PageWithSecondNavBar>
@@ -34,22 +33,22 @@
 </template>
 
 <script>
-import { IonPage, IonContent } from "@ionic/vue";
+import { IonPage, IonContent} from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
-import Basket2 from "@/components/Basket2.vue";
-import ImageGrid from "@/components/ImageGrid.vue";
-import {libraryCards}  from "@/data.ts" ;
+import Basket3 from "@/components/Basket3.vue";
+import { libraryCards } from "@/data.ts";
+
 export default {
-  name: "Recap",
+  name: "Recap2",
   components: {
     IonPage,
     IonContent,
     PageWithSecondNavBar,
     Card,
-    Basket2,
-    ImageGrid,
+    Basket3,
+    
   },
   props: [],
   setup() {
@@ -59,33 +58,63 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.punctuation,
+      cards: libraryCards.recap,
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
     };
   },
 
-  methods: {
+
+
+  methods: {    
+      methodRouter() {
+      this.router.push("/startTalking");
+      // faire un if this.currentId === Truc
+      // this.router.push...
+    },
+    clearBasket() {
+      this.$store.commit("clearBasket", this.$store.basket);
+    },
+
     addItemToDialogBox(card) {
-      this.$store.commit('addElementToBasket', card);
+      this.$store.commit("addElementToBasket", card);
     },
     removeItemFromDialogBox() {
-      this.$store.commit('removeElementFromBasket');
+      this.$store.commit("removeElementFromBasket");
     },
-    doAction(card){
-      if(card.redirectsTo){
-        this.$router.push("/"+card.redirectsTo);
+    doAction(card) {
+      if (card.redirectsTo) {
+        this.$router.push("/" + card.redirectsTo);
       } else {
         this.addItemToDialogBox(card);
       }
-    }
+    },
   },
-   computed: { basket(){ return this.$store.state.basket } }
+  computed: {
+    basket() {
+      return this.$store.state.basket;
+    },
+  },
 };
 </script>
 
 <style scoped>
+.container {
+  font-size: 45px;
+  color: #536974;
+  text-align: center;
+}
+
+.invisibleBlockAlignment {
+  display: inline-block;
+  width: 2%;
+}
+img {
+  max-width: 15%;
+  margin-right: 2%;
+  border-radius: 55px;
+}
 .text {
   display: flex;
   font-size: 50px;

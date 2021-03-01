@@ -3,12 +3,12 @@
 export const rootHebergementImage = "https://niveaubonus.fr/picone/src/icones/";
 export const libraryCards = {
      
-    // pour ajouter un nouvel ensemble d'icone :
-    // créer un nouveau pattern ici
-    // créer le fichier .vue dans views correspondant au nom du pattern (exemple : "actions" a son propre fichier .vue)
-    // attention maximum 8 lignes par pattern
-    // la clé redirectsTo permet de créer  un routing vers un nouveau fichier .vue lorque l'on clique sur l'icone
-    // si pas de redirectsTo => pas de routing, l'icone s'ajoute dans le basket sans changer de routing
+    // if you want to add a new set of icons:
+    // create a new  pattern here
+    // create file .vue in  views with the  pattern name(exemple : "actions" has is own file .vue)
+    // maximum 8 lignes per pattern
+    // key redirectsTo allows to create  a routing towards file .vue when you  clic on the icon
+    // if no  redirectsTo => no routing, icon s'ajoute dans le basket sans changer de routing
     // redirectsTo doit comporter le nom exact du fichier .vue visé (exemple : " redirectsTo: "Légumes" "pour faire le routing vers "Légumes.vue" )
     // donc attention aux majuscules/minuscules
 
@@ -295,5 +295,12 @@ export const libraryCards = {
       defequer: {image:rootHebergementImage+"defequer.png", description: "déféquer"},
    
      },
+
+        punctuation : 
+     {
+        point: {image:rootHebergementImage+"point.png", description: "point"},
+      question: {image:rootHebergementImage+"question.png", description: "question"},
+     },
+
 };
 

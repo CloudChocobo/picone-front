@@ -27,6 +27,7 @@ import Dessert from "@/views/Dessert.vue";
 import Hygiene from "@/views/Hygiene.vue";
 import Objects from "@/views/Objects.vue";
 import Recap from "@/views/Recap.vue";
+import Recap2 from "@/views/Recap2.vue";
 
 const routes: Array<RouteRecordRaw> = [
 {
@@ -165,6 +166,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Recap",
     path: "/recap",
     component: Recap,
+  }, 
+                 {
+    name: "Recap2",
+    path: "/recap2",
+    component: Recap2,
   }, 
 ]
 

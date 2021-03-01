@@ -17,7 +17,8 @@
         </main>
 
         <footer>
-          <!-- <div class="rectangle_discussion"> -->
+          <!-- <div class="rectangle_discussion">
+            the basket is written but it is not shown ( display non in the CSS) -->
           <Basket>
             <Card
               v-for="(card, index) in basket"
@@ -93,7 +94,6 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
-  /* margin-top: 10px; */
 }
 
 .footer {
@@ -116,6 +116,7 @@ export default {
   width: 17%;
 }
 
+/* we chose not to show the dialog on this screen. It can be added by changing the display*/
 footer{ 
   display: none;
   }
