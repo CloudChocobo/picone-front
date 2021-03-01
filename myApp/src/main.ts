@@ -35,9 +35,9 @@ const store = createStore({
   },
   mutations: {
     //store values modifier functions:
-    addElementToBasket(state: any, elementAAjouter: any){
+    addElementToBasket(state: any, elementToAdd: any){
       if(state.basket.length <4){
-        state.basket.push(elementAAjouter);
+        state.basket.push(elementToAdd);
       }
     },
     removeElementFromBasket(state: any){
