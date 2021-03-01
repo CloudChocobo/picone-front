@@ -1,4 +1,4 @@
-
+<!-- A revoir - composant générique
 <template>
 	<div class="lol">
     <Image id="jaisoif"></Image>
@@ -30,3 +30,4 @@
 </script>
 
 <style scoped></style>
+-->

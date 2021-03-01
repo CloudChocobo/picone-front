@@ -2,34 +2,34 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2>
+      <PageWithSecondNavBar>
         <main>
-          <GrilleImage>
-          <Carte
-            v-for="(carte, index) in cartes"
-            :image="carte.image"
-            :description="carte.description"
+          <ImageGrid>
+          <Card
+            v-for="(card, index) in cards"
+            :image="card.image"
+            :description="card.description"
             :key="index"
-            @click="addItemToPanier(carte)"
+            @click="addItemToDialogBox(card)"
           />
-          </GrilleImage>
+          </ImageGrid>
         </main>
         
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-            <Panier>
-              <Carte
-                v-for="(carte, index) in panier"
-                :image="carte.image"
-                :description="carte.description"
+            <Basket>
+              <Card
+                v-for="(card, index) in basket"
+                :image="card.image"
+                :description="card.description"
                 :key="index"
-                @click="removeItemFromPanier(index)"
+                @click="removeItemFromDialogBox(index)"
               />
-            </Panier>
+            </Basket>
           <!-- </div> -->
         </footer>
 
-      </PageV2>
+      </PageWithSecondNavBar>
     </ion-content>
   </ion-page>
 </template>
@@ -38,19 +38,19 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 
-import PageV2 from "@/components/PageV2.vue";
-import Carte from "@/components/Carte.vue";
-import Panier from "@/components/Panier.vue";
-import GrilleImage from "@/components/GrilleImage.vue";
+import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
+import Card from "@/components/Card.vue";
+import Basket from "@/components/Basket.vue";
+import ImageGrid from "@/components/ImageGrid.vue";
 export default {
   name: "ModalTest",
   components: {
     IonPage,
     IonContent,
-    PageV2,
-    Carte,
-    Panier,
-    GrilleImage,
+    PageWithSecondNavBar,
+    Card,
+    Basket,
+    ImageGrid,
   },
   props: [],
   setup() {
@@ -72,9 +72,9 @@ export default {
           id: "effacerPhrase",
         },
       ],
-      discussion: "panier",
-      panier: [],
-      cartes: [
+      discussion: "basket",
+      basket: [],
+      cards: [
         {
           description: "bien",
           image: require("/src/assets/bien.png"),
@@ -96,11 +96,11 @@ export default {
   },
 
   methods: {
-    addItemToPanier(carte) {
-      this.panier.push(carte);
+    addItemToDialogBox(card) {
+      this.basket.push(card);
     },
-    removeItemFromPanier(index) {
-      this.panier.splice(index, 1);
+    removeItemFromDialogBox(index) {
+      this.basket.splice(index, 1);
     },
   },
 
@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style scoped>
-.texte {
+.text {
   display: flex;
   font-size: 50px;
   margin-left: 340px;

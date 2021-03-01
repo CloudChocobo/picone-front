@@ -1,3 +1,4 @@
+<!-- admin page for parameters -->
 <template>
     <ion-content :fullscreen="false">
       <div class="page">

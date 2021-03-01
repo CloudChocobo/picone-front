@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="text">Choisissez un fruit :</div>
+          <div class="text">Choisissez un loisir :</div>
           <ImageGrid>
             <Card
               v-for="(card, index) in cards"
@@ -42,7 +42,7 @@ import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
-  name: "Fruits",
+  name: "Hobbies",
   components: {
     IonPage,
     IonContent,
@@ -59,13 +59,13 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.fruits,
+      cards : libraryCards.hobbies,
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
     };
   },
-//here we call the store and we use the methods to add and remove card 
+
   methods: {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToBasket', card);
@@ -73,7 +73,6 @@ export default {
     removeItemFromDialogBox() {
       this.$store.commit('removeElementFromBasket');
     },
-    //if we have a subcategory, the method will redirect to the indicated path, else the card will be added in the basket 
     doAction(card){
       if(card.redirectsTo){
         this.$router.push("/"+card.redirectsTo);
@@ -94,6 +93,7 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
+  /* margin-top: 10px; */
 }
 
 .footer {
@@ -116,4 +116,11 @@ export default {
   width: 17%;
 }
 
+/* .Basket {
+
+} */
+
+/* .rectangle_discussion .Discussion{
+  grid-template-rows: fit-content(40%);
+} */
 </style>

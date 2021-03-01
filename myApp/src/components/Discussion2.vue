@@ -7,7 +7,7 @@
       </div>
       <!-- class=end means end of the sentence-->
       <div class="end"> 
-        <Point @click="() => router.push('/recap')"></Point>
+        <Point @click="() => router.push('/recapDiscussion')"></Point>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@ import Point from "@/components/Point.vue";
 
 import { useRouter } from "vue-router";
 export default {
-  name: "Discussion",
+  name: "Discussion2",
   components: { 
     Point,
     },

@@ -1,4 +1,4 @@
-
+<!-- can be used for the horizontal scrolling from one item to another 
 <template>
 	<div class="lol">
     <Image id="jaisoif"></Image>
@@ -30,3 +30,4 @@
 </script>
 
 <style scoped></style>
+-->

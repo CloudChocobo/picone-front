@@ -12,9 +12,11 @@ export default {
   props: [],
   methods: {}
 };
-
-
-
-
 </script>
+
+<style scoped>
+.Point {
+  cursor: pointer;
+}
+</style>
 

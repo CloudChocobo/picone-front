@@ -5,22 +5,16 @@
       <div class="Selection">
         <slot></slot>
       </div>
-      <!-- class=end means end of the sentence-->
-      <div class="end"> 
-        <Point @click="() => router.push('/recap')"></Point>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Point from "@/components/Point.vue";
 
 import { useRouter } from "vue-router";
 export default {
-  name: "Discussion",
+  name: "Discussion3",
   components: { 
-    Point,
     },
     methodRouter() {
       this.router.push("/startTalking");
@@ -45,13 +39,6 @@ export default {
 }
 .Selection {
   flex:1 0 auto;
-}
-
-.end {
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  flex:0 0 10%;
 }
 
 .text {

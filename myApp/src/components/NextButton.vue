@@ -1,3 +1,4 @@
+<!-- currently not used
 <template>
   <div class="NextButton" @click="() => router.go(+1)">
     <img src="../assets/Next.png" alt="" />
@@ -20,6 +21,7 @@ export default {
 </script>
 
 <style scoped>
+-->
 
 /* MODIF */
 img:hover {

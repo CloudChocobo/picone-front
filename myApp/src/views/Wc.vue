@@ -2,33 +2,33 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageV2 @cancelLastAction="removeItemFromPanier">
+      <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="texte">Choisissez vos besoins :</div>
-          <GrilleImage>
-            <Carte
-              v-for="(carte, index) in cartes"
-              :image="carte.image"
-              :description="carte.description"
+          <div class="text">Choisissez vos besoins :</div>
+          <ImageGrid>
+            <Card
+              v-for="(card, index) in cards"
+              :image="card.image"
+              :description="card.description"
               :key="index"
-              @click="doAction(carte)"
+              @click="doAction(card)"
             />
-          </GrilleImage>
+          </ImageGrid>
         </main>
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Panier>
-            <Carte
-              v-for="(carte, index) in panier"
-              :image="carte.image" 
-              :description="carte.description" 
+          <Basket>
+            <Card
+              v-for="(card, index) in basket"
+              :image="card.image" 
+              :description="card.description" 
               :key="index"
             />
-          </Panier>
+          </Basket>
           <!-- </div> -->
         </footer>
-      </PageV2>
+      </PageWithSecondNavBar>
     </ion-content>
   </ion-page>
 </template>
@@ -36,20 +36,20 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageV2 from "@/components/PageV2.vue";
-import Carte from "@/components/Carte.vue";
-import Panier from "@/components/Panier.vue";
-import GrilleImage from "@/components/GrilleImage.vue";
-import {libraryCartes}  from "@/data.ts" ;
+import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
+import Card from "@/components/Card.vue";
+import Basket from "@/components/Basket.vue";
+import ImageGrid from "@/components/ImageGrid.vue";
+import {libraryCards}  from "@/data.ts" ;
 export default {
   name: "Wc",
   components: {
     IonPage,
     IonContent,
-    PageV2,
-    Carte,
-    Panier,
-    GrilleImage,
+    PageWithSecondNavBar,
+    Card,
+    Basket,
+    ImageGrid,
   },
   props: [],
   setup() {
@@ -59,34 +59,34 @@ export default {
 
   data: () => {
     return {
-      cartes : libraryCartes.wc,
+      cards : libraryCards.wc,
       currentIndex: 0,
       currentId: "",
-      discussion: "panier",
+      discussion: "basket",
     };
   },
 
   methods: {
-    addItemToPanier(carte) {
-      this.$store.commit('addElementToPanier', carte);
+    addItemToDialogBox(card) {
+      this.$store.commit('addElementToBasket', card);
     },
-    removeItemFromPanier() {
-      this.$store.commit('removeElementFromPanier');
+    removeItemFromDialogBox() {
+      this.$store.commit('removeElementFromBasket');
     },
-    doAction(carte){
-      if(carte.redirectsTo){
-        this.$router.push("/"+carte.redirectsTo);
+    doAction(card){
+      if(card.redirectsTo){
+        this.$router.push("/"+card.redirectsTo);
       } else {
-        this.addItemToPanier(carte);
+        this.addItemToDialogBox(card);
       }
     }
   },
-   computed: { panier(){ return this.$store.state.panier } }
+   computed: { basket(){ return this.$store.state.basket } }
 };
 </script>
 
 <style scoped>
-.texte {
+.text {
   display: flex;
   font-size: 50px;
   margin-left: 27%;
@@ -106,7 +106,7 @@ export default {
   margin-top: 2%;
 }
 
-.bidouille {
+.invisibleBlockAlignment {
   display: inline-block;
   width: 2%;
 }
@@ -116,7 +116,7 @@ export default {
   width: 17%;
 }
 
-/* .Panier {
+/* .Basket {
 
 } */
 

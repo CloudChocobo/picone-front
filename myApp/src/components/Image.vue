@@ -1,4 +1,4 @@
-
+<!-- generic component serving as model
 <template>
   <div class="cont">
     <img src="" />{{ img }}/>
@@ -24,3 +24,4 @@ export default {
   width: 25%;
 }
 </style>
+-->

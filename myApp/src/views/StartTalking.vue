@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="text">Choisissez un fruit :</div>
+          <div class="text">Débutez votre phrase :</div>
           <ImageGrid>
             <Card
               v-for="(card, index) in cards"
@@ -42,7 +42,7 @@ import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
-  name: "Fruits",
+  name: "StartTalking",
   components: {
     IonPage,
     IonContent,
@@ -59,13 +59,13 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.fruits,
+      cards : libraryCards.startTalking,
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
     };
   },
-//here we call the store and we use the methods to add and remove card 
+
   methods: {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToBasket', card);
@@ -73,13 +73,12 @@ export default {
     removeItemFromDialogBox() {
       this.$store.commit('removeElementFromBasket');
     },
-    //if we have a subcategory, the method will redirect to the indicated path, else the card will be added in the basket 
     doAction(card){
-      if(card.redirectsTo){
+
         this.$router.push("/"+card.redirectsTo);
-      } else {
+
         this.addItemToDialogBox(card);
-      }
+  
     }
   },
    computed: { basket(){ return this.$store.state.basket } }
@@ -109,6 +108,12 @@ export default {
 .invisibleBlockAlignment {
   display: inline-block;
   width: 2%;
+}
+
+.PageWithSecondNavBar img :hover {
+  transform: scale(1.2);
+  border-radius: 55px;
+  border: 10px solid #202abb9d;
 }
 
 .Discussion img {

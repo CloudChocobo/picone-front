@@ -2,9 +2,9 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
+      <PageWithFirstNavBar>
         <main>
-          <div class="text">Choisissez un fruit :</div>
+          <div class="text">Comment vous sentez vous?</div>
           <ImageGrid>
             <Card
               v-for="(card, index) in cards"
@@ -17,7 +17,8 @@
         </main>
 
         <footer>
-          <!-- <div class="rectangle_discussion"> -->
+          <!-- <div class="rectangle_discussion">
+            the basket is written but it is not shown ( display non in the CSS) -->
           <Basket>
             <Card
               v-for="(card, index) in basket"
@@ -28,7 +29,7 @@
           </Basket>
           <!-- </div> -->
         </footer>
-      </PageWithSecondNavBar>
+      </PageWithFirstNavBar>
     </ion-content>
   </ion-page>
 </template>
@@ -36,17 +37,17 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
+import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
-  name: "Fruits",
+  name: "Mood",
   components: {
     IonPage,
     IonContent,
-    PageWithSecondNavBar,
+    PageWithFirstNavBar,
     Card,
     Basket,
     ImageGrid,
@@ -59,21 +60,20 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.fruits,
+      cards : libraryCards.Mood,
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
     };
   },
-//here we call the store and we use the methods to add and remove card 
+
   methods: {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToBasket', card);
     },
-    removeItemFromDialogBox() {
+    removeItemFromBasket() {
       this.$store.commit('removeElementFromBasket');
     },
-    //if we have a subcategory, the method will redirect to the indicated path, else the card will be added in the basket 
     doAction(card){
       if(card.redirectsTo){
         this.$router.push("/"+card.redirectsTo);
@@ -90,7 +90,7 @@ export default {
 .text {
   display: flex;
   font-size: 50px;
-  margin-left: 27%;
+  margin-left: 17%;
   color: #536974;
   position: relative;
   text-align: center;
@@ -115,5 +115,10 @@ export default {
   margin-top: 1%;
   width: 17%;
 }
+
+/* we chose not to show the dialog on this screen. It can be added by changing the display*/
+footer{ 
+  display: none;
+  }
 
 </style>

@@ -4,7 +4,7 @@
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="text">Choisissez un fruit :</div>
+          <div class="text">Terminez votre phrase:</div>
           <ImageGrid>
             <Card
               v-for="(card, index) in cards"
@@ -18,14 +18,14 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket>
+          <Basket2>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
               :description="card.description" 
               :key="index"
             />
-          </Basket>
+          </Basket2>
           <!-- </div> -->
         </footer>
       </PageWithSecondNavBar>
@@ -38,17 +38,17 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
-import Basket from "@/components/Basket.vue";
+import Basket2 from "@/components/Basket2.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import {libraryCards}  from "@/data.ts" ;
 export default {
-  name: "Fruits",
+  name: "Recap",
   components: {
     IonPage,
     IonContent,
     PageWithSecondNavBar,
     Card,
-    Basket,
+    Basket2,
     ImageGrid,
   },
   props: [],
@@ -59,13 +59,13 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.fruits,
+      cards : libraryCards.punctuation,
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
     };
   },
-//here we call the store and we use the methods to add and remove card 
+
   methods: {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToBasket', card);
@@ -73,7 +73,6 @@ export default {
     removeItemFromDialogBox() {
       this.$store.commit('removeElementFromBasket');
     },
-    //if we have a subcategory, the method will redirect to the indicated path, else the card will be added in the basket 
     doAction(card){
       if(card.redirectsTo){
         this.$router.push("/"+card.redirectsTo);

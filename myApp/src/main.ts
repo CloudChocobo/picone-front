@@ -24,32 +24,39 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+//uses Vuex 4
+//keeps values from one page to another without having to import them from components to components
+
 const store = createStore({
   state () {
-    return {
-      panier: []
+    return { 
+      //store values :
+      basket: []
     }
   },
   mutations: {
-    addElementToPanier(state: any, elementAAjouter: any){
-      if(state.panier.length <4){
-        state.panier.push(elementAAjouter);
+  //we will use those functions to add or remove the card components
+  // we limited the number of cards to 4 in order to have a short sentence for the time being. This can be changed at anytime.
+    //store values modifier functions :
+    addElementToBasket(state: any, elementToAdd: any){
+      if(state.basket.length <4){
+        state.basket.push(elementToAdd);
       }
     },
-    removeElementFromPanier(state: any){
-      if(state.panier.length > 0){
-        state.panier.pop();
+    removeElementFromBasket(state: any){
+      if(state.basket.length > 0){
+        state.basket.pop();
       }
     },
-      clearPanier(state: any){
-          state.panier = []   
+      clearBasket(state: any){
+          state.basket = []   
 },
     },
 
 
   getters: {
-    contenuPanier (state) {
-      return state.panier;
+    contenuBasket (state) {
+      return state.basket;
     }
   }
 })
