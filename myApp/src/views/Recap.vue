@@ -93,7 +93,6 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
-  /* margin-top: 10px; */
 }
 
 .footer {

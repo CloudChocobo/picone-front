@@ -7,7 +7,7 @@
       </div>
       <!-- class=end means end of the sentence-->
       <div class="end"> 
-        <Point @click="() => router.push('/recap2')"></Point>
+        <Point @click="() => router.push('/recapDiscussion')"></Point>
       </div>
     </div>
   </div>

@@ -8,16 +8,16 @@ export const libraryCards = {
     // create file .vue in  views with the  pattern name(exemple : "actions" has is own file .vue)
     // maximum 8 lignes per pattern
     // key redirectsTo allows to create  a routing towards file .vue when you  clic on the icon
-    // if no  redirectsTo => no routing, icon s'ajoute dans le basket sans changer de routing
-    // redirectsTo doit comporter le nom exact du fichier .vue visé (exemple : " redirectsTo: "Légumes" "pour faire le routing vers "Légumes.vue" )
-    // donc attention aux majuscules/minuscules
+    // if no  redirectsTo => no routing. Icon is added in the basket
+    // redirectsTo has to have the exact term of the file .vue it's aiming to (f.e :" redirectsTo: "Légumes" goes to "Légumes.vue" )
+    // mind the Camel Case
 
     /*
-    Dans le fichier .vue créer correspondant au nom du pattern, pensez à modifier le chemin vers le bon endroit dans libraryCarte importé dans data ()
+   
     "
      data: () => {
     return {
-      cards : libraryCards.objets,  <============ ici, pensez à changer le nom du pattern visé (exemple : si vous voulez utilisez fruits, écrivez : "libraryCards.fruits")
+      cards : libraryCards.objets,  <============ don't forget to change the pattern'name (exemple : if you used fruits : "libraryCards.fruits")
       currentIndex: 0,
       currentId: "",
       discussion: "basket",

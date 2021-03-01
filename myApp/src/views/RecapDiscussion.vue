@@ -3,25 +3,28 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
-     <div class="container">
-                <div class="text">Voici votre phrase</div>
-        <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge) -->
-        <div class="invisibleBlockAlignment"></div>
-             <div class="point">
-                <div :id="id" @click="[clearBasket($store.basket) , router.push(`/startTalking`)]">
-                    <img src= "@/assets/affirmation.png" />
-                </div>
+        <div class="container">
+          <div class="text">Voici votre phrase</div>
+          <!-- div "invisibleBlockAlignment" . Empty space  used only to align the 'icone' class, creating a margin-->
+          <div class="invisibleBlockAlignment"></div>
+          <div class="home">
+            <div
+              :id="id"
+              @click="
+                [clearBasket($store.basket), router.push(`/startTalking`)]
+              "
+            >
+              <img src="@/assets/home1.png" />
             </div>
           </div>
-       
-
+        </div>
         <footer>
           <!-- <div class="rectangle_discussion"> -->
           <Basket3>
             <Card
               v-for="(card, index) in basket"
-              :image="card.image" 
-              :description="card.description" 
+              :image="card.image"
+              :description="card.description"
               :key="index"
             />
           </Basket3>
@@ -33,7 +36,7 @@
 </template>
 
 <script>
-import { IonPage, IonContent} from "@ionic/vue";
+import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
@@ -41,14 +44,13 @@ import Basket3 from "@/components/Basket3.vue";
 import { libraryCards } from "@/data.ts";
 
 export default {
-  name: "Recap2",
+  name: "RecapDiscussion",
   components: {
     IonPage,
     IonContent,
     PageWithSecondNavBar,
     Card,
     Basket3,
-    
   },
   props: [],
   setup() {
@@ -65,13 +67,9 @@ export default {
     };
   },
 
-
-
-  methods: {    
-      methodRouter() {
+  methods: {
+    methodRouter() {
       this.router.push("/startTalking");
-      // faire un if this.currentId === Truc
-      // this.router.push...
     },
     clearBasket() {
       this.$store.commit("clearBasket", this.$store.basket);
@@ -144,5 +142,4 @@ img {
   margin-top: 1%;
   width: 17%;
 }
-
 </style>
