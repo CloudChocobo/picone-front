@@ -8,7 +8,7 @@
           <ImageGrid>
             <Card
               v-for="(card, index) in cards"
-              :image="cards.image"
+              :image="card.image"
               :description="card.description"
               :key="index"
               @click="doAction(card)"
