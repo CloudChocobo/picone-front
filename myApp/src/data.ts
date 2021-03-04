@@ -265,12 +265,12 @@ export const libraryCards = {
      hygiene : 
 
      {
-           douche : {image:rootHebergementImage+"douche.png", description: "se doucher"},
-           brosseADents: {image:rootHebergementImage+"dentifriceBrosseADent.png", description: "brosse à dents"},
+           douche : {image:rootHebergementImage+"douche.png", description: "corps"},
+           brosseADents: {image:rootHebergementImage+"dentifriceBrosseADent.png", description: "dents"},
     //     peigne : {image:rootHebergementImage+"peigne.png", description: "peigne"},
     //     couche: {image:rootHebergementImage+"couche.png", description: "couche"},
     //     dentifrice : {image:rootHebergementImage+"dentifrice.png", description: "dentifrice"},
-            laverMain: {image:rootHebergementImage+"laverMain.png", description: "laver main"},
+            laverMain: {image:rootHebergementImage+"laverMain.png", description: "mains"},
     //    rasoir : {image:rootHebergementImage+"rasoir.png", description: "rasoir"},
     //     laitCorporel : {image:rootHebergementImage+"laitCorporel.png", description: "lait corporel"},
      },
