@@ -265,7 +265,7 @@ export const libraryCards = {
      hygiene : 
 
      {
-           douche : {image:rootHebergementImage+"douche.png", description: "corps"},
+           douche : {image:rootHebergementImage+"douche.png", description: "douche"},
            brosseADents: {image:rootHebergementImage+"dentifriceBrosseADent.png", description: "dents"},
     //     peigne : {image:rootHebergementImage+"peigne.png", description: "peigne"},
     //     couche: {image:rootHebergementImage+"couche.png", description: "couche"},
