@@ -81,7 +81,9 @@ export default {
       }
     }
   },
-   computed: { basket(){ return this.$store.state.basket } }
+  computed: { 
+    basket(){ return this.$store.state.basket } 
+  }
 };
 </script>
 

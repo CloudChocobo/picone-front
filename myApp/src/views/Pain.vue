@@ -21,8 +21,8 @@
           <Basket>
             <Card
               v-for="(card, index) in basket"
-              :image="card.image" 
-              :description="card.description" 
+              :image="card.image"
+              :description="card.description"
               :key="index"
             />
           </Basket>
@@ -40,7 +40,7 @@ import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
-import {libraryCards}  from "@/data.ts" ;
+import { libraryCards } from "@/data.ts";
 export default {
   name: "Pain",
   components: {
@@ -59,7 +59,7 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.body,
+      cards: libraryCards.body,
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
@@ -68,20 +68,24 @@ export default {
 
   methods: {
     addItemToDialogBox(card) {
-      this.$store.commit('addElementToBasket', card);
+      this.$store.commit("addElementToBasket", card);
     },
     removeItemFromDialogBox() {
-      this.$store.commit('removeElementFromBasket');
+      this.$store.commit("removeElementFromBasket");
     },
-    doAction(card){
-      if(card.redirectsTo){
-        this.$router.push("/"+card.redirectsTo);
+    doAction(card) {
+      if (card.redirectsTo) {
+        this.$router.push("/" + card.redirectsTo);
       } else {
         this.addItemToDialogBox(card);
       }
-    }
+    },
   },
-   computed: { basket(){ return this.$store.state.basket } }
+  computed: {
+    basket() {
+      return this.$store.state.basket;
+    },
+  },
 };
 </script>
 
