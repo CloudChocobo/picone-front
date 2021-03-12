@@ -48,7 +48,7 @@ const store = createStore({
 
 
   getters: {
-    contenuBasket (state) {
+    contenuBasket (state: any ) {
       return state.basket;
     }
   }

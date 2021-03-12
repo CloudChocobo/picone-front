@@ -23,7 +23,7 @@ import Hobbies from "@/views/Hobbies.vue";
 import Clothes from "@/views/Clothes.vue";
 import Body from "@/views/Body.vue";
 import Pain from "@/views/Pain.vue";
-import Dessert from "@/views/Dessert.vue";
+import Dessert from "@/views/SentenceBuild.vue";
 import Hygiene from "@/views/Hygiene.vue";
 import Objects from "@/views/Objects.vue";
 import Recap from "@/views/Recap.vue";

@@ -4,12 +4,12 @@
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
         <main>
-          <div class="text">Choisissez un dessert :</div>
+          <div class="text">Cliquez sur un icône:</div>
           <ImageGrid>
             <Card
-              v-for="(card, index) in cards"
-              :image="card.image"
-              :description="card.description"
+              v-for="(card, index) in cardJSON"
+              :image="rootIMG+card.img_src"
+              :description="card.word"
               :key="index"
               @click="doAction(card)"
             />
@@ -40,9 +40,9 @@ import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
-import {libraryCards}  from "@/data.ts" ;
+import {rootAPI, rootHebergementImage} from "@/data.ts" ;
 export default {
-  name: "Dessert",
+  name: "SentenceBuild",
   components: {
     IonPage,
     IonContent,
@@ -59,7 +59,9 @@ export default {
 
   data: () => {
     return {
-      cards : libraryCards.dessert,
+      rootIMG: rootHebergementImage,
+      rootAPI : rootAPI,
+      cardJSON : [],
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
@@ -74,14 +76,22 @@ export default {
       this.$store.commit('removeElementFromBasket');
     },
     doAction(card){
-      if(card.redirectsTo){
-        this.$router.push("/"+card.redirectsTo);
-      } else {
+
+        const requestOptions = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+         // body: JSON.stringify({ title: "POST TEST" })
+        };
+        fetch(rootAPI+"mots/69/besoins_physiologiques", requestOptions)
+            .then(response => response.json())
+            .then(data => (this.data().cardJSON = data));
+  console.log(this.data().cardJSON);
         this.addItemToDialogBox(card);
-      }
+
     }
   },
-   computed: { basket(){ return this.$store.state.basket } }
+   computed: { basket(){ return this.$store.state.basket } },
+
 };
 </script>
 
