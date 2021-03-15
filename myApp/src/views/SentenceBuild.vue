@@ -58,6 +58,16 @@ export default {
     return { router };
   },
 
+  mounted: {
+async getCards(){
+  const res = await fetch( this.rootAPI+'mots/57/besoins_physiologiques'),
+  const data = await res.json();
+  this.data.cardJSON = data;
+  console.log(data);
+
+
+  },
+
   data: () => {
     return {
       rootIMG: rootHebergementImage,
@@ -83,9 +93,6 @@ export default {
 
     },
     computed: {
-      fetch() {
-
-      },
       log() {
         return console.log(this.data.cardJSON)
       },
@@ -94,7 +101,7 @@ export default {
       }
     },
 
-  }}
+  }}}
 </script>
 
 <style scoped>
