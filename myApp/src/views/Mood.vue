@@ -1,6 +1,6 @@
 
-<template>
-  <ion-page>
+ <!--<template>
+<ion-page>
     <ion-content :fullscreen="true">
       <PageWithFirstNavBar>
         <main>
@@ -18,7 +18,7 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket>
+         <!-- <Basket>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
@@ -27,15 +27,15 @@
             />
           </Basket>
           <!-- </div> -->
-        </footer>
+       <!-- </footer>
       </PageWithFirstNavBar>
     </ion-content>
   </ion-page>
 </template>
 
-<script>
+<!--<script>
 import { IonPage, IonContent } from "@ionic/vue";
-import { useRouter } from "vue-router";
+import { useRouter } from <!--"vue-router";
 import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";

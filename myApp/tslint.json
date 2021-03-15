@@ -1,0 +1,6 @@
+{
+	"rules": {
+		"camelcase": "off",
+		"variable-name": [false, "allow-leading-underscore"]
+	}
+}

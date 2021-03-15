@@ -1,5 +1,5 @@
 
-<template>
+<!--<template>
   <ion-page>
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
@@ -18,7 +18,7 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket>
+          <!--<Basket>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
@@ -33,7 +33,7 @@
   </ion-page>
 </template>
 
-<script>
+<!--<script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
