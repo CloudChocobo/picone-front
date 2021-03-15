@@ -112,8 +112,8 @@ const routes: Array<RouteRecordRaw> = [
     component: Veggetables,
   }, 
          {
-    name: "Drinks",
-    path: "/drinks",
+    name: "SentenceBuild",
+    path: "/sentencebuild",
     component: Drinks,
   },  
            {
@@ -146,11 +146,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/pain",
     component: Pain,
   }, 
-           {
-    name: "Dessert",
-    path: "/dessert",
-    component: Dessert,
-  }, 
+
            {
     name: "Hygiene",
     path: "/hygiene",

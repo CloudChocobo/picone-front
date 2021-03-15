@@ -12,6 +12,7 @@
               :description="card.word"
               :key="index"
               @click="doAction(card)"
+
             />
           </ImageGrid>
         </main>
@@ -75,24 +76,25 @@ export default {
     removeItemFromDialogBox() {
       this.$store.commit('removeElementFromBasket');
     },
-    doAction(card){
+    doAction(card) {
 
-        const requestOptions = {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-         // body: JSON.stringify({ title: "POST TEST" })
-        };
-        fetch(rootAPI+"mots/69/besoins_physiologiques", requestOptions)
-            .then(response => response.json())
-            .then(data => (this.data().cardJSON = data));
-  console.log(this.data().cardJSON);
-        this.addItemToDialogBox(card);
 
-    }
-  },
-   computed: { basket(){ return this.$store.state.basket } },
+      this.addItemToDialogBox(card);
 
-};
+    },
+    computed: {
+      fetch() {
+
+      },
+      log() {
+        return console.log(this.data.cardJSON)
+      },
+      basket() {
+        return this.$store.state.basket
+      }
+    },
+
+  }}
 </script>
 
 <style scoped>
