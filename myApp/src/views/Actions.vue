@@ -16,7 +16,7 @@
           </ImageGrid>
         </main>
 
-        <footer>
+        <footer>-->
           <!-- <div class="rectangle_discussion"> -->
           <!--<Basket>
             <Card
@@ -25,7 +25,7 @@
               :description="card.description" 
               :key="index"
             />
-          </Basket>
+          </Basket>-->
           <!-- </div> -->
         <!--</footer>
       </PageWithSecondNavBar>
@@ -122,4 +122,4 @@ export default {
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);
 } */
-</style>
+</style>-->
