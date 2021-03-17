@@ -16,7 +16,7 @@
           </ImageGrid>
         </main>
 
-        <footer>
+        <footer>-->
           <!-- <div class="rectangle_discussion"> -->
           <!--<Basket>
             <Card
@@ -25,15 +25,15 @@
               :description="card.description" 
               :key="index"
             />
-          </Basket>
+          </Basket>-->
           <!-- </div> -->
         <!--</footer>
       </PageWithSecondNavBar>
     </ion-content>
   </ion-page>
-</template>
+</template>-->
 
-<script>
+<!--<script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
@@ -122,4 +122,4 @@ export default {
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);
 } */
-</style>
+</style>-->
