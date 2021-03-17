@@ -25,7 +25,7 @@
               :description="card.description" 
               :key="index"
             />
-          </Basket>
+          </Basket>-->
           <!-- </div> -->
        <!-- </footer>
       </PageWithFirstNavBar>
