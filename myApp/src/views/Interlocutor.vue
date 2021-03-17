@@ -1,5 +1,5 @@
 
-<template>
+<!--<template>
   <ion-page>
     <ion-content :fullscreen="true">
       <PageWithFirstNavBar>
@@ -18,7 +18,7 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket>
+         <!-- <Basket>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
@@ -27,7 +27,7 @@
             />
           </Basket>
           <!-- </div> -->
-        </footer>
+        <!--</footer>
       </PageWithFirstNavBar>
     </ion-content>
   </ion-page>

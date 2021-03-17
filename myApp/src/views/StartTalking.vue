@@ -1,4 +1,4 @@
-
+<!--
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
@@ -18,7 +18,7 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket>
+         <!-- <Basket>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
@@ -27,7 +27,7 @@
             />
           </Basket>
           <!-- </div> -->
-        </footer>
+       <!-- </footer>
       </PageWithSecondNavBar>
     </ion-content>
   </ion-page>
@@ -94,12 +94,6 @@ export default {
   position: relative;
   text-align: center;
 }
-
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
 
 .footer {
   margin-left: 10%;

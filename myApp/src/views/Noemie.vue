@@ -1,4 +1,4 @@
-
+<!--
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
@@ -17,7 +17,7 @@
         </main>
 
         <footer>
-          <!-- <div class="rectangle_discussion"> -->
+          <!-- <div class="rectangle_discussion"> 
           <Basket>
             <Card
               v-for="(card, index) in basket"
@@ -26,7 +26,7 @@
               :key="index"
             />
           </Basket>
-          <!-- </div> -->
+          <!-- </div> 
         </footer>
       </PageWithSecondNavBar>
     </ion-content>
@@ -124,3 +124,4 @@ export default {
   grid-template-rows: fit-content(40%);
 } */
 </style>
+-->

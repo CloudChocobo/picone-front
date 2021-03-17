@@ -1,5 +1,5 @@
 
-<template>
+<!--<template>
   <ion-page>
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
@@ -18,7 +18,7 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket>
+          <!--<Basket>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
@@ -27,7 +27,7 @@
             />
           </Basket>
           <!-- </div> -->
-        </footer>
+        <!--</footer>
       </PageWithSecondNavBar>
     </ion-content>
   </ion-page>
@@ -65,7 +65,7 @@ export default {
       discussion: "basket",
     };
   },
-
+//here we call the store and we use the methods to add and remove card 
   methods: {
     addItemToDialogBox(card) {
       this.$store.commit('addElementToBasket', card);
@@ -73,6 +73,7 @@ export default {
     removeItemFromDialogBox() {
       this.$store.commit('removeElementFromBasket');
     },
+    //if we have a subcategory, the method will redirect to the indicated path, else the card will be added in the basket 
     doAction(card){
       if(card.redirectsTo){
         this.$router.push("/"+card.redirectsTo);
@@ -93,7 +94,6 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
-  /* margin-top: 10px; */
 }
 
 .footer {
@@ -116,11 +116,4 @@ export default {
   width: 17%;
 }
 
-/* .Basket {
-
-} */
-
-/* .rectangle_discussion .Discussion{
-  grid-template-rows: fit-content(40%);
-} */
 </style>

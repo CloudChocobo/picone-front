@@ -1,6 +1,6 @@
 
-<template>
-  <ion-page>
+ <!--<template>
+<ion-page>
     <ion-content :fullscreen="true">
       <PageWithFirstNavBar>
         <main>
@@ -18,7 +18,7 @@
 
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket>
+         <!-- <Basket>
             <Card
               v-for="(card, index) in basket"
               :image="card.image" 
@@ -27,15 +27,15 @@
             />
           </Basket>
           <!-- </div> -->
-        </footer>
+       <!-- </footer>
       </PageWithFirstNavBar>
     </ion-content>
   </ion-page>
 </template>
 
-<script>
+<!--<script>
 import { IonPage, IonContent } from "@ionic/vue";
-import { useRouter } from "vue-router";
+import { useRouter } from <!--"vue-router";
 import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
@@ -93,7 +93,6 @@ export default {
   color: #536974;
   position: relative;
   text-align: center;
-  /* margin-top: 10px; */
 }
 
 .footer {
@@ -116,6 +115,7 @@ export default {
   width: 17%;
 }
 
+/* we chose not to show the dialog on this screen. It can be added by changing the display*/
 footer{ 
   display: none;
   }
