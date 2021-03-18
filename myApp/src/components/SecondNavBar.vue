@@ -5,6 +5,7 @@
     <BackButton></BackButton>
     <Eraser @click="cancelLastAction"></Eraser>
     <MoodState></MoodState>
+    <Defilement />
   </div>
 </template>
 
@@ -12,10 +13,12 @@
 import BackButton from "@/components/BackButton.vue";
 import Eraser from "@/components/Eraser.vue";
 import UserParameter from "@/components/UserParameter.vue";
+import Defilement from "@/components/Defilement.vue";
 import MoodState from "@/components/MoodState.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "HorizontalBarV2",
+  components: { BackButton, Eraser, UserParameter, Defilement },
   components: { BackButton, Eraser, UserParameter, MoodState},
 
   data: () => {

@@ -18,6 +18,7 @@
 <script>
 import SecondNavBar from "@/components/SecondNavBar.vue";
 
+
 export default {
   name: "PageWithSecondNavBar",
   props: [],

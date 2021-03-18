@@ -1,8 +1,10 @@
 <template>
 	<ion-page>
 		<ion-content :fullscreen="true">
-			<PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
-				<main>
+			<PageWithSecondNavBar
+          v-bind="$attrs"
+          @cancelLastAction="removeItemFromDialogBox">
+        <main>
 					<div class="text">Cliquez sur un icône:</div>
 					<ImageGrid>
 						<Card
@@ -10,6 +12,9 @@
 							:image="card[imageProperty]"
 							:description="card.word"
 							:key="index"
+              :class="{
+                selected: index === currentDef-3,
+              }"
 							@click="doAction(card)"
 						/>
 					</ImageGrid>
@@ -51,15 +56,22 @@
 			ImageGrid,
 		},
 		props: [],
+
 		setup() {
 			const router = useRouter();
-			return {router};
+      return {router};
 		},
 
+
 		mounted() {
-			// quand la page démarre:
-			this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
-		},
+      // quand la page démarre:
+      this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
+
+      setInterval(() => {
+        this.currentDef ++;
+      }, 1000);
+
+    },
 
 		data: () => {
 			return {
@@ -70,9 +82,10 @@
 				rootAPI: rootAPI,
 				relation: relationTest,
 				cardJSON: [],
-				currentIndex: 0,
+        currentIndex: 0,
 				currentId: "",
 				discussion: "basket",
+        currentDef: 0,
 			};
 		},
 
@@ -84,32 +97,33 @@
 				this.$store.commit("removeElementFromBasket");
 			},
 
+
 			doAction(card) {
 				this.addItemToDialogBox(card);
 				this.fetchTheCardsAndStoreThem(card.id, card.word);
 				// TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
 			},
+
+      resetTimer(){
+        this.current = 0;
+      },
+
 			fetchTheCardsAndStoreThem(id, relation) {
 				this.cardJSON = [];
-				console.log(relation);
 				const url = this.rootAPI + "mots/" + id + "/" + this.relation;
 				//TODO , changer this.relation par la relation réélle de l'api
-				console.log("url :>> ", url);
 				fetch(url, {
 					method: "GET",
 				})
 					.then((response) => {
-						console.log("response :>> ", response);
 						return response.json();
 					})
 					.then((cards) => {
-						console.log("Coucou les ptits amis");
 						const newCards = cards.map((c) => {
 							c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
 							return c;
 						});
 						this.cardJSON = newCards;
-						console.log("cards :>> ", cards);
 					})
 					.catch((err) => {
 						console.error(err);
@@ -157,4 +171,10 @@
 		margin-top: 1%;
 		width: 17%;
 	}
+
+  .selected {
+    transform: scale(1.2);
+    border-radius: 55px;
+    border: 10px solid #202abb9d;
+  }
 </style>

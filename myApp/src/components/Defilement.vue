@@ -1,33 +1,55 @@
-<!-- A revoir - composant générique
 <template>
-	<div class="lol">
-    <Image id="jaisoif"></Image>
-	<Image id="jaimal" :isEntoured={images[selectedImage] == "jaimal"}></Image></div>
+	<div class="defilementComponent">
+    <button
+        :class="{
+                selected: current === 0,
+              }">Slow</button>
+    <button
+        :class="{
+                selected: current === 1,
+              }">Normal</button>
+    <button
+        :class="{
+                selected: current === 2 ,
+              }">Fast</button>
+    <br>
+
+  </div>
 </template>
 
 <script>
     export default {
-        name: "",
-		props: [],
-		methods:{
-			cycleThroughImages(){
-				setInterval(()=>{
-					selectedImage += 1;
-					if(selectedImage > images.length - 1 ) selectedImage = 0;
-				},1000),
-			},
-		},
+      name: "",
+      methods: {
+
+        },
+
         data() {
-            return {
-				selectedImage: 1,
-				images: ['jaisoif', 'jaimal'],
-			};
-		},
-		created(){
-			cycleThroughImages();
-		}
-    };
+          return {
+
+          };
+        },
+
+      }
+
 </script>
 
-<style scoped></style>
--->
+<style scoped>
+
+button {
+  color: white;
+  background: orange;
+  border: none;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 1.2em;
+  font-family: 'Lato';
+}
+
+.selected {
+  transform: scale(1.2);
+  border-radius: 55px;
+  border: 10px solid #202abb9d;
+}
+</style>
+
