@@ -63,7 +63,9 @@
 
 		data: () => {
 			return {
-				imageProperty: "img_url",
+				//On Heroku => "img_url" / On Localhost => "imgUrl"
+				imageProperty: "imgUrl",
+				// imageProperty: "img_url",
 				rootIMG: rootHebergementImage,
 				rootAPI: rootAPI,
 				relation: relationTest,

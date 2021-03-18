@@ -75,7 +75,7 @@ const routes: Array<RouteRecordRaw> = [
 	// },
 	{
 		name: "Mood",
-		path: "/Mood",
+		path: "/mood",
 		component: Mood,
 	},
 
