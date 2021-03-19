@@ -14,11 +14,11 @@
     <ion-content>
       
       <ion-list>
-        <ion-item>Profil Patient</ion-item>
-        <ion-item>Vitesse</ion-item>
+        <ButtonMenu route="/patient" label="Ajouter un patient"></ButtonMenu>
+        <ion-item>Ajouter un établissement</ion-item>
+        <ion-item>Ajouter un mot</ion-item>
         <ion-item>Affichage et Luminosité</ion-item>
         <ion-item>Fond d'écran et Police</ion-item>
-        <ion-item>Configuration Tuiles</ion-item>
         <ion-item>Personnalisation photos</ion-item>
       </ion-list>
     <BackButton></BackButton>
@@ -43,8 +43,10 @@ import {
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 import BackButton from "@/components/BackButton.vue";
+import ButtonMenu from "@/components/ButtonMenu.vue";
 
-export default defineComponent({
+export default {
+  name: "MenuAdmin",
   components: {
     IonContent,
     IonHeader,
@@ -55,6 +57,7 @@ export default defineComponent({
     IonTitle,
     IonToolbar,
     BackButton,
+    ButtonMenu
   },
   methods: {
     openFirst() {
@@ -69,7 +72,7 @@ export default defineComponent({
       menuController.open("custom");
     },
   },
-});
+};
 </script>
 
 <style scoped>

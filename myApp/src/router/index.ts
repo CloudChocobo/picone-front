@@ -10,7 +10,6 @@ import AdminHome from "@/views/AdminHome.vue";
 // import Actions from "@/views/Actions.vue";
 // import Actions2 from "@/views/Actions2.vue";
 import Mood from "@/views/Mood.vue";
-
 // import Interlocutor from "@/views/Interlocutor.vue";
 // import StartTalking from "@/views/StartTalking.vue";
 // import Care from "@/views/Care.vue";
@@ -29,6 +28,7 @@ import Mood from "@/views/Mood.vue";
 // import Objects from "@/views/Objects.vue";
 // import Recap from "@/views/Recap.vue";
 import SentenceBuild from "@/views/SentenceBuild.vue";
+import Patient from "@/views/Patient.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -160,6 +160,11 @@ const routes: Array<RouteRecordRaw> = [
 	//   path: "/recap",
 	//   component: Recap,
 	// },
+	{
+		name: "Patient",
+		path: "/patient",
+		component: Patient,
+	}
 ];
 
 const router = createRouter({
