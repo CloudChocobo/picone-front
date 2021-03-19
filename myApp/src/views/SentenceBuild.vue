@@ -1,7 +1,7 @@
 <template>
 	<ion-page>
 		<ion-content :fullscreen="true">
-			<PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
+			<PageWithSecondNavBar2 @cancelLastAction="removeItemFromDialogBox">
 				<main>
 					<div class="text">Cliquez sur un icône:</div>
 					<ImageGrid>
@@ -27,7 +27,7 @@
 					</Basket>
 					<!-- </div> -->
 				</footer>
-			</PageWithSecondNavBar>
+			</PageWithSecondNavBar2>
 		</ion-content>
 	</ion-page>
 </template>
@@ -35,7 +35,7 @@
 <script>
 	import {IonPage, IonContent} from "@ionic/vue";
 	import {useRouter} from "vue-router";
-	import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
+	import PageWithSecondNavBar2 from "@/components/PageWithSecondNavBar2.vue";
 	import Card from "@/components/Card.vue";
 	import Basket from "@/components/Basket.vue";
 	import ImageGrid from "@/components/ImageGrid.vue";
@@ -45,7 +45,7 @@
 		components: {
 			IonPage,
 			IonContent,
-			PageWithSecondNavBar,
+			PageWithSecondNavBar2,
 			Card,
 			Basket,
 			ImageGrid,

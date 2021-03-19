@@ -83,8 +83,15 @@ export default {
     removeItemFromBasket() {
       this.$store.commit('removeElementFromBasket');
     },
+
+    displayMoodOnDiscussion(card) {
+      this.$store.commit('addCardMoodInMoodState', card);
+    },
+
     doAction(card){
-      this.fetchTheCardMood(card.id, card.word);
+      this.$router.push('/build');
+      this.displayMoodOnDiscussion(card);
+      //this.fetchTheCardMood(card.id, card.word);
       // if(card.redirectsTo){
       //   this.$router.push("/"+card.redirectsTo);
       // } else {

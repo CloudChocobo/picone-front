@@ -6,6 +6,8 @@
                 <div :id="id">
                     <div><img :src="image" /></div>
                     <div class="description">{{ description }} </div>
+
+                    <button @click="displayMoodOnDiscussion(item.id)"></button>
                 </div>
             </div>
         </ImageGrid>

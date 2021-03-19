@@ -4,6 +4,7 @@
     <UserParameter></UserParameter>
     <BackButton></BackButton>
     <Eraser @click="cancelLastAction"></Eraser>
+    <MoodState></MoodState>
   </div>
 </template>
 
@@ -11,10 +12,11 @@
 import BackButton from "@/components/BackButton.vue";
 import Eraser from "@/components/Eraser.vue";
 import UserParameter from "@/components/UserParameter.vue";
+import MoodState from "@/components/MoodState.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "HorizontalBarV2",
-  components: { BackButton, Eraser, UserParameter },
+  components: { BackButton, Eraser, UserParameter, MoodState},
   methods: {
     cancelLastAction() {
       this.$emit("cancelLastAction");
@@ -67,4 +69,11 @@ export default {
   margin-left: 3%;
   margin-top: 5px;
 }
+
+.MoodState {
+  width: 8%;
+  margin-left: 59%;
+  margin-top: 5px;
+}
+
 </style>
