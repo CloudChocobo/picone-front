@@ -14,9 +14,6 @@
 				<div class="text">
 					<p>prout dans ta face</p>
 				</div>
-				<div class="image">
-					<img src="../assets/boutonMenu.png" alt="" />
-				</div>
 			</PageAdmin>
 		</ion-content>
 	</ion-page>

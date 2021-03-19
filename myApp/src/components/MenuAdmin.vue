@@ -15,11 +15,11 @@
       
       <ion-list>
         <ButtonMenu route="/patient" label="Ajouter un patient"></ButtonMenu>
-        <ion-item>Ajouter un établissement</ion-item>
-        <ion-item>Ajouter un mot</ion-item>
-        <ion-item>Affichage et Luminosité</ion-item>
-        <ion-item>Fond d'écran et Police</ion-item>
-        <ion-item>Personnalisation photos</ion-item>
+        <!--<ButtonMenu route="/establishment" label="Ajouter un établissement"></ButtonMenu>
+        <ButtonMenu route="/word" label="Ajouter un mot"></ButtonMenu>-->
+        <ButtonMenu route="" label="Affichage et Luminosité"></ButtonMenu>
+        <ButtonMenu route="" label="Fond d'écran et Police"></ButtonMenu>
+        <ButtonMenu route="" label="Personnalisation photos"></ButtonMenu>
       </ion-list>
     <BackButton></BackButton>
     </ion-content>
@@ -33,7 +33,6 @@
 import {
   IonContent,
   IonHeader,
-  IonItem,
   IonList,
   IonMenu,
   IonRouterOutlet,
@@ -41,7 +40,6 @@ import {
   IonToolbar,
   menuController,
 } from "@ionic/vue";
-import { defineComponent } from "vue";
 import BackButton from "@/components/BackButton.vue";
 import ButtonMenu from "@/components/ButtonMenu.vue";
 
@@ -50,7 +48,6 @@ export default {
   components: {
     IonContent,
     IonHeader,
-    IonItem,
     IonList,
     IonMenu,
     IonRouterOutlet,
