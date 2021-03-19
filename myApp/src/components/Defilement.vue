@@ -13,8 +13,6 @@
         :class="{
                 selected: currentDef === 2 ,
               }">Fast</button>
-    <br>
-
   </div>
 </template>
 
@@ -29,7 +27,7 @@
       },
       computed: {
         currentDef() {
-          return this.$store.state.currentDefilement;
+          return this.$store.state.stateDefilement.currentDefilement;
         }
       }
     }

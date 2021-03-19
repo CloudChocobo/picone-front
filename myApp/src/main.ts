@@ -32,6 +32,10 @@ const store = createStore({
     return { 
       //store values :
       basket: [],
+      stateDefilement : {
+        currentDefilement: 0,
+        enabledDefilement: true
+      },
       mood: null,
     }
   },
@@ -53,7 +57,8 @@ const store = createStore({
           state.basket = []
     },
     incrementCurrentDefilement(state: any){
-      state.currentDefilement ++},
+      state.currentDefilement ++
+    },
 
   //Mutation to put a mood card in the mood state.
     setMoodState(state: any, moodToSet: any) {

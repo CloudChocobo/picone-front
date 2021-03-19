@@ -2,7 +2,6 @@
 	<ion-page>
 		<ion-content :fullscreen="true">
 			<PageWithSecondNavBar
-
           @cancelLastAction="removeItemFromDialogBox">
         <main>
 					<div class="text">Cliquez sur un icône:</div>
@@ -65,12 +64,9 @@
 
 
 		mounted() {
-      // quand la page démarre:
-      this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
 
-      setInterval(() => {
-        this.$store.commit("incrementCurrentDefilement");
-      }, 1000);
+      this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
+      this.initDefilement();
 
     },
 
@@ -86,6 +82,7 @@
         currentIndex: 0,
 				currentId: "",
 				discussion: "basket",
+        currentDef: -1
 			};
 		},
 
@@ -126,19 +123,30 @@
 						console.error(err);
 					});
 			},
+
+      /*eslint-disable*/
+      initDefilement () {
+			  if (this.stateDef.enabledDefilement){
+			    setInterval(() => {
+			      this.$store.commit("incrementCurrentDefilement");
+			      this.currentDef = this.stateDef.currentDefilement;}, 1000);			  }
+      }
 		},
 
 		computed: {
 			basket() {
 				return this.$store.state.basket;
 			},
-      currentDef(){
-        return this.$store.state.currentDefilement;
+
+      stateDef(){
+        return this.$store.state.stateDefilement;
       },
 
 		},
 	};
 </script>
+
+
 
 <style scoped>
 	.text {
