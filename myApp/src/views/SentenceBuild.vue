@@ -135,26 +135,32 @@
             let keyDetected = ""
 			      this.$store.commit("incrementCurrentDefilement");
 			      this.currentDef = this.stateDef.currentDefilement;
-            if(this.getKey()){
-              keyDetected = this.getKey();
-              console.log("mdrrrrr")
-            }
+            this.keyProcess();
 
-          }, 1000);
+          }, 1000)
+
 			  }
       },
 
-      getKey() {
-        document.addEventListener('keypress', logKey);
-        function logKey(e) {
-          console.log("TOUCHE ENFONCEE >> "+ e.code);
-          return e.code
-        }
+      keyProcess() {
+
+        this.keyListener()
+            .then((response) => {
+                console.log("BONNE TOUCHE DU CLAVIER");
+
+        })
       },
 
-        getCurrentCard() {
-          return "lol";
-        }
+      keyListener() {
+        document.addEventListener('keypress', (e) =>{
+          return e.code;
+        })
+
+
+      },
+
+
+
       },
 
 		computed: {

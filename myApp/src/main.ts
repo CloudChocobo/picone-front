@@ -34,7 +34,8 @@ const store = createStore({
       basket: [],
       stateDefilement : {
         currentDefilement: 0,
-        enabledDefilement: true
+        enabledDefilement: true,
+        activeKey: 'space'
       },
       mood: null,
     }
