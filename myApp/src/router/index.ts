@@ -11,6 +11,7 @@ import Patients from "@/views/Patients.vue";
 import Mood from "@/views/Mood.vue";
 import Register from "@/views/Register.vue";
 import Login from "@/views/Login.vue";
+import Establishment from "@/views/Establishment.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -44,6 +45,22 @@ const routes: Array<RouteRecordRaw> = [
 		component: AdminHome,
 	},
 	{
+		name: "Establishment",
+		path: "/establishment",
+		component: Establishment,
+	},
+
+	//  {
+	//   name: "Noemie",
+	//   path: "/noemie",
+	//   component: Noemie,
+	// },
+	// {
+	// 	name: "Food",
+	// 	path: "/food",
+	// 	component: Food,
+	// },
+	{
 		name: "SentenceBuild",
 		path: "/build",
 		component: SentenceBuild,
@@ -60,18 +77,81 @@ const routes: Array<RouteRecordRaw> = [
 		}
 ];
 
-const router = createRouter({
-	history: createWebHistory(process.env.BASE_URL),
-	routes,
-});
-
-export default router;
-
-
+	// {
+	//   name: "Care",
+	//   path: "/care",
+	//   component: Care,
+	// },
+	//    {
+	//   name: "Interlocutor",
+	//   path: "/interlocutor",
+	//   component: Interlocutor,
+	// },
+	// {
+	// 	name: "StartTalking",
+	// 	path: "/startTalking",
+	// 	component: StartTalking,
+	// },
+	//    {
+	//   name: "Fruits",
+	//   path: "/fruits",
+	//   component: Fruits,
+	// },
+	//      {
+	//   name: "Dishes",
+	//   path: "/dishes",
+	//   component: Dishes,
+	// },
+	//      {
+	//   name: "Veggetables",
+	//   path: "/veggetables",
+	//   component: Veggetables,
+	// },
 	//        {
-	//   name: "RecapDiscussion",
-	//   path: "/recapDiscussion",
-	//   component: RecapDiscussion,
+	//   name: "SentenceBuild",
+	//   path: "/sentencebuild",
+	//   component: Drinks,
+	// },
+	//          {
+	//   name: "Wc",
+	//   path: "/wc",
+	//   component: Wc,
+	// },
+	//          {
+	//   name: "Furniture",
+	//   path: "/furniture",
+	//   component: Furniture,
+	// },
+	//          {
+	//   name: "Hobbies",
+	//   path: "/hobbies",
+	//   component: Hobbies,
+	// },
+	//          {
+	//   name: "Clothes",
+	//   path: "/clothes",
+	//   component: Clothes,
+	// },
+	//          {
+	//   name: "Body",
+	//   path: "/body",
+	//   component: Body,
+	// },
+	//          {
+	//   name: "Pain",
+	//   path: "/pain",
+	//   component: Pain,
+	// },
+
+	//          {
+	//   name: "Hygiene",
+	//   path: "/hygiene",
+	//   component: Hygiene,
+	// },
+	//            {
+	//   name: "Objects",
+	//   path: "/objects",
+	//   component: Objects,
 	// },
 
 	//              {
@@ -79,3 +159,11 @@ export default router;
 	//   path: "/recap",
 	//   component: Recap,
 	// },
+];
+
+const router = createRouter({
+	history: createWebHistory(process.env.BASE_URL),
+	routes,
+});
+
+export default router;

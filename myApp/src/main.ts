@@ -42,6 +42,7 @@ const store = createStore({
       },
       mood: null,
       patients: [{}],
+      establishments: [{}],
     }
   },
   mutations: {
@@ -70,10 +71,13 @@ const store = createStore({
           state.stateDefilement.speedDefilement = 1500 : state.stateDefilement.speedDefilement += amountOfSpeed
     },
 
-  //Mutation to put a mood card in the mood state.
-    setMoodState(state: any, moodToSet: any) {
-      state.mood = moodToSet;
-    },
+		setEstablishments(state, valeur) {
+			state.establishments = valeur;
+		},
+      //Mutation to put a mood card in the mood state.
+      setMoodState(state: any, moodToSet: any) {
+        state.mood = moodToSet;
+      },
 
 
   //Mutation to erase the current mood.
@@ -90,6 +94,9 @@ const store = createStore({
     },
     mood (state: any) {
       return state.mood;
+    },
+    establishments(state) {
+      return state.establishments;
     },
     patients(state: any) {
         return state.patients;
