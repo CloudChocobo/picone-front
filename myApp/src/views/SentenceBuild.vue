@@ -2,6 +2,8 @@
 	<ion-page>
 		<ion-content :fullscreen="true">
 			<PageWithSecondNavBar
+          v-model="currentDef"
+          type="number"
           v-bind="$attrs"
           @cancelLastAction="removeItemFromDialogBox">
         <main>

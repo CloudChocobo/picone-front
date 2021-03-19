@@ -2,15 +2,16 @@
 	<div class="defilementComponent">
     <button
         :class="{
-                selected: current === 0,
-              }">Slow</button>
+                selected: currentDef === 0,
+              }"
+        >Slow</button>
     <button
         :class="{
-                selected: current === 1,
+                selected: currentDef === 1,
               }">Normal</button>
     <button
         :class="{
-                selected: current === 2 ,
+                selected: currentDef === 2 ,
               }">Fast</button>
     <br>
 
@@ -19,6 +20,7 @@
 
 <script>
     export default {
+      inheritAttrs: true,
       name: "",
       methods: {
 
@@ -29,6 +31,9 @@
 
           };
         },
+      created:function(){
+        console.log(this.$attrs.data.currentDef)//Pay attention here
+      }
 
       }
 
