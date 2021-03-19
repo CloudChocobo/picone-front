@@ -2,9 +2,7 @@
 	<ion-page>
 		<ion-content :fullscreen="true">
 			<PageWithSecondNavBar
-          v-model="currentDef"
-          type="number"
-          v-bind="$attrs"
+
           @cancelLastAction="removeItemFromDialogBox">
         <main>
 					<div class="text">Cliquez sur un icône:</div>
@@ -48,6 +46,7 @@
 	import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
 	export default {
+    inheritAttrs: false,
 		name: "SentenceBuild",
 		components: {
 			IonPage,
@@ -70,7 +69,7 @@
       this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
 
       setInterval(() => {
-        this.currentDef ++;
+        this.$store.commit("incrementCurrentDefilement");
       }, 1000);
 
     },
@@ -87,11 +86,11 @@
         currentIndex: 0,
 				currentId: "",
 				discussion: "basket",
-        currentDef: 0,
 			};
 		},
 
 		methods: {
+
 			addItemToDialogBox(card) {
 				this.$store.commit("addElementToBasket", card);
 			},
@@ -105,10 +104,6 @@
 				this.fetchTheCardsAndStoreThem(card.id, card.word);
 				// TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
 			},
-
-      resetTimer(){
-        this.current = 0;
-      },
 
 			fetchTheCardsAndStoreThem(id, relation) {
 				this.cardJSON = [];
@@ -134,12 +129,13 @@
 		},
 
 		computed: {
-			log() {
-				return console.log(this.data.cardJSON);
-			},
 			basket() {
 				return this.$store.state.basket;
 			},
+      currentDef(){
+        return this.$store.state.currentDefilement;
+      },
+
 		},
 	};
 </script>

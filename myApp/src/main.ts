@@ -38,7 +38,7 @@ const store = createStore({
   mutations: {
   //we will use those functions to add or remove the card components
   // we limited the number of cards to 4 in order to have a short sentence for the time being. This can be changed at anytime.
-  //store values modifier functions :
+    //store values modifier functions :
     addElementToBasket(state: any, elementToAdd: any){
       if(state.basket.length <4){
         state.basket.push(elementToAdd);
@@ -50,13 +50,16 @@ const store = createStore({
       }
     },
     clearBasket(state: any){
-      state.basket = []   
+          state.basket = []
     },
+    incrementCurrentDefilement(state: any){
+      state.currentDefilement ++},
 
   //Mutation to put a mood card in the mood state.
     setMoodState(state: any, moodToSet: any) {
       state.mood = moodToSet;
     },
+
 
   //Mutation to erase the current mood.
     clearMood(state: any){

@@ -20,23 +20,19 @@
 
 <script>
     export default {
-      inheritAttrs: true,
+
       name: "",
-      methods: {
+      methods: {},
 
-        },
-
-        data() {
-          return {
-
-          };
-        },
-      created:function(){
-        console.log(this.$attrs.data.currentDef)//Pay attention here
+      data() {
+        return {};
+      },
+      computed: {
+        currentDef() {
+          return this.$store.state.currentDefilement;
+        }
       }
-
-      }
-
+    }
 </script>
 
 <style scoped>

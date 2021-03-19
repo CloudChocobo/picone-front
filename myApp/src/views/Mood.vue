@@ -20,8 +20,8 @@
          <Basket>
             <Card
               v-for="(card, index) in basket"
-              :image="card.image" 
-              :description="card.description" 
+              :image="card.image"
+              :description="card.description"
               :key="index"
             />
           </Basket>
@@ -109,7 +109,7 @@ export default {
 				this.cardJSON = [];
 				// console.log(label);
 				const url = this.rootAPI + "moods";
-			
+
 				console.log("url :>> ", url);
 
 				fetch(url, {
@@ -134,9 +134,9 @@ export default {
 			},
 
   },
-   computed: { 
-     basket() { 
-       return this.$store.state.basket 
+   computed: {
+     basket() {
+       return this.$store.state.basket
        },
       mood() {
         return this.$store.getters.mood
