@@ -124,14 +124,38 @@
 					});
 			},
 
+      // METHODES LIEES AUX DEFILEMENTS
+
       /*eslint-disable*/
+
       initDefilement () {
+
 			  if (this.stateDef.enabledDefilement){
 			    setInterval(() => {
+            let keyDetected = ""
 			      this.$store.commit("incrementCurrentDefilement");
-			      this.currentDef = this.stateDef.currentDefilement;}, 1000);			  }
-      }
-		},
+			      this.currentDef = this.stateDef.currentDefilement;
+            if(this.getKey()){
+              keyDetected = this.getKey();
+              console.log("mdrrrrr")
+            }
+
+          }, 1000);
+			  }
+      },
+
+      getKey() {
+        document.addEventListener('keypress', logKey);
+        function logKey(e) {
+          console.log("TOUCHE ENFONCEE >> "+ e.code);
+          return e.code
+        }
+      },
+
+        getCurrentCard() {
+          return "lol";
+        }
+      },
 
 		computed: {
 			basket() {
@@ -178,7 +202,8 @@
 		width: 17%;
 	}
 
-  .selected {
+
+  >>> .selected img {
     transform: scale(1.2);
     border-radius: 55px;
     border: 10px solid #202abb9d;
