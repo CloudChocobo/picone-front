@@ -35,7 +35,7 @@ const store = createStore({
       stateDefilement : {
         currentDefilement: 0,
         enabledDefilement: true,
-        activeKey: 'space'
+        activeKey: 'Space'
       },
       mood: null,
     }

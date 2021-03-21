@@ -88,41 +88,42 @@
 
 		methods: {
 
-			addItemToDialogBox(card) {
-				this.$store.commit("addElementToBasket", card);
-			},
-			removeItemFromDialogBox() {
-				this.$store.commit("removeElementFromBasket");
-			},
+
+      addItemToDialogBox(card) {
+        this.$store.commit("addElementToBasket", card);
+      },
+      removeItemFromDialogBox() {
+        this.$store.commit("removeElementFromBasket");
+      },
 
 
-			doAction(card) {
-				this.addItemToDialogBox(card);
-				this.fetchTheCardsAndStoreThem(card.id, card.word);
-				// TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
-			},
+      doAction(card) {
+        this.addItemToDialogBox(card);
+        this.fetchTheCardsAndStoreThem(card.id, card.word);
+        // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
+      },
 
-			fetchTheCardsAndStoreThem(id, relation) {
-				this.cardJSON = [];
-				const url = this.rootAPI + "mots/" + id + "/" + this.relation;
-				//TODO , changer this.relation par la relation réélle de l'api
-				fetch(url, {
-					method: "GET",
-				})
-					.then((response) => {
-						return response.json();
-					})
-					.then((cards) => {
-						const newCards = cards.map((c) => {
-							c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
-							return c;
-						});
-						this.cardJSON = newCards;
-					})
-					.catch((err) => {
-						console.error(err);
-					});
-			},
+      fetchTheCardsAndStoreThem(id, relation) {
+        this.cardJSON = [];
+        const url = this.rootAPI + "mots/" + id + "/" + this.relation;
+        //TODO , changer this.relation par la relation réélle de l'api
+        fetch(url, {
+          method: "GET",
+        })
+            .then((response) => {
+              return response.json();
+            })
+            .then((cards) => {
+              const newCards = cards.map((c) => {
+                c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
+                return c;
+              });
+              this.cardJSON = newCards;
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+      },
 
       // METHODES LIEES AUX DEFILEMENTS
 
