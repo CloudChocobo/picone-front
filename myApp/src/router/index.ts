@@ -29,12 +29,17 @@ import Mood from "@/views/Mood.vue";
 // import Recap from "@/views/Recap.vue";
 import SentenceBuild from "@/views/SentenceBuild.vue";
 import Patient from "@/views/Patient.vue";
+import Patient2 from "@/views/Patient2.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
 	{
+		path: "",
+		redirect: "/home",
+	},
+	{
 		name: "Home",
-		path: "/Home",
+		path: "/home",
 		component: Home,
 	},
 	// {
@@ -164,6 +169,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Patient",
 		path: "/patient",
 		component: Patient,
+	},
+		{
+		name: "Patient2",
+		path: "/patient2",
+		component: Patient2,
 	}
 ];
 

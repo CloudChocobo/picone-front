@@ -15,14 +15,14 @@
 <script>
 	export default {
 		name: "",
-		props: ["isOuvert", "titre"],
-		emits: ["update:isOuvert"],
+		props: ["isOpen", "titre"],
+		emits: ["update:isOpen"],
 		data() {
 			return {};
 		},
 		methods: {
 			close() {
-				this.$emit("update:isOuvert", false);
+				this.$emit("update:isOpen", false);
 			},
 		},
 	};
@@ -58,12 +58,12 @@
 	}
 	header {
 		width: 100%;
-		background-color: #7d54f2;
+		background-color: #8badbe;
 		display: flex;
 		justify-content: center;
 	}
 	header .titre {
-		color: white;
+		color: #536974;
 		font-size: 18px;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;

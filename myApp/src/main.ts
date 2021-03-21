@@ -41,6 +41,7 @@ const store = createStore({
         speedDefilement: 1000
       },
       mood: null,
+      patients: [{}],
     }
   },
   mutations: {
@@ -79,7 +80,9 @@ const store = createStore({
     clearMood(state: any){
       state.mood = null
     },
-
+    setPatients(state: any, valeur: any) {
+          state.patients = valeur;
+      },
   },
 
   getters: {
@@ -90,8 +93,9 @@ const store = createStore({
     mood (state: any) {
       return state.mood;
     },
-
-
+     patients(state: any) {
+        return state.patients;
+      },
   }
 })
 
