@@ -12,31 +12,10 @@
 					</ion-toolbar>
 				</ion-header>
 				<div class="text">
-					<p>Ajouter un établissement</p>
-				</div>
-
-				<div>
-					<Input label="Email" placeholder="Email" v-model:valeur="lol" />
-					<Input
-						label="Mot de passe"
-						placeholder="Mot de passe"
-						v-model:valeur="newVoiture.marque"
-					/>
-
-					<Input label="Nom" placeholder="Nom" v-model:valeur="newEstablishment.name" />
-					<Input
-						label="Adresse"
-						placeholder="Adresse"
-						v-model:valeur="newEstablishment.adresse"
-					/>
-
-					<Input label="CP" placeholder="CP" v-model:valeur="newEstablishment.cp" />
-					<Input label="Ville" placeholder="Ville" v-model:valeur="newEstablishment.ville" />
-					<Input
-						label="Telephone"
-						placeholder="Telephone"
-						v-model:valeur="newEstablishment.telephone"
-					/>
+					<h1>Ajouter un établissement</h1>
+					<div>
+						<Forms></Forms>
+					</div>
 				</div>
 			</PageAdmin>
 		</ion-content>
@@ -46,8 +25,9 @@
 <script>
 	import BackButton from "@/components/BackButton.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
-	import Input from "@/components/Input.vue";
+	import Forms from "@/components/Forms.vue";
 	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton} from "@ionic/vue";
+
 	export default {
 		name: "Establishment",
 		components: {
@@ -59,7 +39,7 @@
 			IonTitle,
 			IonMenuButton,
 			BackButton,
-			Input,
+			Forms,
 		},
 	};
 </script>
@@ -99,6 +79,9 @@
 	.BackButton {
 		width: 8%;
 		margin-left: 3%;
+		margin-top: 2%;
+	}
+	.h1 {
 		margin-top: 2%;
 	}
 
