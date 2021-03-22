@@ -15,14 +15,14 @@
 <script>
 	export default {
 		name: "",
-		props: ["isOuvert", "titre"],
-		emits: ["update:isOuvert"],
+		props: ["isOpen", "titre"],
+		emits: ["update:isOpen"],
 		data() {
 			return {};
 		},
 		methods: {
 			close() {
-				this.$emit("update:isOuvert", false);
+				this.$emit("update:isOpen", false);
 			},
 		},
 	};

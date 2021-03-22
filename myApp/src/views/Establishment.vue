@@ -7,19 +7,61 @@
 						<ion-buttons side="start">
 							<ion-menu-button></ion-menu-button>
 							<BackButton></BackButton>
-							<ion-title></ion-title>
+							<ion-title>Établissement</ion-title>
 						</ion-buttons>
 					</ion-toolbar>
 				</ion-header>
-				<div class="text">
-					<div class="titre">
-					<h1>Etablissement</h1>
-					<Bouton texte="Ajouter un établissement" @click="modalOuvert = true"></Bouton>
-						</div>
-						<Modal v-if="modalOuvert" v-model:isOuvert="modalOuvert" 
-						<Forms></Forms>
-						</Modal>
+				<div class="main">
+					lol
+					<IonButton @click="modalOpen = true">Ajouter un établissement</IonButton>
+
+					<div class="grid">
+						lol2
+						<ListingEstablishment
+							v-for="establishment in establishments"
+							:key="establishment.id"
+							:name="establishment.name"
+							:infoPrincipale="establishment.adress"
+							:infoSecondaire="establishment.telephon"
+						></ListingEstablishment>
 					</div>
+					<Modal v-if="!modalOpen" :isOpen="modalOpen" titre="Ajouter un établissement">
+						<Input label="nom" placeholder="Epad michel" v-model:valeur="test" />
+
+						<Input
+							label="email"
+							placeholder="epadMichel@example.com"
+							v-model:valeur="newEstablishment.email"
+						/>
+
+						<Input
+							label="adresse"
+							placeholder="3 rue de la pomme"
+							v-model:valeur="newEstablishment.adress"
+						/>
+
+						<Input
+							label="code postal"
+							placeholder="44000"
+							v-model="newEstablishment.postalCode"
+						/>
+
+						<Input
+							label="ville"
+							placeholder="Nantes"
+							v-model:valeur="newEstablishment.city"
+						/>
+
+						<Input
+							label="téléphone"
+							placeholder="02 40 45 67 89"
+							v-model:valeur="newEstablishment.telephon"
+						/>
+
+						<div class="form-group">
+							<button class="record">Ajouter</button>
+						</div>
+					</Modal>
 				</div>
 			</PageAdmin>
 		</ion-content>
@@ -27,11 +69,20 @@
 </template>
 
 <script>
+	import ListingEstablishment from "@/components/ListingEstablishment.vue";
 	import BackButton from "@/components/BackButton.vue";
 	import Modal from "@/components/Modal.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
-	import Forms from "@/components/Forms.vue";
-	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton} from "@ionic/vue";
+	import Input from "@/components/Input.vue";
+	import {
+		IonPage,
+		IonContent,
+		IonHeader,
+		IonToolbar,
+		IonTitle,
+		IonMenuButton,
+		IonButton,
+	} from "@ionic/vue";
 
 	export default {
 		name: "Establishment",
@@ -44,15 +95,39 @@
 			IonTitle,
 			IonMenuButton,
 			BackButton,
-			Forms,
 			Modal,
+			ListingEstablishment,
+			Input,
+			IonButton,
 		},
-		data:() => {
-			return {modalOuvert: false,
-			newForm:{},
-		};
-	}
-	}
+
+		data: () => {
+			return {
+				test: "test",
+				modalOpen: false,
+				newEstablishment: {
+					telephon: null,
+					city: null,
+					name: null,
+					adress: null,
+					postalCode: null,
+					email: null,
+				},
+			};
+		},
+		methods: {
+			afficher() {
+				console.log(this.test);
+			},
+		},
+		computed: {
+			/*call the store*/
+			establishments() {
+				console.log(this.$store.state.establishments);
+				return this.$store.state.establishments;
+			},
+		},
+	};
 </script>
 
 <style scoped>

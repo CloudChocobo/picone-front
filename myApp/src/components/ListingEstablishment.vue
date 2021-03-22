@@ -24,7 +24,7 @@
 
 <style scoped>
 	.listingEstablishment {
-		background-color: #f6f6f6;
+		background-color: #c0e4f7;
 		display: flex;
 		justify-content: space-between;
 		padding: 15px 20px;
@@ -46,19 +46,10 @@
 		width: max-content;
 	}
 
-	.icone {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		border: 3px solid rgb(13, 219, 82);
-	}
-	.icone.vieux_laid {
-		border-color: #7d54f2;
-	}
 	.icone.raide {
-		border-color: rgb(212, 44, 72);
+		border-color: rgb(226, 225, 225);
 	}
 	.icone.yeah_lô {
-		border-color: yellow;
+		border-color: rgb(0, 166, 255);
 	}
 </style>
