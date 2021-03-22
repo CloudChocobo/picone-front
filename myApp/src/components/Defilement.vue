@@ -1,18 +1,14 @@
 <template>
-	<div class="defilementComponent">
+	<div>
     <button
-        :class="{
-                selected: currentDef === 0,
-              }"
-        >Slow</button>
+        :class="{selected: true,
+            defFriendly: true}">Slow</button>
     <button
-        :class="{
-                selected: currentDef === 1,
-              }">Normal</button>
+        :class="{selected: true,
+            defFriendly: true}">Normal</button>
     <button
-        :class="{
-                selected: currentDef === 2 ,
-              }">Fast</button>
+        :class="{selected: true,
+            defFriendly: true}">Fast</button>
   </div>
 </template>
 
@@ -28,7 +24,8 @@
       computed: {
         currentDef() {
           return this.$store.state.stateDefilement.currentDefilement;
-        }
+        },
+
       }
     }
 </script>

@@ -12,9 +12,10 @@
 							:description="card.word"
 							:key="index"
               :indexDef = 0
-              :class="classObjectDef(index)"
+              :class="classObjectDef"
 							@click="doAction(card)"
 						/>
+
 					</ImageGrid>
 				</main>
 
@@ -62,10 +63,12 @@
     },
 
 
-    mounted() {
+   async mounted() {
 
-      this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
+      await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
       this.initDefilement();
+
+
 
 
     },
@@ -82,7 +85,7 @@
         discussion: "basket",
         currentDef: -1,
         currentInput : "",
-        areasDef: []
+        lengthDef: 0
       };
     },
 
@@ -125,18 +128,55 @@
             });
       },
 
+
       // METHODES LIEES AUX DEFILEMENTS
 
       /*eslint-disable*/
 
+      listAllDivForDef(){
+        let elements = document.getElementsByClassName("defFriendly");
+        this.lengthDef = elements.length
+        for(let i=0; i<elements.length; i++) {
+          elements[i].attributes[0].value = i.toString();
+          //elements[i].classList.remove("selected")
+        }
+        return elements;
+      },
+
+      checkIfCurrentCorrespondToDefIndex( currentDefilement , elements ) {
+
+        // TODO CORRIGER ERREUR undefined currentDefilement
+
+        console.log(currentDefilement)
+        let bollean = elements[currentDefilement]  ? currentDefilement === Number(elements[currentDefilement].attributes[0].value) : console.log("L'élément n'existe pas dans le DOM");
+        return bollean;
+      },
+
+      changeDirectly(){
+        let elements = this.listAllDivForDef();
+        let bool = this.checkIfCurrentCorrespondToDefIndex( this.currentDef, elements);
+        console.log(bool)
+        if(bool) {
+          elements[this.currentDef].classList.add("selected")
+        }
+      },
+
       initDefilement() {
         if (this.stateDef.enabledDefilement) {
           setInterval(() => {
+            this.listAllDivForDef();
             this.$store.commit("incrementCurrentDefilement");
             this.currentDef = this.stateDef.currentDefilement;
+            this.changeDirectly();
+
             let key = this.keyListener()
             this.keyCheck(this.currentInput);
             this.currentInput = "None";
+
+            if ( this.currentDef >= this.lengthDef){
+              this.stateDef.currentDefilement = 0
+            }
+
           }, 1000)
         }
       },
@@ -148,8 +188,7 @@
       },
 
       keyCheck(k) {
-        console.log(k)
-        if (k == this.stateDef.activeKey) {
+        if (k === this.stateDef.activeKey) {
           console.log(k + " appuyé lorsque la div "+ this.currentDef +" fut active")
           return this.currentDef;
         }
@@ -164,6 +203,14 @@
 
         stateDef() {
           return this.$store.state.stateDefilement;
+        },
+
+
+        classObjectDef() {
+          return {
+            selected: false,
+            defFriendly: true
+          }
         },
 
       },
