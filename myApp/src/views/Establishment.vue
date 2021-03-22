@@ -55,10 +55,21 @@
 							placeholder="02 40 45 67 89"
 							v-model:valeur="newEstablishment.telephon"
 						/>
-
-						<div class="form-group">
-							<button class="record">Ajouter</button>
+						<div class="popUp">
+							<IonButton @click="modalOpen = true">Ajouter </IonButton>
 						</div>
+
+						<Modal
+							v-if="modalOpen"
+							:isOpen="modalOpen"
+							title="Veuillez confirmer votre mot de passe"
+						>
+							<Input placeholder="mot de passe" />
+
+							<div class="form-group">
+								<button class="record">Envoyer</button>
+							</div>
+						</Modal>
 					</Modal>
 				</div>
 			</PageAdmin>
@@ -176,6 +187,10 @@
 		height: 40%;
 	}
 	.form-group {
+		margin-top: 5%;
+		text-align: center;
+	}
+	.popUp {
 		margin-top: 5%;
 		text-align: center;
 	}
