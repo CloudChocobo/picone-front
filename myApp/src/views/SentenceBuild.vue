@@ -46,27 +46,28 @@
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
 	export default {
     inheritAttrs: false,
-		name: "SentenceBuild",
-		components: {
-			IonPage,
-			IonContent,
-			PageWithSecondNavBar,
-			Card,
-			Basket,
-			ImageGrid,
-		},
-		props: [],
+    name: "SentenceBuild",
+    components: {
+      IonPage,
+      IonContent,
+      PageWithSecondNavBar,
+      Card,
+      Basket,
+      ImageGrid,
+    },
+    props: [],
 
-		setup() {
-			const router = useRouter();
+    setup() {
+      const router = useRouter();
       return {router};
-		},
+    },
 
 
-		mounted() {
+    mounted() {
 
       this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
       this.initDefilement();
+
 
     },
 
@@ -129,18 +130,16 @@
 
       /*eslint-disable*/
 
-      initDefilement () {
-
-			  if (this.stateDef.enabledDefilement){
-			    setInterval(() => {
-            let keyDetected = ""
-			      this.$store.commit("incrementCurrentDefilement");
-			      this.currentDef = this.stateDef.currentDefilement;
-            this.keyProcess();
-
+      initDefilement() {
+        if (this.stateDef.enabledDefilement) {
+          setInterval(() => {
+            this.$store.commit("incrementCurrentDefilement");
+            this.currentDef = this.stateDef.currentDefilement;
+            let key = this.keyListener()
+            this.keyCheck(this.currentInput);
+            this.currentInput = "None";
           }, 1000)
-
-			  }
+        }
       },
 
       keyProcess() {
@@ -156,24 +155,28 @@
         document.addEventListener('keypress', (e) =>{
           return e.code;
         })
-
-
       },
 
+      keyCheck(k) {
+        console.log(k)
+        if (k == this.stateDef.activeKey) {
+          console.log(k + " appuyé lorsque la div "+ this.currentDef +" fut active")
+          return this.currentDef;
+        }
+      }
+    },
 
+
+      computed: {
+        basket() {
+          return this.$store.state.basket;
+        },
+
+        stateDef() {
+          return this.$store.state.stateDefilement;
+        },
 
       },
-
-		computed: {
-			basket() {
-				return this.$store.state.basket;
-			},
-
-      stateDef(){
-        return this.$store.state.stateDefilement;
-      },
-
-		},
 	};
 </script>
 
