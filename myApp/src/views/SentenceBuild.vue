@@ -11,9 +11,8 @@
 							:image="card[imageProperty]"
 							:description="card.word"
 							:key="index"
-              :class="{
-                selected: index === currentDef-3,
-              }"
+              :indexDef = 0
+              :class="classObjectDef(index)"
 							@click="doAction(card)"
 						/>
 					</ImageGrid>
@@ -71,23 +70,23 @@
 
     },
 
-		data: () => {
-			return {
-				//On Heroku => "img_url" / On Localhost => "imgUrl"
-				imageProperty: "imgUrl",
-				// imageProperty: "img_url",
-				rootIMG: rootHebergementImage,
-				rootAPI: rootAPI,
-				relation: relationTest,
-				cardJSON: [],
+    data: () => {
+      return {
+        imageProperty: "img_url",
+        rootIMG: rootHebergementImage,
+        rootAPI: rootAPI,
+        relation: relationTest,
+        cardJSON: [],
         currentIndex: 0,
-				currentId: "",
-				discussion: "basket",
-        currentDef: -1
-			};
-		},
+        currentId: "",
+        discussion: "basket",
+        currentDef: -1,
+        currentInput : "",
+        areasDef: []
+      };
+    },
 
-		methods: {
+    methods: {
 
 
       addItemToDialogBox(card) {
@@ -142,18 +141,9 @@
         }
       },
 
-      keyProcess() {
-
-        this.keyListener()
-            .then((response) => {
-                console.log("BONNE TOUCHE DU CLAVIER");
-
-        })
-      },
-
       keyListener() {
-        document.addEventListener('keypress', (e) =>{
-          return e.code;
+       document.addEventListener('keypress', (e) => {
+         this.currentInput = e.code;
         })
       },
 
