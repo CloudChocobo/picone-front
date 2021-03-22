@@ -2,7 +2,8 @@
 <template>
   <div class="MoodState">
       <!-- C'est ici que devra etre fait le lien avec CardMood -->
-    <img src="../assets/IconeMenu.png" alt="" />
+      <!-- On Heroku "imgUrl" => "img_url" / On Localhost => "imgUrl -->
+    <img :src="moodToDisplay.imgUrl"/>
   </div>
 </template>
 
@@ -13,6 +14,15 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    return console.log("MOOD >>"+ JSON.stringify(this.moodToDisplay));
+  },
+
+  computed: {
+    moodToDisplay() {
+      return this.$store.state.mood[0];
+    }
+  }
 };
 </script>
 

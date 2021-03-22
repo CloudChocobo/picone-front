@@ -59,6 +59,7 @@ export default {
   mounted() {
 		// quand la page démarre:
 		this.fetchTheCardMood("moods");
+    //  this.mood ? this.clearMood() : null;
 		},
 
 		data: () => {
@@ -128,7 +129,14 @@ export default {
 			},
 
   },
-   computed: { basket(){ return this.$store.state.basket } }
+   computed: { 
+     basket() { 
+       return this.$store.state.basket 
+       },
+      mood() {
+        return this.$store.state.mood
+      },
+     }
 };
 </script>
 
