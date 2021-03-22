@@ -99,6 +99,9 @@
 			//.finally(() =>{
 			//})
 		},
+		afficher() {
+			console.log(this.town);
+		},
 	};
 	////}
 	//}
@@ -114,6 +117,8 @@
 		gap: 10px;
 		align-content: center;
 		flex-shrink: 1;
+		text-align: center;
+		position: absolute;
 	}
 	.text {
 		height: min-content;
@@ -122,6 +127,13 @@
 		flex-direction: column;
 	}
 	.form-group {
+		border-radius: 10px;
+		font-size: 20px;
+		padding: 15px;
+		flex-direction: column;
+		align-content: center;
+	}
+	.record {
 		border-radius: 10px;
 		font-size: 20px;
 		padding: 15px;

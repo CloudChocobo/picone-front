@@ -12,9 +12,13 @@
 					</ion-toolbar>
 				</ion-header>
 				<div class="text">
-					<h1>Ajouter un établissement</h1>
-					<div>
+					<div class="titre">
+					<h1>Etablissement</h1>
+					<Bouton texte="Ajouter un établissement" @click="modalOuvert = true"></Bouton>
+						</div>
+						<Modal v-if="modalOuvert" v-model:isOuvert="modalOuvert" 
 						<Forms></Forms>
+						</Modal>
 					</div>
 				</div>
 			</PageAdmin>
@@ -24,6 +28,7 @@
 
 <script>
 	import BackButton from "@/components/BackButton.vue";
+	import Modal from "@/components/Modal.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
 	import Forms from "@/components/Forms.vue";
 	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton} from "@ionic/vue";
@@ -40,8 +45,14 @@
 			IonMenuButton,
 			BackButton,
 			Forms,
+			Modal,
 		},
-	};
+		data:() => {
+			return {modalOuvert: false,
+			newForm:{},
+		};
+	}
+	}
 </script>
 
 <style scoped>
