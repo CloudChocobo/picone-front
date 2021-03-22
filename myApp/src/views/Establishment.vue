@@ -12,8 +12,9 @@
 					</ion-toolbar>
 				</ion-header>
 				<div class="main">
-					<IonButton @click="modalOpen = true">Ajouter un établissement</IonButton>
-
+					<div class="container">
+						<IonButton @click="modalOpen = true">Ajouter un établissement</IonButton>
+					</div>
 					<div class="grid">
 						<ListingEstablishment
 							v-for="establishment in establishments"
@@ -23,9 +24,8 @@
 							:infoSecondaire="establishment.telephon"
 						></ListingEstablishment>
 					</div>
-					<Modal v-if="modalOpen" :isOpen="modalOpen" titre="Ajouter un établissement">
-						<Input label="nom" placeholder="Epad michel" v-model:valeur="test" />
-
+					<Modal v-if="modalOpen" :isOpen="modalOpen" title="Ajouter un établissement">
+						<Input label="nom" placeholder="Epad michel" v-model:valeur="epad" />
 						<Input
 							label="email"
 							placeholder="epadMichel@example.com"
@@ -101,7 +101,7 @@
 
 		data: () => {
 			return {
-				test: "test",
+				test: "epad",
 				modalOpen: false,
 				newEstablishment: {
 					telephon: null,
@@ -115,7 +115,7 @@
 		},
 		methods: {
 			afficher() {
-				console.log(this.test);
+				console.log(this.epad);
 			},
 		},
 		computed: {
@@ -146,11 +146,11 @@
 		text-align: center;
 	}
 	ion-toolbar {
-		color: #536974;
+		color: #8badbe;
 		height: 90px;
 	}
 	ion-buttons {
-		background: #536974;
+		background: #8badbe;
 		font-size: 15px;
 	}
 	.toolbar-container {
@@ -169,8 +169,14 @@
 
 	.record {
 		background: #536974;
-		font-size: 15px;
+		font-size: 25px;
 		color: aliceblue;
+		text-align: center;
+		width: 60%;
+		height: 40%;
+	}
+	.form-group {
+		margin-top: 5%;
 		text-align: center;
 	}
 </style>

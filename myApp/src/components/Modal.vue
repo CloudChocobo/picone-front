@@ -1,9 +1,9 @@
 <template>
 	<div class="container">
-		<div class="backgroundGrisay" @click="close()"></div>
+		<div class="backgroundGray" @click="close()"></div>
 		<div class="box">
 			<header>
-				<div class="titre">{{ titre }}</div>
+				<div class="titre">{{ title }}</div>
 			</header>
 			<div class="content">
 				<slot></slot>
@@ -15,7 +15,7 @@
 <script>
 	export default {
 		name: "",
-		props: ["isOpen", "titre"],
+		props: ["isOpen", "title"],
 		emits: ["update:isOpen"],
 		data() {
 			return {};
@@ -39,7 +39,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.backgroundGrisay {
+	.backgroundGrey {
 		position: absolute;
 		top: 0;
 		left: 0;

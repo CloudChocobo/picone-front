@@ -25,4 +25,10 @@
 	body {
 		color: #8badbe;
 	}
+	Ion-Button {
+		color: #536974;
+	}
+	ion-menu-button {
+		color: #536974;
+	}
 </style>
