@@ -1,5 +1,5 @@
 <template>
-	<div class="cont">
+	<div class="container">
 		<div class="label">{{ label }}</div>
 		<input type="text" :placeholder="placeholder" :value="valeur" />
 	</div>
@@ -16,5 +16,11 @@
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+	display: flex;
+	flex-direction: column;
+	align-content: space-around;
+}
+</style>
 

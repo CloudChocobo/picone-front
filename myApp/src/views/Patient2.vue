@@ -11,7 +11,7 @@
 						</ion-buttons>
 					</ion-toolbar>
 				</ion-header>
-				<Button text="Ajouter un patient" @click="modalOpen = true">Ajouter un patient</Button>
+				<Button @click="modalOpen = true">Ajouter un patient</Button>
 				<div class="grid">
 					<InfoCard
 					v-for="patient in patients"
@@ -152,9 +152,7 @@
 		display: flex;
 		flex-direction: column;
 		background-color: #536974;
-		align-items: center;
 		width: 100%;
-		align-content: center;
 	}
 	.InfoCard{
 		display: flex;
@@ -163,6 +161,10 @@
 	.ion-page{
 		background-color: #8badbe;
 	}
-
+	.Button{
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
 
 </style>
