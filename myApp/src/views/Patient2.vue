@@ -7,48 +7,60 @@
 						<ion-buttons side="start">
 							<ion-menu-button></ion-menu-button>
 							<BackButton></BackButton>
-							<ion-title></ion-title>
+							<ion-title>Patients</ion-title>
 						</ion-buttons>
 					</ion-toolbar>
 				</ion-header>
-				<div class="text">
-					<p>j'en ai marre</p>
-				</div>
-				<div class="form">
+				<Button texte="Ajouter un patient" @click="modalOpen = true">Ajouter un patient</Button>
+				<div class="grid">
+					<InfoCard
+					v-for="patient in patients"
+					:key="patient.id"
+					:lastName="patient.lastName"
+					:name="patient.name"
+					:email="patient.email"
+					:password="patient.password"
+					:linkToPatientPicture="patient.image"
+					></InfoCard>
+					</div>	
+					<div class="form">
+					<!--<Modal v-if="modalOpen" v-model:isOpen="modalOpen" titre="Ajout d'un patient">-->
 					<Entry
 					label="ID"
-					placeholder="Identifiant du patient"
-					value="000"></Entry>
+					placeholder="ID patient"
+					value="newPatient.id"></Entry>
 					<Entry
 					label="Nom"
-					placeholder="Nom du patient"
-					valeur="newPatient.lastName"></Entry>
+					placeholder="Nom patient"
+					value="newPatient.lastName"></Entry>
 					<Entry
 					label="Prénom"
-					placeholder="Prénom du patient"
-					valeur="newPatient.name"></Entry>
+					placeholder="Prénom patient"
+					value="newPatient.name"></Entry>
 					<Entry
 					label="Email"
-					placeholder="Email du patient"
-					valeur="newPatient.email"></Entry>
+					placeholder="Email patient"
+					value="newPatient.email"></Entry>
 					<Entry
 					label="Mot de Passe"
 					placeholder="Mot de passe du patient"
-					valeur="newPatient.password"
+					value="newPatient.password"
 					></Entry>
 					<Entry
 					label="Image"
 					placeholder="URL de la photo"
-					valeur="newPatient.image"
+					value="newPatient.image"
 					></Entry>
-					<Button @click="afficher()">enregistrer</Button>
-				</div>
+					<Button @click="afficher()">Enregistrer</Button>
+					<!--</Modal>-->
+					</div>
 			</PageAdmin>
 		</ion-content>
 	</ion-page>
 </template>
 
 <script>
+	import InfoCard from "@/components/InfoCard";
 	import Button from "@/components/Button.vue";
 	import Entry from "@/components/Entry.vue"
 	import BackButton from "@/components/BackButton.vue";
@@ -67,6 +79,7 @@
 			BackButton,
 			Entry,
 			Button,
+			InfoCard,
 		},
 	};
 </script>
@@ -114,6 +127,14 @@
 		background-color: #536974;
 		align-items: center;
 		width: 50%;
+		align-content: center;
+	}
+	.InfoCard{
+		display: flex;
+		flex-direction: column;
+	}
+	.ion-page{
+		background-color: #8badbe;
 	}
 
 </style>

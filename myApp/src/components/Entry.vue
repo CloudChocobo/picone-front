@@ -1,3 +1,6 @@
+entry
+
+
 <template>
 	<div class="cont">
 		<div class="label">{{ label }}</div>
@@ -10,10 +13,11 @@
 		name: "",
 		props: ["label", "placeholder", "valeur"],
 		emits: ["update:valeur"],
-		//data() {
-		//	return {};
-		//},
+		data() {
+			//return {};
+		},
 	};
 </script>
 
 <style scoped></style>
+

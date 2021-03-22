@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<div class="backgroundGrisay" @click="close()"></div>
+		<div class="backgroundGray" @click="close()"></div>
 		<div class="box">
 			<header>
 				<div class="titre">{{ titre }}</div>
@@ -39,7 +39,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.backgroundGrisay {
+	.backgroundGray {
 		position: absolute;
 		top: 0;
 		left: 0;

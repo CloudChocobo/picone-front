@@ -25,8 +25,8 @@
 </script>
 
 <style scoped>
-	.infoCard {
-		background-color: #8badbe;
+	.InfoCard {
+		background-color: #536974;
 		display: flex;
 		justify-content: space-between;
 		padding: 15px 20px;
