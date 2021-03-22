@@ -3,7 +3,7 @@
 		<div class="backgroundGray" @click="close()"></div>
 		<div class="box">
 			<header>
-				<div class="titre">{{ titre }}</div>
+				<div class="title">{{ title }}</div>
 			</header>
 			<div class="content">
 				<slot></slot>
@@ -15,7 +15,7 @@
 <script>
 	export default {
 		name: "",
-		props: ["isOpen", "titre"],
+		props: ["isOpen", "title"],
 		emits: ["update:isOpen"],
 		data() {
 			return {};
@@ -31,8 +31,8 @@
 <style scoped>
 	.container {
 		position: fixed;
-		width: 100vw; /* % width page */
-		height: 100vh; /* % heigth page*/
+		width: 100%; /* % width page */
+		height: 100%; /* % heigth page*/
 		top: 0;
 		left: 0;
 		display: flex;
@@ -45,28 +45,30 @@
 		left: 0;
 		width: 100%; /*du contenant*/
 		height: 100%; /*du contenant*/
-		background-color: rgba(82, 82, 82, 0.322);
+		background-color: rgb(235, 230, 230);
+		opacity: 0.6;
 	}
 	.box {
-		background-color: white;
+		background-color: #f1faff;
 		border-radius: 20px;
 		position: relative;
-		box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02), 0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-			0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-			0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
 		overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
+		width: 30%;
+		height: 70%;
 	}
 	header {
 		width: 100%;
 		background-color: #8badbe;
 		display: flex;
 		justify-content: center;
+		height: 8%;
 	}
-	header .titre {
+	header .title {
 		color: #536974;
 		font-size: 18px;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
+		justify-content: center;
 	}
 	.content {
 		padding: 20px;

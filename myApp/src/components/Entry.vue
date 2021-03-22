@@ -1,6 +1,3 @@
-entry
-
-
 <template>
 	<div class="cont">
 		<div class="label">{{ label }}</div>

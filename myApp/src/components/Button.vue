@@ -1,4 +1,3 @@
-
 <template>
   <IonButton>
     <IonIcon v-if="icone" class="buttonIcon" :icon="iconData"></IonIcon>
@@ -19,8 +18,7 @@ export default {
 
 <style scoped>
 .button {
-  --box-shadow: "none";
-  width: 20%;
+  width: 50%;
   box-sizing: content-box;
   height: 40px;
   border-radius: 10px;
@@ -38,5 +36,3 @@ export default {
   height: 16px;
 }
 </style>
-
--->

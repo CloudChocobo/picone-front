@@ -7,11 +7,11 @@
 						<ion-buttons side="start">
 							<ion-menu-button></ion-menu-button>
 							<BackButton></BackButton>
-							<ion-title>Patients</ion-title>
+							<ion-title>Patient</ion-title>
 						</ion-buttons>
 					</ion-toolbar>
 				</ion-header>
-				<Button texte="Ajouter un patient" @click="modalOpen = true">Ajouter un patient</Button>
+				<Button text="Ajouter un patient" @click="modalOpen = true">Ajouter un patient</Button>
 				<div class="grid">
 					<InfoCard
 					v-for="patient in patients"
@@ -24,7 +24,7 @@
 					></InfoCard>
 					</div>	
 					<div class="form">
-					<!--<Modal v-if="modalOpen" v-model:isOpen="modalOpen" titre="Ajout d'un patient">-->
+					<Modal v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajout d'un patient">
 					<Entry
 					label="ID"
 					placeholder="ID patient"
@@ -43,16 +43,16 @@
 					value="newPatient.email"></Entry>
 					<Entry
 					label="Mot de Passe"
-					placeholder="Mot de passe du patient"
+					placeholder="Mot de passe patient"
 					value="newPatient.password"
 					></Entry>
 					<Entry
 					label="Image"
-					placeholder="URL de la photo"
+					placeholder="URL photo patient"
 					value="newPatient.image"
 					></Entry>
 					<Button @click="afficher()">Enregistrer</Button>
-					<!--</Modal>-->
+					</Modal>
 					</div>
 			</PageAdmin>
 		</ion-content>
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+	import Modal from "@/components/Modal.vue";
 	import InfoCard from "@/components/InfoCard";
 	import Button from "@/components/Button.vue";
 	import Entry from "@/components/Entry.vue"
@@ -80,8 +81,34 @@
 			Entry,
 			Button,
 			InfoCard,
+			Modal,
 		},
-	};
+		data: () => {
+			return {
+				value: "valeur",
+				modalOpen: false,
+				newPatient: {
+					ID: null,
+					lastName: null,
+					name: null,
+					email: null,
+					password: null,
+					image: null,
+				},
+			};
+		},
+		methods: {
+			afficher() {
+				console.log(this.lol);
+			},
+		},
+		//computed: {/*fait appel au store*/
+			/*patients() {
+				console.log(this.$store.getters.valeurDe("patients"));
+				return this.$store.getters.valeurDe("patients");
+			},
+		},*/
+	}
 </script>
 
 <style scoped>
@@ -126,7 +153,7 @@
 		flex-direction: column;
 		background-color: #536974;
 		align-items: center;
-		width: 50%;
+		width: 100%;
 		align-content: center;
 	}
 	.InfoCard{
@@ -136,5 +163,6 @@
 	.ion-page{
 		background-color: #8badbe;
 	}
+
 
 </style>
