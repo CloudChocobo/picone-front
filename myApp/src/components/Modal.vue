@@ -58,7 +58,7 @@
 	}
 	header {
 		width: 100%;
-		background-color: #7d54f2;
+		background-color: #c0e4f7;
 		display: flex;
 		justify-content: center;
 	}

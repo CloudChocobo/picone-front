@@ -12,11 +12,9 @@
 					</ion-toolbar>
 				</ion-header>
 				<div class="main">
-					lol
 					<IonButton @click="modalOpen = true">Ajouter un établissement</IonButton>
 
 					<div class="grid">
-						lol2
 						<ListingEstablishment
 							v-for="establishment in establishments"
 							:key="establishment.id"
@@ -25,7 +23,7 @@
 							:infoSecondaire="establishment.telephon"
 						></ListingEstablishment>
 					</div>
-					<Modal v-if="!modalOpen" :isOpen="modalOpen" titre="Ajouter un établissement">
+					<Modal v-if="modalOpen" :isOpen="modalOpen" titre="Ajouter un établissement">
 						<Input label="nom" placeholder="Epad michel" v-model:valeur="test" />
 
 						<Input
@@ -152,7 +150,8 @@
 		height: 90px;
 	}
 	ion-buttons {
-		background: #8badbe;
+		background: #536974;
+		font-size: 15px;
 	}
 	.toolbar-container {
 		background: #8badbe;
@@ -167,13 +166,11 @@
 		margin-left: 3%;
 		margin-top: 2%;
 	}
-	.h1 {
-		margin-top: 2%;
-	}
 
-	/* .button-inner {
-  width: 25%;
-  margin-left: 3%;
-  margin-top: 2%;
-} */
+	.record {
+		background: #536974;
+		font-size: 15px;
+		color: aliceblue;
+		text-align: center;
+	}
 </style>
