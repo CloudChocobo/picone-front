@@ -39,7 +39,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.backgroundGrey {
+	.backgroundGray {
 		position: absolute;
 		top: 0;
 		left: 0;

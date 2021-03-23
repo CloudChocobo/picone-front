@@ -24,7 +24,7 @@
 							:infoSecondaire="establishment.telephon"
 						></ListingEstablishment>
 					</div>
-					<Modal v-if="modalOpen" :isOpen="modalOpen" title="Ajouter un établissement">
+					<Modal v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter un établissement">
 						<Input label="nom" placeholder="Epad michel" v-model:valeur="epad" />
 						<Input
 							label="email"
@@ -55,7 +55,10 @@
 							placeholder="02 40 45 67 89"
 							v-model:valeur="newEstablishment.telephon"
 						/>
-						<div class="popUp">
+						<div class="form-group">
+							<IonButton class="record">Ajouter</IonButton>
+						</div>
+						<!--<div class="popUp">
 							<IonButton @click="modalOpen = true">Ajouter </IonButton>
 						</div>
 
@@ -69,7 +72,8 @@
 							<div class="form-group">
 								<button class="record">Envoyer</button>
 							</div>
-						</Modal>
+
+						</Modal> -->
 					</Modal>
 				</div>
 			</PageAdmin>
@@ -179,9 +183,9 @@
 	}
 
 	.record {
-		background: #536974;
+		background: #8badbe;
 		font-size: 25px;
-		color: aliceblue;
+		color: #536974;
 		text-align: center;
 		width: 60%;
 		height: 40%;
