@@ -4,7 +4,6 @@
     <UserParameter></UserParameter>
     <BackButton></BackButton>
     <Eraser @click="cancelLastAction"></Eraser>
-    <MoodState></MoodState>
     <Defilement />
   </div>
 </template>

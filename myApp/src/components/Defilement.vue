@@ -1,8 +1,8 @@
 <template>
 	<div>
-    <button>Slow</button>
-    <button>Normal</button>
-    <button>Fast</button>
+    <button  @click="changeSpeed(slower)" >Slow</button>
+    <button @click="changeSpeed(normal)">Normal</button>
+    <button  @click="changeSpeed(faster)">Fast</button>
   </div>
 </template>
 
@@ -10,10 +10,27 @@
     export default {
 
       name: "",
-      methods: {},
+      methods: {
+        changeSpeed(speed) {
+          speed === "slower" ?
+              this.setSpeed(-100) : speed === "normal" ?
+              this.setSpeed(1000) : speed === "faster" ?
+                  this.setSpeed(+100) : null;
 
-      data() {
+          console.log("VITESSE ACTUELLE DU STORE >> " + this.speedDef)
+        },
+
+        setSpeed(number) {
+          this.$store.commit("setSpeed", number);
+        },
+      },
+
+      data :() => {
         return {
+          slower: "slower",
+          normal: "normal",
+          faster: "faster"
+
           };
       },
 
@@ -26,8 +43,16 @@
 
          },
 
+      computed: {
 
+        stateDef() {
+          return this.$store.state.stateDefilement;
+        },
 
+        speedDef() {
+          return this.stateDef.speedDefilement ;
+        }
+      }
 
 
 

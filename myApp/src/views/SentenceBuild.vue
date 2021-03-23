@@ -48,7 +48,7 @@
 	import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
 	export default {
-    inheritAttrs: false,
+    inheritAttrs: true,
     name: "SentenceBuild",
     components: {
       IonPage,
@@ -70,6 +70,9 @@
 
       await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
       this.initDefilement();
+
+
+
 
 
 
@@ -132,21 +135,23 @@
       },
 
 
-      // **************** METHODES LIEES AUX DEFILEMENTS ************************************
+      //*************************************************************************************
+      // ******************** METHODES LIEES AUX DEFILEMENTS ********************************
+      //*************************************************************************************
 
       listAllDivForDef(){
         let elements = document.getElementsByClassName("defFriendly");
         this.lengthDef = elements.length
         for(let i=0; i<elements.length; i++) {
-          elements[i].attributes[0].value = i.toString();
+          elements[i].setAttribute( "indexdef",i);
         }
         return elements;
       },
 
       checkIfCurrentCorrespondToDefIndex( currentDefilement , elements ) {
         console.log(currentDefilement)
-        let bollean = elements[currentDefilement]  ? currentDefilement === Number(elements[currentDefilement].attributes[0].value) : console.log("L'élément n'existe pas dans le DOM");
-        return bollean;
+        const elementAtIndex = elements[currentDefilement];
+        return elementAtIndex  && currentDefilement.toString() === elementAtIndex.getAttribute("indexdef");
       },
 
       changeDirectly(){
@@ -166,9 +171,9 @@
         if (this.stateDef.enabledDefilement) {
           setInterval(() => {
             this.listAllDivForDef();
-            this.$store.commit("incrementCurrentDefilement");
             this.currentDef = this.stateDef.currentDefilement;
             this.changeDirectly();
+            this.$store.commit("incrementCurrentDefilement");
 
             let key = this.keyListener()
             this.keyCheck(this.currentInput);
@@ -177,8 +182,8 @@
             if ( this.currentDef  > this.lengthDef-1){
                this.stateDef.currentDefilement = 0
               this.resetSelectedClass(this.lengthDef-1)
+            } else {            this.resetSelectedClass(this.currentDef-1)
             }
-            this.resetSelectedClass(this.currentDef-1)
 
           }, this.stateDef.speedDefilement)
         }

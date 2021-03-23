@@ -61,6 +61,9 @@ const store = createStore({
     incrementCurrentDefilement(state: any){
       state.currentDefilement ++
     },
+    setSpeed(state: any, amountOfSpeed: number){
+      amountOfSpeed === 1000 ? state.stateDefilement.speedDefilement = 1000 : state.stateDefilement.speedDefilement += amountOfSpeed
+    },
 
   //Mutation to put a mood card in the mood state.
     setMoodState(state: any, moodToSet: any) {

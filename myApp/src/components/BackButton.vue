@@ -29,9 +29,5 @@ export default {
 
 
 <style scoped>
-.selected {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-}
+
 </style>
