@@ -30,7 +30,7 @@ import './theme/variables.css';
 
 const store = createStore({
   state () {
-    return { 
+    return {
       //store values :
       basket: [],
       stateDefilement : {

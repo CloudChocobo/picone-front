@@ -7,69 +7,65 @@
 						<ion-buttons side="start">
 							<ion-menu-button></ion-menu-button>
 							<BackButton></BackButton>
-							<ion-title></ion-title>
+							<ion-title>Patient</ion-title>
 						</ion-buttons>
 					</ion-toolbar>
 				</ion-header>
-				<div class="content">
-					<div class="text">
-					<p>prout dans ta face</p>
-					
-					</div>
-					<!--<ButtonMenu texte="Ajouter un patient" @click="modalOpen = true"></ButtonMenu>-->
-					<div class="grid">
+				<ButtonPatient @click="modalOpen = true">Ajouter un patient</ButtonPatient>
+				<div class="grid">
 					<InfoCard
 					v-for="patient in patients"
 					:key="patient.id"
-					:lastName="patient.nom"
-					:name="patient.prénom"
+					:lastName="patient.lastName"
+					:name="patient.name"
 					:email="patient.email"
 					:password="patient.password"
-					:lienversphotopatient="patient.image"
+					:linkToPatientPicture="patient.image"
 					></InfoCard>
 					</div>	
-				</div>	
-				<!-- 2 possibilities -->
-				<!--<Modal v-if="modalOpen" v-model:isOpen="modalOpen" titre="Ajout d'un patient">
-				<Entry
-				label="ID"
-				placeholder="Identifiant du patient"
-				v-model:valeur="lol"></Entry>
-				<Entry
-				label="Nom"
-				placeholder="Nom du patient"
-				v-model:valeur="newPatient.lastName"></Entry>
-				<Entry
-				label="Prénom"
-				placeholder="Prénom du patient"
-				v-model:valeur="newPatient.name"></Entry>
-			<Entry
-				label="Email"
-				placeholder="Email du patient"
-				valeur="newPatient.email"></Entry>
-			<Entry
-				label="Mot de Passe"
-				placeholder="Mot de passe du patient"
-				v-model:valeur="newPatient.password"
-			></Entry>
-			<Entry
-				label="Image"
-				placeholder="URL de la photo"
-				v-model:valeur="newPatient.image"></Entry>
-			<div @click="afficher()">enregistrer</div>
-			</Modal>-->
-			<!-- v-model = passway between componants, v-if true: modal is open, v-if false: modal is closed -->	
+					<div class="form">
+					<ModalPatient v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajout d'un patient">
+					<EntryPatient
+					label="Id"
+					placeholder="Id patient"
+					value="newPatient.id"></EntryPatient>
+					<EntryPatient
+					label="Nom"
+					placeholder="Nom patient"
+					value="newPatient.lastName"></EntryPatient>
+					<EntryPatient
+					label="Prénom"
+					placeholder="Prénom patient"
+					value="newPatient.name"></EntryPatient>
+					<EntryPatient
+					label="Email"
+					placeholder="Email patient"
+					value="newPatient.email"></EntryPatient>
+					<EntryPatient
+					label="Mot de Passe"
+					placeholder="Mot de passe patient"
+					value="newPatient.password"
+					></EntryPatient>
+					<EntryPatient
+					label="Image"
+					placeholder="URL photo patient"
+					value="newPatient.image"
+					></EntryPatient>
+					<ButtonPatient @click="afficher()">Enregistrer</ButtonPatient>
+					</ModalPatient>
+					</div>
 			</PageAdmin>
 		</ion-content>
 	</ion-page>
 </template>
 
 <script>
+	import ModalPatient from "@/components/ModalPatient.vue";
+	import InfoCard from "@/components/InfoCard";
+	import ButtonPatient from "@/components/ButtonPatient.vue";
+	import EntryPatient from "@/components/EntryPatient.vue"
 	import BackButton from "@/components/BackButton.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
-	import InfoCard from "../components/InfoCard.vue";
-	//import Modal from "@/components/Modal.vue";
-	//import Entry from "@/components/Entry.vue";
 	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton} from "@ionic/vue";
 	export default {
 		name: "Patient",
@@ -82,29 +78,37 @@
 			IonTitle,
 			IonMenuButton,
 			BackButton,
+			EntryPatient,
+			ButtonPatient,
 			InfoCard,
-			//Modal,
-			//Entry,
+			ModalPatient,
 		},
-		/*data: () => {
+		data: () => {
 			return {
-			lol: "lol",
-			modalOpen: false,
-			newPatient: {},
+				value: "valeur",
+				modalOpen: false,
+				newPatient: {
+					ID: null,
+					lastName: null,
+					name: null,
+					email: null,
+					password: null,
+					image: null,
+				},
 			};
 		},
 		methods: {
 			afficher() {
-			console.log(this.lol);
+				console.log(this.lol);
 			},
-		},*/
+		},
 		//computed: {/*fait appel au store*/
 			/*patients() {
 				console.log(this.$store.getters.valeurDe("patients"));
 				return this.$store.getters.valeurDe("patients");
-			},*/
-		//},
-	};
+			},
+		},*/
+	}
 </script>
 
 <style scoped>
@@ -144,4 +148,23 @@
 		margin-left: 3%;
 		margin-top: 2%;
 	}
+	.form{
+		display: flex;
+		flex-direction: column;
+		background-color: #536974;
+		width: 100%;
+	}
+	.InfoCard{
+		display: flex;
+		flex-direction: column;
+	}
+	.ion-page{
+		background-color: #8badbe;
+	}
+	.Button{
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
+
 </style>
