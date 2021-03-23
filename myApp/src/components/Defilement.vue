@@ -1,14 +1,8 @@
 <template>
 	<div>
-    <button
-        :class="{selected: true,
-            defFriendly: true}">Slow</button>
-    <button
-        :class="{selected: true,
-            defFriendly: true}">Normal</button>
-    <button
-        :class="{selected: true,
-            defFriendly: true}">Fast</button>
+    <button>Slow</button>
+    <button>Normal</button>
+    <button>Fast</button>
   </div>
 </template>
 
@@ -19,14 +13,24 @@
       methods: {},
 
       data() {
-        return {};
+        return {
+          var : "defFriendly"
+        };
       },
+
+      mounted() {
+        this.$el.classList.add("defFriendly");
+      },
+
+
+
       computed: {
         currentDef() {
           return this.$store.state.stateDefilement.currentDefilement;
         },
 
-      }
+      },
+
     }
 </script>
 
@@ -42,7 +46,7 @@ button {
   font-family: 'Lato';
 }
 
-.selected {
+>>> .selected button{
   transform: scale(1.2);
   border-radius: 55px;
   border: 10px solid #202abb9d;

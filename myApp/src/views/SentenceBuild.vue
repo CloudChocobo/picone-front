@@ -37,6 +37,9 @@
 </template>
 
 <script>
+
+/*eslint-disable*/
+
 	import {IonPage, IonContent} from "@ionic/vue";
 	import {useRouter} from "vue-router";
 	import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
@@ -129,9 +132,7 @@
       },
 
 
-      // METHODES LIEES AUX DEFILEMENTS
-
-      /*eslint-disable*/
+      // **************** METHODES LIEES AUX DEFILEMENTS ************************************
 
       listAllDivForDef(){
         let elements = document.getElementsByClassName("defFriendly");
@@ -161,6 +162,12 @@
         }
       },
 
+      resetSelectedClass( currentDefilementIndex ){
+        let elements = this.listAllDivForDef();
+
+        elements[currentDefilementIndex].classList.remove("selected")
+      },
+
       initDefilement() {
         if (this.stateDef.enabledDefilement) {
           setInterval(() => {
@@ -173,9 +180,11 @@
             this.keyCheck(this.currentInput);
             this.currentInput = "None";
 
-            if ( this.currentDef >= this.lengthDef){
-              this.stateDef.currentDefilement = 0
+            if ( this.currentDef  >= this.lengthDef-1){
+               this.stateDef.currentDefilement = 0
+              this.resetSelectedClass(this.lengthDef-1)
             }
+            this.resetSelectedClass(this.currentDef-1)
 
           }, 1000)
         }
