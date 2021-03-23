@@ -14,22 +14,22 @@
 
       data() {
         return {
-          var : "defFriendly"
-        };
+          };
       },
 
       mounted() {
-        this.$el.classList.add("defFriendly");
-      },
+
+        for (let i = 0; i < this.$el.children.length; i++) {
+          this.$el.children[i].classList.add("defFriendly");
+        }
+
+
+         },
 
 
 
-      computed: {
-        currentDef() {
-          return this.$store.state.stateDefilement.currentDefilement;
-        },
 
-      },
+
 
     }
 </script>
@@ -46,7 +46,7 @@ button {
   font-family: 'Lato';
 }
 
->>> .selected button{
+>>> .selected {
   transform: scale(1.2);
   border-radius: 55px;
   border: 10px solid #202abb9d;

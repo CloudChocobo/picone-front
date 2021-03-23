@@ -139,15 +139,11 @@
         this.lengthDef = elements.length
         for(let i=0; i<elements.length; i++) {
           elements[i].attributes[0].value = i.toString();
-          //elements[i].classList.remove("selected")
         }
         return elements;
       },
 
       checkIfCurrentCorrespondToDefIndex( currentDefilement , elements ) {
-
-        // TODO CORRIGER ERREUR undefined currentDefilement
-
         console.log(currentDefilement)
         let bollean = elements[currentDefilement]  ? currentDefilement === Number(elements[currentDefilement].attributes[0].value) : console.log("L'élément n'existe pas dans le DOM");
         return bollean;
@@ -156,7 +152,6 @@
       changeDirectly(){
         let elements = this.listAllDivForDef();
         let bool = this.checkIfCurrentCorrespondToDefIndex( this.currentDef, elements);
-        console.log(bool)
         if(bool) {
           elements[this.currentDef].classList.add("selected")
         }
@@ -164,7 +159,6 @@
 
       resetSelectedClass( currentDefilementIndex ){
         let elements = this.listAllDivForDef();
-
         elements[currentDefilementIndex].classList.remove("selected")
       },
 
@@ -180,13 +174,13 @@
             this.keyCheck(this.currentInput);
             this.currentInput = "None";
 
-            if ( this.currentDef  >= this.lengthDef-1){
+            if ( this.currentDef  > this.lengthDef-1){
                this.stateDef.currentDefilement = 0
               this.resetSelectedClass(this.lengthDef-1)
             }
             this.resetSelectedClass(this.currentDef-1)
 
-          }, 1000)
+          }, this.stateDef.speedDefilement)
         }
       },
 
