@@ -15,13 +15,21 @@ export default {
     return {};
   },
   mounted() {
+    // Check of JSON's "MoodState"
     return console.log("MOOD >>"+ JSON.stringify(this.moodToDisplay));
   },
 
   computed: {
-    moodToDisplay() {
-      return this.$store.state.mood[0];
+      moodToDisplay() {
+      // this.mood = []
+        if (this.$store.getters.mood) {
+          return this.$store.getters.mood;
+      // Avoid error if "mood == null"
+      } else {
+          return ""
+      }
     }
+
   }
 };
 </script>

@@ -7,7 +7,7 @@ import AdminHome from "@/views/AdminHome.vue";
 // import Noemie from "@/views/Noemie.vue";
 // import ModalTest from "@/views/ModalTest.vue";
 // import Food from "@/views/Food.vue";
-import Actions from "@/views/Actions.vue";
+// import Actions from "@/views/Actions.vue";
 // import Actions2 from "@/views/Actions2.vue";
 import Mood from "@/views/Mood.vue";
 
@@ -63,11 +63,11 @@ const routes: Array<RouteRecordRaw> = [
 		path: "/build",
 		component: SentenceBuild,
 	},
-	{
-		name: "Actions",
-		path: "/actions",
-		component: Actions,
-	},
+	// {
+	// 	name: "Actions",
+	// 	path: "/actions",
+	// 	component: Actions,
+	// },
 	//      {
 	//   name: "Actions2",
 	//   path: "/actions2",

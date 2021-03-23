@@ -57,9 +57,10 @@ export default {
   },
 
   mounted() {
-		// quand la page démarre:
+		// Quand la page démarre:
 		this.fetchTheCardMood("moods");
-    //  this.mood ? this.clearMood() : null;
+    // Pour remettre à zéro le "MoodState" et pouvoir en changer à chaque fois que l'on retourne sur la page "Mood".
+    this.clearMood();
 		},
 
 		data: () => {
@@ -86,7 +87,11 @@ export default {
     },
 
     displayMoodOnDiscussion(card) {
-      this.$store.commit('addCardMoodInMoodState', card);
+      this.$store.commit('setMoodState', card);
+    },
+
+    clearMood() {
+      this.$store.commit('clearMood');
     },
 
     doAction(card){
@@ -134,7 +139,7 @@ export default {
        return this.$store.state.basket 
        },
       mood() {
-        return this.$store.state.mood
+        return this.$store.getters.mood
       },
      }
 };

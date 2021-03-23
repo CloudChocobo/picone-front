@@ -32,7 +32,7 @@ const store = createStore({
     return { 
       //store values :
       basket: [],
-      mood: [],
+      mood: null,
     }
   },
   mutations: {
@@ -54,13 +54,13 @@ const store = createStore({
     },
 
   //Mutation to put a mood card in the mood state.
-    addCardMoodInMoodState(state: any, moodToAdd: any) {
-      state.mood.push(moodToAdd);
+    setMoodState(state: any, moodToSet: any) {
+      state.mood = moodToSet;
     },
 
   //Mutation to erase the current mood.
     clearMood(state: any){
-      state.mood = []
+      state.mood = null
     }
 
   },
@@ -68,6 +68,10 @@ const store = createStore({
   getters: {
     contenuBasket (state: any ) {
       return state.basket;
+    },
+
+    mood (state: any) {
+      return state.mood;
     }
   }
 })

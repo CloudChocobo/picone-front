@@ -17,6 +17,14 @@ import { useRouter } from "vue-router";
 export default {
   name: "HorizontalBarV2",
   components: { BackButton, Eraser, UserParameter, MoodState},
+
+  data: () => {
+			return {
+        // Test to save "MoodState" on refresh / Not working currently...
+        mood: [],
+      };
+  },
+
   methods: {
     cancelLastAction() {
       this.$emit("cancelLastAction");
