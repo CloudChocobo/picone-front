@@ -2,8 +2,6 @@
   <ion-button color="light">
     <slot></slot>
   </ion-button>
-
-
 </template>
 
 <script>
