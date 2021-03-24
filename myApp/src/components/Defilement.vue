@@ -1,17 +1,20 @@
 <template>
 	<div>
-    <button  @click="changeSpeed(slower)" >Slow</button>
+    <button  @click="changeSpeed(slower)">Slow</button>
     <button @click="changeSpeed(normal)">Normal</button>
     <button  @click="changeSpeed(faster)">Fast</button>
   </div>
 </template>
 
 <script>
+    //import { interval } from "@/views/SentenceBuild.vue";
     export default {
-
       name: "",
+
       methods: {
         changeSpeed(speed) {
+         // this.$emit('clicked', 'this.interval')
+          this.$el.dispatchEvent(new Event("clicked"));
           speed === "slower" ?
               this.setSpeed(-100) : speed === "normal" ?
               this.setSpeed(1000) : speed === "faster" ?
@@ -25,12 +28,12 @@
         },
       },
 
+
       data :() => {
         return {
           slower: "slower",
           normal: "normal",
-          faster: "faster"
-
+          faster: "faster",
           };
       },
 

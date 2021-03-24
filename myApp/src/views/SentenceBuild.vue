@@ -2,7 +2,7 @@
 	<ion-page>
 		<ion-content :fullscreen="true">
 			<PageWithSecondNavBar
-          @cancelLastAction="removeItemFromDialogBox">
+          @cancelLastAction="removeItemFromDialogBox" @clicked="clearInterval">
         <main>
 					<div class="text">Cliquez sur un icône:</div>
 					<ImageGrid>
@@ -48,7 +48,6 @@
 	import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
 	export default {
-    inheritAttrs: true,
     name: "SentenceBuild",
     components: {
       IonPage,
@@ -69,14 +68,8 @@
    async mounted() {
 
       await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
-      this.initDefilement();
-
-
-
-
-
-
-
+      await this.initDefilement()
+     this.$el.addEventListener("clicked", () => clearInterval(this.interval))
     },
 
     data: () => {
@@ -91,7 +84,8 @@
         discussion: "basket",
         currentDef: -1,
         currentInput : "",
-        lengthDef: 0
+        lengthDef: 0,
+        interval: ""
       };
     },
 
@@ -109,6 +103,8 @@
       doAction(card) {
         this.addItemToDialogBox(card);
         this.fetchTheCardsAndStoreThem(card.id, card.word);
+        clearInterval(this.interval)
+        this.initDefilement()
         // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
       },
 
@@ -163,13 +159,15 @@
       },
 
       resetSelectedClass( currentDefilementIndex ){
-        let elements = this.listAllDivForDef();
-        elements[currentDefilementIndex].classList.remove("selected")
+        if(currentDefilementIndex >= 0){
+          let elements = this.listAllDivForDef();
+          elements[currentDefilementIndex].classList.remove("selected")
+        }
       },
 
       initDefilement() {
         if (this.stateDef.enabledDefilement) {
-          setInterval(() => {
+            this.interval = setInterval(() => {
             this.listAllDivForDef();
             this.currentDef = this.stateDef.currentDefilement;
             this.changeDirectly();
@@ -179,10 +177,11 @@
             this.keyCheck(this.currentInput);
             this.currentInput = "None";
 
-            if ( this.currentDef  > this.lengthDef-1){
+            if ( this.currentDef  == this.lengthDef){
                this.stateDef.currentDefilement = 0
               this.resetSelectedClass(this.lengthDef-1)
-            } else {            this.resetSelectedClass(this.currentDef-1)
+            } else {
+              this.resetSelectedClass(this.currentDef-1)
             }
 
           }, this.stateDef.speedDefilement)
