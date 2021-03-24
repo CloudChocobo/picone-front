@@ -16,9 +16,9 @@
          // this.$emit('clicked', 'this.interval')
           this.$el.dispatchEvent(new Event("clicked"));
           speed === "slower" ?
-              this.setSpeed(-100) : speed === "normal" ?
-              this.setSpeed(1000) : speed === "faster" ?
-                  this.setSpeed(+100) : null;
+              this.setSpeed(+200) : speed === "normal" ?
+              this.setSpeed(1500) : speed === "faster" ?
+                  this.setSpeed(-200) : null;
 
           console.log("VITESSE ACTUELLE DU STORE >> " + this.speedDef)
         },

@@ -36,7 +36,7 @@ const store = createStore({
         currentDefilement: 0,
         enabledDefilement: true,
         activeKey: 'Space',
-        speedDefilement : 300
+        speedDefilement: 2000
       },
       mood: null,
     }
@@ -62,7 +62,7 @@ const store = createStore({
       state.currentDefilement ++
     },
     setSpeed(state: any, amountOfSpeed: number){
-      amountOfSpeed === 1000 ? state.stateDefilement.speedDefilement = 1000 : state.stateDefilement.speedDefilement += amountOfSpeed
+      amountOfSpeed === 1500 ? state.stateDefilement.speedDefilement = 1500 : state.stateDefilement.speedDefilement += amountOfSpeed
     },
 
   //Mutation to put a mood card in the mood state.

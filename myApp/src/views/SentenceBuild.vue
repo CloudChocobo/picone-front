@@ -68,7 +68,7 @@
    async mounted() {
 
       await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
-      await this.initDefilement()
+      await this.startDefilement()
      this.$el.addEventListener("clicked", () => clearInterval(this.interval))
     },
 
@@ -103,8 +103,7 @@
       doAction(card) {
         this.addItemToDialogBox(card);
         this.fetchTheCardsAndStoreThem(card.id, card.word);
-        clearInterval(this.interval)
-        this.initDefilement()
+        this.restartInterval();
         // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
       },
 
@@ -138,14 +137,15 @@
       listAllDivForDef(){
         let elements = document.getElementsByClassName("defFriendly");
         this.lengthDef = elements.length
+
         for(let i=0; i<elements.length; i++) {
           elements[i].setAttribute( "indexdef",i);
         }
+
         return elements;
       },
 
       checkIfCurrentCorrespondToDefIndex( currentDefilement , elements ) {
-        console.log(currentDefilement)
         const elementAtIndex = elements[currentDefilement];
         return elementAtIndex  && currentDefilement.toString() === elementAtIndex.getAttribute("indexdef");
       },
@@ -165,17 +165,17 @@
         }
       },
 
-      initDefilement() {
+      startDefilement() {
         if (this.stateDef.enabledDefilement) {
             this.interval = setInterval(() => {
+
             this.listAllDivForDef();
             this.currentDef = this.stateDef.currentDefilement;
             this.changeDirectly();
             this.$store.commit("incrementCurrentDefilement");
-
-            let key = this.keyListener()
+            this.keyListener()
             this.keyCheck(this.currentInput);
-            this.currentInput = "None";
+              this.currentInput = "None";
 
             if ( this.currentDef  == this.lengthDef){
                this.stateDef.currentDefilement = 0
@@ -189,16 +189,36 @@
       },
 
       keyListener() {
-       document.addEventListener('keypress', (e) => {
+       document.addEventListener('keydown', (e) => {
+         console.log(e.code)
          this.currentInput = e.code;
         })
       },
 
       keyCheck(k) {
         if (k === this.stateDef.activeKey) {
-          console.log(k + " appuyé lorsque la div "+ this.currentDef +" fut active")
+          let key = this.currentDef-1;
+          this.restartInterval()
+          console.log(k + " appuyé lorsque la div "+ key +" fut active")
+          this.keyCompute(key)
           return this.currentDef;
         }
+      },
+
+      keyCompute( number ){
+        const targetDiv = document.getElementsByClassName("defFriendly")[number]
+        //const targetDiv = document.querySelector("[defFriendly=number]")
+        targetDiv.click();
+        console.log(targetDiv)
+      },
+
+      stopInterval() {
+        clearInterval(this.interval);
+      },
+
+      restartInterval(){
+        clearInterval(this.interval)
+        this.startDefilement()
       }
     },
 
@@ -212,13 +232,14 @@
           return this.$store.state.stateDefilement;
         },
 
-
         classObjectDef() {
           return {
             selected: false,
             defFriendly: true
           }
         },
+
+
 
       },
 	};
