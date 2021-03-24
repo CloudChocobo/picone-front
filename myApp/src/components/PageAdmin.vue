@@ -1,13 +1,13 @@
 <!-- admin page for parameters -->
 <template>
-    <ion-content :fullscreen="false">
-      <div class="page">
-        <MenuAdmin></MenuAdmin>
-        <main>
-          <slot></slot>
-        </main>
-      </div>
-    </ion-content>
+  <ion-content :fullscreen="false">
+    <div class="page">
+      <MenuAdmin></MenuAdmin>
+      <main>
+        <slot></slot>
+      </main>
+    </div>
+  </ion-content>
 </template>
 
 <script>
@@ -18,7 +18,7 @@ export default {
   props: [],
   components: {
     MenuAdmin,
-   
+
   },
   methods: {},
   data() {
