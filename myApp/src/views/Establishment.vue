@@ -21,7 +21,7 @@
 							:key="establishment.id"
 							:name="establishment.name"
 							:infoPrincipale="establishment.adress"
-							:infoSecondaire="establishment.telephon"
+							:infoSecondaire="establishment.phone"
 						></ListingEstablishment>
 					</div>
 					<Modal v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter un établissement">
@@ -53,7 +53,7 @@
 						<Input
 							label="téléphone"
 							placeholder="02 40 45 67 89"
-							v-model:valeur="newEstablishment.telephon"
+							v-model:valeur="newEstablishment.phone"
 						/>
 						<div class="form-group">
 							<IonButton class="record">Ajouter</IonButton>
@@ -119,7 +119,7 @@
 				test: "epad",
 				modalOpen: false,
 				newEstablishment: {
-					telephon: null,
+					phone: null,
 					city: null,
 					name: null,
 					adress: null,
