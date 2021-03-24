@@ -1,9 +1,14 @@
 export const rootHebergementImage = "https://niveaubonus.fr/picone/src/icones/";
 
-export const rootAPI = "https://piconebackend.herokuapp.com/";
+// When online =>
+// export const rootAPI = "https://piconebackend.herokuapp.com/";
+
+// When Localhost =>
+export const rootAPI = "http://localhost:8080/";
 
 export const relationTest = "besoins_physiologiques";
 
+export const labelTest = "moods";
 /*
 mounted() {
     fetch(this.data.rootAPI + "mots/57/besoins_physiologiques")
