@@ -74,7 +74,7 @@
 
     data: () => {
       return {
-        imageProperty: "img_url",
+        imageProperty: "imgUrl",
         rootIMG: rootHebergementImage,
         rootAPI: rootAPI,
         relation: relationTest,
