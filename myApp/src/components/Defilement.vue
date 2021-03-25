@@ -13,8 +13,7 @@
 
       methods: {
         changeSpeed(speed) {
-         // this.$emit('clicked', 'this.interval')
-          this.$el.dispatchEvent(new Event("clicked"));
+
           speed === "slower" ?
               this.setSpeed(+200) : speed === "normal" ?
               this.setSpeed(1500) : speed === "faster" ?
