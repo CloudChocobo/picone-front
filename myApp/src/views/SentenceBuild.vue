@@ -47,12 +47,14 @@
 	import Basket from "@/components/Basket.vue";
 	import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
+  import Defilement from '@/plugins/defilement.js';
 
 
 
 
 export default {
     name: "SentenceBuild",
+    mixins: [Defilement],
     components: {
       IonPage,
       IonContent,
@@ -72,7 +74,6 @@ export default {
 
 
    async mounted() {
-
       await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
     },
 
@@ -86,28 +87,24 @@ export default {
         currentIndex: 0,
         currentId: "",
         discussion: "basket",
+
       };
     },
 
 
     methods: {
-
-
       addItemToDialogBox(card) {
         this.$store.commit("addElementToBasket", card);
       },
       removeItemFromDialogBox() {
         this.$store.commit("removeElementFromBasket");
       },
-
-
       doAction(card) {
         this.addItemToDialogBox(card);
         this.fetchTheCardsAndStoreThem(card.id, card.word);
         this.restartInterval();
         // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
       },
-
       fetchTheCardsAndStoreThem(id, relation) {
         this.cardJSON = [];
         const url = this.rootAPI + "mots/" + id + "/" + this.relation;
@@ -129,24 +126,18 @@ export default {
               console.error(err);
             });
       },
-
-
     },
 
-
-      computed: {
+  computed: {
         basket() {
           return this.$store.state.basket;
-        },
-
-        stateDef() {
-          return this.$store.state.stateDefilement;
         },
 
 
       },
 
 	};
+
 </script>
 
 
@@ -184,7 +175,9 @@ export default {
 
   >>> .selected img {
     transform: scale(1.2);
+    box-shadow: 0px 0px 0px 7px #202abb9d;
+    -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+    -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
     border-radius: 55px;
-    border: 10px solid #202abb9d;
   }
 </style>

@@ -1,23 +1,26 @@
 <template>
-	<div>
-    <button  @click="changeSpeed(slower)">Slow</button>
+	<div class="defContainer">
+    <img class="logo" @click="changeSpeed(slower)" src="../assets/vitesseTortue.png" alt="slower" />
     <button @click="changeSpeed(normal)">Normal</button>
-    <button  @click="changeSpeed(faster)">Fast</button>
+    <img class="logo" @click="changeSpeed(faster)" src="../assets/vitesseLapin.png" alt="slower" />
   </div>
 </template>
 
 <script>
-    //import { interval } from "@/views/SentenceBuild.vue";
-    export default {
+
+      export default {
       name: "",
+        props: ["id", "description", "image"],
+
+
 
       methods: {
         changeSpeed(speed) {
 
           speed === "slower" ?
-              this.setSpeed(+200) : speed === "normal" ?
+              this.setSpeed(+400) : speed === "normal" ?
               this.setSpeed(1500) : speed === "faster" ?
-                  this.setSpeed(-200) : null;
+                  this.setSpeed(-400) : null;
 
           console.log("VITESSE ACTUELLE DU STORE >> " + this.speedDef)
         },
@@ -42,8 +45,8 @@
           this.$el.children[i].classList.add("defFriendly");
         }
 
-
-         },
+        this.imageLapin = './assets/vitesseLapin.png'
+      },
 
       computed: {
 
@@ -73,10 +76,23 @@ button {
   font-family: 'Lato';
 }
 
+.defContainer {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.logo {
+  height: 80%;
+
+}
+
 >>> .selected {
+  box-shadow: 0px 0px 0px 7px #202abb9d;
+  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
   transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
 }
 </style>
 

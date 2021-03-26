@@ -2,7 +2,6 @@ import { createApp } from 'vue';
 import { createStore } from 'vuex';
 import App from './App.vue';
 import router from './router';
-import Defilement from '@/plugins/defilement.js';
 
 
 import { IonicVue } from '@ionic/vue';
@@ -36,7 +35,7 @@ const store = createStore({
       basket: [],
       stateDefilement : {
         currentDefilement: 0,
-        enabledDefilement: false,
+        enabledDefilement: true,
         activeKey: 'Space',
         speedDefilement: 1000
       },
@@ -61,7 +60,8 @@ const store = createStore({
           state.basket = []
     },
     incrementCurrentDefilement(state: any){
-      state.currentDefilement ++
+      state.stateDefilement.currentDefilement ++;
+      console.log(state.stateDefilement.currentDefilement)
     },
     setSpeed(state: any, amountOfSpeed: number){
       amountOfSpeed === 1500 ?
@@ -88,15 +88,16 @@ const store = createStore({
 
     mood (state: any) {
       return state.mood;
-    }
+    },
+
+
   }
 })
 
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
-    .use(store)
-    .use(Defilement);
+    .use(store);
   
 router.isReady().then(() => {
   app.mount('#app');
