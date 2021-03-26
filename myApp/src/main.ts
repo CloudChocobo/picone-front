@@ -2,6 +2,8 @@ import { createApp } from 'vue';
 import { createStore } from 'vuex';
 import App from './App.vue';
 import router from './router';
+import Defilement from '@/plugins/defilement.js';
+
 
 import { IonicVue } from '@ionic/vue';
 
@@ -91,9 +93,10 @@ const store = createStore({
 })
 
 const app = createApp(App)
-  .use(IonicVue)
-  .use(router)
-  .use(store);
+    .use(IonicVue)
+    .use(router)
+    .use(store)
+    .use(Defilement);
   
 router.isReady().then(() => {
   app.mount('#app');

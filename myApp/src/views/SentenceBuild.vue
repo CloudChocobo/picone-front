@@ -47,7 +47,11 @@
 	import Basket from "@/components/Basket.vue";
 	import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
-	export default {
+
+
+
+
+export default {
     name: "SentenceBuild",
     components: {
       IonPage,
@@ -56,8 +60,10 @@
       Card,
       Basket,
       ImageGrid,
-    },
+      },
+
     props: [],
+
 
     setup() {
       const router = useRouter();
@@ -68,8 +74,6 @@
    async mounted() {
 
       await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
-      await this.startDefilement()
-     this.$el.addEventListener("clicked", () => clearInterval(this.interval))
     },
 
     data: () => {
@@ -82,12 +86,9 @@
         currentIndex: 0,
         currentId: "",
         discussion: "basket",
-        currentDef: -1,
-        currentInput : "",
-        lengthDef: 0,
-        interval: ""
       };
     },
+
 
     methods: {
 
@@ -130,96 +131,6 @@
       },
 
 
-      //*************************************************************************************
-      // ******************** METHODES LIEES AUX DEFILEMENTS ********************************
-      //*************************************************************************************
-
-      listAllDivForDef(){
-        let elements = document.getElementsByClassName("defFriendly");
-        this.lengthDef = elements.length
-
-        for(let i=0; i<elements.length; i++) {
-          elements[i].setAttribute( "indexdef",i);
-        }
-
-        return elements;
-      },
-
-      checkIfCurrentCorrespondToDefIndex( currentDefilement , elements ) {
-        const elementAtIndex = elements[currentDefilement];
-        return elementAtIndex  && currentDefilement.toString() === elementAtIndex.getAttribute("indexdef");
-      },
-
-      changeDirectly(){
-        let elements = this.listAllDivForDef();
-        let bool = this.checkIfCurrentCorrespondToDefIndex( this.currentDef, elements);
-        if(bool) {
-          elements[this.currentDef].classList.add("selected")
-        }
-      },
-
-      resetSelectedClass( currentDefilementIndex ){
-        if(currentDefilementIndex >= 0){
-          let elements = this.listAllDivForDef();
-          elements[currentDefilementIndex].classList.remove("selected")
-        }
-      },
-
-      startDefilement() {
-        if (this.stateDef.enabledDefilement) {
-            this.interval = setInterval(() => {
-
-            this.listAllDivForDef();
-            this.currentDef = this.stateDef.currentDefilement;
-            this.changeDirectly();
-            this.$store.commit("incrementCurrentDefilement");
-            this.keyListener()
-            this.keyCheck(this.currentInput);
-              this.currentInput = "None";
-
-            if ( this.currentDef  == this.lengthDef){
-               this.stateDef.currentDefilement = 0
-              this.resetSelectedClass(this.lengthDef-1)
-            } else {
-              this.resetSelectedClass(this.currentDef-1)
-            }
-
-          }, this.stateDef.speedDefilement)
-        }
-      },
-
-      keyListener() {
-       document.addEventListener('keydown', (e) => {
-         console.log(e.code)
-         this.currentInput = e.code;
-        })
-      },
-
-      keyCheck(k) {
-        if (k === this.stateDef.activeKey) {
-          let key = this.currentDef-1;
-          this.restartInterval()
-          console.log(k + " appuyé lorsque la div "+ key +" fut active")
-          this.keyCompute(key)
-          return this.currentDef;
-        }
-      },
-
-      keyCompute( number ){
-        const targetDiv = document.getElementsByClassName("defFriendly")[number]
-        //const targetDiv = document.querySelector("[defFriendly=number]")
-        targetDiv.click();
-        console.log(targetDiv)
-      },
-
-      stopInterval() {
-        clearInterval(this.interval);
-      },
-
-      restartInterval(){
-        clearInterval(this.interval)
-        this.startDefilement()
-      }
     },
 
 
@@ -232,16 +143,9 @@
           return this.$store.state.stateDefilement;
         },
 
-        classObjectDef() {
-          return {
-            selected: false,
-            defFriendly: true
-          }
-        },
-
-
 
       },
+
 	};
 </script>
 
