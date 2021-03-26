@@ -7,7 +7,7 @@
             <div class="email">{{ email }}</div>
             <div class="password">{{ password }}</div>
 		</div>
-		<img :src="linkToPatientPicture" alt="Photo du patient" />
+		<img :src="image" alt="Photo du patient" />
 	</div>
 </template>
 
@@ -15,7 +15,7 @@
 	
 	export default {
 		name: "",
-		props: ["id", "lastName", "name", "email", "password", "linkToPatientPicture"],
+		props: ["id", "lastName", "name", "email", "password", "image"],
 		components: {},
 		methods: {},
 		data() {

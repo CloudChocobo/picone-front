@@ -44,7 +44,7 @@ const routes: Array<RouteRecordRaw> = [
 	// },
 		{
 		name: "Patient",
-		path: "/patient",
+		path: "/patients",
 		component: Patient,
 	}
 ];

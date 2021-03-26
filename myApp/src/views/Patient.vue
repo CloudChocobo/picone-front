@@ -98,16 +98,32 @@
 			};
 		},
 		methods: {
-			afficher() {
-				console.log(this.lol);
+
+			fetchPatients() {
+				const getInfo = ["patients"];
+				getInfo.forEach((info) => {
+					fetch("https://piconebackend.herokuapp.com/" + info) /* mettre l'adresse de l'API*/
+						.then((response) => response.json())
+						.then((data) => {
+							this.$store.commit("setPatients", {
+								type: info,
+								valeur: data,
+							}); /* commit = utilise la methode, les infos*/
+						})
+						.catch((erreur) => {
+							console.error("Erreur", erreur);
+						});
+				});
 			},
 		},
-		//computed: {/*fait appel au store*/
-			/*patients() {
-				console.log(this.$store.getters.valeurDe("patients"));
-				return this.$store.getters.valeurDe("patients");
+					afficher() {
+				console.log(this.lol);
 			},
-		},*/
+		computed: {/*fait appel au store*/
+			patients() {
+				return this.$store.state.patients;
+			},
+		},
 	}
 </script>
 
