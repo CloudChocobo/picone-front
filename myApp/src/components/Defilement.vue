@@ -74,6 +74,7 @@ button {
   font-weight: 300;
   font-size: 1.2em;
   font-family: 'Lato';
+
 }
 
 .defContainer {
@@ -85,7 +86,7 @@ button {
 
 .logo {
   height: 60px;
-
+  margin: auto 10px auto 10px ;
 }
 
 >>> .selected {

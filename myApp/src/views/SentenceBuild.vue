@@ -75,7 +75,7 @@ export default {
       color: {
         type: String,
         default: '#5d0096'
-      },
+      },size:{}
     },
 
 
@@ -141,7 +141,7 @@ export default {
             });
       },
       statusLoadingChanged() {
-        this.loading = !this.loading;
+        this.loading.default = !this.loading.default;
         console.log('mdr')
       },
     },
