@@ -84,7 +84,7 @@ button {
 }
 
 .logo {
-  height: 80%;
+  height: 60px;
 
 }
 

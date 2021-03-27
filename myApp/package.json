@@ -33,6 +33,7 @@
         "vue": "^3.0.0-0",
         "vue-jest": "^5.0.0-0",
         "vue-router": "^4.0.0-0",
+        "vue-spinner": "^1.0.4",
         "vuex": "^4.0.0"
     },
     "devDependencies": {

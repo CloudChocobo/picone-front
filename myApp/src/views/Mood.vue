@@ -120,7 +120,7 @@ export default {
 						return response.json();
 					})
 					.then((cards) => {
-						console.log("Coucou les ptits amis");
+
 						const newCards = cards.map((c) => {
 							c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
 							return c;

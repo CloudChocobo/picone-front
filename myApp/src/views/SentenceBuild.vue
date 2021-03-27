@@ -15,8 +15,9 @@
               :class="classObjectDef"
 							@click="doAction(card)"
 						/>
-
+            <grid-loader :loading="loading" :color="color" :size="size"></grid-loader>
 					</ImageGrid>
+
 				</main>
 
 				<footer>
@@ -48,6 +49,7 @@
 	import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
   import Defilement from '@/plugins/defilement.js';
+  import GridLoader from 'vue-spinner/src/GridLoader.vue';
 
 
 
@@ -62,9 +64,19 @@ export default {
       Card,
       Basket,
       ImageGrid,
+      GridLoader
       },
 
-    props: [],
+    props: {
+      loading: {
+        type: Boolean,
+        default: true,
+      },
+      color: {
+        type: String,
+        default: '#5d0096'
+      },
+    },
 
 
     setup() {
@@ -87,7 +99,6 @@ export default {
         currentIndex: 0,
         currentId: "",
         discussion: "basket",
-
       };
     },
 
@@ -121,10 +132,17 @@ export default {
                 return c;
               });
               this.cardJSON = newCards;
+              })
+            .then(() => {
+              this.statusLoadingChanged();
             })
             .catch((err) => {
               console.error(err);
             });
+      },
+      statusLoadingChanged() {
+        this.loading = !this.loading;
+        console.log('mdr')
       },
     },
 

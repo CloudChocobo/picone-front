@@ -29,5 +29,7 @@ export default {
 
 
 <style scoped>
+.BackButton {
 
+}
 </style>
