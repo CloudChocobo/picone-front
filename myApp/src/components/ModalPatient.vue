@@ -1,5 +1,20 @@
 <template>
 	<div class="container">
+		<div class="background"></div>
+		<div class="box">
+			<ion-card>
+				<ion-card-header>
+					<ion-card-title>{{ title }}</ion-card-title>
+				</ion-card-header>
+						<slot></slot>
+				<ion-button color="light" @click="save()">Enregistrer</ion-button>
+				<ion-button color="light" @click="cancel()">Annuler</ion-button>
+			</ion-card>
+		</div>			
+	</div>
+</template>
+<!--<template>
+	<div class="container">
 		<div class="background" @click="close()"></div>
 		<div class="box">
 			<header>
@@ -10,13 +25,17 @@
 			</div>
 		</div>
 	</div>
-</template>
+</template>-->
 
 <script>
+import { IonCard, IonCardTitle, IonButton} from '@ionic/vue';
+
+
 	export default {
+		components: { IonCard, IonCardTitle, IonButton},
 		name: "",
-		props: ["isOpen", "title"],
-		emits: ["update:isOpen"],
+		props: ["isOpen", "title", ],
+		emits: ["update:isOpen", "setPatients"],
 		data() {
 			return {};
 		},
@@ -24,6 +43,13 @@
 			close() {
 				this.$emit("update:isOpen", false);
 			},
+			save() {
+				this.$store.commit('setPatients');
+				this.$emit("update:isOpen", false);
+			},
+			cancel() {
+				this.$emit("update:isOpen", false);
+			}
 		},
 	};
 </script>
@@ -48,15 +74,22 @@
 		background-color: rgb(226, 224, 224);
 		opacity: 0.6;
 	}
-	.box {
-		display: flex;
-		flex-direction: column;
-		background-color: #f1faff;
-		border-radius: 20px;
+	ion-card{
+		background-color: #8BADBE;
+		border-radius: 10px;
 		position: relative;
 		overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
-		width: 30%;
-		height: 50%;
+		width: 150%;
+		height:100%;
+	}
+	ion-button{
+		display: flex;
+	}
+	ion-button:hover {
+		filter: brightness(1.2);
+	}
+	ion-button:active {
+		transform: scale(0.9);
 	}
 	header {
 		width: 100%;
@@ -73,9 +106,5 @@
 		letter-spacing: 0.04em;
 		justify-content: center;
 	
-	}
-	.content {
-		padding: 20px;
-
 	}
 </style>
