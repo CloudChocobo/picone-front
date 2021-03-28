@@ -4,9 +4,9 @@
 		<div class="box">
 			<ion-card>
 				<ion-card-header>
-					<ion-card-title>{{ title }}</ion-card-title>
+				<ion-card-title>{{ title }}</ion-card-title>
 				</ion-card-header>
-						<slot></slot>
+				<slot></slot>
 				<ion-button color="light" @click="save()">Enregistrer</ion-button>
 				<ion-button color="light" @click="cancel()">Annuler</ion-button>
 			</ion-card>

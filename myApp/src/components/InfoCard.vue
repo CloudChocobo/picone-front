@@ -1,9 +1,16 @@
+			<!--<ion-card>
+				<ion-card-header>
+					<ion-card-title>{{ title }}</ion-card-title>
+				</ion-card-header>
+				<ion-card-content>
+						<slot></slot>
+				</ion-card-content>
+						</ion-card>-->
 <template>
 	<div class="InfoCard">
 		<div class="text">
-            <div class="id">{{ id }}</div>
 			<div class="lastName">{{ lastName }}</div>
-			<div class="name">{{ name }}</div>
+			<div class="firstName">{{ firstName }}</div>
             <div class="email">{{ email }}</div>
             <div class="password">{{ password }}</div>
 		</div>
@@ -15,7 +22,7 @@
 	
 	export default {
 		name: "",
-		props: ["id", "lastName", "name", "email", "password", "image"],
+		props: ["lastName", "firstName", "email", "password", "image"],
 		components: {},
 		methods: {},
 		data() {
@@ -26,14 +33,14 @@
 
 <style scoped>
 	.InfoCard {
-		background-color: #536974;
+		background-color: #bdddec;
 		display: flex;
 		justify-content: space-between;
 		padding: 15px 20px;
 		border-radius: 15px;
 		gap: 10px;
 	}
-	.text {
+	.title {
 		height: min-content;
 		display: flex;
 		justify-content: center;
@@ -45,5 +52,4 @@
 		width: 75px;
 		border-radius: 6px;
 	}
-
 </style>
