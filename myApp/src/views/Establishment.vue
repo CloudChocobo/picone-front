@@ -25,10 +25,10 @@
 						></ListingEstablishment>
 					</div>
 					<Modal v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter un établissement">
-						<Input label="nom" placeholder="Epad michel" v-model:valeur="epad" />
+						<Input label="nom" placeholder="Ehpad michel" v-model:valeur="epad" />
 						<Input
 							label="email"
-							placeholder="epadMichel@example.com"
+							placeholder="ehpadMichel@example.com"
 							v-model:valeur="newEstablishment.email"
 						/>
 
@@ -56,7 +56,7 @@
 							v-model:valeur="newEstablishment.phone"
 						/>
 						<div class="form-group">
-							<IonButton class="record">Ajouter</IonButton>
+							<IonButton @click="doAction(addEstablishment)">Ajouter</IonButton>
 						</div>
 						<!--<div class="popUp">
 							<IonButton @click="modalOpen = true">Ajouter </IonButton>
@@ -129,14 +129,37 @@
 			};
 		},
 		methods: {
-			afficher() {
-				console.log(this.epad);
+			doAction(addEstablishment) {
+				this.fetchAllEstablishment(
+					addEstablishment.id,
+					addEstablishment.name,
+					addEstablishment.email,
+					addEstablishment.address,
+					addEstablishment.postalCode,
+					addEstablishment.city,
+					addEstablishment.phone
+				);
+			},
+			fetchAllEstablishment() {
+				const infosARecup = ["establishments"];
+				infosARecup.forEach((info) => {
+					fetch("https://piconebackend.herokuapp.com/" + info) /* mettre l'adresse de l'API*/
+						.then((response) => response.json())
+						.then((data) => {
+							this.$store.commit("setEstablishments", {
+								type: info,
+								valeur: data,
+							}); /* commit = utilise la methode, les infos*/
+						})
+						.catch((erreur) => {
+							console.error("Il y a eu une erreur !", erreur);
+						});
+				});
 			},
 		},
 		computed: {
 			/*call the store*/
 			establishments() {
-				console.log(this.$store.state.establishments);
 				return this.$store.state.establishments;
 			},
 		},
