@@ -9,7 +9,8 @@ export default {
             currentDef: -1,
             currentInput: "",
             lengthDef: 0,
-            interval: ""
+            interval: "",
+            activeDefilement: false
         }
     },
     created() {
@@ -61,9 +62,13 @@ export default {
         },
 
         startDefilement() {
-            if (this.stateDef.enabledDefilement && this.stateDef.activeDefilement === false ) {
+
+            if (this.stateDef.enabledDefilement && !this.stateDef.activeDefilement && !this.activeDefilement) {
+                console.log("interval démarée")
+                this.stateDef.activeDefilement = !this.stateDef.activeDefilement
+                this.switchDef();
+
                 this.interval = setInterval(() => {
-                    this.stateDef.activeDefilement = !this.stateDef.activeDefilement
                     this.listAllDivForDef();
                     this.currentDef = this.stateDef.currentDefilement;
                     this.changeDirectly();
@@ -111,14 +116,20 @@ export default {
 
         stopInterval() {
             clearInterval(this.interval);
+            this.switchDef()
+
+            console.log("interval stoppee")
         },
 
         restartInterval() {
-            clearInterval(this.interval)
+            this.stopInterval();
             this.deleteAllDivForDef();
             this.stateDef.currentDefilement = 0;
-            this.stateDef.activeDefilement = !this.stateDef.activeDefilement
             this.startDefilement()
+        },
+
+        switchDef() {
+            this.activeDefilement = !this.activeDefilement;
         }
     },
 

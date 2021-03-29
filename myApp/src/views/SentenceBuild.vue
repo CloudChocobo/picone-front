@@ -109,8 +109,8 @@ export default {
         this.$store.commit("removeElementFromBasket");
       },
       doAction(card) {
-        this.deleteAllDivForDef();
         this.addItemToDialogBox(card);
+        this.switchDef();
         this.fetchTheCardsAndStoreThem(card.id, card.word);
         this.loading = !this.loading
         // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
