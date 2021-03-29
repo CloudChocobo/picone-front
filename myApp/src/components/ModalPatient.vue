@@ -3,12 +3,16 @@
 		<div class="background"></div>
 		<div class="box">
 			<ion-card>
+				<form @submit="submit">
 				<ion-card-header>
 				<ion-card-title>{{ title }}</ion-card-title>
 				</ion-card-header>
 				<slot></slot>
-				<ion-button color="light" @click="save()">Enregistrer</ion-button>
-				<ion-button color="light" @click="cancel()">Annuler</ion-button>
+				<ion-button color="light" @click= submit()>Enregistrer</ion-button>
+				<ion-button color="light" @click= cancel()>Annuler</ion-button>
+				<!--<button @click= submit()>Enregistrer</button>
+				<button @click= cancel()>Annuler</button>-->
+				</form>
 			</ion-card>
 		</div>			
 	</div>
@@ -16,7 +20,7 @@
 
 <script>
 import { IonCard, IonCardTitle, IonButton} from '@ionic/vue';
-
+import axios from 'axios';
 
 	export default {
 		components: { IonCard, IonCardTitle, IonButton},
@@ -24,21 +28,40 @@ import { IonCard, IonCardTitle, IonButton} from '@ionic/vue';
 		props: ["isOpen", "title", ],
 		emits: ["update:isOpen", "setPatients"],
 		data() {
-			return {};
+			return {
+				lastName:"",
+				firstName:"",
+				email:"",
+				password:"",
+				image:"",
+			};
+			
 		},
 		methods: {
-			close() {
-				this.$emit("update:isOpen", false);
-			},
-			save() {
-				this.$store.commit('setPatients');
-				this.$emit("update:isOpen", false);
-			},
 			cancel() {
 				this.$emit("update:isOpen", false);
+			},
+
+			submit() {
+				const data = {
+					lastName: this.lastName,
+					firstName: this.firstName,
+					email: this.email,
+					password: this.password,
+					image: this.image,
+				};
+            
+				axios
+				.post("http://localhost:8080/patients/", data)
+				.then((res) => {
+				console.log(res);
+				})
+				.catch((err) => {
+				console.log(err);
+				});
 			}
-		},
-	};
+		}
+	}
 </script>
 
 <style scoped>
@@ -59,15 +82,21 @@ import { IonCard, IonCardTitle, IonButton} from '@ionic/vue';
 		width: 100%; /*du contenant*/
 		height: 100%; /*du contenant*/
 		background-color: rgb(226, 224, 224);
-		opacity: 0.6;
+		opacity: 0.8;
+	}
+	.box{
+		display: flex;
+		align-items: center;
+		width: 50%;
+		height: 50%;
 	}
 	ion-card{
 		background-color: #8BADBE;
 		border-radius: 10px;
-		position: relative;
+		/*position: relative;*/
 		overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
-		width: 150%;
-		height:100%;
+		width: 200%;
+		height:150%;
 	}
 	ion-button{
 		display: flex;
@@ -92,6 +121,9 @@ import { IonCard, IonCardTitle, IonButton} from '@ionic/vue';
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
 		justify-content: center;
-	
+	}
+	button {
+		width: 50%;
+		background-color: #f1faff;
 	}
 </style>

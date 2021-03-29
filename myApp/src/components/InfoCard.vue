@@ -1,11 +1,4 @@
-			<!--<ion-card>
-				<ion-card-header>
-					<ion-card-title>{{ title }}</ion-card-title>
-				</ion-card-header>
-				<ion-card-content>
-						<slot></slot>
-				</ion-card-content>
-						</ion-card>-->
+
 <template>
 	<div class="InfoCard">
 		<div class="text">
@@ -22,7 +15,7 @@
 	
 	export default {
 		name: "",
-		props: ["lastName", "firstName", "email", "password", "image"],
+		props: ["lastName", "firstName", "email","password","image"],
 		components: {},
 		methods: {},
 		data() {

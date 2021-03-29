@@ -1,8 +1,8 @@
-<template>
+<!--<template>
 	<ion-card>
 	<ion-card-content>
 		<ion-label>{{ label }}</ion-label>
-		<input type="text" :placeholder="placeholder" :value="valeur" />
+		<input type="text" :placeholder="placeholder" :v-model="valeur" />
 	</ion-card-content>
 	</ion-card>
 </template>
@@ -16,7 +16,7 @@
 			return {};
 		},
 	};
-</script>
+</script>-->
 
 <style scoped>
 .container {
