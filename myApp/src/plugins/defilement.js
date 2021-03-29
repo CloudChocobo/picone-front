@@ -28,6 +28,18 @@ export default {
             return elements;
         },
 
+        deleteAllDivForDef() {
+                let elements = document.getElementsByClassName("defFriendly");
+                this.lengthDef = elements.length
+
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].classList.remove("indexdef");
+                }
+
+                return elements;
+            },
+
+
         checkIfCurrentCorrespondToDefIndex(currentDefilement, elements) {
             const elementAtIndex = elements[currentDefilement];
             return elementAtIndex && currentDefilement.toString() === elementAtIndex.getAttribute("indexdef");
@@ -49,9 +61,9 @@ export default {
         },
 
         startDefilement() {
-            if (this.stateDef.enabledDefilement) {
+            if (this.stateDef.enabledDefilement && this.stateDef.activeDefilement === false ) {
                 this.interval = setInterval(() => {
-
+                    this.stateDef.activeDefilement = !this.stateDef.activeDefilement
                     this.listAllDivForDef();
                     this.currentDef = this.stateDef.currentDefilement;
                     this.changeDirectly();
@@ -93,6 +105,7 @@ export default {
             const targetDiv = document.getElementsByClassName("defFriendly")[number]
             //const targetDiv = document.querySelector("[defFriendly=number]")
             targetDiv.click();
+            this.restartInterval();
             console.log(targetDiv)
         },
 
@@ -102,6 +115,9 @@ export default {
 
         restartInterval() {
             clearInterval(this.interval)
+            this.deleteAllDivForDef();
+            this.stateDef.currentDefilement = 0;
+            this.stateDef.activeDefilement = !this.stateDef.activeDefilement
             this.startDefilement()
         }
     },

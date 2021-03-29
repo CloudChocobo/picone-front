@@ -36,6 +36,7 @@ const store = createStore({
       stateDefilement : {
         currentDefilement: 0,
         enabledDefilement: true,
+        activeDefilement: false,
         activeKey: 'Space',
         speedDefilement: 1000
       },
@@ -77,7 +78,7 @@ const store = createStore({
   //Mutation to erase the current mood.
     clearMood(state: any){
       state.mood = null
-    }
+    },
 
   },
 

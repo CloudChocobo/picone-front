@@ -40,8 +40,10 @@ import CardMood from "@/components/CardMood.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, labelTest} from "@/data.ts";
+import Defilement from "@/plugins/defilement";
 export default {
   name: "Mood",
+  mixins: [Defilement],
   components: {
     IonPage,
     IonContent,
@@ -61,6 +63,7 @@ export default {
 		this.fetchTheCardMood("moods");
     // Pour remettre à zéro le "MoodState" et pouvoir en changer à chaque fois que l'on retourne sur la page "Mood".
     this.clearMood();
+
 		},
 
 		data: () => {
@@ -179,5 +182,14 @@ export default {
 footer{ 
   display: none;
   }
+
+/* CSS pour le défilement */
+>>> .selected img {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 0px 7px #202abb9d;
+  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
+  border-radius: 55px;
+}
 
 </style>

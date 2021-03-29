@@ -15,7 +15,7 @@
               :class="classObjectDef"
 							@click="doAction(card)"
 						/>
-            <grid-loader :loading="loading" :color="color" :size="size"></grid-loader>
+            <grid-loader :class="loadingGrid" :loading="loading" :color="color" :size="size"></grid-loader>
 					</ImageGrid>
 
 				</main>
@@ -68,16 +68,11 @@ export default {
       },
 
     props: {
-      loading: {
-        type: Boolean,
-        default: true,
-      },
-      color: {
+      loadingGrid: {
         type: String,
-        default: '#5d0096'
-      },size:{}
+        default: "loadingGrid"
+      },
     },
-
 
     setup() {
       const router = useRouter();
@@ -99,6 +94,9 @@ export default {
         currentIndex: 0,
         currentId: "",
         discussion: "basket",
+        color: '#00b9ff',
+        loading: true,
+        size: "40px"
       };
     },
 
@@ -111,9 +109,10 @@ export default {
         this.$store.commit("removeElementFromBasket");
       },
       doAction(card) {
+        this.deleteAllDivForDef();
         this.addItemToDialogBox(card);
         this.fetchTheCardsAndStoreThem(card.id, card.word);
-        this.restartInterval();
+        this.loading = !this.loading
         // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
       },
       fetchTheCardsAndStoreThem(id, relation) {
@@ -134,15 +133,11 @@ export default {
               this.cardJSON = newCards;
               })
             .then(() => {
-              this.statusLoadingChanged();
+              this.loading = !this.loading;
             })
             .catch((err) => {
               console.error(err);
             });
-      },
-      statusLoadingChanged() {
-        this.loading.default = !this.loading.default;
-        console.log('mdr')
       },
     },
 
@@ -150,7 +145,6 @@ export default {
         basket() {
           return this.$store.state.basket;
         },
-
 
       },
 
@@ -197,5 +191,15 @@ export default {
     -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
     -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
     border-radius: 55px;
+  }
+
+  .v-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
   }
 </style>

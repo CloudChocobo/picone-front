@@ -17,9 +17,15 @@
 <script>
 import ImageGrid from "@/components/ImageGrid.vue";
 export default {
-    name: "CardMood",
-    components: {ImageGrid},
-    props: ["id", "description", "image"],
+  name: "CardMood",
+  components: {ImageGrid},
+  props: ["id", "description", "image"],
+
+  mounted() {
+    //Création de classe pour le défilement
+    this.$el.className = "defFriendly";
+
+  }
 }
 </script>
 
