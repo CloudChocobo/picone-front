@@ -13,19 +13,6 @@
 		</div>			
 	</div>
 </template>
-<!--<template>
-	<div class="container">
-		<div class="background" @click="close()"></div>
-		<div class="box">
-			<header>
-				<div class="title">{{ title }}</div>
-			</header>
-			<div class="content">
-				<slot></slot>
-			</div>
-		</div>
-	</div>
-</template>-->
 
 <script>
 import { IonCard, IonCardTitle, IonButton} from '@ionic/vue';

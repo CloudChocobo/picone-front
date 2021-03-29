@@ -14,7 +14,8 @@
 			IonApp,
 			IonRouterOutlet,
 		},
-		methods: {},
+		methods: {
+		}
 	});
 
 

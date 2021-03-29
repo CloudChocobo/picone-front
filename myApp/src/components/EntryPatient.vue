@@ -1,8 +1,10 @@
 <template>
-	<div class="container">
-		<div class="label">{{ label }}</div>
+	<ion-card>
+	<ion-card-content>
+		<ion-label>{{ label }}</ion-label>
 		<input type="text" :placeholder="placeholder" :value="valeur" />
-	</div>
+	</ion-card-content>
+	</ion-card>
 </template>
 
 <script>
@@ -11,7 +13,7 @@
 		props: ["label", "placeholder", "valeur"],
 		emits: ["update:valeur"],
 		data() {
-			//return {};
+			return {};
 		},
 	};
 </script>

@@ -1,3 +1,4 @@
+
 <template>
 	<ion-page>
 		<ion-content :fullscreen="true">
@@ -7,28 +8,43 @@
 						<ion-buttons side="start">
 							<ion-menu-button></ion-menu-button>
 							<BackButton></BackButton>
-							<ion-title>Patient</ion-title>
+							<ion-title>Patients</ion-title>
 						</ion-buttons>
 					</ion-toolbar>
 				</ion-header>
-				<ButtonPatient @click="modalOpen = true">Ajouter un patient</ButtonPatient>
+
+				<ion-button color="medium" @click="modalOpen = true">Ajouter un patient</ion-button>
+				
 				<div class="grid">
 					<InfoCard
 					v-for="patient in patients"
 					:key="patient.id"
 					:lastName="patient.lastName"
-					:name="patient.name"
+					:firstName="patient.firstName"
 					:email="patient.email"
 					:password="patient.password"
-					:linkToPatientPicture="patient.image"
+					:image="patient.image"
 					></InfoCard>
 					</div>	
-					<div class="form">
+					
+					<ModalPatient v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter un patient">
+				<ion-card>
+				<ion-card-content>
+					<ion-label lastName>Nom:</ion-label>
+						<ion-input type="text" v-model="patientInfo" placeholder="Entrez un nom" :required="true"></ion-input>
+					<ion-label firstName>Prénom:</ion-label>
+						<ion-input type="text" v-model="patientInfo" placeholder="Entrez un prénom" :required="true"></ion-input>
+					<ion-label email>Email:</ion-label>
+						<ion-input type="email" v-model="patientInfo" placeholder="Entrez un email" :required="true"></ion-input>
+					<ion-label password>Mot de passe:</ion-label>
+						<ion-input type="password" v-model="patientInfo" placeholder="Entrez un mot de passe" :required="true"></ion-input>
+					<img :src="image" alt="Photo du patient" />
+						<ion-input type="img" v-model="patientInfo" placeholder="Url Photo patient" :required="false"></ion-input>
+						</ion-card-content>
+					</ion-card>
+					</ModalPatient>
+					<!--<div class="form">
 					<ModalPatient v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajout d'un patient">
-					<EntryPatient
-					label="Id"
-					placeholder="Id patient"
-					value="newPatient.id"></EntryPatient>
 					<EntryPatient
 					label="Nom"
 					placeholder="Nom patient"
@@ -53,20 +69,20 @@
 					></EntryPatient>
 					<ButtonPatient @click="afficher()">Enregistrer</ButtonPatient>
 					</ModalPatient>
-					</div>
+					</div>-->
 			</PageAdmin>
 		</ion-content>
 	</ion-page>
 </template>
 
 <script>
+
 	import ModalPatient from "@/components/ModalPatient.vue";
 	import InfoCard from "@/components/InfoCard";
-	import ButtonPatient from "@/components/ButtonPatient.vue";
-	import EntryPatient from "@/components/EntryPatient.vue"
+	//import EntryPatient from "@/components/EntryPatient.vue"
 	import BackButton from "@/components/BackButton.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
-	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton} from "@ionic/vue";
+	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton, IonButton} from "@ionic/vue";
 	export default {
 		name: "Patient",
 		components: {
@@ -77,32 +93,35 @@
 			IonToolbar,
 			IonTitle,
 			IonMenuButton,
+			IonButton,
 			BackButton,
-			EntryPatient,
-			ButtonPatient,
+			//EntryPatient,
 			InfoCard,
 			ModalPatient,
 		},
+
+  mounted() {
+		this.fetchAllPatients("patients");
+  },
 		data: () => {
 			return {
 				value: "valeur",
 				modalOpen: false,
 				newPatient: {
-					ID: null,
-					lastName: null,
-					name: null,
-					email: null,
-					password: null,
-					image: null,
+					lastName: "",
+					firstName: "",
+					email: "",
+					password: "",
+					image: "",
 				},
 			};
 		},
 		methods: {
-
-			fetchPatients() {
-				const getInfo = ["patients"];
-				getInfo.forEach((info) => {
-					fetch("https://piconebackend.herokuapp.com/" + info) /* mettre l'adresse de l'API*/
+			
+			fetchAllPatients() {
+				const infosARecup = ["patients"];
+				infosARecup.forEach((info) => {
+					fetch("http://localhost:8080/" + info) /* mettre l'adresse de l'API*/
 						.then((response) => response.json())
 						.then((data) => {
 							this.$store.commit("setPatients", {
@@ -111,14 +130,14 @@
 							}); /* commit = utilise la methode, les infos*/
 						})
 						.catch((erreur) => {
-							console.error("Erreur", erreur);
+							console.error("Il y a eu une erreur !", erreur);
 						});
 				});
 			},
 		},
-					afficher() {
-				console.log(this.lol);
-			},
+		created() {
+			this.fetchAllPatients();
+		},
 		computed: {/*fait appel au store*/
 			patients() {
 				return this.$store.state.patients;
@@ -151,6 +170,17 @@
 	ion-buttons {
 		background: #8badbe;
 	}
+	ion-button {
+		display: flex;
+		width: 20%;
+	}
+	ion-button:hover {
+		filter: brightness(1.2);
+	}
+	ion-button:active {
+		transform: scale(0.9);
+	}
+	
 	.toolbar-container {
 		background: #8badbe;
 	}
@@ -164,23 +194,14 @@
 		margin-left: 3%;
 		margin-top: 2%;
 	}
-	.form{
-		display: flex;
-		flex-direction: column;
-		background-color: #536974;
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		width: 100%;
-	}
-	.InfoCard{
-		display: flex;
-		flex-direction: column;
+		gap: 10px;
 	}
 	.ion-page{
 		background-color: #8badbe;
-	}
-	.Button{
-		display: flex;
-		flex-direction: column;
-		align-content: center;
 	}
 
 </style>

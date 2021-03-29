@@ -12,3 +12,9 @@ export default defineComponent({
   components: { IonButton }
 });
 </script>
+<style scoped>
+.ion-button {
+display: flex;
+flex-direction: row;
+}
+</style>
