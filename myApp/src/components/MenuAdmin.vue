@@ -16,7 +16,7 @@
       <ion-list>
         <ButtonMenu route="/patients" label="Ajouter un patient"></ButtonMenu>
         <ButtonMenu route="/establishment" label="Ajouter un établissement"></ButtonMenu>
-        <!--<ButtonMenu route="/word" label="Ajouter un mot"></ButtonMenu>-->
+        <ButtonMenu route="/word" label="Ajouter un mot"></ButtonMenu>
         <ButtonMenu route="" label="Affichage et Luminosité"></ButtonMenu>
         <ButtonMenu route="" label="Fond d'écran et Police"></ButtonMenu>
         <ButtonMenu route="" label="Personnalisation photos"></ButtonMenu>
