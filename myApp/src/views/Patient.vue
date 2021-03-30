@@ -16,7 +16,7 @@
 				<ion-button color="medium" @click="modalOpen = true">Ajouter un patient</ion-button>
 				
 				<div class="grid">
-					<InfoCard
+					<PatientCard
 					v-for="patient in patients"
 					:key="patient.id"
 					:lastName="patient.lastName"
@@ -24,54 +24,11 @@
 					:email="patient.email"
 					:password="patient.password"
 					:image="patient.image"
-					></InfoCard>
+					></PatientCard>
 					</div>	
 					
 					<ModalPatient v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter un patient">
-				<ion-card>
-					<form @submit.prevent="handleSubmit">
-				<ion-card-content>
-					<ion-label lastName>Nom:</ion-label>
-						<ion-input type="text" v-model="lastName" placeholder="Entrez un nom" :required="true"></ion-input>
-					<ion-label firstName>Prénom:</ion-label>
-						<ion-input type="text" v-model="firstName" placeholder="Entrez un prénom" :required="true"></ion-input>
-					<ion-label email>Email:</ion-label>
-						<ion-input type="email" v-model="email" placeholder="Entrez un email" :required="true"></ion-input>
-					<ion-label password>Mot de passe:</ion-label>
-						<ion-input type="password" v-model="password" placeholder="Entrez un mot de passe" :required="true"></ion-input>
-					<img :src="image" alt="Photo du patient" />
-						<ion-input type="img" v-model="image" placeholder="Url Photo patient" :required="false"></ion-input>
-						</ion-card-content>
-					</form>
-					</ion-card>
 					</ModalPatient>
-					<!--<div class="form">
-					<ModalPatient v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajout d'un patient">
-					<EntryPatient
-					label="Nom"
-					placeholder="Nom patient"
-					value="newPatient.lastName"></EntryPatient>
-					<EntryPatient
-					label="Prénom"
-					placeholder="Prénom patient"
-					value="newPatient.name"></EntryPatient>
-					<EntryPatient
-					label="Email"
-					placeholder="Email patient"
-					value="newPatient.email"></EntryPatient>
-					<EntryPatient
-					label="Mot de Passe"
-					placeholder="Mot de passe patient"
-					value="newPatient.password"
-					></EntryPatient>
-					<EntryPatient
-					label="Image"
-					placeholder="URL photo patient"
-					value="newPatient.image"
-					></EntryPatient>
-					<ButtonPatient @click="afficher()">Enregistrer</ButtonPatient>
-					</ModalPatient>
-					</div>-->
 			</PageAdmin>
 		</ion-content>
 	</ion-page>
@@ -80,8 +37,7 @@
 <script>
 
 	import ModalPatient from "@/components/ModalPatient.vue";
-	import InfoCard from "@/components/InfoCard";
-	//import EntryPatient from "@/components/EntryPatient.vue"
+	import PatientCard from "@/components/PatientCard";
 	import BackButton from "@/components/BackButton.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
 	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton, IonButton} from "@ionic/vue";
@@ -99,7 +55,7 @@
 			IonButton,
 			BackButton,
 			//EntryPatient,
-			InfoCard,
+			PatientCard,
 			ModalPatient,
 		},
 
@@ -111,13 +67,6 @@
 			return {
 				value: "valeur",
 				modalOpen: false,
-				newPatient: {
-					lastName: "",
-					firstName: "",
-					email: "",
-					password: "",
-					image: "",
-				},
 			};
 		},
 		methods: {
@@ -134,9 +83,9 @@
 				}
 			
 		},
-		created() {
+		/*created() {
 			this.fetchAllPatients();
-		},
+		},*/
 
 		computed: {/*fait appel au store*/
 			patients() {
@@ -203,6 +152,5 @@
 	.ion-page{
 		background-color: #8badbe;
 	}
-	.button{
-	}
+
 </style>

@@ -1,6 +1,6 @@
 
 <template>
-	<div class="InfoCard">
+	<div class="PatientCard">
 		<div class="text">
 			<div class="lastName">{{ lastName }}</div>
 			<div class="firstName">{{ firstName }}</div>
@@ -25,7 +25,7 @@
 </script>
 
 <style scoped>
-	.InfoCard {
+	.PatientCard {
 		background-color: #bdddec;
 		display: flex;
 		justify-content: space-between;
@@ -45,4 +45,8 @@
 		width: 75px;
 		border-radius: 6px;
 	}
+	.password{
+		display:none;
+	}
+
 </style>

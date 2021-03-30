@@ -2,40 +2,48 @@
 	<div class="container">
 		<div class="background"></div>
 		<div class="box">
-			<ion-card>
-				<form @submit="submit">
-				<ion-card-header>
-				<ion-card-title>{{ title }}</ion-card-title>
-				</ion-card-header>
-				<slot></slot>
-				<ion-button color="light" @click= submit()>Enregistrer</ion-button>
-				<ion-button color="light" @click= cancel()>Annuler</ion-button>
+				<ion-card>
+					<form @submit.prevent="submit">
+				<ion-card-content>
+					<ion-label lastName>Nom:</ion-label>
+						<ion-input type="text" v-model="lastName" placeholder="Entrez un nom" :required="true"></ion-input>
+					<ion-label firstName>Prénom:</ion-label>
+						<ion-input type="text" v-model="firstName" placeholder="Entrez un prénom" :required="true"></ion-input>
+					<ion-label email>Email:</ion-label>
+						<ion-input type="email" v-model="email" placeholder="Entrez un email" :required="true"></ion-input>
+					<ion-label password>Mot de passe:</ion-label>
+						<ion-input type="password" v-model="password" placeholder="Entrez un mot de passe" :required="true"></ion-input>
+					<img :src="image" class="avatar" alt="Photo du patient" />
+						<ion-input type="img" v-model="image" placeholder="Url Photo patient" :required="false"></ion-input>
+						</ion-card-content>
+						<ion-button color="light" @click="[submit(),cancel(),reloadPage()]">Enregistrer</ion-button>
+						<ion-button color="light" @click= cancel()>Annuler</ion-button>
+						</form>
 				<!--<button @click= submit()>Enregistrer</button>
 				<button @click= cancel()>Annuler</button>-->
-				</form>
-			</ion-card>
+				
+			</ion-card> 
 		</div>			
 	</div>
 </template>
 
 <script>
-import { IonCard, IonCardTitle, IonButton} from '@ionic/vue';
+import { IonCard, IonButton, IonInput, IonCardContent} from '@ionic/vue';
 import axios from 'axios';
 
 	export default {
-		components: { IonCard, IonCardTitle, IonButton},
+		components: { IonCard,  IonButton, IonInput, IonCardContent},
 		name: "",
-		props: ["isOpen", "title", ],
+		props: ["isOpen", "title"],
 		emits: ["update:isOpen", "setPatients"],
 		data() {
 			return {
-				lastName:"",
-				firstName:"",
-				email:"",
-				password:"",
-				image:"",
-			};
-			
+				lastName:'',
+				firstName:'',
+				email:'',
+				password:'',
+				image:'',
+			}
 		},
 		methods: {
 			cancel() {
@@ -43,25 +51,32 @@ import axios from 'axios';
 			},
 
 			submit() {
-				const data = {
-					lastName: this.lastName,
-					firstName: this.firstName,
-					email: this.email,
-					password: this.password,
-					image: this.image,
-				};
-            
+				const resForm = 
+				{lastName : this.lastName,
+				firstName : this.firstName,
+				email: this.email,
+				password: this.password,
+				image: this.image
+				}
+				console.log("formData" + JSON.stringify(resForm))
 				axios
-				.post("http://localhost:8080/patients/", data)
+				.post("http://localhost:8080/patients/", resForm)
+				
 				.then((res) => {
-				console.log(res);
+				console.log("SpringBoot res" + JSON.stringify(res));
 				})
 				.catch((err) => {
 				console.log(err);
 				});
+			},
+			
+			reloadPage(){
+				this.$router.go()
 			}
+			
 		}
 	}
+
 </script>
 
 <style scoped>
@@ -125,5 +140,9 @@ import axios from 'axios';
 	button {
 		width: 50%;
 		background-color: #f1faff;
+	}
+		.avatar{
+		height: 75px;
+		width: 75px;
 	}
 </style>
