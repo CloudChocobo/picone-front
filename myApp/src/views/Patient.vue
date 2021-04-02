@@ -83,9 +83,6 @@
 				}
 			
 		},
-		/*created() {
-			this.fetchAllPatients();
-		},*/
 
 		computed: {/*fait appel au store*/
 			patients() {

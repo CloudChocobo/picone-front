@@ -16,9 +16,10 @@
 					<img :src="image" class="avatar" alt="Photo du patient" />
 						<ion-input type="img" v-model="image" placeholder="Url Photo patient" :required="false"></ion-input>
 						</ion-card-content>
-						<ion-button color="light" @click="[submit(),cancel(),reloadPage()]">Enregistrer</ion-button>
-						<ion-button color="light" @click= cancel()>Annuler</ion-button>
+						<ion-button color="light" @click="[edit(),close(),reloadPage()]">Modifier</ion-button>
+						<ion-button color="light" @click="[erase(),close(),reloadPage()]">Supprimer</ion-button>
 						</form>
+
 			</ion-card> 
 		</div>			
 	</div>
@@ -43,11 +44,10 @@ import axios from 'axios';
 			}
 		},
 		methods: {
-			cancel() {
+			close() {
 				this.$emit("update:isOpen", false);
 			},
-
-			submit() {
+			erase() {
 				const resForm = 
 				{lastName : this.lastName,
 				firstName : this.firstName,
@@ -57,7 +57,27 @@ import axios from 'axios';
 				}
 				console.log("formData" + JSON.stringify(resForm))
 				axios
-				.post("http://localhost:8080/patients/", resForm)
+				.delete("http://localhost:8080/patients/", resForm)
+				
+				.then((res) => {
+				console.log("SpringBoot res" + JSON.stringify(res));
+				})
+				.catch((err) => {
+				console.log(err);
+				});
+			},
+
+			edit() {
+				const resForm = 
+				{lastName : this.lastName,
+				firstName : this.firstName,
+				email: this.email,
+				password: this.password,
+				image: this.image
+				}
+				console.log("formData" + JSON.stringify(resForm))
+				axios
+				.put("http://localhost:8080/patients/", resForm)
 				
 				.then((res) => {
 				console.log("SpringBoot res" + JSON.stringify(res));
@@ -87,15 +107,17 @@ import axios from 'axios';
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		
 	}
 	.background {
+		
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%; /*du contenant*/
 		height: 100%; /*du contenant*/
 		background-color: rgb(226, 224, 224);
-		opacity: 0.8;
+		opacity: 0.6;
 	}
 	.box{
 		display: flex;
