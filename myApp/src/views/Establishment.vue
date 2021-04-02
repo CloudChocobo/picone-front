@@ -31,7 +31,7 @@
 							<div class="testbutton">
 								<lol-button class="lol-button">Modifier</lol-button>
 
-								<lol-button class="lol-button">Supprimer</lol-button>
+								<lol-button class="lol-button">Supprimer</@lol-button>
 							</div>
 							<!--<p><lol-button class="lol-button">Supprimer</lol-button></p>-->
 						</listingEstablishment-button>
@@ -148,25 +148,7 @@
 			log(value) {
 				console.log(value);
 			},
-			/*publishForm() {
-					const newEstablishment = {
-						phone: this.phone,
-						city: this.city,
-						name: this.name,
-						address: this.address,
-						postalCode: this.postalCode,
-						email: this.email,
-					};
-					axios
-						.post("http://localhost:8090/add/establishments/", this.newEstablishment)
-						/*.delete("http://localhost:8090/establishments/", data)
-						.put("http://localhost:8090/establishments/", data)*/
-			//.then((res) => {
-			//	console.log(res);
-			//})
-			//.catch((err) => {
-			//	console.log(err);
-			//});
+
 			async publishForm() {
 				const newEstablishment = {
 					phone: this.newEstablishment.phone,
