@@ -19,6 +19,7 @@
 					<PatientCard
 					v-for="patient in patients"
 					:key="patient.id"
+					:id="patient.id"
 					:lastName="patient.lastName"
 					:firstName="patient.firstName"
 					:email="patient.email"

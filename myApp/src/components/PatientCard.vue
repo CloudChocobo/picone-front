@@ -3,6 +3,7 @@
 	<div class="PatientCard">
 		<div class="info">
 		<div class="text">
+			<div class="id">{{ id }}</div>
 			<div class="lastName">{{ lastName }}</div>
 			<div class="firstName">{{ firstName }}</div>
             <div class="email">{{ email }}</div>
@@ -13,7 +14,7 @@
 		<ion-button color="light" @click="modalOpen = true">Editer</ion-button>
 	</div>
 
-	<ModalPatientEdit v-if="modalOpen" v-model:isOpen="modalOpen" title="Modifier un patient"></ModalPatientEdit>
+	<ModalPatientEdit v-if="modalOpen" v-model:isOpen="modalOpen" title="Modifier un patient" :patient="patient"></ModalPatientEdit>
 </template>
 
 <script>
@@ -21,7 +22,7 @@
 	import ModalPatientEdit from "@/components/ModalPatientEdit.vue";
 	export default {
 		name: "",
-		props: ["lastName", "firstName", "email","password","image"],
+		props: ["id","lastName", "firstName", "email","password","image"],
 		components: {ModalPatientEdit},
 		methods: {},
 		data: () => {
@@ -30,6 +31,18 @@
 				modalOpen: false,
 			};
 		},
+		computed: {
+			patient() {
+				return {
+					id: this.id,
+					lastName: this.lastName,
+					firstName: this.firstName,
+					email: this.email,
+					password: this.password,
+					image: this.image
+				}
+			}
+		}
 	};
 </script>
 
