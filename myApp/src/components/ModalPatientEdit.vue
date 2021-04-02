@@ -46,18 +46,14 @@
 						></ion-input>
 					</ion-card-content>
 					<ion-button
-						color="light"
+						color="medium"
 						@click="[edit(), close(), reloadPage()]"
 						>Modifier</ion-button
 					>
-					<ion-button
-						color="light"
-						@click="[erase(), close(), reloadPage()]"
+					<ion-button color="medium" @click="[erase(), save()]"
 						>Supprimer</ion-button
 					>
-					<ion-button
-						color="light"
-						@click="[close()]"
+					<ion-button color="medium" @click="[close()]"
 						>Annuler</ion-button
 					>
 				</form>
@@ -84,13 +80,20 @@ export default {
 		this.patientObj = this.patient;
 	},
 	methods: {
+		save() {
+			this.$emit("update:isOpen", false);
+			this.$router.go();
+		},
 		close() {
 			this.$emit("update:isOpen", false);
 		},
 		erase() {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
-				.delete("http://localhost:8080/patients/"+ this.patientObj.id, this.patientObj)
+				.delete(
+					"http://localhost:8080/patients/" + this.patientObj.id,
+					this.patientObj
+				)
 
 				.then((res) => {
 					console.log("SpringBoot res" + JSON.stringify(res));
@@ -103,7 +106,10 @@ export default {
 		edit() {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
-				.put("http://localhost:8080/patients/"+ this.patientObj.id, this.patientObj)
+				.put(
+					"http://localhost:8080/patients/" + this.patientObj.id,
+					this.patientObj
+				)
 
 				.then((res) => {
 					console.log("SpringBoot res" + JSON.stringify(res));
@@ -142,14 +148,13 @@ export default {
 	opacity: 0.6;
 }
 .box {
-	
 	display: flex;
 	align-items: center;
 	width: 50%;
-	height: 50%;
+	height: 36%;
 }
 ion-card {
-	background-color: #8badbe;
+	background-color: #bdddec;
 	border-radius: 10px;
 	overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
 	width: 200%;
@@ -186,5 +191,12 @@ button {
 .avatar {
 	height: 75px;
 	width: 75px;
+}
+form {
+	background-color:#bdddec;
+}
+ion-input{
+	background-color: #f1faff;
+	color: #536974;
 }
 </style>

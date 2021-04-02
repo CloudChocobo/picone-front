@@ -46,11 +46,11 @@
 						></ion-input>
 					</ion-card-content>
 					<ion-button
-						color="light"
-						@click="[submit(), cancel(), reloadPage()]"
+						color="medium"
+						@click="[submit(), save()]"
 						>Enregistrer</ion-button
 					>
-					<ion-button color="light" @click="cancel()"
+					<ion-button color="medium" @click="cancel()"
 						>Annuler</ion-button
 					>
 				</form>
@@ -78,10 +78,13 @@ export default {
 		};
 	},
 	methods: {
-		cancel() {
+		save() {
 			this.$emit("update:isOpen", false);
+			this.$router.go()
 		},
-
+	cancel(){
+		this.$emit("update:isOpen",false);
+	},
 		submit() {
 			const resForm = {
 				lastName: this.lastName,
@@ -102,9 +105,7 @@ export default {
 				});
 		},
 
-		reloadPage() {
-			this.$router.go();
-		},
+		
 	},
 };
 </script>
@@ -134,16 +135,24 @@ export default {
 	display: flex;
 	align-items: center;
 	width: 50%;
-	height: 50%;
+	height: 36%;
 }
 ion-card {
-	background-color: #8badbe;
+	background-color: #bdddec;
 	border-radius: 10px;
 	overflow: hidden; 
 	width: 200%;
 	height: 150%;
 	
 }
+form {
+	background-color:#bdddec;
+}
+ion-input{
+	background-color: #f1faff;
+	color: #536974;
+}
+
 ion-button {
 	display: flex;
 }
@@ -176,4 +185,5 @@ button {
 	height: 75px;
 	width: 75px;
 }
+
 </style>
