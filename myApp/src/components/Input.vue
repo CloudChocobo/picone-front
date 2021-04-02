@@ -1,19 +1,37 @@
 <template>
 	<div class="cont">
-		<div class="label">{{ label }}</div>
-		<input type="text" :placeholder="placeholder" :value="valeur" />
+		<label class="label" :for="label">{{ label }}</label>
+		<input
+			type="text"
+			:placeholder="placeholder"
+			:value="modelValue"
+			@input="update"
+			:id="label"
+		/>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "",
-		props: ["label", "placeholder", "valeur"],
-		emits: ["update:valeur"],
+		name: "Input",
+		props: ["label", "placeholder", "modelValue"],
+		emits: ["update:modelValue"],
 		data() {
-			return {};
+			return {
+				value: this.modelValue,
+			};
+		},
+		methods: {
+			update(event) {
+				this.value = event.target.value;
+				this.$emit("update:modelValue", this.value);
+			},
 		},
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	label {
+		display: block;
+	}
+</style>

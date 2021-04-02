@@ -20,44 +20,58 @@
 							v-for="establishment in establishments"
 							:key="establishment.id"
 							:name="establishment.name"
-							:infoPrincipale="establishment.adress"
-							:infoSecondaire="establishment.phone"
-						></ListingEstablishment>
+							:address="establishment.address"
+							:city="establishment.city"
+							:postalCode="establishment.postalCode"
+							:phone="establishment.phone"
+							:email="establishment.email"
+						>
+						</ListingEstablishment>
+						<listingEstablishment-button>
+							<div class="testbutton">
+								<lol-button class="lol-button">Modifier</lol-button>
+
+								<lol-button class="lol-button">Supprimer</lol-button>
+							</div>
+							<!--<p><lol-button class="lol-button">Supprimer</lol-button></p>-->
+						</listingEstablishment-button>
 					</div>
 					<Modal v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter un établissement">
-						<Input label="nom" placeholder="Ehpad michel" v-model:valeur="epad" />
-						<Input
-							label="email"
-							placeholder="ehpadMichel@example.com"
-							v-model:valeur="newEstablishment.email"
-						/>
+						<form v-on:submit.prevent="publishForm">
+							<Input
+								label="nom"
+								placeholder="Ehpad michel"
+								v-model="newEstablishment.name"
+							/>
+							<Input
+								label="email"
+								placeholder="ehpadMichel@example.com"
+								v-model="newEstablishment.email"
+							/>
 
-						<Input
-							label="adresse"
-							placeholder="3 rue de la pomme"
-							v-model:valeur="newEstablishment.adress"
-						/>
+							<Input
+								label="adresse"
+								placeholder="3 rue de la pomme"
+								v-model="newEstablishment.address"
+							/>
 
-						<Input
-							label="code postal"
-							placeholder="44000"
-							v-model="newEstablishment.postalCode"
-						/>
+							<Input
+								label="code postal"
+								placeholder="44000"
+								v-model="newEstablishment.postalCode"
+							/>
 
-						<Input
-							label="ville"
-							placeholder="Nantes"
-							v-model:valeur="newEstablishment.city"
-						/>
+							<Input label="ville" placeholder="Nantes" v-model="newEstablishment.city" />
 
-						<Input
-							label="téléphone"
-							placeholder="02 40 45 67 89"
-							v-model:valeur="newEstablishment.phone"
-						/>
-						<div class="form-group">
-							<IonButton @click="doAction(addEstablishment)">Ajouter</IonButton>
-						</div>
+							<Input
+								label="téléphone"
+								placeholder="02 40 45 67 89"
+								v-model="newEstablishment.phone"
+							/>
+							<div class="form-group">
+								<button type="submit" class="form-group">Ajouter</button>
+							</div>
+						</form>
 						<!--<div class="popUp">
 							<IonButton @click="modalOpen = true">Ajouter </IonButton>
 						</div>
@@ -87,6 +101,7 @@
 	import Modal from "@/components/Modal.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
 	import Input from "@/components/Input.vue";
+	import {rootAPI} from "@/data.ts";
 	import {
 		IonPage,
 		IonContent,
@@ -96,6 +111,7 @@
 		IonMenuButton,
 		IonButton,
 	} from "@ionic/vue";
+	import axios from "axios";
 
 	export default {
 		name: "Establishment",
@@ -116,52 +132,88 @@
 
 		data: () => {
 			return {
-				test: "epad",
 				modalOpen: false,
 				newEstablishment: {
-					phone: null,
-					city: null,
-					name: null,
-					adress: null,
-					postalCode: null,
-					email: null,
+					name: "",
+					phone: "",
+					city: "",
+					address: "",
+					postalCode: "",
+					email: "",
 				},
+				//rootsApi: rootAPI,
 			};
 		},
 		methods: {
-			doAction(addEstablishment) {
-				this.fetchAllEstablishment(
-					addEstablishment.id,
-					addEstablishment.name,
-					addEstablishment.email,
-					addEstablishment.address,
-					addEstablishment.postalCode,
-					addEstablishment.city,
-					addEstablishment.phone
-				);
+			log(value) {
+				console.log(value);
 			},
+			/*publishForm() {
+					const newEstablishment = {
+						phone: this.phone,
+						city: this.city,
+						name: this.name,
+						address: this.address,
+						postalCode: this.postalCode,
+						email: this.email,
+					};
+					axios
+						.post("http://localhost:8090/add/establishments/", this.newEstablishment)
+						/*.delete("http://localhost:8090/establishments/", data)
+						.put("http://localhost:8090/establishments/", data)*/
+			//.then((res) => {
+			//	console.log(res);
+			//})
+			//.catch((err) => {
+			//	console.log(err);
+			//});
+			async publishForm() {
+				const newEstablishment = {
+					phone: this.newEstablishment.phone,
+					city: this.newEstablishment.city,
+					name: this.newEstablishment.name,
+					address: this.newEstablishment.address,
+					postalCode: this.newEstablishment.postalCode,
+					email: this.newEstablishment.email,
+				};
+				console.log(newEstablishment);
+
+				const response = await axios.post(
+					"http://localhost:8090/add/establishments/",
+					newEstablishment
+				);
+				this.newEstablishmentId = response.data.id;
+			},
+
 			fetchAllEstablishment() {
-				const infosARecup = ["establishments"];
-				infosARecup.forEach((info) => {
-					fetch("https://piconebackend.herokuapp.com/" + info) /* mettre l'adresse de l'API*/
-						.then((response) => response.json())
-						.then((data) => {
-							this.$store.commit("setEstablishments", {
-								type: info,
-								valeur: data,
-							}); /* commit = utilise la methode, les infos*/
-						})
-						.catch((erreur) => {
-							console.error("Il y a eu une erreur !", erreur);
-						});
-				});
+				console.log("try");
+				fetch("http://localhost:8090/establishments/", {
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}) /* mettre l'adresse de l'API*/
+					.then((response) => response.json())
+					.then((data) => {
+						console.log(data);
+						this.$store.commit(
+							"setEstablishments",
+							data
+						); /* commit = utilise la methode, les infos*/
+					})
+					.catch((err) => {
+						console.error("Il y a eu une erreur !", err);
+					});
 			},
 		},
 		computed: {
 			/*call the store*/
 			establishments() {
-				return this.$store.state.establishments;
+				return this.$store.getters.establishments;
 			},
+		},
+		mounted() {
+			this.fetchAllEstablishment();
+			console.log("mounted");
 		},
 	};
 </script>
@@ -216,9 +268,27 @@
 	.form-group {
 		margin-top: 5%;
 		text-align: center;
+		border-radius: 12px;
+		color: white;
+		background: #8badbe;
+		font-size: 20px;
 	}
 	.popUp {
 		margin-top: 5%;
 		text-align: center;
+	}
+	.lol-button {
+		text-align: center;
+		border-radius: 8px;
+		color: white;
+		background: #8badbe;
+		font-size: 20px;
+		padding: 1%;
+		margin-left: 10%;
+		width: 200px;
+	}
+	.testbutton {
+		display: block;
+		margin-top: 2%;
 	}
 </style>
