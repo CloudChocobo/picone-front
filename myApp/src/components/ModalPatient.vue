@@ -5,13 +5,6 @@
 			<ion-card>
 				<form @submit.prevent="submit">
 					<ion-card-content>
-						<ion-label lastName>Id:</ion-label>
-						<ion-input
-							type="text"
-							v-model="id"
-							placeholder="Entrez l'id"
-							:required="true"
-						></ion-input>
 						<ion-label lastName>Nom:</ion-label>
 						<ion-input
 							type="text"
@@ -77,7 +70,6 @@ export default {
 	emits: ["update:isOpen", "setPatients"],
 	data() {
 		return {
-			id: "",
 			lastName: "",
 			firstName: "",
 			email: "",
@@ -92,7 +84,6 @@ export default {
 
 		submit() {
 			const resForm = {
-				id: this.id,
 				lastName: this.lastName,
 				firstName: this.firstName,
 				email: this.email,

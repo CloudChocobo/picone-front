@@ -8,13 +8,6 @@
 						<ion-label lastName>Nom:</ion-label>
 						<ion-input
 							type="text"
-							v-model="patientObj.id"
-							placeholder="Entrez un id"
-							:required="true"
-						></ion-input>
-						<ion-label lastName>Nom:</ion-label>
-						<ion-input
-							type="text"
 							v-model="patientObj.lastName"
 							placeholder="Entrez un nom"
 							:required="true"
@@ -92,7 +85,7 @@ export default {
 		erase() {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
-				.delete("http://localhost:8080/patients/", this.patientObj)
+				.delete("http://localhost:8080/patients/"+ this.patientObj.id, this.patientObj)
 
 				.then((res) => {
 					console.log("SpringBoot res" + JSON.stringify(res));
@@ -105,7 +98,8 @@ export default {
 		edit() {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
-				.put("http://localhost:8080/patients/{id}", this.patientObj)
+				.put("http://localhost:8080/patients/"+ this.patientObj.id, this.patientObj)
+
 				.then((res) => {
 					console.log("SpringBoot res" + JSON.stringify(res));
 				})
