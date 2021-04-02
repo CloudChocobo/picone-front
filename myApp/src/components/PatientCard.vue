@@ -12,9 +12,8 @@
 		<img :src="image" class="avatar" alt="Photo du patient" />
 		</div>
 		<ion-button color="light" @click="modalOpen = true">Editer</ion-button>
+		<ModalPatientEdit v-if="modalOpen" v-model:isOpen="modalOpen" title="Modifier un patient" :patient="patient"></ModalPatientEdit>
 	</div>
-
-	<ModalPatientEdit v-if="modalOpen" v-model:isOpen="modalOpen" title="Modifier un patient" :patient="patient"></ModalPatientEdit>
 </template>
 
 <script>
@@ -54,7 +53,6 @@
 		flex-direction: column;
 	}
 	.PatientCard {
-		z-index: 1;
 		background-color: #bdddec;
 		display: flex;
 		justify-content: space-between;

@@ -55,6 +55,11 @@
 						@click="[erase(), close(), reloadPage()]"
 						>Supprimer</ion-button
 					>
+					<ion-button
+						color="light"
+						@click="[close()]"
+						>Annuler</ion-button
+					>
 				</form>
 			</ion-card>
 		</div>
@@ -137,6 +142,7 @@ export default {
 	opacity: 0.6;
 }
 .box {
+	
 	display: flex;
 	align-items: center;
 	width: 50%;
@@ -145,7 +151,6 @@ export default {
 ion-card {
 	background-color: #8badbe;
 	border-radius: 10px;
-	/*position: relative;*/
 	overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
 	width: 200%;
 	height: 150%;

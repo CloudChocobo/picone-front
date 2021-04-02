@@ -148,6 +148,7 @@
 		gap: 10px;
 	}
 	.ion-page{
+		z-index:0;
 		background-color: #8badbe;
 	}
 

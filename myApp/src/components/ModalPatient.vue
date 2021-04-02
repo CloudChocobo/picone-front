@@ -139,10 +139,10 @@ export default {
 ion-card {
 	background-color: #8badbe;
 	border-radius: 10px;
-	/*position: relative;*/
-	overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
+	overflow: hidden; 
 	width: 200%;
 	height: 150%;
+	
 }
 ion-button {
 	display: flex;
