@@ -34,6 +34,6 @@ export default {
   height: 100%;
   width: 10%;
   background: #8badbe;
-}
+}   
 
 </style>

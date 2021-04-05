@@ -7,7 +7,7 @@ import AdminHome from "@/views/AdminHome.vue";
 // import Recap from "@/views/Recap.vue";
 //import RecapDiscussion from "@/views/RecapDiscussion.vue";
 import SentenceBuild from "@/views/SentenceBuild.vue";
-import Patient from "@/views/Patient.vue";
+import Patients from "@/views/Patients.vue";
 import Mood from "@/views/Mood.vue";
 
 
@@ -49,10 +49,10 @@ const routes: Array<RouteRecordRaw> = [
 		component: Mood,
 	},
 		{
-		name: "Patient",
+		name: "Patients",
 		path: "/patients",
-		component: Patient,
-	}
+		component: Patients,
+		}
 ];
 
 const router = createRouter({

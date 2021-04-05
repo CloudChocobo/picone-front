@@ -33,18 +33,19 @@
 							placeholder="Entrez un mot de passe"
 							:required="true"
 						></ion-input>
-						<ion-avatar slot="end">
+						<ion-avatar>
 							<img
 							:src="image"
 							class="avatar"
 							alt="Photo du patient"/>
+						</ion-avatar>
 						<ion-input
 							type="img"
 							v-model="image"
 							placeholder="Url Photo patient"
 							:required="false"
 						></ion-input>
-						</ion-avatar>
+						
 					</ion-card-content>
 					<ion-button
 						color="medium"
@@ -61,7 +62,7 @@
 </template>
 
 <script>
-import { IonAvatar, IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
+import {IonAvatar, IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
 import axios from "axios";
 
 export default {
@@ -183,12 +184,10 @@ button {
 	background-color: #f1faff;
 }
 .avatar {
-	height: 65px;
-	width: 65px;
+	height: 50px;
+	width: 50px;
 }
-ion-avatar{
-	margin-left:  -3%;
-}
+
 
 
 </style>

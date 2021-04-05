@@ -43,7 +43,7 @@
 	import PageAdmin from "@/components/PageAdmin.vue";
 	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton, IonButton} from "@ionic/vue";
 	export default {
-		name: "Patient",
+		name: "Patients",
 		props: ["setPatients"],
 		components: {
 			IonPage,
