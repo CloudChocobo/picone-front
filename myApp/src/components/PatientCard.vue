@@ -7,6 +7,7 @@
 			<div class="lastName">{{ lastName }}</div>
 			<div class="firstName">{{ firstName }}</div>
             <div class="email">{{ email }}</div>
+			<div class="establishment">{{ establishment}}</div>
             <div class="password">{{ password }}</div>
 		</div>
 		<img :src="image" class="avatar" alt="Photo du patient" />
@@ -20,7 +21,7 @@
 	import ModalPatientEdit from "@/components/ModalPatientEdit.vue";
 	export default {
 		name: "",
-		props: ["id","lastName", "firstName", "email","password","image"],
+		props: ["id","lastName", "firstName", "email","password","establishment","image"],
 		components: {ModalPatientEdit},
 		methods: {},
 		data: () => {
@@ -37,6 +38,7 @@
 					firstName: this.firstName,
 					email: this.email,
 					password: this.password,
+					establishment: this.establishment,
 					image: this.image
 				}
 			}

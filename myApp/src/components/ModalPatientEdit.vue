@@ -29,6 +29,12 @@
 							v-model="patientObj.password"
 							placeholder="Entrez un mot de passe"
 						></ion-input>
+						<ion-label establishment>Etablissement:</ion-label>
+						<ion-input
+							type="text"
+							v-model="patientObj.establishment"
+							placeholder="Entrez un établissement"
+						></ion-input>						
 						<ion-avatar>
 						<img
 							:src="image"

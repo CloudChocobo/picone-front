@@ -33,6 +33,13 @@
 							placeholder="Entrez un mot de passe"
 							:required="true"
 						></ion-input>
+						<ion-label establishment>Etablissement:</ion-label>
+						<ion-input
+							type="text"
+							v-model="establishment"
+							placeholder="Entrez un établissement"
+							:required="true"
+						></ion-input>						
 						<ion-avatar>
 							<img
 							:src="image"
@@ -76,6 +83,7 @@ export default {
 			firstName: "",
 			email: "",
 			password: "",
+			establishment:"",
 			image: "",
 		};
 	},
@@ -93,6 +101,7 @@ export default {
 				firstName: this.firstName,
 				email: this.email,
 				password: this.password,
+				establishment: this.establishment,
 				image: this.image,
 			};
 			console.log("formData" + JSON.stringify(resForm));

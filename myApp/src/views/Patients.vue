@@ -1,4 +1,3 @@
-
 <template>
 	<ion-page>
 		<ion-content :fullscreen="true">
@@ -24,6 +23,7 @@
 					:firstName="patient.firstName"
 					:email="patient.email"
 					:password="patient.password"
+					:establishment="patient.establishment"
 					:image="patient.image"
 					></PatientCard>
 					</div>	
