@@ -17,7 +17,6 @@
 </template>
 
 <script>
-	//import axios from 'axios';
 	import ModalPatientEdit from "@/components/ModalPatientEdit.vue";
 	export default {
 		name: "",
@@ -71,10 +70,12 @@
 	}
 	.avatar {
 		background-color: #f1faff;
-		height: 75px;
-		width: 75px;
+		height: 70px;
+		width: 70px;
 		border-radius: 6px;
+		margin-left:  -200px;
 	}
+
 	.password{
 		display:none;
 	}

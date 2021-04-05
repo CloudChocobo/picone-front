@@ -33,17 +33,18 @@
 							placeholder="Entrez un mot de passe"
 							:required="true"
 						></ion-input>
-						<img
+						<ion-avatar slot="end">
+							<img
 							:src="image"
 							class="avatar"
-							alt="Photo du patient"
-						/>
+							alt="Photo du patient"/>
 						<ion-input
 							type="img"
 							v-model="image"
 							placeholder="Url Photo patient"
 							:required="false"
 						></ion-input>
+						</ion-avatar>
 					</ion-card-content>
 					<ion-button
 						color="medium"
@@ -60,11 +61,11 @@
 </template>
 
 <script>
-import { IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
+import { IonAvatar, IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
 import axios from "axios";
 
 export default {
-	components: { IonCard, IonButton, IonInput, IonCardContent },
+	components: { IonAvatar, IonCard, IonButton, IonInput, IonCardContent },
 	name: "",
 	props: ["isOpen", "title"],
 	emits: ["update:isOpen", "setPatients"],
@@ -95,7 +96,7 @@ export default {
 			};
 			console.log("formData" + JSON.stringify(resForm));
 			axios
-				.post("http://localhost:8080/patients/", resForm)
+				.post("http://localhost:8080/add/patients/", resForm)
 
 				.then((res) => {
 					console.log("SpringBoot res" + JSON.stringify(res));
@@ -182,8 +183,12 @@ button {
 	background-color: #f1faff;
 }
 .avatar {
-	height: 75px;
-	width: 75px;
+	height: 65px;
+	width: 65px;
 }
+ion-avatar{
+	margin-left:  -3%;
+}
+
 
 </style>

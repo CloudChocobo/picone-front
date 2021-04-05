@@ -20,6 +20,8 @@
         <ButtonMenu route="" label="Affichage et Luminosité"></ButtonMenu>
         <ButtonMenu route="" label="Fond d'écran et Police"></ButtonMenu>
         <ButtonMenu route="" label="Personnalisation photos"></ButtonMenu>
+        <ButtonMenu route="" label="Blog"></ButtonMenu>
+        <ButtonMenu route="" label="À propos"></ButtonMenu>
       </ion-list>
     <BackButton></BackButton>
     </ion-content>

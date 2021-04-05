@@ -55,7 +55,6 @@
 			IonMenuButton,
 			IonButton,
 			BackButton,
-			//EntryPatient,
 			PatientCard,
 			ModalPatient,
 		},
@@ -112,7 +111,7 @@
 	}
 	ion-toolbar {
 		color: #536974;
-		height: 90px;
+		height: 30%;
 	}
 	ion-buttons {
 		background: #8badbe;
@@ -137,9 +136,8 @@
 		margin-left: 250px;
 	}
 	.BackButton {
-		width: 8%;
+		width: 5%;
 		margin-left: 3%;
-		margin-top: 2%;
 	}
 	.grid {
 		display: grid;

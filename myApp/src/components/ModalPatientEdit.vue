@@ -10,50 +10,47 @@
 							type="text"
 							v-model="patientObj.lastName"
 							placeholder="Entrez un nom"
-							:required="true"
 						></ion-input>
 						<ion-label firstName>Prénom:</ion-label>
 						<ion-input
 							type="text"
 							v-model="patientObj.firstName"
 							placeholder="Entrez un prénom"
-							:required="true"
 						></ion-input>
 						<ion-label email>Email:</ion-label>
 						<ion-input
 							type="email"
 							v-model="patientObj.email"
 							placeholder="Entrez un email"
-							:required="true"
 						></ion-input>
 						<ion-label password>Mot de passe:</ion-label>
 						<ion-input
 							type="password"
 							v-model="patientObj.password"
 							placeholder="Entrez un mot de passe"
-							:required="true"
 						></ion-input>
+						<ion-avatar>
 						<img
 							:src="image"
 							class="avatar"
 							alt="Photo du patient"
 						/>
+						</ion-avatar>
 						<ion-input
 							type="img"
 							v-model="patientObj.image"
 							placeholder="Url Photo patient"
-							:required="false"
 						></ion-input>
 					</ion-card-content>
 					<ion-button
 						color="medium"
-						@click="[edit(), close(), reloadPage()]"
+						@click="[edit(), save()]"
 						>Modifier</ion-button
 					>
 					<ion-button color="medium" @click="[erase(), save()]"
 						>Supprimer</ion-button
 					>
-					<ion-button color="medium" @click="[close()]"
+					<ion-button color="medium" @click="[cancel()]"
 						>Annuler</ion-button
 					>
 				</form>
@@ -63,11 +60,11 @@
 </template>
 
 <script>
-import { IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
+import { IonAvatar, IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
 import axios from "axios";
 
 export default {
-	components: { IonCard, IonButton, IonInput, IonCardContent },
+	components: {IonAvatar, IonCard, IonButton, IonInput, IonCardContent },
 	name: "",
 	props: ["isOpen", "title", "patient"],
 	emits: ["update:isOpen", "setPatients"],
@@ -80,18 +77,12 @@ export default {
 		this.patientObj = this.patient;
 	},
 	methods: {
-		save() {
-			this.$emit("update:isOpen", false);
-			this.$router.go();
-		},
-		close() {
-			this.$emit("update:isOpen", false);
-		},
+
 		erase() {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.delete(
-					"http://localhost:8080/patients/" + this.patientObj.id,
+					"http://localhost:8080/delete/patients/" + this.patientObj.id,
 					this.patientObj
 				)
 
@@ -107,7 +98,7 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.put(
-					"http://localhost:8080/patients/" + this.patientObj.id,
+					"http://localhost:8080/update/patients/" + this.patientObj.id,
 					this.patientObj
 				)
 
@@ -118,9 +109,12 @@ export default {
 					console.log(err);
 				});
 		},
-
-		reloadPage() {
+		save() {
+			this.$emit("update:isOpen", false);
 			this.$router.go();
+		},
+		cancel() {
+			this.$emit("update:isOpen", false);
 		},
 	},
 };

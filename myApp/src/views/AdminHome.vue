@@ -49,7 +49,7 @@
 		color: #536974;
 		position: relative;
 		text-align: center;
-		margin-top: -4%;
+		margin-top: 2%;
 	}
 	ion-title {
 		justify-items: center;
@@ -60,28 +60,22 @@
 	}
 	ion-toolbar {
 		color: #536974;
-		height: 90px;
+		height: 30%;
 	}
 	ion-buttons {
 		background: #8badbe;
 	}
-	.toolbar-container {
-		background: #8badbe;
-	}
+
 
 	.image {
 		display: flex;
 		margin-left: 250px;
 	}
 	.BackButton {
-		width: 8%;
+		width: 5%;
 		margin-left: 3%;
-		margin-top: 2%;
 	}
-
-	/* .button-inner {
-  width: 25%;
-  margin-left: 3%;
-  margin-top: 2%;
-} */
+	ion-header{
+		height: 10%;
+	}
 </style>
