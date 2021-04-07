@@ -1,5 +1,6 @@
 <template>
 	<div class="container">
+		<div class="cheesebox" @click="close()"></div>
 		<div class="box">
 			<ion-card>
 				<form @submit.prevent="submit">
@@ -176,5 +177,13 @@
 	ion-input {
 		background-color: #f1faff;
 		color: #536974;
+	}
+	.cheesebox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%; /*du contenant*/
+		height: 100%; /*du contenant*/
+		background-color: rgba(82, 82, 82, 0.2);
 	}
 </style>
