@@ -139,7 +139,7 @@
 		background-color: #bdddec;
 		border-radius: 10px;
 		overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
-		width: 200%;
+		width: 170%;
 		height: 150%;
 	}
 	ion-button {
