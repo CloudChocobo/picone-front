@@ -38,7 +38,7 @@
 					firstName: this.firstName,
 					email: this.email,
 					password: this.password,
-					establishment: this.establishment,
+					idEstablishment: this.idEstablishment,
 					image: this.image
 				}
 			}
@@ -62,6 +62,7 @@
 		padding: 15px 20px;
 		border-radius: 15px;
 		gap: 10px;
+		height: 100%;
 		
 	}
 	.info{
@@ -89,8 +90,6 @@
 		flex-direction: column;
 		align-items: space-between;
 		gap: 5px;
-		
-	
 	}
 
 </style>

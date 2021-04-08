@@ -30,17 +30,29 @@
 							placeholder="Entrez un mot de passe"
 						></ion-input>
 						<ion-label establishment>Etablissement:</ion-label>
-						<ion-input
-							type="text"
-							v-model="patientObj.establishment"
-							placeholder="Entrez un établissement"
-						></ion-input>						
+						<ion-select
+							interface="popover"
+							v-model="patientObj.idEstablishment"
+						>
+							<ion-select-option value="4"
+								>Ehpad Poisson</ion-select-option
+							>
+							<ion-select-option value="39"
+								>Ehpad Paul</ion-select-option
+							>
+							<ion-select-option value="0"
+								>Ehpad Nicky</ion-select-option
+							>
+							<ion-select-option value="40"
+								>Ehpad Koil</ion-select-option
+							>
+						</ion-select>
 						<ion-avatar>
-						<img
-							:src="image"
-							class="avatar"
-							alt="Photo du patient"
-						/>
+							<img
+								:src="image"
+								class="avatar"
+								alt="Photo du patient"
+							/>
 						</ion-avatar>
 						<ion-input
 							type="img"
@@ -48,9 +60,7 @@
 							placeholder="Url Photo patient"
 						></ion-input>
 					</ion-card-content>
-					<ion-button
-						color="medium"
-						@click="[edit(), save()]"
+					<ion-button color="medium" @click="[edit(), save()]"
 						>Modifier</ion-button
 					>
 					<ion-button color="medium" @click="[erase(), save()]"
@@ -66,11 +76,27 @@
 </template>
 
 <script>
-import { IonAvatar, IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
+import {
+	IonAvatar,
+	IonCard,
+	IonButton,
+	IonInput,
+	IonCardContent,
+	IonSelect,
+	IonSelectOption,
+} from "@ionic/vue";
 import axios from "axios";
 
 export default {
-	components: {IonAvatar, IonCard, IonButton, IonInput, IonCardContent },
+	components: {
+		IonAvatar,
+		IonCard,
+		IonButton,
+		IonInput,
+		IonCardContent,
+		IonSelect,
+		IonSelectOption,
+	},
 	name: "",
 	props: ["isOpen", "title", "patient"],
 	emits: ["update:isOpen", "setPatients"],
@@ -83,12 +109,12 @@ export default {
 		this.patientObj = this.patient;
 	},
 	methods: {
-
 		erase() {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.delete(
-					"http://localhost:8080/delete/patients/" + this.patientObj.id,
+					"http://localhost:8080/delete/patients/" +
+						this.patientObj.id,
 					this.patientObj
 				)
 
@@ -104,7 +130,8 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.put(
-					"http://localhost:8080/update/patients/" + this.patientObj.id,
+					"http://localhost:8080/update/patients/" +
+						this.patientObj.id,
 					this.patientObj
 				)
 
@@ -158,7 +185,7 @@ ion-card {
 	border-radius: 10px;
 	overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
 	width: 200%;
-	height: 150%;
+	height: 180%;
 }
 ion-button {
 	display: flex;
@@ -189,14 +216,19 @@ button {
 	background-color: #f1faff;
 }
 .avatar {
+	background-color: #f1faff;
 	height: 75px;
 	width: 75px;
+	border-radius: 1px;
 }
 form {
-	background-color:#bdddec;
+	background-color: #bdddec;
 }
-ion-input{
+ion-input {
 	background-color: #f1faff;
 	color: #536974;
+}
+ion-select{
+background-color: #f1faff;
 }
 </style>

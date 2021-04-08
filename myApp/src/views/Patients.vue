@@ -23,7 +23,7 @@
 					:firstName="patient.firstName"
 					:email="patient.email"
 					:password="patient.password"
-					:establishment="patient.establishment"
+					:idEstablishment="patient.idEstablishment"
 					:image="patient.image"
 					></PatientCard>
 					</div>	
@@ -36,7 +36,6 @@
 </template>
 
 <script>
-
 	import ModalPatient from "@/components/ModalPatient.vue";
 	import PatientCard from "@/components/PatientCard";
 	import BackButton from "@/components/BackButton.vue";
@@ -46,23 +45,10 @@
 		name: "Patients",
 		props: ["setPatients"],
 		components: {
-			IonPage,
-			IonContent,
-			PageAdmin,
-			IonHeader,
-			IonToolbar,
-			IonTitle,
-			IonMenuButton,
-			IonButton,
-			BackButton,
-			PatientCard,
-			ModalPatient,
-		},
-
+			IonPage,IonContent,PageAdmin,IonHeader,IonToolbar,IonTitle,IonMenuButton,IonButton,BackButton,PatientCard,ModalPatient,},
 		mounted() {
 		this.fetchAllPatients();
 		},
-
 		data: () => {
 			return {
 				value: "valeur",
@@ -70,7 +56,6 @@
 			};
 		},
 		methods: {
-
 			fetchAllPatients() {
 					fetch("http://localhost:8080/patients") /* mettre l'adresse de l'API*/
 						.then((response) => response.json())
@@ -81,9 +66,7 @@
 							console.error("error to check", err);
 						});
 				}
-			
 		},
-
 		computed: {/*fait appel au store*/
 			patients() {
 				return this.$store.getters.patients;

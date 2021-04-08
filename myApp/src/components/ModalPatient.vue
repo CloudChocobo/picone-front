@@ -34,17 +34,29 @@
 							:required="true"
 						></ion-input>
 						<ion-label establishment>Etablissement:</ion-label>
-						<ion-input
-							type="text"
-							v-model="establishment"
-							placeholder="Entrez un établissement"
-							:required="true"
-						></ion-input>						
+						<ion-select
+							interface="popover"
+							v-model="idEstablishment"
+						>
+							<ion-select-option value="4"
+								>Ehpad Poisson</ion-select-option
+							>
+							<ion-select-option value="39"
+								>Ehpad Paul</ion-select-option
+							>
+							<ion-select-option value="0"
+								>Ehpad Nicky</ion-select-option
+							>
+							<ion-select-option value="40"
+								>Ehpad Koil</ion-select-option
+							>
+						</ion-select>
 						<ion-avatar>
 							<img
-							:src="image"
-							class="avatar"
-							alt="Photo du patient"/>
+								:src="image"
+								class="avatar"
+								alt="Photo du patient"
+							/>
 						</ion-avatar>
 						<ion-input
 							type="img"
@@ -52,11 +64,8 @@
 							placeholder="Url Photo patient"
 							:required="false"
 						></ion-input>
-						
 					</ion-card-content>
-					<ion-button
-						color="medium"
-						@click="[submit(), save()]"
+					<ion-button color="medium" @click="[submit(), save()]"
 						>Enregistrer</ion-button
 					>
 					<ion-button color="medium" @click="cancel()"
@@ -69,11 +78,27 @@
 </template>
 
 <script>
-import {IonAvatar, IonCard, IonButton, IonInput, IonCardContent } from "@ionic/vue";
+import {
+	IonAvatar,
+	IonCard,
+	IonButton,
+	IonInput,
+	IonCardContent,
+	IonSelect,
+	IonSelectOption,
+} from "@ionic/vue";
 import axios from "axios";
 
 export default {
-	components: { IonAvatar, IonCard, IonButton, IonInput, IonCardContent },
+	components: {
+		IonAvatar,
+		IonCard,
+		IonButton,
+		IonInput,
+		IonCardContent,
+		IonSelect,
+		IonSelectOption,
+	},
 	name: "",
 	props: ["isOpen", "title"],
 	emits: ["update:isOpen", "setPatients"],
@@ -83,7 +108,7 @@ export default {
 			firstName: "",
 			email: "",
 			password: "",
-			establishment:"",
+			//establishment:"",
 			image: "",
 		};
 	},
@@ -92,21 +117,27 @@ export default {
 			this.$emit("update:isOpen", false);
 			this.$router.go()
 		},
-	cancel(){
-		this.$emit("update:isOpen",false);
-	},
+		cancel() {
+			this.$emit("update:isOpen", false);
+		},
 		submit() {
 			const resForm = {
-				lastName: this.lastName,
-				firstName: this.firstName,
-				email: this.email,
-				password: this.password,
-				establishment: this.establishment,
-				image: this.image,
+				patient: {
+					lastName: this.lastName,
+					firstName: this.firstName,
+					email: this.email,
+					password: this.password,
+					establishment: this.establishment,
+					image: this.image,
+				},
+				idEstablishment: this.idEstablishment,
 			};
 			console.log("formData" + JSON.stringify(resForm));
+			const address =
+				"http://localhost:8080/add/patients?idEstablishment=" +
+				resForm.idEstablishment;
 			axios
-				.post("http://localhost:8080/add/patients/", resForm)
+				.post(address, resForm.patient)
 
 				.then((res) => {
 					console.log("SpringBoot res" + JSON.stringify(res));
@@ -115,8 +146,6 @@ export default {
 					console.log(err);
 				});
 		},
-
-		
 	},
 };
 </script>
@@ -151,15 +180,14 @@ export default {
 ion-card {
 	background-color: #bdddec;
 	border-radius: 10px;
-	overflow: hidden; 
+	overflow: hidden;
 	width: 200%;
-	height: 150%;
-	
+	height: 180%;
 }
 form {
-	background-color:#bdddec;
+	background-color: #bdddec;
 }
-ion-input{
+ion-input {
 	background-color: #f1faff;
 	color: #536974;
 }
@@ -193,10 +221,12 @@ button {
 	background-color: #f1faff;
 }
 .avatar {
-	height: 50px;
-	width: 50px;
+	background-color: #f1faff;
+	height: 75px;
+	width: 75px;
+	border-radius: 1px;
 }
-
-
-
+ion-select{
+background-color: #f1faff;
+}
 </style>

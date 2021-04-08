@@ -31,18 +31,6 @@ const routes: Array<RouteRecordRaw> = [
 		path: "/build",
 		component: SentenceBuild,
 	},
-
-	//        {
-	//   name: "RecapDiscussion",
-	//   path: "/recapDiscussion",
-	//   component: RecapDiscussion,
-	// },
-
-	//              {
-	//   name: "Recap",
-	//   path: "/recap",
-	//   component: Recap,
-	// },
 			{
 		name: "Mood",
 		path: "/mood",
@@ -61,3 +49,16 @@ const router = createRouter({
 });
 
 export default router;
+
+
+	//        {
+	//   name: "RecapDiscussion",
+	//   path: "/recapDiscussion",
+	//   component: RecapDiscussion,
+	// },
+
+	//              {
+	//   name: "Recap",
+	//   path: "/recap",
+	//   component: Recap,
+	// },
