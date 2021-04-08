@@ -11,7 +11,9 @@
 				<div class="email">{{ email }}</div>
 			</div>
 		</div>
-		<ion-button color="light" @click="modalOpen = true">Editer</ion-button>
+		<div class="ion-text-center">
+			<ion-button color="light" @click="modalOpen = true">Editer</ion-button>
+		</div>
 		<ModalEditEstablishment
 			v-if="modalOpen"
 			v-model:isOpen="modalOpen"
@@ -49,4 +51,18 @@
 		},
 	};
 </script>
+
+<style scoped>
+	.EstablishmentCard {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		transition: 0.3s;
+	}
+
+	.text {
+		text-align: center;
+		padding: 15px 20px;
+		box-sizing: border-box;
+	}
+</style>
+
 //c est le bon

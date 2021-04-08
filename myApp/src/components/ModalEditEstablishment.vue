@@ -48,7 +48,7 @@
 								:required="true"
 							></ion-input>
 						</ion-card-content>
-						<ion-button color="medium" @click="[edit(), close(), reloadPage()]"
+						<ion-button color="white" @click="[edit(), close(), reloadPage()]"
 							>Modifier</ion-button
 						>
 						<ion-button color="grey" @click="[erase(), save()]">Supprimer</ion-button>
@@ -156,8 +156,8 @@
 	.box {
 		display: flex;
 		align-items: center;
-		width: 50%;
-		height: 36%;
+		width: 150%;
+		height: 110%;
 	}
 	v-card {
 		background-color: #bdddec;
