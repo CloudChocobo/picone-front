@@ -96,7 +96,7 @@
 
 				console.log("formData" + JSON.stringify(establishment));
 				axios
-					.post("http://localhost:8090/establishments/", establishment)
+					.post("http://localhost:8080/establishments/", establishment)
 
 					.then((res) => {
 						console.log("SpringBoot res" + JSON.stringify(res));
