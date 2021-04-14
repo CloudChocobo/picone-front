@@ -113,7 +113,7 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.delete(
-					"http://localhost:8080/delete/patients/" +
+					"http://localhost:8080/patients/" +
 						this.patientObj.id,
 					this.patientObj
 				)
@@ -130,7 +130,7 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.put(
-					"http://localhost:8080/update/patients/" +
+					"http://localhost:8080/patients/" +
 						this.patientObj.id,
 					this.patientObj
 				)
