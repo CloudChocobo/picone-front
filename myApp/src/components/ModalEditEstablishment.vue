@@ -97,7 +97,7 @@
 				console.log("formData" + JSON.stringify(this.establishmentObj));
 				axios
 					.delete(
-						"http://localhost:8080/establishments/" + this.establishmentObj.id,
+						"http://localhost:8091/establishments/" + this.establishmentObj.id,
 						this.establishmentObj
 					)
 
@@ -113,7 +113,7 @@
 				console.log("formData" + JSON.stringify(this.establishmentObj));
 				axios
 					.put(
-						"http://localhost:8080/establishments/" + this.establishmentObj.id,
+						"http://localhost:8091/establishments/" + this.establishmentObj.id,
 						this.establishmentObj
 					)
 

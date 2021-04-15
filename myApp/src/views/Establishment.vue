@@ -84,7 +84,7 @@
 		methods: {
 			fetchAllEstablishments() {
 				console.log("try");
-				fetch("http://localhost:8080/establishments") /* mettre l'adresse de l'API*/
+				fetch("http://localhost:8091/establishments") /* mettre l'adresse de l'API*/
 					.then((response) => response.json())
 					.then((data) => {
 						this.$store.commit(
