@@ -27,7 +27,7 @@
 	import ModalEditEstablishment from "@/components/ModalEditEstablishment.vue";
 	export default {
 		name: "",
-		props: ["name", "address", "postal code", "city", "phone", "email", "id"],
+		props: ["name", "address", "postalCode", "city", "phone", "email", "id"],
 		components: {ModalEditEstablishment},
 		methode: {},
 		data: () => {

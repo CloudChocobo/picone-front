@@ -11,6 +11,6 @@ describe("EstablishmentCard.vue", () => {
 			},
 		});
 
-		expect(wrapper.name()).toMatch(name);
+		expect(wrapper.text()).toMatch(name);
 	});
 });
