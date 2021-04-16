@@ -109,11 +109,9 @@
 	ion-button:active {
 		transform: scale(0.9);
 	}
-	
 	.toolbar-container {
 		background: #8badbe;
 	}
-
 	.image {
 		display: flex;
 		margin-left: 250px;
@@ -132,5 +130,4 @@
 		z-index:0;
 		background-color: #8badbe;
 	}
-
 </style>
