@@ -76,15 +76,7 @@
 </script>
 
 <style scoped>
-	.text {
-		display: flex;
-		font-size: 50px;
-		margin-left: 200px;
-		color: #536974;
-		position: relative;
-		text-align: center;
-		margin-top: -4%;
-	}
+
 	ion-title {
 		justify-items: center;
 		font-size: 30px;
@@ -126,7 +118,7 @@
 		width: 100%;
 		gap: 10px;
 	}
-	.ion-page{
+	ion-page{
 		z-index:0;
 		background-color: #8badbe;
 	}
