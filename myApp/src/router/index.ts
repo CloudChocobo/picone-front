@@ -9,6 +9,8 @@ import AdminHome from "@/views/AdminHome.vue";
 import SentenceBuild from "@/views/SentenceBuild.vue";
 import Patients from "@/views/Patients.vue";
 import Mood from "@/views/Mood.vue";
+import Register from "@/views/Register.vue";
+import Login from "@/views/Login.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -21,6 +23,21 @@ const routes: Array<RouteRecordRaw> = [
 		path: "/home",
 		component: Home,
 	},
+	{
+		name: "Register",
+		path: "/Register",
+		component: Register,
+	},
+	{
+		name: "Login",
+		path: "/Login",
+		component: Login,
+	},
+	// {
+	//   name: "ModalTest",
+	//   path: "/modaltest",
+	//   component: ModalTest,
+	// },
 	{
 		name: "AdminHome",
 		path: "/adminHome",
