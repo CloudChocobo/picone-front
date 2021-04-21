@@ -86,6 +86,7 @@ import {
 	IonSelectOption,
 } from "@ionic/vue";
 import axios from "axios";
+import {rootAPI} from "@/data.ts";
 
 export default {
 	components: {
@@ -113,7 +114,7 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.delete(
-					"http://localhost:8080/patients/" +
+					rootAPI + "/patients/" +
 						this.patientObj.id,
 					this.patientObj
 				)
@@ -130,7 +131,7 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.put(
-					"http://localhost:8080/patients/" +
+					rootAPI + "/patients/" +
 						this.patientObj.id,
 					this.patientObj
 				)

@@ -41,6 +41,7 @@
 	import BackButton from "@/components/BackButton.vue";
 	import PageAdmin from "@/components/PageAdmin.vue";
 	import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton, IonButton} from "@ionic/vue";
+	import {rootAPI} from "@/data.ts";
 	export default {
 		name: "Patients",
 		props: ["setPatients"],
@@ -57,7 +58,7 @@
 		},
 		methods: {
 			fetchAllPatients() {
-					fetch("http://localhost:8080/patients") /* mettre l'adresse de l'API*/
+					fetch(rootAPI + "/patients") /* mettre l'adresse de l'API*/
 						.then((response) => response.json())
 						.then((data) => {
 							this.$store.commit("setPatients", data); /* commit = utilise la methode, les infos*/
