@@ -135,7 +135,7 @@ export default {
 			};
 			console.log("formData" + JSON.stringify(resForm));
 			const address =
-				rootAPI + "/patients?idEstablishment=" + 
+				rootAPI + "patients?idEstablishment=" + 
 				resForm.idEstablishment;
 			axios
 				.post(address, resForm.patient)

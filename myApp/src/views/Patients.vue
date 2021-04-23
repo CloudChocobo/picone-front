@@ -58,7 +58,7 @@
 		},
 		methods: {
 			fetchAllPatients() {
-					fetch(rootAPI + "/patients") /* mettre l'adresse de l'API*/
+					fetch(rootAPI + "patients") /* mettre l'adresse de l'API*/
 						.then((response) => response.json())
 						.then((data) => {
 							this.$store.commit("setPatients", data); /* commit = utilise la methode, les infos*/

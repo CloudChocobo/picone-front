@@ -114,7 +114,7 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.delete(
-					rootAPI + "/patients/" +
+					rootAPI + "patients/" +
 						this.patientObj.id,
 					this.patientObj
 				)
@@ -131,7 +131,7 @@ export default {
 			console.log("formData" + JSON.stringify(this.patientObj));
 			axios
 				.put(
-					rootAPI + "/patients/" +
+					rootAPI + "patients/" +
 						this.patientObj.id,
 					this.patientObj
 				)
