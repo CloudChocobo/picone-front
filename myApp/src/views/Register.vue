@@ -64,7 +64,7 @@ export default {
                 console.log(data); 
                 /* axios enregistre les données reçu de data dans la base de données et
                 envoie la requete stringifié automatiquement*/
-                axios.post('http://localhost:8091/home/addAdmin', data) 
+                axios.post('http://localhost:8080/home/addAdmin', data)
                 .then( res => {console.log(res)})
             },
 },
@@ -89,7 +89,7 @@ div.formRegister {
     display: table-row; 
 }
 
-label, input {
+label,input {
     display: table-cell;
     border-radius:10px ;
     width: 100%;
@@ -97,7 +97,6 @@ label, input {
     margin-bottom: 4%;
     margin-top:3% ;
     font-size: 20px;
-    
 }
 label {
     padding-right: 10px;
@@ -109,7 +108,7 @@ button {
     padding-top: 2%;
     padding-bottom: 2%;
     margin-bottom: 5%;
-    margin-left: 30%;
+    margin-left: 40%;
     margin-top:3% ;
     font-size: 20px;
 }

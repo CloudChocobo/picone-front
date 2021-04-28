@@ -6,7 +6,7 @@
           <h2>Login</h2>
           <div>
               <label for="email">Email</label>
-              <input type="email" name="username" id="username" class="login-input" v-model="username">
+              <input type="email" name="email" id="email" class="login-input" v-model="email">
           </div>
 
           <div>
@@ -20,7 +20,7 @@
           <div>
               <button>Login</button>
           </div>
-          <div>{{user}}</div>
+
       </form>
       </ion-content>
       </ion-page>
@@ -32,14 +32,14 @@ export default {
     name: 'login',
     data() {
         return {
-            username: '',
+            email: '',
             password:'',
         }
     },
     methods: {
         login(){
             const data = {
-            username:  this.username,
+            email:  this.email,
             password: this.password,
             }
             const user = axios.get('http://localhost:8091/home/{id}', data).then(res => {
@@ -55,7 +55,7 @@ export default {
 
 <style scoped>
 
-   .formLogin {
+   form.formLogin {
     display: table;
     margin-left: auto;
     margin-right: auto;
@@ -66,9 +66,8 @@ export default {
     color: #536974;
 }
 
-div {
+div.formLogin {
     display: table-row;
-    
 }
 
 label, input {
@@ -77,13 +76,12 @@ label, input {
     width: 100%;
     padding-top: 2%;
     margin-bottom: 4%;
-    margin-top:5% ;
+    margin-top:5%;
     font-size: 20px;
-    
 }
-label {
+/* label {
     padding-right: 10px;
-}
+} */
 
 button {
     border-radius:10px ;
