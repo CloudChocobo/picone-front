@@ -1,0 +1,19 @@
+{
+  "name": "Picone",
+  "version": "0.0.1",
+  "description": "Picone est une application ayant pour but de faciliter la communication des personnes aphasiques.",
+  "main": "index.js",
+  "authors": {
+    "name": "DvZ",
+    "email": "kevin.deveza@gmail.com"
+  },
+  "repository": "https://github.com/KevinDvZ/Picone-Front-End/Picone",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
