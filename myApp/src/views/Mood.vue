@@ -20,8 +20,8 @@
          <Basket>
             <Card
               v-for="(card, index) in basket"
-              :image="card.image" 
-              :description="card.description" 
+              :image="card.image"
+              :description="card.description"
               :key="index"
             />
           </Basket>
@@ -40,8 +40,10 @@ import CardMood from "@/components/CardMood.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, labelTest} from "@/data.ts";
+import Defilement from "@/plugins/defilement";
 export default {
   name: "Mood",
+  mixins: [Defilement],
   components: {
     IonPage,
     IonContent,
@@ -61,6 +63,7 @@ export default {
 		this.fetchTheCardMood("moods");
     // Pour remettre à zéro le "MoodState" et pouvoir en changer à chaque fois que l'on retourne sur la page "Mood".
     this.clearMood();
+
 		},
 
 		data: () => {
@@ -109,7 +112,7 @@ export default {
 				this.cardJSON = [];
 				// console.log(label);
 				const url = this.rootAPI + "moods";
-			
+
 				console.log("url :>> ", url);
 
 				fetch(url, {
@@ -120,7 +123,7 @@ export default {
 						return response.json();
 					})
 					.then((cards) => {
-						console.log("Coucou les ptits amis");
+
 						const newCards = cards.map((c) => {
 							c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
 							return c;
@@ -134,9 +137,9 @@ export default {
 			},
 
   },
-   computed: { 
-     basket() { 
-       return this.$store.state.basket 
+   computed: {
+     basket() {
+       return this.$store.state.basket
        },
       mood() {
         return this.$store.getters.mood
@@ -179,5 +182,14 @@ export default {
 footer{ 
   display: none;
   }
+
+/* CSS pour le défilement */
+>>> .selected img {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 0px 7px #202abb9d;
+  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
+  border-radius: 55px;
+}
 
 </style>

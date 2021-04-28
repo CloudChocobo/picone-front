@@ -1,8 +1,9 @@
 <template>
 	<ion-page>
 		<ion-content :fullscreen="true">
-			<PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
-				<main>
+			<PageWithSecondNavBar
+          @cancelLastAction="removeItemFromDialogBox" @clicked="clearInterval">
+        <main>
 					<div class="text">Cliquez sur un icône:</div>
 					<ImageGrid>
 						<Card
@@ -10,9 +11,13 @@
 							:image="card[imageProperty]"
 							:description="card.word"
 							:key="index"
+              :indexDef = 0
+              :class="classObjectDef"
 							@click="doAction(card)"
 						/>
+            <grid-loader :class="loadingGrid" :loading="loading" :color="color" :size="size"></grid-loader>
 					</ImageGrid>
+
 				</main>
 
 				<footer>
@@ -33,6 +38,9 @@
 </template>
 
 <script>
+
+/*eslint-disable*/
+
 	import {IonPage, IonContent} from "@ionic/vue";
 	import {useRouter} from "vue-router";
 	import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
@@ -40,93 +48,111 @@
 	import Basket from "@/components/Basket.vue";
 	import ImageGrid from "@/components/ImageGrid.vue";
 	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
-	export default {
-		name: "SentenceBuild",
-		components: {
-			IonPage,
-			IonContent,
-			PageWithSecondNavBar,
-			Card,
-			Basket,
-			ImageGrid,
-		},
-		props: [],
-		setup() {
-			const router = useRouter();
-			return {router};
-		},
+  import Defilement from '@/plugins/defilement.js';
+  import GridLoader from 'vue-spinner/src/GridLoader.vue';
 
-		mounted() {
-			// quand la page démarre:
-			this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
-		},
 
-		data: () => {
-			return {
-				//On Heroku => "img_url" / On Localhost => "imgUrl"
-				imageProperty: "imgUrl",
-				// imageProperty: "img_url",
-				rootIMG: rootHebergementImage,
-				rootAPI: rootAPI,
-				relation: relationTest,
-				cardJSON: [],
-				currentIndex: 0,
-				currentId: "",
-				discussion: "basket",
-			};
-		},
 
-		methods: {
-			addItemToDialogBox(card) {
-				this.$store.commit("addElementToBasket", card);
-			},
-			removeItemFromDialogBox() {
-				this.$store.commit("removeElementFromBasket");
-			},
 
-			doAction(card) {
-				this.addItemToDialogBox(card);
-				this.fetchTheCardsAndStoreThem(card.id, card.word);
-				// TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
-			},
-			fetchTheCardsAndStoreThem(id, relation) {
-				this.cardJSON = [];
-				console.log(relation);
-				const url = this.rootAPI + "mots/" + id + "/" + this.relation;
-				//TODO , changer this.relation par la relation réélle de l'api
-				console.log("url :>> ", url);
-				fetch(url, {
-					method: "GET",
-				})
-					.then((response) => {
-						console.log("response :>> ", response);
-						return response.json();
-					})
-					.then((cards) => {
-						console.log("Coucou les ptits amis");
-						const newCards = cards.map((c) => {
-							c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
-							return c;
-						});
-						this.cardJSON = newCards;
-						console.log("cards :>> ", cards);
-					})
-					.catch((err) => {
-						console.error(err);
-					});
-			},
-		},
+export default {
+    name: "SentenceBuild",
+    mixins: [Defilement],
+    components: {
+      IonPage,
+      IonContent,
+      PageWithSecondNavBar,
+      Card,
+      Basket,
+      ImageGrid,
+      GridLoader
+      },
 
-		computed: {
-			log() {
-				return console.log(this.data.cardJSON);
-			},
-			basket() {
-				return this.$store.state.basket;
-			},
-		},
+    props: {
+      loadingGrid: {
+        type: String,
+        default: "loadingGrid"
+      },
+    },
+
+    setup() {
+      const router = useRouter();
+      return {router};
+    },
+
+
+   async mounted() {
+      await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
+    },
+
+    data: () => {
+      return {
+        imageProperty: "imgUrl",
+        rootIMG: rootHebergementImage,
+        rootAPI: rootAPI,
+        relation: relationTest,
+        cardJSON: [],
+        currentIndex: 0,
+        currentId: "",
+        discussion: "basket",
+        color: '#00b9ff',
+        loading: true,
+        size: "40px"
+      };
+    },
+
+
+    methods: {
+      addItemToDialogBox(card) {
+        this.$store.commit("addElementToBasket", card);
+      },
+      removeItemFromDialogBox() {
+        this.$store.commit("removeElementFromBasket");
+      },
+      doAction(card) {
+        this.addItemToDialogBox(card);
+        this.switchDef();
+        this.fetchTheCardsAndStoreThem(card.id, card.word);
+        this.loading = !this.loading
+        // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
+      },
+      fetchTheCardsAndStoreThem(id, relation) {
+        this.cardJSON = [];
+        const url = this.rootAPI + "mots/" + id + "/" + this.relation;
+        //TODO , changer this.relation par la relation réélle de l'api
+        fetch(url, {
+          method: "GET",
+        })
+            .then((response) => {
+              return response.json();
+            })
+            .then((cards) => {
+              const newCards = cards.map((c) => {
+                c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
+                return c;
+              });
+              this.cardJSON = newCards;
+              })
+            .then(() => {
+              this.loading = !this.loading;
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+      },
+    },
+
+  computed: {
+        basket() {
+          return this.$store.state.basket;
+        },
+
+      },
+
 	};
+
 </script>
+
+
 
 <style scoped>
 	.text {
@@ -157,4 +183,23 @@
 		margin-top: 1%;
 		width: 17%;
 	}
+
+
+  >>> .selected img {
+    transform: scale(1.2);
+    box-shadow: 0px 0px 0px 7px #202abb9d;
+    -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+    -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
+    border-radius: 55px;
+  }
+
+  .v-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+  }
 </style>

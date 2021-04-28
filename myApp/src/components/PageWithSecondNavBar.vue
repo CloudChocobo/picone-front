@@ -18,6 +18,7 @@
 <script>
 import SecondNavBar from "@/components/SecondNavBar.vue";
 
+
 export default {
   name: "PageWithSecondNavBar",
   props: [],
@@ -33,5 +34,8 @@ export default {
   height: 100px;
   width: 100%;
   background-color: #8badbe;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 </style>

@@ -43,6 +43,6 @@ img {
   width: 150px;
   height: 150px;
   border-radius: 55px;
-  object-fit:cover;
+/* object-fit:cover; */
 }
 </style>

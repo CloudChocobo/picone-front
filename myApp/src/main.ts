@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 import router from './router';
 
+
 import { IonicVue } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -32,13 +33,20 @@ const store = createStore({
     return { 
       //store values :
       basket: [],
+      stateDefilement : {
+        currentDefilement: 0,
+        enabledDefilement: true,
+        activeDefilement: false,
+        activeKey: 'Space',
+        speedDefilement: 1000
+      },
       mood: null,
     }
   },
   mutations: {
   //we will use those functions to add or remove the card components
   // we limited the number of cards to 4 in order to have a short sentence for the time being. This can be changed at anytime.
-  //store values modifier functions :
+    //store values modifier functions :
     addElementToBasket(state: any, elementToAdd: any){
       if(state.basket.length <4){
         state.basket.push(elementToAdd);
@@ -50,7 +58,15 @@ const store = createStore({
       }
     },
     clearBasket(state: any){
-      state.basket = []   
+          state.basket = []
+    },
+    incrementCurrentDefilement(state: any){
+      state.stateDefilement.currentDefilement ++;
+      console.log(state.stateDefilement.currentDefilement)
+    },
+    setSpeed(state: any, amountOfSpeed: number){
+      amountOfSpeed === 1500 ?
+          state.stateDefilement.speedDefilement = 1500 : state.stateDefilement.speedDefilement += amountOfSpeed
     },
 
   //Mutation to put a mood card in the mood state.
@@ -58,10 +74,11 @@ const store = createStore({
       state.mood = moodToSet;
     },
 
+
   //Mutation to erase the current mood.
     clearMood(state: any){
       state.mood = null
-    }
+    },
 
   },
 
@@ -72,14 +89,16 @@ const store = createStore({
 
     mood (state: any) {
       return state.mood;
-    }
+    },
+
+
   }
 })
 
 const app = createApp(App)
-  .use(IonicVue)
-  .use(router)
-  .use(store);
+    .use(IonicVue)
+    .use(router)
+    .use(store);
   
 router.isReady().then(() => {
   app.mount('#app');
