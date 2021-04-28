@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5d7026ba-e2e4-4321-9e90-450c7b3d5a71" name="Default Changelist" comment="formulaire Debut" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="featureDefilement" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProjectId" id="1qFLVA6K9z6br97ups8yR3Yf7MQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="ts.external.directory.path" value="C:\Users\KéKé\Desktop\Picone\picone-front\myApp\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d7026ba-e2e4-4321-9e90-450c7b3d5a71" name="Default Changelist" comment="" />
+      <created>1616670415909</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616670415909</updated>
+      <workItem from="1616670418505" duration="5868000" />
+      <workItem from="1616806981026" duration="5102000" />
+      <workItem from="1616864342270" duration="1523000" />
+      <workItem from="1616886456222" duration="1550000" />
+      <workItem from="1617001661501" duration="17823000" />
+      <workItem from="1617049885809" duration="1523000" />
+      <workItem from="1617091637290" duration="3539000" />
+      <workItem from="1617192804520" duration="2237000" />
+      <workItem from="1617780007986" duration="10486000" />
+      <workItem from="1617866657708" duration="1220000" />
+      <workItem from="1619079143336" duration="8730000" />
+      <workItem from="1619339163002" duration="596000" />
+      <workItem from="1619593988926" duration="58000" />
+      <workItem from="1619616365068" duration="3622000" />
+    </task>
+    <task id="LOCAL-00001" summary="correctifs stabilités setitmeout">
+      <created>1616689507854</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616689507854</updated>
+    </task>
+    <task id="LOCAL-00002" summary="tests minimes">
+      <created>1616865543492</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616865543492</updated>
+    </task>
+    <task id="LOCAL-00003" summary="correctifs loading sprites + setInterval (a corriger encore)">
+      <created>1617031895761</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617031895762</updated>
+    </task>
+    <task id="LOCAL-00004" summary="correctifs loading sprites + setInterval (a corriger encore) 2">
+      <created>1617033632181</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617033632181</updated>
+    </task>
+    <task id="LOCAL-00005" summary="formulaire Debut">
+      <created>1617106815716</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617106815716</updated>
+    </task>
+    <task id="LOCAL-00006" summary="formulaire Debut">
+      <created>1619620112322</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619620112322</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="featureDefilement" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="correctifs stabilités setitmeout" />
+    <MESSAGE value="tests minimes" />
+    <MESSAGE value="correctifs loading sprites + setInterval (a corriger encore)" />
+    <MESSAGE value="correctifs loading sprites + setInterval (a corriger encore) 2" />
+    <MESSAGE value="formulaire Debut" />
+    <option name="LAST_COMMIT_MESSAGE" value="formulaire Debut" />
+  </component>
+</project>
