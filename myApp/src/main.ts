@@ -11,6 +11,7 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 import router from './router';
 
+
 import { IonicVue } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -50,6 +51,12 @@ const store = createStore({
       mood: null,
       patients: [{}],
       establishments: [{}],
+      uiParameters: [{
+        byDefault: true,
+        scrollingIsActive: false,
+        scrollingSpeed: 1000,
+        scrollingColor: "5fc7ff"
+      }],
     }
   },
   mutations: {
@@ -78,6 +85,10 @@ const store = createStore({
           state.stateDefilement.speedDefilement = 1500 : state.stateDefilement.speedDefilement += amountOfSpeed
     },
 
+    setUiParameters(state: any, uiParameters: any){
+      state.uiParameters = uiParameters;
+    },
+  //Mutation to put a mood card in the mood state.
 		setEstablishments(state, valeur) {
 			state.establishments = valeur;
 		},
@@ -85,7 +96,7 @@ const store = createStore({
     //Mutation to put a mood card in the mood state.
     setMoodState(state: any, moodToSet: any) {
       state.mood = moodToSet;
-      },
+    },
 
 
   //Mutation to erase the current mood.
@@ -109,6 +120,9 @@ const store = createStore({
     patients(state: any) {
         return state.patients;
       },
+    uiParameters(state: any) {
+      return state.uiParameters;
+    },
   }
 })
 const app = createApp(App)

@@ -1,4 +1,5 @@
 <template>
+
   <ion-menu
     side="start"
     menu-id="custom"
@@ -7,11 +8,11 @@
   >
     <ion-header>
       <ion-toolbar>
-        <BackButton></BackButton>
         <ion-title>Paramètres</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      
       <ion-list>
         <ButtonMenu route="/patients" label="Ajouter un patient"></ButtonMenu>
         <ButtonMenu
@@ -27,6 +28,7 @@
         </div>
           <ButtonMenu route="/about" label="À propos"></ButtonMenu>
       </ion-list>
+    <BackButton></BackButton>
     </ion-content>
   </ion-menu>
 
@@ -59,7 +61,7 @@ export default {
     IonTitle,
     IonToolbar,
     BackButton,
-    ButtonMenu,
+    ButtonMenu
   },
   methods: {
     openFirst() {

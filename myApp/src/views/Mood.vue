@@ -40,7 +40,7 @@ import CardMood from "@/components/CardMood.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGridMood from "@/components/ImageGridMood.vue";
 import { rootAPI, rootHebergementImage, labelTest } from "@/data.ts";
-import Defilement from "@/plugins/defilement";
+import Defilement from "@/mixins/defilement";
 export default {
   name: "Mood",
   mixins: [Defilement],
@@ -178,7 +178,7 @@ footer {
   .text {
     font-size: 3.5em;
   }
-  
+
   .grid {
     margin-top: 2.5em;
   }

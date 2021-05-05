@@ -42,102 +42,107 @@
 </template>
 
 <script>
+
 /*eslint-disable*/
 
-import { IonPage, IonContent } from "@ionic/vue";
-import { useRouter } from "vue-router";
-import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
-import Card from "@/components/Card.vue";
-import Basket from "@/components/Basket.vue";
-import ImageGrid from "@/components/ImageGrid.vue";
-import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
-import Defilement from "@/plugins/defilement.js";
-import GridLoader from "vue-spinner/src/GridLoader.vue";
+	import {IonPage, IonContent} from "@ionic/vue";
+	import {useRouter} from "vue-router";
+	import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
+	import Card from "@/components/Card.vue";
+	import Basket from "@/components/Basket.vue";
+	import ImageGrid from "@/components/ImageGrid.vue";
+	import {rootAPI, rootHebergementImage, relationTest} from "@/data.ts";
+  import Defilement from '@/mixins/defilement.js';
+  import GridLoader from 'vue-spinner/src/GridLoader.vue';
+
+
+
 
 export default {
-  name: "SentenceBuild",
-  mixins: [Defilement],
-  components: {
-    IonPage,
-    IonContent,
-    PageWithSecondNavBar,
-    Card,
-    Basket,
-    ImageGrid,
-    GridLoader,
-  },
+    name: "SentenceBuild",
+    mixins: [Defilement],
+    components: {
+      IonPage,
+      IonContent,
+      PageWithSecondNavBar,
+      Card,
+      Basket,
+      ImageGrid,
+      GridLoader
+      },
 
-  props: {
-    loadingGrid: {
-      type: String,
-      default: "loadingGrid",
+    props: {
+      loadingGrid: {
+        type: String,
+        default: "loadingGrid"
+      },
     },
-  },
 
-  setup() {
-    const router = useRouter();
-    return { router };
-  },
+    setup() {
+      const router = useRouter();
+      return {router};
+    },
 
   async mounted() {
     await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
   },
 
-  data: () => {
-    return {
-      imageProperty: "imgUrl",
-      rootIMG: rootHebergementImage,
-      rootAPI: rootAPI,
-      relation: relationTest,
-      cardJSON: [],
-      currentIndex: 0,
-      currentId: "",
-      discussion: "basket",
-      color: "#00b9ff",
-      loading: true,
-      size: "40px",
-    };
-  },
+    data: () => {
+      return {
+        imageProperty: "imgUrl",
+        rootIMG: rootHebergementImage,
+        rootAPI: rootAPI,
+        relation: relationTest,
+        cardJSON: [],
+        currentIndex: 0,
+        currentId: "",
+        discussion: "basket",
+        color: '#00b9ff',
+        loading: true,
+        size: "40px"
+      };
+    },
 
-  methods: {
-    addItemToDialogBox(card) {
-      this.$store.commit("addElementToBasket", card);
-    },
-    removeItemFromDialogBox() {
-      this.$store.commit("removeElementFromBasket");
-    },
-    doAction(card) {
-      this.addItemToDialogBox(card);
-      this.switchDef();
-      this.fetchTheCardsAndStoreThem(card.id, card.word);
-      this.loading = !this.loading;
-      // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
-    },
-    fetchTheCardsAndStoreThem(id, relation) {
-      this.cardJSON = [];
-      const url = this.rootAPI + "mots/" + id + "/" + this.relation;
-      //TODO , changer this.relation par la relation réélle de l'api
-      fetch(url, {
-        method: "GET",
-      })
-        .then((response) => {
-          return response.json();
+
+    methods: {
+      addItemToDialogBox(card) {
+        this.$store.commit("addElementToBasket", card);
+      },
+      removeItemFromDialogBox() {
+        this.$store.commit("removeElementFromBasket");
+      },
+      doAction(card) {
+        this.addItemToDialogBox(card);
+        this.switchDef();
+        this.fetchTheCardsAndStoreThem(card.id, card.word);
+        this.loading = !this.loading
+        // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
+      },
+      fetchTheCardsAndStoreThem(id, relation) {
+        this.cardJSON = [];
+        const url = this.rootAPI + "mots/" + id + "/" + this.relation;
+        //TODO , changer this.relation par la relation réélle de l'api
+        fetch(url, {
+          method: "GET",
         })
-        .then((cards) => {
-          const newCards = cards.map((c) => {
-            c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
-            return c;
-          });
-          this.cardJSON = newCards;
-        })
-        .then(() => {
-          this.loading = !this.loading;
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+            .then((response) => {
+              return response.json();
+            })
+            .then((cards) => {
+              const newCards = cards.map((c) => {
+                c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
+                return c;
+              });
+              this.cardJSON = newCards;
+              })
+            .then(() => {
+              this.loading = !this.loading;
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+      },
     },
-  },
 
   computed: {
     basket() {
