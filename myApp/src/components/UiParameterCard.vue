@@ -3,18 +3,36 @@
     <div class="info">
       <div class="text">
         <div class="id">Configuration {{ index + 1}}</div>
-        <div v-if="byDefault == true"> <button id="defaultSignal" ion-button color="secondary" outline>Par défaut</button></div>
+        <div v-if="byDefault === true"> <button id="defaultSignal" ion-button color="secondary" outline>Par défaut</button></div>
         <br>
-        <div v-if="scrollingIsActive == true">Défilement activé</div>
-        <div v-if="scrollingIsActive == false">Défilement désactivé</div>
+        <div v-if="scrollingIsActive === true">Défilement activé</div>
+        <div v-if="scrollingIsActive === false">Défilement désactivé</div>
         <div >Vitesse de défilement : {{ scrollingSpeed }} ms</div>
         <div class="couleurDef">Couleur du défilement :
           <div :style="cssVars"></div>
         </div>
       </div>
     </div>
-    <ion-button color="light" @click="modalOpen = true">Editer</ion-button>
-    <ModalUiParam v-if="modalOpen" v-model:isOpen="modalOpen" title="Configurer l'interface et les outils" :uiParam=uiParam></ModalUiParam>
+    <ion-button color="light" @click="modalOpen = true ; buttonPushed='edit'">Editer</ion-button>
+    <ModalUiParam
+        v-if="modalOpen && buttonPushed==='edit'"
+        v-model:isOpen="modalOpen"
+        title="Configurer l'interface et les outils"
+        :uiParam=uiParam
+        :index="index"
+        :buttonPushed="'edit'"></ModalUiParam>
+
+    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = false">Activer par défaut</ion-button>
+
+    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='delete'">Supprimer</ion-button>
+    <ModalUiParam
+        v-if="modalOpen && buttonPushed==='delete'"
+        v-model:isOpen="modalOpen"
+        title="Configurer l'interface et les outils"
+        :uiParam=uiParam
+        :index="index"
+        :buttonPushed="'delete'"></ModalUiParam>
+
   </div>
 </template>
 
@@ -24,7 +42,7 @@ import {IonButton} from "@ionic/vue";
 
 export default {
   name: "UiParameterCard",
-  props: ["index","id","byDefault", "scrollingSpeed", "scrollingColor","scrollingByDefault","establishment","scrollingIsActive","uiParam"],
+  props: ["index","id","byDefault", "scrollingSpeed", "scrollingColor","scrollingByDefault","scrollingIsActive","uiParam"],
   components: {
     ModalUiParam,
     IonButton,
@@ -35,6 +53,7 @@ export default {
     return {
       value: "valeur",
       modalOpen: false,
+      buttonPushed: ''
     };
   },
 

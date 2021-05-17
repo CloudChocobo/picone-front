@@ -13,6 +13,13 @@
         </ion-header>
 
         <ion-button color="medium" @click="modalOpen = true">Créer une nouvelle configuration</ion-button>
+        <ModalUiParam
+            v-if="modalOpen"
+            v-model:isOpen="modalOpen"
+            title="Configurer l'interface et les outils"
+            :uiParam={}
+            :buttonPushed="'new'"
+        ></ModalUiParam>
 
         <div class="grid">
           <UiParameterCard
@@ -28,15 +35,15 @@
           ></UiParameterCard>
         </div>
 
-        <ModalUiParameter v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter une configuration">
-        </ModalUiParameter>
+        <ModalUiParam v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter une configuration">
+        </ModalUiParam>
       </PageAdmin>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import ModalUiParameter from "@/components/ModalUiParam.vue";
+import ModalUiParam from "@/components/ModalUiParam.vue";
 import UiParameterCard from "@/components/UiParameterCard.vue";
 import BackButton from "@/components/BackButton.vue";
 import {IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonMenuButton, IonButtons, IonButton} from "@ionic/vue";
@@ -58,11 +65,12 @@ export default {
     IonMenuButton,
     BackButton,
     UiParameterCard,
-    ModalUiParameter
+    ModalUiParam
   },
   data: () => {
     return {
       rootAPI: rootAPI,
+      modalOpen: false,
     };
   },
   mounted() {
@@ -121,6 +129,7 @@ ion-buttons {
 ion-button {
   display: flex;
   width: 20%;
+  margin: 10px 0 2px 10px;
 }
 ion-button:hover {
   filter: brightness(1.2);
@@ -144,6 +153,7 @@ ion-button:active {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   width: 100%;
   gap: 10px;
+  margin: 1% 1% 5% 1%;
 }
 ion-page{
   z-index:0;
