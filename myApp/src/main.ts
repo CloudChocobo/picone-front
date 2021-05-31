@@ -1,3 +1,11 @@
+//dev team if you need more info contact them :
+//Aurelie Huber https://github.com/CloudChocobo
+//Kevin Deveza https://github.com/KevinDvZ
+//Noemie Bezzaz https://github.com/noemienb
+//Franck Isambert https://github.com/Kyf-Git
+//Marvin Silva https://github.com/Marvin-Silva
+
+
 import { createApp } from 'vue';
 import { createStore } from 'vuex';
 import App from './App.vue';
