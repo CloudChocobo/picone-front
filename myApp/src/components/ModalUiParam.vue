@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div class="background"></div>
-    <div class="box">
       <ion-card>
         <form v-if="buttonPushed === 'edit'" @submit.prevent="submit">
           <ion-card-content>
@@ -30,7 +29,7 @@
           >
         </form>
 
-        <form  v-if="buttonPushed == 'new'" @submit.prevent="submit">
+        <form class="modalNewUiParam" v-if="buttonPushed === 'new'" @submit.prevent="submit">
           <ion-card-content>
             <h1>Nouvelle configuration</h1>
             <ion-label lastName>Vitesse du défilement:</ion-label>
@@ -70,7 +69,6 @@
         </form>
       </ion-card>
     </div>
-  </div>
 </template>
 
 <script>
@@ -201,16 +199,17 @@ export default {
 <style scoped>
 .container {
   z-index: 2;
-  position: fixed;
+  position: absolute;
   width: 100%; /* % width page */
   height: 100%; /* % heigth page*/
   top: 0;
-  left: 10%;
+  left: 0%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .background {
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -219,22 +218,21 @@ export default {
   background-color: rgb(226, 224, 224);
   opacity: 0.8;
 }
-.box {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  height: 36%;
-}
+
 
 ion-card {
   background-color: #bdddec;
   border-radius: 10px;
   overflow: hidden;
-  width: 100%;
+  width: 30%;
   padding-bottom: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 3;
 }
 form {
   background-color: #bdddec;
+
 }
 ion-input {
   background-color: #f1faff;
@@ -277,6 +275,9 @@ button {
 }
 ion-select{
   background-color: #f1faff;
+}
+
+.modalNewUiParam {
 }
 
 
