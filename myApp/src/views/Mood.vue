@@ -7,8 +7,8 @@
           <ImageGrid>
             <CardMood
 							v-for="(card, index) in cardJSON"
-							:image="card[imageProperty]"
 							:description="card.word"
+							:image="card[imageProperty]"
 							:key="index"
 							@click="doAction(card)"
             />
@@ -149,6 +149,7 @@ export default {
 </script>
 
 <style scoped>
+
 .text {
   display: flex;
   font-size: 50px;

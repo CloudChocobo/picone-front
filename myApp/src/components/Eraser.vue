@@ -2,9 +2,11 @@
 <template>
   <div class="Eraser">
 
-      <img src="../assets/gomme.png" alt="Gomme" />
+      
 
-      <button @click="removeItemFromDialogBox(item.id)"></button>
+      <button @click="removeItemFromDialogBox(item.id)">
+        <img src="../assets/gomme.png" alt="Gomme" />
+      </button>
 
   </div>
 </template>
@@ -23,5 +25,8 @@ export default {
 
 <style scoped>
 
+button {
+  background-color: #8badbe;
+}
 
 </style>

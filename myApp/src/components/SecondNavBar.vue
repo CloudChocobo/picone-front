@@ -1,7 +1,7 @@
 <!-- navigation bar with the addition of the eraser-->
 <template>
   <div class="HorizontalBarV2">
-    <UserParameter></UserParameter>
+    <!-- <UserParameter></UserParameter> -->
     <BackButton></BackButton>
     <Eraser @click="cancelLastAction"></Eraser>
     <Defilement />
@@ -12,13 +12,13 @@
 <script>
 import BackButton from "@/components/BackButton.vue";
 import Eraser from "@/components/Eraser.vue";
-import UserParameter from "@/components/UserParameter.vue";
+// import UserParameter from "@/components/UserParameter.vue";
 import Defilement from "@/components/Defilement.vue";
 import MoodState from "@/components/MoodState.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "HorizontalBarV2",
-  components: { BackButton, Eraser, UserParameter, Defilement, MoodState },
+  components: { BackButton, Eraser, Defilement, MoodState },
 
 
   data: () => {
@@ -80,6 +80,10 @@ export default {
   margin-left: 3%;
   margin-top: 5px;
 }
+
+/* .Defilement {
+padding-left: 20%;
+} */
 
 .MoodState {
   width: 8%;

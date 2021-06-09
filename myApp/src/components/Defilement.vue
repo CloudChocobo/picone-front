@@ -67,25 +67,26 @@
 <style scoped>
 
 button {
-  color: white;
-  background: orange;
+  color: #8badbe;
+  background: white;
   border: none;
-  padding: 10px;
+  border-radius: 1em;
+  padding: 5%;
   font-weight: 300;
   font-size: 1.2em;
-  font-family: 'Lato';
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
 .defContainer {
   display: inline-flex;
-  flex-wrap: nowrap;
+  /* flex-wrap: nowrap; */
   align-items: center;
   margin-left: 30px;
 }
 
 .logo {
-  height: 60px;
+  height: 66%;
   margin: auto 10px auto 10px ;
 }
 

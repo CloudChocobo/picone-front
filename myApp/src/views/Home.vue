@@ -132,6 +132,7 @@ export default {
 </script>
 
 <style scoped>
+
 .container {
   font-size: 45px;
   color: #536974;
