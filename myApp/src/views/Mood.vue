@@ -7,8 +7,8 @@
           <ImageGrid>
             <CardMood
 							v-for="(card, index) in cardJSON"
-							:description="card.word"
 							:image="card[imageProperty]"
+							:description="card.word"
 							:key="index"
 							@click="doAction(card)"
             />

@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <PageWithFirstNavBar>
+      <PageWithHomeNavBar>
         <div class="container">
 
           <!-- Désactivation temporaire - icone de TopBar du défilement / pour Kévin et Marvin à faire -->
@@ -32,7 +32,7 @@
       <!-- <img :src="require(`${niveaubonus}${choice.image}`)" alt="" />    -->
         <!-- <img :src="require(`@/assets/${choice.image}`)" alt="" /> -->
         </div>
-      </PageWithFirstNavBar>
+      </PageWithHomeNavBar>
     </ion-content>
   </ion-page>
 </template>
@@ -40,7 +40,7 @@
 <script>
 import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
-import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
+import PageWithHomeNavBar from "@/components/PageWithHomeNavBar.vue";
 
 export default {
   name: "Home",
@@ -49,7 +49,7 @@ export default {
   components: {
     IonPage,
     IonContent,
-    PageWithFirstNavBar,
+    PageWithHomeNavBar,
   },
 
   data() {
@@ -133,6 +133,8 @@ export default {
 
 <style scoped>
 
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
 .container {
   font-size: 45px;
   color: #536974;
@@ -159,8 +161,11 @@ div#firstIcones img {
 }
 
 p {
+  font-family: 'Fredoka One', cursive;
+  color: #6593aa;
+  font-size: 1.3em;
   position: relative;
-  top: -40px;
+  top: -30px;
 }
 
 .icone {

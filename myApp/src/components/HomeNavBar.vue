@@ -43,7 +43,7 @@ export default {
   margin-left: 3%;
   margin-top: 1%;
   margin-bottom: 1%;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 </style>
