@@ -1,8 +1,8 @@
 <!-- dialogue box to screen selected cards-->
 <template>
-  <div class="Discussion">
+  <div class="discussion">
     <div class="text">
-      <div class="Selection">
+      <div class="selection">
         <slot></slot>
       </div>
       <!-- class=end means end of the sentence-->
@@ -33,17 +33,17 @@ export default {
 </script>
 
  <style scoped>
-.Discussion {
-  width: 90%;
+.discussion {
+  width: 100%;
   height: 220px;
   background-color: #ffffff;
   border: 10px solid #8badbe;
   border-radius: 15px;
-  position:absolute;
+  /* position:absolute;
   bottom: 0;
-  margin-bottom: 5px;
+  margin-bottom: 5px; */
 }
-.Selection {
+.selection {
   flex:1 0 auto;
 }
 

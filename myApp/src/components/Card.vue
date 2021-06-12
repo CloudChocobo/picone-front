@@ -29,10 +29,15 @@ export default {
 </script>
 
 <style scoped>
+
+/* /////////////////////////::  PC ::////////////////////////////////////////// */
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+
 .card {
-  font-size: 23px;
-  font-weight: bold;
-  color: #536974;
+  font-family: "Fredoka One", cursive;
+  color: #518097;
+  font-size: 1.8em;
   text-align: center;
   cursor: pointer;
 }
@@ -40,9 +45,10 @@ export default {
   margin-top:-5px;
 }
 img {
-  width: 150px;
-  height: 150px;
-  border-radius: 55px;
+  /* width: 80%; */
+  /* width: 150px;
+  height: 150px; */
+  border-radius: 5%;
 /* object-fit:cover; */
 }
 </style>

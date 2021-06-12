@@ -5,7 +5,8 @@ import {RouteRecordRaw} from "vue-router";
 import Home from "@/views/Home.vue";
 import AdminHome from "@/views/AdminHome.vue";
 // import Recap from "@/views/Recap.vue";
-//import RecapDiscussion from "@/views/RecapDiscussion.vue";
+import StartTalking from "@/views/StartTalking.vue";
+import RecapDiscussion from "@/views/RecapDiscussion.vue";
 import SentenceBuild from "@/views/SentenceBuild.vue";
 import Patients from "@/views/Patients.vue";
 import Mood from "@/views/Mood.vue";
@@ -34,47 +35,42 @@ const routes: Array<RouteRecordRaw> = [
 		path: "/Login",
 		component: Login,
 	},
-	// {
-	//   name: "ModalTest",
-	//   path: "/modaltest",
-	//   component: ModalTest,
-	// },
+	
 	{
 		name: "AdminHome",
 		path: "/adminHome",
 		component: AdminHome,
 	},
 	{
+		name: "Patients",
+		path: "/patients",
+		component: Patients,
+	},
+	{
 		name: "Establishment",
 		path: "/establishment",
 		component: Establishment,
 	},
-
-	//  {
-	//   name: "Noemie",
-	//   path: "/noemie",
-	//   component: Noemie,
-	// },
-	// {
-	// 	name: "Food",
-	// 	path: "/food",
-	// 	component: Food,
-	// },
+	{
+		name: "StartTalking",
+		path: "/startTalking",
+		component: StartTalking,
+	},
 	{
 		name: "SentenceBuild",
 		path: "/build",
 		component: SentenceBuild,
 	},
-			{
+	{
 		name: "Mood",
 		path: "/mood",
 		component: Mood,
 	},
-		{
-		name: "Patients",
-		path: "/patients",
-		component: Patients,
-		}
+	{
+		name: "RecapDiscussion",
+		path: "/recap",
+		component: RecapDiscussion,
+	}
 ];
 
 	// {
@@ -86,11 +82,6 @@ const routes: Array<RouteRecordRaw> = [
 	//   name: "Interlocutor",
 	//   path: "/interlocutor",
 	//   component: Interlocutor,
-	// },
-	// {
-	// 	name: "StartTalking",
-	// 	path: "/startTalking",
-	// 	component: StartTalking,
 	// },
 	//    {
 	//   name: "Fruits",
@@ -154,11 +145,6 @@ const routes: Array<RouteRecordRaw> = [
 	//   component: Objects,
 	// },
 
-	//              {
-	//   name: "Recap",
-	//   path: "/recap",
-	//   component: Recap,
-	// },
 
 
 const router = createRouter({

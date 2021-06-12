@@ -3,8 +3,8 @@
     <ion-content :fullscreen="true">
       <PageWithFirstNavBar>
         <main>
-          <div class="text">Comment vous sentez vous?</div>
-          <ImageGrid>
+          <div class="text">Comment vous sentez vous ?</div>
+          <ImageGrid class="grid">
             <CardMood
 							v-for="(card, index) in cardJSON"
 							:image="card[imageProperty]"
@@ -39,7 +39,7 @@ import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import CardMood from "@/components/CardMood.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
-	import {rootAPI, rootHebergementImage, labelTest} from "@/data.ts";
+import {rootAPI, rootHebergementImage, labelTest} from "@/data.ts";
 import Defilement from "@/plugins/defilement";
 export default {
   name: "Mood",
@@ -98,7 +98,8 @@ export default {
     },
 
     doAction(card){
-      this.$router.push('/build');
+      // this.$router.push('/build');
+      this.$router.push('/startTalking');
       this.displayMoodOnDiscussion(card);
       //this.fetchTheCardMood(card.id, card.word);
       // if(card.redirectsTo){
@@ -150,47 +151,53 @@ export default {
 
 <style scoped>
 
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+
 .text {
-  display: flex;
-  font-size: 50px;
-  margin-left: 17%;
-  color: #536974;
-  position: relative;
+  /* font-size: 50px;
+  color: #536974; */
+  font-family: "Fredoka One", cursive;
+  color: #6593aa;
+  font-size: 2.5em;
   text-align: center;
+  margin-top: 0.3em;
 }
 
-.footer {
-  margin-left: 10%;
+.grid {
+  justify-content: center; /* For horizontal alignment */
+  margin-top: 1.5em;
 }
 
-.rectangle_discussion {
+/* .rectangle_discussion {
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 2%;
-}
+} */
 
-.invisibleBlockAlignment {
+/* .invisibleBlockAlignment {
   display: inline-block;
   width: 2%;
-}
+} */
 
-.Discussion img {
+/* .Discussion img {
   margin-top: 1%;
   width: 17%;
-}
+} */
 
 /* we chose not to show the dialog on this screen. It can be added by changing the display*/
 footer{ 
+  /* margin-left: 10%; */
   display: none;
   }
 
 /* CSS pour le défilement */
 >>> .selected img {
-  transform: scale(1.2);
+  transform: scale(1.03);
   box-shadow: 0px 0px 0px 7px #202abb9d;
   -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
   -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
-  border-radius: 55px;
-}
+  /* border-radius: 55px; */
+  border-radius: 30%;
+  }
 
 </style>

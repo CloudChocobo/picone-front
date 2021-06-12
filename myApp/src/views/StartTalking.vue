@@ -21,8 +21,8 @@
 				</main>
 
 				<footer>
-					<!-- <div class="rectangle_discussion"> -->
-					<Basket class="discussion">
+					<div class="rectangle_discussion">
+					<Basket class="centeringClass">
 						<Card
 							v-for="(card, index) in basket"
 							:image="card[imageProperty]"
@@ -30,7 +30,7 @@
 							:key="index"
 						/>
 					</Basket>
-					<!-- </div> -->
+					</div>
 				</footer>
 			</PageWithSecondNavBar>
 		</ion-content>
@@ -55,7 +55,7 @@
 
 
 export default {
-    name: "SentenceBuild",
+    name: "StartTalking",
     mixins: [Defilement],
     components: {
       IonPage,
@@ -81,7 +81,7 @@ export default {
 
 
    async mounted() {
-      await this.fetchTheCardsAndStoreThem("58", "besoins_physiologiques");
+      await this.fetchTheCardsAndStoreThem("57");
     },
 
     data: () => {
@@ -113,11 +113,12 @@ export default {
         this.switchDef();
         this.fetchTheCardsAndStoreThem(card.id, card.word);
         this.loading = !this.loading
+        this.$router.push('/build');
         // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
       },
-      fetchTheCardsAndStoreThem(id, relation) {
+      fetchTheCardsAndStoreThem(id) {
         this.cardJSON = [];
-        const url = this.rootAPI + "mots/" + id + "/" + this.relation;
+        const url = this.rootAPI + "mots/" + id + "/affiche";
         //TODO , changer this.relation par la relation réélle de l'api
         fetch(url, {
           method: "GET",
@@ -171,19 +172,26 @@ export default {
   margin-top: 2em;
   }
 
-  .discussion {
-    /* display: none; */
-  }
+	/* .footer {
+		margin-left: 10%;
+	} */
 
-	footer {
-
+	.rectangle_discussion {
+    /* position: relative; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
 	}
 
-	/* .rectangle_discussion {
-		margin-left: 5%;
-		margin-right: 5%;
-		margin-top: 2%;
-	} */
+  .centeringClass { 
+    /* position: absolute; */
+    margin: auto;
+    width: 80%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
 
 	/* .invisibleBlockAlignment {
 		display: inline-block;
@@ -201,7 +209,8 @@ export default {
   box-shadow: 0px 0px 0px 7px #202abb9d;
   -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
   -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
-  border-radius: 55px;
+  /* border-radius: 55px; */
+    border-radius: 30%;
   }
 
   .v-spinner {
@@ -213,5 +222,4 @@ export default {
     width: 100px;
     height: 100px;
   }
-
 </style>

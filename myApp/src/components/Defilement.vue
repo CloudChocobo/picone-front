@@ -1,8 +1,8 @@
 <template>
 	<div class="defContainer">
     <img class="logo" @click="changeSpeed(slower)" src="../assets/vitesseTortue.png" alt="slower" />
-    <button @click="changeSpeed(normal)">Normal</button>
-    <img class="logo" @click="changeSpeed(faster)" src="../assets/vitesseLapin.png" alt="slower" />
+    <button class="normalBtn" @click="changeSpeed(normal)">Normal</button>
+    <img class="logo" @click="changeSpeed(faster)" src="../assets/vitesseLapin.png" alt="faster" />
   </div>
 </template>
 
@@ -66,15 +66,15 @@
 
 <style scoped>
 
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+
 button {
   color: #8badbe;
   background: white;
-  border: none;
   border-radius: 1em;
-  padding: 5%;
-  font-weight: 300;
+  padding: 2%;
   font-size: 1.2em;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Fredoka One", cursive;
 
 }
 
@@ -82,19 +82,25 @@ button {
   display: inline-flex;
   /* flex-wrap: nowrap; */
   align-items: center;
-  margin-left: 30px;
+  /* margin-left: 30px; */
 }
 
 .logo {
-  height: 66%;
-  margin: auto 10px auto 10px ;
+  width: 12%;
+  /* height: 50%; */
+  margin-right: 1em;
+}
+
+.normalBtn {
+    margin-right: 1em;
 }
 
 >>> .selected {
   box-shadow: 0px 0px 0px 7px #202abb9d;
   -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
   -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
+    border-radius: 5%;
 }
 </style>
 

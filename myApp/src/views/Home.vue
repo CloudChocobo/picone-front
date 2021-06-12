@@ -3,7 +3,6 @@
     <ion-content :fullscreen="true">
       <PageWithHomeNavBar>
         <div class="container">
-
           <!-- Désactivation temporaire - icone de TopBar du défilement / pour Kévin et Marvin à faire -->
 
           <!-- <div
@@ -17,20 +16,18 @@
           </div> -->
           <p>PICONE</p>
         </div>
-        <!-- div "invisibleBlockAlignment" vide servant simplement au placement de la classe "icone" (créee une marge)pour la mise en page des images  -->
-        <div class="invisibleBlockAlignment"></div>
-        <div
-          class="icone">
-          <img src= "@/assets/Conversation.png" @click="() => router.push('/Mood')"/>
-          <img src= "@/assets/boutonMenu.png" @click="() => router.push('/adminHome')"/>
-<!--           
+
+        <div class="icone">
+          <img src="@/assets/Conversation.png" @click="() => router.push('/Mood')"/>
+          <img src="@/assets/boutonMenu.png" @click="() => router.push('/adminHome')"/>
+          <!--           
           v-for="(choice, index) in choices"
           :key="index"
           :class="{ selected: currentId === choice.id }"
         > -->
 
-      <!-- <img :src="require(`${niveaubonus}${choice.image}`)" alt="" />    -->
-        <!-- <img :src="require(`@/assets/${choice.image}`)" alt="" /> -->
+          <!-- <img :src="require(`${niveaubonus}${choice.image}`)" alt="" />    -->
+          <!-- <img :src="require(`@/assets/${choice.image}`)" alt="" /> -->
         </div>
       </PageWithHomeNavBar>
     </ion-content>
@@ -54,14 +51,13 @@ export default {
 
   data() {
     return {
-
-// Désactivation temporaire - icone de TopBar du défilement
+      // Désactivation temporaire - icone de TopBar du défilement
 
       // currentIndex: 0,
       // currentId: "",
 
-// Désactivation temporaire - icone de TopBar du défilement
-      
+      // Désactivation temporaire - icone de TopBar du défilement
+
       // items: [
       //   {
       //     image: "IconeMenu.png",
@@ -86,8 +82,7 @@ export default {
     };
   },
   methods: {
-
-// Désactivation temporaire - icone de TopBar du défilement
+    // Désactivation temporaire - icone de TopBar du défilement
 
     // startLoop() {
     //   const selectables = this.items.concat(this.choices);
@@ -122,8 +117,7 @@ export default {
   },
 
   mounted() {
-
-// Désactivation temporaire - icone de TopBar du défilement
+    // Désactivation temporaire - icone de TopBar du défilement
 
     // this.startLoop();
     this.startEventListener();
@@ -132,8 +126,7 @@ export default {
 </script>
 
 <style scoped>
-
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 
 .container {
   font-size: 45px;
@@ -141,42 +134,39 @@ export default {
   text-align: center;
 }
 
-.invisibleBlockAlignment {
-  display: inline-block;
-  width: 35%;
-}
-
-div#firstIcones img {
+/* div#firstIcones img {
   width: 7%;
   border-radius: 33%;
-}
+} */
 
-.iconesInTopBar {
+/* .iconesInTopBar {
   position: relative;
   margin: 0px;
   padding: 0px;
   top: -80px;
   left: -447px;
   display: inline;
-}
+} */
 
 p {
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
   color: #6593aa;
   font-size: 1.3em;
   position: relative;
+  text-align: center;
   top: -30px;
 }
 
 .icone {
-  display: inline;
-  position: relative;
-  top: -50px;
+  display: flex;
+  justify-content: center; /* For horizontal alignment */
+  align-items: center; /* For vertical alignment */
 }
 
 img {
   max-width: 15%;
-  margin-right: 2%;
+  margin-right: 1%;
+  margin-left: 1%;
   border-radius: 55px;
 }
 
@@ -187,10 +177,9 @@ img :hover {
 }
 
 .selected img {
-  transform: scale(1.2);
+  transform: scale(1.05);
   border: 10px solid #202abb9d;
 }
-
 </style>
 
 

@@ -4,7 +4,7 @@
     <!-- <UserParameter></UserParameter> -->
     <BackButton></BackButton>
     <Eraser @click="cancelLastAction"></Eraser>
-    <Defilement />
+    <Defilement/>
     <MoodState/>
   </div>
 </template>
@@ -45,17 +45,27 @@ export default {
 
 <style scoped>
 .HorizontalBarV2 {
+  /* height: 90px; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8badbe;
+  align-content: space-between;
+}
+
+/* .HorizontalBarV2 {
   height: 90px;
   width: 100%;
   display: flex;
   background-color: #8badbe;
-}
+} */
 
-.UserParameter {
+/* .UserParameter {
   width: 8%;
   margin-left: 1%;
   margin-top: 5px;
-}
+} */
 
 /* .UserParameter :hover {
   transform: scale(1.2);
@@ -71,14 +81,14 @@ export default {
 
 .BackButton {
   width: 8%;
-  margin-left: 3%;
-  margin-top: 2%;
+  /* margin-left: 3%; */
+  /* margin-top: 2%; */
 }
 
 .Eraser {
-  width: 8%;
-  margin-left: 3%;
-  margin-top: 5px;
+  width: 5%;
+  /* margin-left: 3%; */
+  /* margin-top: 5px; */
 }
 
 /* .Defilement {
@@ -86,9 +96,9 @@ padding-left: 20%;
 } */
 
 .MoodState {
-  width: 8%;
-  margin-left: 59%;
-  margin-top: 5px;
+  width: 6%;
+  /* margin-right: 1%; */
+  /* margin-top: 5px; */
 }
 
 </style>

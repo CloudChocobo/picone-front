@@ -32,15 +32,17 @@ export default {
 /* .rectangle_discussion .Discussion{
   grid-template-rows: fit-content(40%);
 } */
-.Discussion {
+
+/* .Discussion {
   margin-left: 50px;
-}
+} */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 150px);
   /*margin-top: 3%; peut-etre c est inutile*/
-   gap: 15px;
-    /* grid-template-rows: repeat(2, 1fr); */
+  gap: 15px;
+  /* grid-template-rows: repeat(2, 1fr); */
   /* position: absolute; */
   /* grid-auto-rows: auto; */
   /* width: auto; */

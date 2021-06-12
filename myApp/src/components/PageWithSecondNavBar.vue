@@ -30,12 +30,12 @@ export default {
 </script>
 
 <style scoped>
-.header {
+/* .header {
   height: 100px;
   width: 100%;
   background-color: #8badbe;
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-}
+} */
 </style>
