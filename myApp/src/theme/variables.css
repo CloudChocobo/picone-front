@@ -2,6 +2,11 @@
 http://ionicframework.com/docs/theming/ */
         /** Ionic CSS Variables **/
         
+        @font-face {
+            font-family: AppFont;
+            src: url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+            }
+
          :root {
             --ion-button: #8BADBE;
             --ion-background-color: #F1FAFF;

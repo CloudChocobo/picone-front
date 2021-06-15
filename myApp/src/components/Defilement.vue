@@ -1,8 +1,8 @@
 <template>
 	<div class="defContainer">
-    <img class="logo" @click="changeSpeed(slower)" src="../assets/vitesseTortue.png" alt="slower" />
+    <img class="logo" id="turtle" @click="changeSpeed(slower)" src="../assets/vitesseTortue.png" alt="slower" />
     <button class="normalBtn" @click="changeSpeed(normal)">Normal</button>
-    <img class="logo" @click="changeSpeed(faster)" src="../assets/vitesseLapin.png" alt="faster" />
+    <img class="logo" id="rabbit" @click="changeSpeed(faster)" src="../assets/vitesseLapin.png" alt="faster" />
   </div>
 </template>
 
@@ -66,41 +66,42 @@
 
 <style scoped>
 
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
-
 button {
   color: #8badbe;
   background: white;
-  border-radius: 1em;
+  border-radius: 0.5em;
   padding: 2%;
   font-size: 1.2em;
   font-family: "Fredoka One", cursive;
-
 }
 
 .defContainer {
   display: inline-flex;
-  /* flex-wrap: nowrap; */
   align-items: center;
-  /* margin-left: 30px; */
 }
 
 .logo {
-  width: 12%;
-  /* height: 50%; */
+  width: 5em;
   margin-right: 1em;
 }
 
+#turtle {
+  width: 6em;
+}
+
+#rabbit {
+  width: 4.5em;
+}
+
 .normalBtn {
-    margin-right: 1em;
+  margin-right: 1em;
 }
 
 >>> .selected {
   box-shadow: 0px 0px 0px 7px #202abb9d;
   -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
   -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
-  /* transform: scale(1.2); */
-    border-radius: 5%;
+  border-radius: 5%;
 }
 </style>
 

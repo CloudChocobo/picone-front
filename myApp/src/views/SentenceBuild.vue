@@ -22,7 +22,7 @@
 
 				<footer>
 					<!-- <div class="rectangle_discussion"> -->
-					<Basket class="discussion">
+					<Basket class="centeringClass">
 						<Card
 							v-for="(card, index) in basket"
 							:image="card[imageProperty]"
@@ -156,53 +156,30 @@ export default {
 
 <style scoped>
 
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
-
 	.text {
   font-family: "Fredoka One", cursive;
   color: #6593aa;
   font-size: 2.5em;
   text-align: center;
-  margin-top: 0.3em;
+  margin-top: 0.25em;
 	}
 
   .grid {
   justify-content: center; /* For horizontal alignment */
-  margin-top: 2em;
+  margin-top: 1em;
+  /* /////////////////////////::  PC ::////////////////////////////////////////// */
+  /* margin-left: 10%; */
   }
 
-  .discussion {
-    /* display: none; */
-  }
-
-	footer {
-
-	}
-
-	/* .rectangle_discussion {
-		margin-left: 5%;
-		margin-right: 5%;
-		margin-top: 2%;
-	} */
-
-	/* .invisibleBlockAlignment {
-		display: inline-block;
-		width: 2%;
-	} */
-
-	/* .Discussion img {
-		margin-top: 1%;
-		width: 17%;
-	} */
-
-
->>> .selected img {
-  transform: scale(1.03);
-  box-shadow: 0px 0px 0px 7px #202abb9d;
-  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
-  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
-  border-radius: 55px;
-  }
+  .centeringClass { 
+    margin: 5.5em auto auto auto;
+    width: 80%;
+    /* position: absolute; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
 
   .v-spinner {
     position: absolute;
@@ -214,4 +191,12 @@ export default {
     height: 100px;
   }
 
+>>> .selected img {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 0px 7px #202abb9d;
+  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
+  border-radius: 30%;
+  }
+  
 </style>

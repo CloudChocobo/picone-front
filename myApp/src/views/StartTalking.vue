@@ -157,8 +157,6 @@ export default {
 
 <style scoped>
 
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
-
 	.text {
   font-family: "Fredoka One", cursive;
   color: #6593aa;
@@ -170,48 +168,19 @@ export default {
   .grid {
   justify-content: center; /* For horizontal alignment */
   margin-top: 2em;
+  /* /////////////////////////::  PC ::////////////////////////////////////////// */
+  margin-left: 31%;
   }
 
-	/* .footer {
-		margin-left: 10%;
-	} */
-
-	.rectangle_discussion {
-    /* position: relative; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-	}
-
   .centeringClass { 
-    /* position: absolute; */
-    margin: auto;
+    margin: 4em auto auto auto;
     width: 80%;
+    /* position: absolute; */
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
     /* justify-content: center; */
 }
-
-	/* .invisibleBlockAlignment {
-		display: inline-block;
-		width: 2%;
-	} */
-
-	/* .Discussion img {
-		margin-top: 1%;
-		width: 17%;
-	} */
-
-
->>> .selected img {
-  transform: scale(1.03);
-  box-shadow: 0px 0px 0px 7px #202abb9d;
-  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
-  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
-  /* border-radius: 55px; */
-    border-radius: 30%;
-  }
 
   .v-spinner {
     position: absolute;
@@ -222,4 +191,13 @@ export default {
     width: 100px;
     height: 100px;
   }
+
+>>> .selected img {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 0px 7px #202abb9d;
+  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
+  border-radius: 30%;
+  }
+  
 </style>

@@ -40,8 +40,9 @@ export default {
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 150px);
-  /*margin-top: 3%; peut-etre c est inutile*/
+  margin-top: 3%;
   gap: 15px;
+  justify-content: center; /* For horizontal alignment */
   /* grid-template-rows: repeat(2, 1fr); */
   /* position: absolute; */
   /* grid-auto-rows: auto; */

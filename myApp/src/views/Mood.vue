@@ -4,7 +4,7 @@
       <PageWithFirstNavBar>
         <main>
           <div class="text">Comment vous sentez vous ?</div>
-          <ImageGrid class="grid">
+          <ImageGridMood class="grid">
             <CardMood
 							v-for="(card, index) in cardJSON"
 							:image="card[imageProperty]"
@@ -12,7 +12,7 @@
 							:key="index"
 							@click="doAction(card)"
             />
-          </ImageGrid>
+          </ImageGridMood>
         </main>
 
         <footer>
@@ -38,7 +38,7 @@ import { useRouter } from "vue-router";
 import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import CardMood from "@/components/CardMood.vue";
 import Basket from "@/components/Basket.vue";
-import ImageGrid from "@/components/ImageGrid.vue";
+import ImageGridMood from "@/components/ImageGridMood.vue";
 import {rootAPI, rootHebergementImage, labelTest} from "@/data.ts";
 import Defilement from "@/plugins/defilement";
 export default {
@@ -50,7 +50,7 @@ export default {
     PageWithFirstNavBar,
     CardMood,
     Basket,
-    ImageGrid,
+    ImageGridMood,
   },
   props: [],
   setup() {
@@ -150,8 +150,6 @@ export default {
 </script>
 
 <style scoped>
-
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 
 .text {
   /* font-size: 50px;

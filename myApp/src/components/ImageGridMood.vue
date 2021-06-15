@@ -10,27 +10,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(8, 110px);
-  grid-template-rows: repeat(1, 110px);
-  grid-column-gap: 3%;
-  grid-row-gap: 10%;
-  
-  /* max-width: 100%;
-  max-height: 100%; */
-  /* margin-top: 4px; */
-  /* margin-left: 15%; */
-}
-
-  /* /////////////////////////:: A MEDIAQUERISER ::////////////////////////////////////////// */
-/* .grid { */
-  /* display: grid;
   grid-template-columns: repeat(4, 150px);
   grid-template-rows: repeat(2, 150px);
   grid-column-gap: 1%;
-  grid-row-gap: 10%; */
+  grid-row-gap: 10%;
   /* margin-top: 4px; */
   /* margin-left: 15%; */
-/* } */
+}
 
 /* /////////////////////////::  OLD ::////////////////////////////////////////// */
 

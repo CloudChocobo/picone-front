@@ -126,7 +126,6 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 
 .container {
   font-size: 45px;
@@ -158,6 +157,7 @@ p {
 }
 
 .icone {
+  margin-top: -1.5em;
   display: flex;
   justify-content: center; /* For horizontal alignment */
   align-items: center; /* For vertical alignment */
