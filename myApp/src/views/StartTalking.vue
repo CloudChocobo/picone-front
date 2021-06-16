@@ -82,6 +82,7 @@ export default {
 
    async mounted() {
       await this.fetchTheCardsAndStoreThem("57");
+      // this.clearBasket();
     },
 
     data: () => {
@@ -91,6 +92,7 @@ export default {
         rootAPI: rootAPI,
         relation: relationTest,
         cardJSON: [],
+        // basket: [],
         currentIndex: 0,
         currentId: "",
         discussion: "basket",
@@ -99,7 +101,6 @@ export default {
         size: "40px"
       };
     },
-
 
     methods: {
       addItemToDialogBox(card) {

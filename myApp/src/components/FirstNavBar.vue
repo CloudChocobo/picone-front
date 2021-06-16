@@ -32,17 +32,17 @@ export default {
   background-color: #8badbe;
 }
 
-.UserParameter {
+/* .UserParameter {
   width: 8%;
   margin-left: 1%;
   margin-top: 5px;
-}
+} */
 
 .BackButton {
-  width: 8%;
-  margin-left: 3%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  width: 7em;
+  margin-left: 5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   /* visibility: hidden; */
 }
 

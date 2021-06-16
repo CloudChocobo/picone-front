@@ -10,8 +10,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 110px);
-  grid-template-rows: repeat(2, 110px);
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(1, 150px);
   grid-column-gap: 1%;
   grid-row-gap: 10%;
   /* margin-top: 4px; */
@@ -28,18 +28,4 @@
   grid-row-gap: 45px;
 
 } */
-
-
-@media (min-width: 800px) and (max-width: 1100px) {
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 150px);
-  grid-template-rows: repeat(2, 150px);
-  grid-column-gap: 1%;
-  grid-row-gap: 5%;
-}
-
-}
-
 </style>

@@ -44,9 +44,7 @@ export default {
   margin-top:-5px;
 }
 img {
-  /* width: 150px;
-  height: 150px; */
-  border-radius: 5%;
-  /* object-fit:cover; */
+  max-width: 4em;
+  border-radius: 1em;
 }
 </style>

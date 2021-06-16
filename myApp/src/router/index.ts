@@ -4,9 +4,9 @@ import {RouteRecordRaw} from "vue-router";
 
 import Home from "@/views/Home.vue";
 import AdminHome from "@/views/AdminHome.vue";
-// import Recap from "@/views/Recap.vue";
+import Recap from "@/views/Recap.vue";
 import StartTalking from "@/views/StartTalking.vue";
-import RecapDiscussion from "@/views/RecapDiscussion.vue";
+// import RecapDiscussion from "@/views/RecapDiscussion.vue";
 import SentenceBuild from "@/views/SentenceBuild.vue";
 import Patients from "@/views/Patients.vue";
 import Mood from "@/views/Mood.vue";
@@ -66,10 +66,15 @@ const routes: Array<RouteRecordRaw> = [
 		path: "/mood",
 		component: Mood,
 	},
+	// {
+	// 	name: "RecapDiscussion",
+	// 	path: "/recap",
+	// 	component: RecapDiscussion,
+	// }
 	{
-		name: "RecapDiscussion",
+		name: "Recap",
 		path: "/recap",
-		component: RecapDiscussion,
+		component: Recap,
 	}
 ];
 

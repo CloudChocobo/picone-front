@@ -2,8 +2,10 @@
 <template>
   <div class="HorizontalBarV2">
     <!-- <UserParameter></UserParameter> -->
+    <div class="nav">
     <BackButton></BackButton>
     <Eraser @click="cancelLastAction"></Eraser>
+    </div>
     <Defilement class="centeringDefilement"/>
     <MoodState/>
   </div>
@@ -80,22 +82,32 @@ export default {
   border: 10px solid #202abb9d;
 } */
 
+.nav {
+  display: inline-flex;
+  align-items: center;
+}
+
 .BackButton {
-  width: 8%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  width: 7em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   /* margin-left: 3%; */
   /* margin-top: 2%; */
 }
 
 .Eraser {
-  width: 5%;
+  width: 4.5em;
   /* margin-left: 3%; */
   /* margin-top: 5px; */
 }
 
+.defContainer {
+  margin-left: -5em;
+  padding-right: 5em;
+}
+
 .MoodState {
-  width: 6%;
+  width: 5em;
   /* margin-right: 1%; */
   /* margin-top: 5px; */
 }

@@ -128,32 +128,11 @@ export default {
 <style scoped>
 
 .container {
-  font-size: 45px;
-  color: #536974;
-  text-align: center;
-}
-
-/* div#firstIcones img {
-  width: 7%;
-  border-radius: 33%;
-} */
-
-/* .iconesInTopBar {
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  top: -80px;
-  left: -447px;
-  display: inline;
-} */
-
-p {
   font-family: "Fredoka One", cursive;
   color: #6593aa;
-  font-size: 1.3em;
-  position: relative;
+  font-size: 4em;
   text-align: center;
-  top: -30px;
+  margin-top: -0.3em;
 }
 
 .icone {
@@ -164,22 +143,46 @@ p {
 }
 
 img {
-  max-width: 15%;
+  max-width: 10em;
   margin-right: 1%;
   margin-left: 1%;
-  border-radius: 55px;
+  border-radius: 2em;
 }
 
-img :hover {
+/* img :hover {
   transform: scale(1.2);
   border-radius: 55px;
   border: 10px solid #202abb9d;
-}
+} */
 
-.selected img {
+/* .selected img {
   transform: scale(1.05);
   border: 10px solid #202abb9d;
+} */
+
+@media (min-width: 800px) and (max-width: 1100px) {
+
+.container {
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
 }
+
+.icone {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 13em;
+  margin-right: 1%;
+  margin-left: 1%;
+  border-radius: 2em;
+}
+
+}
+
 </style>
 
 

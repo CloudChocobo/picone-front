@@ -81,9 +81,10 @@ const store = createStore({
 		setEstablishments(state, valeur) {
 			state.establishments = valeur;
 		},
-      //Mutation to put a mood card in the mood state.
-      setMoodState(state: any, moodToSet: any) {
-        state.mood = moodToSet;
+
+    //Mutation to put a mood card in the mood state.
+    setMoodState(state: any, moodToSet: any) {
+      state.mood = moodToSet;
       },
 
 

@@ -1,18 +1,17 @@
-<!-- horizontal navigation bar with only the back button and the user parameter icon for the speed--> 
 <template> 
-  <div class="FirstNavBar">
-    <!-- <UserParameter></UserParameter> -->
-    <BackButton></BackButton>
+  <div class="homeNavBar">
+    <div class="buttonOpacity">
+    <ExitButton></ExitButton>
+    </div>
   </div>
 </template>
 
 <script>
-import BackButton from "@/components/BackButton.vue";
-// import UserParameter from "@/components/UserParameter.vue";
+import ExitButton from "@/components/ExitButton.vue";
 import { useRouter } from "vue-router";
 export default {
-  name: "FirstNavBar",
-  components: { BackButton},
+  name: "HomeNavBar",
+  components: { ExitButton},
 
   setup() {
     const router = useRouter();
@@ -25,25 +24,24 @@ export default {
 
 <style scoped>
 
-.FirstNavBar {
+.homeNavBar {
   height: 7%;
   width: 100%;
   display: flex;
   background-color: #8badbe;
 }
 
-.UserParameter {
-  width: 8%;
-  margin-left: 1%;
-  margin-top: 5px;
+.buttonOpacity{
+  opacity: 0.80;
 }
 
-.BackButton {
-  width: 8%;
-  margin-left: 3%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  visibility: hidden;
+.exitButton {
+  border: 0.3em solid #d2dfe6;
+  border-radius: 0.5em;
+  width: 3.5em;
+  margin-left: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 </style>

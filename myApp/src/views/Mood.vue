@@ -101,12 +101,6 @@ export default {
       // this.$router.push('/build');
       this.$router.push('/startTalking');
       this.displayMoodOnDiscussion(card);
-      //this.fetchTheCardMood(card.id, card.word);
-      // if(card.redirectsTo){
-      //   this.$router.push("/"+card.redirectsTo);
-      // } else {
-      //   this.addItemToDialogBox(card);
-      // }
     },
 
 			fetchTheCardMood() {
@@ -152,8 +146,6 @@ export default {
 <style scoped>
 
 .text {
-  /* font-size: 50px;
-  color: #536974; */
   font-family: "Fredoka One", cursive;
   color: #6593aa;
   font-size: 2.5em;
@@ -165,17 +157,6 @@ export default {
   justify-content: center; /* For horizontal alignment */
   margin-top: 1.5em;
 }
-
-/* .rectangle_discussion {
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2%;
-} */
-
-/* .invisibleBlockAlignment {
-  display: inline-block;
-  width: 2%;
-} */
 
 /* .Discussion img {
   margin-top: 1%;
