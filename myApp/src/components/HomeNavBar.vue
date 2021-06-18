@@ -1,7 +1,7 @@
-<template> 
+<template>
   <div class="homeNavBar">
     <div class="buttonOpacity">
-    <ExitButton></ExitButton>
+      <ExitButton></ExitButton>
     </div>
   </div>
 </template>
@@ -11,7 +11,7 @@ import ExitButton from "@/components/ExitButton.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "HomeNavBar",
-  components: { ExitButton},
+  components: { ExitButton },
 
   setup() {
     const router = useRouter();
@@ -23,7 +23,6 @@ export default {
 </script>
 
 <style scoped>
-
 .homeNavBar {
   height: 7%;
   width: 100%;
@@ -31,17 +30,17 @@ export default {
   background-color: #8badbe;
 }
 
-.buttonOpacity{
-  opacity: 0.80;
+.buttonOpacity {
+  opacity: 0.8;
 }
 
 .exitButton {
   border: 0.3em solid #d2dfe6;
   border-radius: 0.5em;
   width: 3.5em;
+  height: 3.5em;
   margin-left: 2em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-
 </style>

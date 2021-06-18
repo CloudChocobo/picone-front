@@ -1,12 +1,10 @@
 <template>
   <div>
     <img src="../assets/affirmation.png" />
-   
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Point",
   props: [],
@@ -15,7 +13,6 @@ export default {
   mounted() {
     this.$el.classList.add("defFriendly");
   },
-
 };
 </script>
 
@@ -23,6 +20,7 @@ export default {
 .Point {
   cursor: pointer;
 }
+
 >>> .selected img {
   transform: scale(1.2);
   border-radius: 55px;

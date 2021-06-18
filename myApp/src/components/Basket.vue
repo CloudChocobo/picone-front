@@ -19,33 +19,19 @@ export default {
 </script>
 
 <style scoped>
-/* .footer {
-  margin-left: 10%;
-} */
-
-/* .rectangle_discussion {
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2%;
-} */
-
-/* .rectangle_discussion .Discussion{
-  grid-template-rows: fit-content(40%);
-} */
-
-/* .Discussion {
-  margin-left: 50px;
-} */
-
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 150px);
-  margin-top: 3%;
+  position: relative;
+  top: 1em;
   gap: 15px;
-  justify-content: center; /* For horizontal alignment */
-  /* grid-template-rows: repeat(2, 1fr); */
-  /* position: absolute; */
-  /* grid-auto-rows: auto; */
-  /* width: auto; */
+  justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .cards {
+    top: 1.5em;
+    gap: 0;
+  }
 }
 </style>

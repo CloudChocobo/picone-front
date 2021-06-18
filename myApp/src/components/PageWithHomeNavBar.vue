@@ -1,4 +1,3 @@
-<!-- template with the FirstNavBar (which has no eraser)-->
 <template>
   <ion-page>
     <ion-content :fullscreen="true">

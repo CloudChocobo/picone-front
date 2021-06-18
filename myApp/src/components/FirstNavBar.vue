@@ -1,5 +1,4 @@
-<!-- horizontal navigation bar with only the back button and the user parameter icon for the speed--> 
-<template> 
+<template>
   <div class="FirstNavBar">
     <!-- <UserParameter></UserParameter> -->
     <BackButton></BackButton>
@@ -12,7 +11,7 @@ import BackButton from "@/components/BackButton.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "FirstNavBar",
-  components: { BackButton},
+  components: { BackButton },
 
   setup() {
     const router = useRouter();
@@ -24,7 +23,6 @@ export default {
 </script>
 
 <style scoped>
-
 .FirstNavBar {
   height: 7%;
   width: 100%;
@@ -32,18 +30,10 @@ export default {
   background-color: #8badbe;
 }
 
-/* .UserParameter {
-  width: 8%;
-  margin-left: 1%;
-  margin-top: 5px;
-} */
-
 .BackButton {
   width: 7em;
   margin-left: 5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  /* visibility: hidden; */
 }
-
 </style>

@@ -1,3 +1,6 @@
+    
+    <!-- View obsolete à supprimer -->
+
 <template>
   <ion-page>
     <ion-content :fullscreen="true">

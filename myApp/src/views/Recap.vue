@@ -54,7 +54,6 @@ import Basket from "@/components/Basket.vue";
 import GridPonctuation from "@/components/GridPonctuation.vue";
 import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
 import Defilement from "@/plugins/defilement.js";
-//   import GridLoader from 'vue-spinner/src/GridLoader.vue';
 
 export default {
   name: "Recap",
@@ -66,7 +65,6 @@ export default {
     Card,
     Basket,
     GridPonctuation,
-    //   GridLoader
   },
 
   props: {
@@ -151,7 +149,8 @@ export default {
   color: #6593aa;
   font-size: 2.5em;
   text-align: center;
-  margin-top: 0.25em;
+  position: relative;
+  top: 0.25em;
 }
 
 .finPhrase {
@@ -161,33 +160,20 @@ export default {
 
 .grid {
   justify-content: center;
-  margin-top: 4em;
-  /* margin-left: 1em; */
+  position: relative;
+  top: 4em;
 }
 
 #point {
-	margin-right: 3em;
+  margin-right: 3em;
 }
 
 .centeringClass {
+  position: relative;
+  top: 1em;
   margin: auto auto auto auto;
   width: 80%;
-  /* position: absolute; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }
-
-/* .v-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
-    width: 100px;
-    height: 100px;
-  } */
 
 >>> .selected img {
   transform: scale(1.03);
@@ -195,5 +181,27 @@ export default {
   -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
   -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
   border-radius: 30%;
+}
+
+@media (max-width: 1100px) {
+  img {
+    max-width: 10em;
+    margin-right: 1%;
+    margin-left: 1%;
+    border-radius: 2em;
+  }
+
+  .grid {
+    position: relative;
+    top: 6em;
+    right: 2.2em;
+  }
+
+  .centeringClass {
+    position: fixed;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>

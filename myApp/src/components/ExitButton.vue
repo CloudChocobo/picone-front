@@ -2,7 +2,7 @@
 <template>
   <div class="exitButton">
     <div>
-    <img src="../assets/exit.png"  alt="exit" />
+      <img src="../assets/exit.png" alt="exit" />
     </div>
     <div class="label">{{ label }}</div>
   </div>
@@ -14,7 +14,7 @@ export default {
   name: "ExitButton",
   props: ["label"],
 
-  mounted(){
+  mounted() {
     this.$el.childNodes[0].className = "defFriendly";
   },
 
@@ -27,7 +27,5 @@ export default {
 };
 </script>
 
-
 <style scoped>
-
 </style>

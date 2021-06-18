@@ -1,5 +1,4 @@
 <template>
-
   <ion-menu
     side="start"
     menu-id="custom"
@@ -8,22 +7,26 @@
   >
     <ion-header>
       <ion-toolbar>
+        <BackButton></BackButton>
         <ion-title>Paramètres</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      
       <ion-list>
         <ButtonMenu route="/patients" label="Ajouter un patient"></ButtonMenu>
-        <ButtonMenu route="/establishment" label="Ajouter un établissement"></ButtonMenu>
-        <ButtonMenu route="/word" label="Ajouter un mot"></ButtonMenu>
-        <ButtonMenu route="" label="Affichage et Luminosité"></ButtonMenu>
-        <ButtonMenu route="" label="Fond d'écran et Police"></ButtonMenu>
-        <ButtonMenu route="" label="Personnalisation photos"></ButtonMenu>
-        <ButtonMenu route="" label="Blog"></ButtonMenu>
-        <ButtonMenu route="" label="À propos"></ButtonMenu>
+        <ButtonMenu
+          route="/establishment"
+          label="Ajouter un établissement"
+        ></ButtonMenu>
+        <div class="inactive">
+          <ButtonMenu route="" label="Ajouter un mot"></ButtonMenu>
+          <ButtonMenu route="" label="Affichage et Luminosité"></ButtonMenu>
+          <ButtonMenu route="" label="Fond d'écran et Police"></ButtonMenu>
+          <ButtonMenu route="" label="Personnalisation photos"></ButtonMenu>
+          <ButtonMenu route="" label="Blog"></ButtonMenu>
+          <ButtonMenu route="" label="À propos"></ButtonMenu>
+        </div>
       </ion-list>
-    <BackButton></BackButton>
     </ion-content>
   </ion-menu>
 
@@ -56,7 +59,7 @@ export default {
     IonTitle,
     IonToolbar,
     BackButton,
-    ButtonMenu
+    ButtonMenu,
   },
   methods: {
     openFirst() {
@@ -81,7 +84,18 @@ ion-toolbar {
 }
 ion-title {
   color: #536974;
+  font-weight: bold;
   background: #8badbe;
+  margin-bottom: 0.5em;
+}
+
+.BackButton {
+  width: 3em;
+  margin: 1em auto 0.5em 1.3em;
+}
+
+.inactive {
+  opacity: 50%;
 }
 
 .input-wrapper {
@@ -91,11 +105,4 @@ ion-title {
 .my-custom-menu {
   --width: 300px;
 }
-
-.BackButton {
-width: 30%;
-margin-top:7%;
-margin-left:30%;
-}
-
 </style>

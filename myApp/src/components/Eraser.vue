@@ -1,13 +1,9 @@
 <!-- it's to remove item from dialogue box-->
 <template>
   <div class="Eraser">
-
-      
-
-      <button @click="removeItemFromDialogBox(item.id)">
-        <img src="../assets/gomme.png" alt="Gomme" />
-      </button>
-
+    <button @click="removeItemFromDialogBox(item.id)">
+      <img src="../assets/gomme.png" alt="Gomme" />
+    </button>
   </div>
 </template>
 
@@ -16,17 +12,14 @@ export default {
   name: "Eraser",
   props: ["id", "description", "image"],
 
-  mounted(){
+  mounted() {
     this.$el.className = "Eraser defFriendly";
   },
 };
 </script>
 
-
 <style scoped>
-
 button {
   background-color: #8badbe;
 }
-
 </style>

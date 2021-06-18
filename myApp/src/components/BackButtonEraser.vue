@@ -1,4 +1,4 @@
-<!-- back to the previous page -->
+<!-- BackButton and Eraser in ONE BUTTON !!! -->
 <template>
   <div class="backButtonEraser" @click="() => router.go(-1)">
     <div>
@@ -28,7 +28,5 @@ export default {
 };
 </script>
 
-
 <style scoped>
-
 </style>

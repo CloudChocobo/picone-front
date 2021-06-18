@@ -1,3 +1,7 @@
+    
+    <!-- Component obsolete à supprimer -->
+
+
 <!-- dialogue box to screen selected cards-->
 <template>
   <div class="Discussion">

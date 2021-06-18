@@ -6,8 +6,8 @@
         <slot></slot>
       </div>
       <!-- class=end means end of the sentence-->
-      <div class="end"> 
-        <Point @click="() => router.push('/recap')"></Point>
+      <div class="end">
+        <Point id="point" @click="() => router.push('/recap')"></Point>
       </div>
     </div>
   </div>
@@ -19,12 +19,12 @@ import Point from "@/components/Point.vue";
 import { useRouter } from "vue-router";
 export default {
   name: "Discussion",
-  components: { 
+  components: {
     Point,
-    },
-    methodRouter() {
-      this.router.push("/startTalking");
-    },
+  },
+  methodRouter() {
+    this.router.push("/startTalking");
+  },
   setup() {
     const router = useRouter();
     return { router };
@@ -39,23 +39,29 @@ export default {
   background-color: #ffffff;
   border: 10px solid #8badbe;
   border-radius: 15px;
-  /* position:absolute;
-  bottom: 0;
-  margin-bottom: 5px; */
+  position: relative;
+  top: 3em;
 }
+
 .selection {
-  flex:1 0 auto;
+  flex: 1 0 auto;
 }
 
 .end {
   display: flex;
   flex-direction: column;
-  justify-content:center;
-  flex:0 0 10%;
+  justify-content: center;
+  flex: 0 0 10%;
 }
 
 .text {
-	display:flex;
-	height: 100%;
+  display: flex;
+  height: 100%;
+}
+
+@media (max-width: 1100px) {
+  #point {
+    width: 7em;
+  }
 }
 </style>

@@ -18,8 +18,14 @@
         </div>
 
         <div class="icone">
-          <img src="@/assets/Conversation.png" @click="() => router.push('/Mood')"/>
-          <img src="@/assets/boutonMenu.png" @click="() => router.push('/adminHome')"/>
+          <img
+            src="@/assets/Conversation.png"
+            @click="() => router.push('/Mood')"
+          />
+          <img
+            src="@/assets/boutonMenu.png"
+            @click="() => router.push('/adminHome')"
+          />
           <!--           
           v-for="(choice, index) in choices"
           :key="index"
@@ -97,8 +103,6 @@ export default {
 
     methodRouter() {
       this.router.push("/Mood");
-      // faire un if this.currentId === Truc
-      // this.router.push...
     },
 
     startEventListener() {
@@ -126,7 +130,6 @@ export default {
 </script>
 
 <style scoped>
-
 .container {
   font-family: "Fredoka One", cursive;
   color: #6593aa;
@@ -149,40 +152,26 @@ img {
   border-radius: 2em;
 }
 
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
+@media (max-width: 1100px) {
+  .container {
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
+  }
 
-/* .selected img {
-  transform: scale(1.05);
-  border: 10px solid #202abb9d;
-} */
+  .icone {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-@media (min-width: 800px) and (max-width: 1100px) {
-
-.container {
-  margin-top: 1.3em;
-  margin-bottom: 1.3em;
+  img {
+    max-width: 13em;
+    margin-right: 1%;
+    margin-left: 1%;
+    border-radius: 2em;
+  }
 }
-
-.icone {
-  margin-top: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-img {
-  max-width: 13em;
-  margin-right: 1%;
-  margin-left: 1%;
-  border-radius: 2em;
-}
-
-}
-
 </style>
 
 

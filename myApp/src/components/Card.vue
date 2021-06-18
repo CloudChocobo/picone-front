@@ -2,24 +2,21 @@
 <template>
   <div>
     <ImageGrid>
-      <!-- <div class="box"> -->
-    <div class="card" v-on:click="addItemToDialogBox(card)">
-      <div :id="id">
-        <div><img :src="image" /></div>
-        <div class="description">{{ description }} </div>
+      <div class="card" v-on:click="addItemToDialogBox(card)">
+        <div :id="id">
+          <div><img :src="image" /></div>
+          <div class="description">{{ description }}</div>
+        </div>
       </div>
-    </div>
-    <!-- </div> -->
-  </ImageGrid>
+    </ImageGrid>
   </div>
-
 </template>
 
 <script>
 import ImageGrid from "@/components/ImageGrid.vue";
 export default {
   name: "Card",
-  components: {ImageGrid},
+  components: { ImageGrid },
   props: ["id", "description", "image"],
 
   methods: {
@@ -31,53 +28,43 @@ export default {
 </script>
 
 <style scoped>
-
-/* /////////////////////////::  PC ::////////////////////////////////////////// */
-
-/* .box { */
-  /* width: 150px; */
-  /* position: relative; */
-/* } */
-
 .card {
   font-family: "Fredoka One", cursive;
   color: #518097;
-  font-size: 1.5em;
+  font-size: 1.4em;
   text-align: center;
   cursor: pointer;
-
-  /* position: relative; */
+  position: relative;
+  top: 1em;
 }
-.description{
-  margin-top: 0.2em;
+
+.description {
+  position: relative;
+  top: 0.2em;
   white-space: nowrap;
-  /* position:absolute; */
-    /* justify-content: center; */
-    /* align-items: center; */
-  /* bottom: 0; */
-  /* padding-top: 10em; */
 }
-
-/* /////////////////////////::  OLD ::////////////////////////////////////////// */
-
-/* .card {
-  font-family: "Fredoka One", cursive;
-  color: #518097;
-  font-size: 1.8em;
-  text-align: center;
-  cursor: pointer;
-}
-.description{
-  margin-top:-5px;
-} */
 
 img {
-  
+  max-width: 5.5em;
+  border-radius: 1em;
+}
 
-  /* width: 80%; */
-  /* width: 150px;
-  height: 150px; */
-  border-radius: 5%;
-/* object-fit:cover; */
+@media (max-width: 1100px) {
+  .card {
+    /* max-height: 5em; */
+    font-size: 1.8em;
+    top: 0em;
+  }
+
+  .description {
+    position: relative;
+    top: -0.3em;
+    font-size: 0.9em;
+  }
+
+  img {
+    max-width: 5em;
+    border-radius: 1em;
+  }
 }
 </style>

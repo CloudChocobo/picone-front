@@ -1,3 +1,8 @@
+    
+    <!-- Component obsolete à supprimer -->
+
+
+
 <template>
   <div>
     <div class="rectangle_discussion">

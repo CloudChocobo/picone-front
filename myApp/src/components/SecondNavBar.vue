@@ -3,11 +3,11 @@
   <div class="HorizontalBarV2">
     <!-- <UserParameter></UserParameter> -->
     <div class="nav">
-    <BackButton></BackButton>
-    <Eraser @click="cancelLastAction"></Eraser>
+      <BackButton></BackButton>
+      <Eraser @click="cancelLastAction"></Eraser>
     </div>
-    <Defilement class="centeringDefilement"/>
-    <MoodState/>
+    <Defilement class="centeringDefilement" />
+    <MoodState />
   </div>
 </template>
 
@@ -22,12 +22,10 @@ export default {
   name: "HorizontalBarV2",
   components: { BackButton, Eraser, Defilement, MoodState },
 
-
   data: () => {
-			return {
-        // Test to save "MoodState" on refresh / Not working currently...
-        mood: [],
-      };
+    return {
+      mood: [],
+    };
   },
 
   methods: {
@@ -47,40 +45,11 @@ export default {
 
 <style scoped>
 .HorizontalBarV2 {
-  /* height: 90px; */
-  /* width: 100%; */
-  height: 7%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   background-color: #8badbe;
-  /* align-content: space-between; */
 }
-
-/* .HorizontalBarV2 {
-  height: 90px;
-  width: 100%;
-  display: flex;
-  background-color: #8badbe;
-} */
-
-/* .UserParameter {
-  width: 8%;
-  margin-left: 1%;
-  margin-top: 5px;
-} */
-
-/* .UserParameter :hover {
-  transform: scale(1.2);
-  border-radius: 25px;
-  border: 10px solid #202abb9d;
-} */
-
-/* img :hover {
-  transform: scale(1.2);
-  border-radius: 55px;
-  border: 10px solid #202abb9d;
-} */
 
 .nav {
   display: inline-flex;
@@ -91,14 +60,10 @@ export default {
   width: 7em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  /* margin-left: 3%; */
-  /* margin-top: 2%; */
 }
 
 .Eraser {
   width: 4.5em;
-  /* margin-left: 3%; */
-  /* margin-top: 5px; */
 }
 
 .defContainer {
@@ -107,9 +72,9 @@ export default {
 }
 
 .MoodState {
+  position: relative;
+  top: 0.1em;
   width: 5em;
-  /* margin-right: 1%; */
-  /* margin-top: 5px; */
+  margin-left: -3em;
 }
-
 </style>

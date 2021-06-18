@@ -1,32 +1,32 @@
 <template>
-<ion-page>
+  <ion-page>
     <ion-content :fullscreen="true">
       <PageWithFirstNavBar>
         <main>
           <div class="text">Comment vous sentez vous ?</div>
           <ImageGridMood class="grid">
             <CardMood
-							v-for="(card, index) in cardJSON"
-							:image="card[imageProperty]"
-							:description="card.word"
-							:key="index"
-							@click="doAction(card)"
+              v-for="(card, index) in cardJSON"
+              :image="card[imageProperty]"
+              :description="card.word"
+              :key="index"
+              @click="doAction(card)"
             />
           </ImageGridMood>
         </main>
 
         <footer>
           <div class="rectangle_discussion">
-         <Basket>
-            <Card
-              v-for="(card, index) in basket"
-              :image="card.image"
-              :description="card.description"
-              :key="index"
-            />
-          </Basket>
+            <Basket>
+              <Card
+                v-for="(card, index) in basket"
+                :image="card.image"
+                :description="card.description"
+                :key="index"
+              />
+            </Basket>
           </div>
-       </footer>
+        </footer>
       </PageWithFirstNavBar>
     </ion-content>
   </ion-page>
@@ -39,7 +39,7 @@ import PageWithFirstNavBar from "@/components/PageWithFirstNavBar.vue";
 import CardMood from "@/components/CardMood.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGridMood from "@/components/ImageGridMood.vue";
-import {rootAPI, rootHebergementImage, labelTest} from "@/data.ts";
+import { rootAPI, rootHebergementImage, labelTest } from "@/data.ts";
 import Defilement from "@/plugins/defilement";
 export default {
   name: "Mood",
@@ -59,92 +59,88 @@ export default {
   },
 
   mounted() {
-		// Quand la page démarre:
-		this.fetchTheCardMood("moods");
+    // Quand la page démarre:
+    this.fetchTheCardMood("moods");
     // Pour remettre à zéro le "MoodState" et pouvoir en changer à chaque fois que l'on retourne sur la page "Mood".
     this.clearMood();
+  },
 
-		},
-
-		data: () => {
-			return {
-				//On Heroku => "img_url" / On Localhost => "imgUrl"
-				imageProperty: "imgUrl",
-				// imageProperty: "img_url",
-				rootIMG: rootHebergementImage,
-				rootAPI: rootAPI,
-				label: labelTest,
-				cardJSON: [],
-				currentIndex: 0,
-				currentId: "",
-				discussion: "basket",
-			};
+  data: () => {
+    return {
+      //On Heroku => "img_url" / On Localhost => "imgUrl"
+      imageProperty: "imgUrl",
+      // imageProperty: "img_url",
+      rootIMG: rootHebergementImage,
+      rootAPI: rootAPI,
+      label: labelTest,
+      cardJSON: [],
+      currentIndex: 0,
+      currentId: "",
+      discussion: "basket",
+    };
   },
 
   methods: {
     addItemToDialogBox(card) {
-      this.$store.commit('addElementToBasket', card);
+      this.$store.commit("addElementToBasket", card);
     },
     removeItemFromBasket() {
-      this.$store.commit('removeElementFromBasket');
+      this.$store.commit("removeElementFromBasket");
     },
 
     displayMoodOnDiscussion(card) {
-      this.$store.commit('setMoodState', card);
+      this.$store.commit("setMoodState", card);
     },
 
     clearMood() {
-      this.$store.commit('clearMood');
+      this.$store.commit("clearMood");
     },
 
-    doAction(card){
+    doAction(card) {
       // this.$router.push('/build');
-      this.$router.push('/startTalking');
+      this.$router.push("/startTalking");
       this.displayMoodOnDiscussion(card);
     },
 
-			fetchTheCardMood() {
-				this.cardJSON = [];
-				// console.log(label);
-				const url = this.rootAPI + "moods";
+    fetchTheCardMood() {
+      this.cardJSON = [];
+      // console.log(label);
+      const url = this.rootAPI + "moods";
 
-				console.log("url :>> ", url);
+      console.log("url :>> ", url);
 
-				fetch(url, {
-					method: "GET",
-				})
-					.then((response) => {
-						console.log("response :>> ", response);
-						return response.json();
-					})
-					.then((cards) => {
-
-						const newCards = cards.map((c) => {
-							c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
-							return c;
-						});
-						this.cardJSON = newCards;
-						console.log("cards :>> ", cards);
-					})
-					.catch((err) => {
-						console.error(err);
-					});
-			},
-
+      fetch(url, {
+        method: "GET",
+      })
+        .then((response) => {
+          console.log("response :>> ", response);
+          return response.json();
+        })
+        .then((cards) => {
+          const newCards = cards.map((c) => {
+            c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
+            return c;
+          });
+          this.cardJSON = newCards;
+          console.log("cards :>> ", cards);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
   },
-   computed: {
-     basket() {
-       return this.$store.state.basket
-       },
-      mood() {
-        return this.$store.getters.mood
-      },
-     }
+  computed: {
+    basket() {
+      return this.$store.state.basket;
+    },
+    mood() {
+      return this.$store.getters.mood;
+    },
+  },
 };
 </script>
 
 <style scoped>
-
 .text {
   font-family: "Fredoka One", cursive;
   color: #6593aa;
@@ -154,20 +150,13 @@ export default {
 }
 
 .grid {
-  justify-content: center; /* For horizontal alignment */
+  justify-content: center;
   margin-top: 1.5em;
 }
 
-/* .Discussion img {
-  margin-top: 1%;
-  width: 17%;
-} */
-
-/* we chose not to show the dialog on this screen. It can be added by changing the display*/
-footer{ 
-  /* margin-left: 10%; */
+footer {
   display: none;
-  }
+}
 
 /* CSS pour le défilement */
 >>> .selected img {
@@ -177,6 +166,11 @@ footer{
   -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
   /* border-radius: 55px; */
   border-radius: 30%;
-  }
+}
 
+@media (max-width: 1100px) {
+  .grid {
+    margin-top: 3em;
+  }
+}
 </style>
