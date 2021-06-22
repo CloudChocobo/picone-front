@@ -81,16 +81,21 @@ export default {
 ion-toolbar {
   color: #536974;
   background: #8badbe;
+  height: 4.5em;
 }
 ion-title {
   color: #536974;
+  font-size: 1.5em;
   font-weight: bold;
   background: #8badbe;
-  margin-bottom: 0.5em;
+  margin: 0.9em auto auto 1em;
+  position: relative;
+  left: 0.5em;
 }
 
 .BackButton {
-  width: 3em;
+  float: left;
+  width: 5em;
   margin: 1em auto 0.5em 1.3em;
 }
 

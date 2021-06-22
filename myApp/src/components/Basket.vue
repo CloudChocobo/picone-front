@@ -28,10 +28,17 @@ export default {
   justify-content: center;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .cards {
     top: 1.5em;
     gap: 0;
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+  .cards {
+    top: 2em;
+    gap: 4em;
   }
 }
 </style>

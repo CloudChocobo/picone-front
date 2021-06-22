@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<div class="cheesebox" @click="close()"></div>
+		<div class="background" @click="close()"></div>
 		<div class="box">
 			<ion-card>
 				<form @submit.prevent="submit">
@@ -48,7 +48,7 @@
 							:required="true"
 						></ion-input>
 					</ion-card-content>
-					<ion-button color="grey" @click="[saveEstablishment(), save()]">Ajouter</ion-button>
+					<ion-button color="medium" @click="[saveEstablishment(), save()]">Ajouter</ion-button>
 				</form>
 			</ion-card>
 		</div>
@@ -57,6 +57,7 @@
 
 <script>
 	import {IonButton, IonInput, IonCardContent, IonLabel, IonCard} from "@ionic/vue";
+	import {rootAPI} from "@/data.ts";
 	import axios from "axios";
 	export default {
 		components: {IonButton, IonInput, IonCardContent, IonLabel, IonCard},
@@ -96,7 +97,7 @@
 
 				console.log("formData" + JSON.stringify(establishment));
 				axios
-					.post("http://localhost:8091/establishments/", establishment)
+					.post( rootAPI + "establishments/", establishment)
 
 					.then((res) => {
 						console.log("SpringBoot res" + JSON.stringify(res));
@@ -133,9 +134,9 @@
 		display: flex;
 		align-items: center;
 		width: 50%;
-		height: 36%;
+		
 	}
-	v-card {
+	ion-card {
 		background-color: #bdddec;
 		border-radius: 10px;
 		overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
@@ -178,12 +179,5 @@
 		background-color: #f1faff;
 		color: #536974;
 	}
-	.cheesebox {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%; /*du contenant*/
-		height: 100%; /*du contenant*/
-		background-color: rgba(82, 82, 82, 0.2);
-	}
+
 </style>

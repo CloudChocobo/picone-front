@@ -53,7 +53,7 @@ img {
   border-radius: 1em;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .moodCard {
     font-size: 2em;
   }
@@ -69,4 +69,22 @@ img {
     border-radius: 1em;
   }
 }
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+  .moodCard {
+    font-size: 2em;
+  }
+
+  .description {
+    position: relative;
+    top: -0.2em;
+    font-size: 1.3em;
+  }
+
+  img {
+    max-width: 7em;
+    border-radius: 1em;
+  }
+}
+
 </style>

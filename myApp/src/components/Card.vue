@@ -49,7 +49,7 @@ img {
   border-radius: 1em;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .card {
     /* max-height: 5em; */
     font-size: 1.8em;
@@ -67,4 +67,23 @@ img {
     border-radius: 1em;
   }
 }
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+  .card {
+    font-size: 1.8em;
+    top: 0em;
+  }
+
+  .description {
+    position: relative;
+    top: -0.3em;
+    font-size: 1.3em;
+  }
+
+  img {
+    max-width: 7em;
+    border-radius: 1em;
+  }
+}
+
 </style>

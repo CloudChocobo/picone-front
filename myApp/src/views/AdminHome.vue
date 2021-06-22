@@ -69,15 +69,35 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .BackButton {
-  width: 3.5em;
-  margin-left: 1em;
+  width: 5em;
+  margin: 1em auto auto 1em;
 }
 
 ion-menu-button {
   color: white;
+  max-width: 3em;
   font-size: 2em;
-  margin-left: 0.6em;
+  margin: 0.4em auto auto 0.6em;
 }
 
+ion-toolbar {
+  height: 4.5em;
+}
+
+@media (max-width: 1300px) {
+  .image {
+    top: 55%;
+  }
+}
+@media (min-width: 1300px) and (min-height: 1000px) {
+  .image {
+    top: 55%;
+  }
+  img {
+  width: 40em;
+  opacity: 30%;
+}
+}
 </style>

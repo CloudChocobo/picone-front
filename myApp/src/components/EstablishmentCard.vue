@@ -53,16 +53,38 @@
 </script>
 
 <style scoped>
+	.title {
+		height: min-content;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
 	.EstablishmentCard {
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-		transition: 0.3s;
+		background-color: #bdddec;
+		display: flex;
+		justify-content: space-between;
+		align-content: space-between;
+		flex-direction: column;
+		padding: 15px 20px;
+		border-radius: 15px;
+		gap: 10px;
+		height: 100%;
+	}
+	.info{
+		display: flex;
+		gap: 10px;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	ion-button{
+		align-content: flex-end;
+	}
+	.text{
+		display: flex;
+		flex-direction: column;
+		align-items: space-between;
+		gap: 5px;
 	}
 
-	.text {
-		text-align: center;
-		padding: 15px 20px;
-		box-sizing: border-box;
-	}
 </style>
 
-//c est le bon

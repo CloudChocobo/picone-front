@@ -194,10 +194,42 @@ export default {
   border-radius: 30%;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1150px) {
   .grid {
     position: relative;
     top: 2em;
+  }
+
+  .centeringClass {
+    position: fixed;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 1300px) {
+  .grid {
+    position: relative;
+    top: 2em;
+  }
+
+  .centeringClass {
+    position: fixed;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+  .text {
+    font-size: 3.5em;
+  }
+
+  .grid {
+    position: relative;
+    top: 4em;
   }
 
   .centeringClass {

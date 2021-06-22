@@ -1,8 +1,8 @@
 <template>
 	<div class="container">
-		<v-layout row wrap>
+			<div class="background" @click="close()"></div>
 			<div class="box">
-				<v-card flat>
+				<ion-card>
 					<form @submit.prevent="submit">
 						<ion-card-content v-if="establishmentObj">
 							<ion-label name>Ehpad Michel</ion-label>
@@ -48,20 +48,20 @@
 								:required="true"
 							></ion-input>
 						</ion-card-content>
-						<ion-button color="white" @click="[edit(), close(), reloadPage()]"
+						<ion-button color="medium" @click="[edit(), close(), reloadPage()]"
 							>Modifier</ion-button
 						>
-						<ion-button color="grey" @click="[erase(), save()]">Supprimer</ion-button>
-						<ion-button color="grey" @click="[close()]">Annuler</ion-button>
+						<ion-button color="medium" @click="[erase(), save()]">Supprimer</ion-button>
+						<ion-button color="medium" @click="[close()]">Annuler</ion-button>
 					</form>
-				</v-card>
+				</ion-card>
 			</div>
-		</v-layout>
 	</div>
 </template>
 
 <script>
 	import {IonButton, IonInput, IonCardContent} from "@ionic/vue";
+	import {rootAPI} from "@/data.ts";
 	import axios from "axios";
 
 	export default {
@@ -78,14 +78,6 @@
 			this.establishmentObj = this.establishment;
 		},
 		methods: {
-			//deleteEstablishment(establishment) {
-			//let response = confirm ('Veuillez confimer la suppression ${establishment.name}')
-
-			//   if(response){
-			//this.$store.dispatch('establishment/delete', establishment);
-			//this.$store.dispatch('snackbar/setSnackbar', {text: `You have successfully deleted your video, ${video.name}.`});
-
-			//}
 			save() {
 				this.$emit("update:isOpen", false);
 				this.$router.go();
@@ -97,7 +89,7 @@
 				console.log("formData" + JSON.stringify(this.establishmentObj));
 				axios
 					.delete(
-						"http://localhost:8091/establishments/" + this.establishmentObj.id,
+						rootAPI + "establishments/" + this.establishmentObj.id,
 						this.establishmentObj
 					)
 
@@ -113,7 +105,7 @@
 				console.log("formData" + JSON.stringify(this.establishmentObj));
 				axios
 					.put(
-						"http://localhost:8091/establishments/" + this.establishmentObj.id,
+						rootAPI + "establishments/" + this.establishmentObj.id,
 						this.establishmentObj
 					)
 
@@ -133,38 +125,39 @@
 </script>
 
 <style scoped>
-	.container {
-		z-index: 2;
-		position: fixed;
-		width: 100%; /* % width page */
-		height: 100%; /* % heigth page*/
-		top: 0;
-		left: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.background {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%; /*du contenant*/
-		height: 100%; /*du contenant*/
-		background-color: rgb(226, 224, 224);
-		opacity: 0.6;
-	}
-	.box {
-		display: flex;
-		align-items: center;
-		width: 150%;
-		height: 110%;
-	}
-	v-card {
+.container {
+	z-index: 2;
+	position: fixed;
+	width: 100%; /* % width page */
+	height: 100%; /* % heigth page*/
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%; /*du contenant*/
+	height: 100%; /*du contenant*/
+	background-color: rgb(226, 224, 224);
+	opacity: 0.6;
+}
+.box {
+	display: flex;
+	align-items: center;
+	width: 50%;
+	position: relative;
+	top: 2em;
+}
+	ion-card {
 		background-color: #bdddec;
 		border-radius: 10px;
 		overflow: hidden; /*ce qui dépasse (de l'arrondi): caché*/
 		width: 200%;
-		height: 150%;
+		height: 180%;
 	}
 	ion-button {
 		display: flex;

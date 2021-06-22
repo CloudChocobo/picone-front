@@ -152,7 +152,7 @@ img {
   border-radius: 2em;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .container {
     margin-top: 1.3em;
     margin-bottom: 1.3em;
@@ -167,6 +167,28 @@ img {
 
   img {
     max-width: 13em;
+    margin-right: 1%;
+    margin-left: 1%;
+    border-radius: 2em;
+  }
+
+}
+  @media (min-width: 1300px) and (min-height: 1000px) {
+  .container {
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
+    font-size: 6em;
+  }
+
+  .icone {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    max-width: 17em;
     margin-right: 1%;
     margin-left: 1%;
     border-radius: 2em;

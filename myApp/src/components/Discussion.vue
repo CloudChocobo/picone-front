@@ -35,7 +35,7 @@ export default {
  <style scoped>
 .discussion {
   width: 100%;
-  height: 220px;
+  height: 14em ;
   background-color: #ffffff;
   border: 10px solid #8badbe;
   border-radius: 15px;
@@ -59,9 +59,27 @@ export default {
   height: 100%;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   #point {
     width: 7em;
   }
 }
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+.discussion {
+  width: 100%;
+  height: 18.5em;
+  background-color: #ffffff;
+  border: 10px solid #8badbe;
+  border-radius: 15px;
+  position: relative;
+  top: 4em;
+}
+
+  #point {
+    width: 12.5em;
+    margin-left: 5em;
+  }
+}
+
 </style>

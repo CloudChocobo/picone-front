@@ -168,9 +168,19 @@ footer {
   border-radius: 30%;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .grid {
-    margin-top: 3em;
+    margin-top: 2.5em;
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+  .text {
+    font-size: 3.5em;
+  }
+  
+  .grid {
+    margin-top: 2.5em;
   }
 }
 </style>
