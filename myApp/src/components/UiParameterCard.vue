@@ -5,15 +5,17 @@
         <div class="loadingSprite" v-if="loaded === false">
           <img src="myApp/src/assets/loading1.gif">
         </div>
-        <div class="id">Configuration {{ index + 1}}</div>
+        <h2 class="id">Configuration {{ index + 1}}</h2>
         <div v-if="byDefault === true"> <button id="defaultSignal" ion-button color="secondary" outline>Par défaut</button></div>
-        <br>
-        <div v-if="scrollingIsActive === true">Défilement activé</div>
-        <div v-if="scrollingIsActive === false">Défilement désactivé</div>
-        <div >Vitesse de défilement : {{ scrollingSpeed }} ms</div>
-        <div class="couleurDef">Couleur du défilement :
+        <ion-list class="inside-ion-card">
+          <ion-list-header>Défilement</ion-list-header>
+        <ion-item v-if="scrollingIsActive === true">Défilement activé</ion-item>
+        <ion-item v-if="scrollingIsActive === false">Défilement désactivé</ion-item>
+          <ion-item >Vitesse de défilement : <ion-label>{{ scrollingSpeed }} ms</ion-label></ion-item>
+        <ion-item class="ion-align-items-end, couleurDef ">Couleur du défilement :
           <div :style="cssVars"></div>
-        </div>
+        </ion-item>
+        </ion-list>
       </div>
     </div>
     <ion-button color="light" @click="modalOpen = true ; buttonPushed='edit'">Editer</ion-button>
@@ -25,7 +27,15 @@
         :index="index"
         :buttonPushed="'edit'"></ModalUiParam>
 
-    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = false">Appliquer par défaut</ion-button>
+    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='makeDefault'">Appliquer par défaut</ion-button>
+
+    <ModalUiParam
+        v-if="modalOpen && buttonPushed==='makeDefault'"
+        v-model:isOpen="modalOpen"
+        title="Appliquer un UiParameter par défaut"
+        :uiParam=uiParam
+        :index="index"
+        :buttonPushed="'makeDefault'"></ModalUiParam>
 
     <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='delete'">Supprimer</ion-button>
     <ModalUiParam
@@ -105,14 +115,27 @@ export default {
 ion-button{
   align-content: flex-end;
 }
+
+.inside-ion-card{
+  width: 100%;
+}
 #defaultSignal{
   text-align: right;
 }
 .text{
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  align-items: inherit;
   gap: 5px;
+}
+
+ion-list  {
+  background-color: #b0d9ec;
+  border-width: 1px;
+  border-style: ridge;
+  border-color: #C0C0C0;
+  border-radius: 15px;
+  margin: 3px 5% 3px 5%;
 }
 
 </style>

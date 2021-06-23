@@ -12,15 +12,15 @@
             <ion-toggle
                 v-if="uiParam.byDefault === true"
                 checked
+                @ionChange="uiParamForm.byDefault = !uiParamForm.byDefault"
             ></ion-toggle>
             <ion-toggle
                 v-else
                 unchecked
+                @ionChange="uiParamForm.byDefault = !uiParamForm.byDefault"
             ></ion-toggle>
           </ion-card-content>
           </ion-card>
-
-
           <ion-card class="card-inside">
             <ion-card-title class="ion-padding" >
               Défilement
@@ -41,7 +41,7 @@
           </ion-item>
 
           <ion-item>
-          <ion-label speed>Vitesse :</ion-label>
+          <ion-label>Vitesse :</ion-label>
           <ion-input
               type="number"
               v-bind:value="scrollingSpeed"
@@ -125,7 +125,18 @@
         >Annuler</ion-button
         >
       </form>
+
+      <form  v-if="buttonPushed === 'makeDefault'" @submit.prevent="submit">
+        <ion-card-content>Faire de cette configuration celle utilisée par défaut ?</ion-card-content>
+        <ion-button color="medium" @click="[submit(), save()]"
+        >Valider</ion-button
+        >
+        <ion-button color="medium" @click="cancel()"
+        >Annuler</ion-button
+        >
+      </form>
     </ion-card>
+
   </div>
 </template>
 
@@ -155,21 +166,14 @@ export default {
 
     return {
       uiParamForm: {
-      scrollingSpeed: 1500,
-      scrollingColor:"",
-      byDefault: false,
-        scrollingIsActive: false
+      scrollingSpeed: this.uiParam ? this.uiParam.scrollingSpeed : 1500,
+      scrollingColor:this.uiParam ? this.uiParam.scrollingColor : "#59c7f9",
+      byDefault: this.uiParam ? this.uiParam.byDefault : false,
+        scrollingIsActive: this.uiParam ? this.uiParam.scrollingIsActive : true
       },
       color: '#59c7f9'
     } ;
   },
-
-  updated() {
-    this.$nextTick(function (this.uiParam, this.uiParamForm) {
-      this.uiParam ? this.uiParamForm = this.uiParam : null
-    })
-  },
-
 
   computed:{
 
@@ -193,10 +197,11 @@ export default {
     submit() {
       const resForm = {
         uiParameter: {
+          id: this.uiParam.id,
           scrollingSpeed: this.uiParamForm.scrollingSpeed,
           scrollingColor: this.uiParamForm.scrollingColor,
           byDefault : this.uiParamForm.byDefault,
-          scrollingIsActive: this.uiParamForm.isActive
+          scrollingIsActive: this.uiParamForm.scrollingIsActive
         },
       };
       console.log("formData" + JSON.stringify(resForm));
@@ -247,6 +252,26 @@ export default {
           url: address,
           withCredentials: false,
           crossdomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+          }
+        })
+            .then((res) => {
+              console.log("SpringBoot res" + JSON.stringify(res));
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+      } else if (this.buttonPushed === 'makeDefault')
+      {
+        const address = rootAPI + "uiparam/default";
+        axios({
+          method: 'post',
+          url: address,
+          withCredentials: false,
+          crossdomain: true,
+          data: this.uiParam,
           headers: {
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
