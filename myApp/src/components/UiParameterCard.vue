@@ -2,6 +2,9 @@
   <div class="UiParameterCard">
     <div class="info">
       <div class="text">
+        <div class="loadingSprite" v-if="loaded === false">
+          <img src="myApp/src/assets/loading1.gif">
+        </div>
         <div class="id">Configuration {{ index + 1}}</div>
         <div v-if="byDefault === true"> <button id="defaultSignal" ion-button color="secondary" outline>Par défaut</button></div>
         <br>
@@ -22,7 +25,7 @@
         :index="index"
         :buttonPushed="'edit'"></ModalUiParam>
 
-    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = false">Activer par défaut</ion-button>
+    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = false">Appliquer par défaut</ion-button>
 
     <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='delete'">Supprimer</ion-button>
     <ModalUiParam
@@ -42,7 +45,7 @@ import {IonButton} from "@ionic/vue";
 
 export default {
   name: "UiParameterCard",
-  props: ["index","id","byDefault", "scrollingSpeed", "scrollingColor","scrollingByDefault","scrollingIsActive","uiParam"],
+  props: ["index","id","byDefault","loaded", "scrollingSpeed", "scrollingColor","scrollingByDefault","scrollingIsActive","uiParam"],
   components: {
     ModalUiParam,
     IonButton,

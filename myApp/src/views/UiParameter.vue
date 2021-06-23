@@ -12,11 +12,11 @@
           </ion-toolbar>
         </ion-header>
 
-        <ion-button color="medium" @click="modalOpen = true">Créer une nouvelle configuration</ion-button>
+        <ion-button color="medium" @click="modalOpen = true">Créer configuration</ion-button>
         <ModalUiParam
             v-if="modalOpen"
             v-model:isOpen="modalOpen"
-            title="Configurer l'interface et les outils"
+            title="Créer une nouvelle configuration"
             :uiParam={}
             :buttonPushed="'new'"
         ></ModalUiParam>
@@ -35,8 +35,6 @@
           ></UiParameterCard>
         </div>
 
-        <ModalUiParam v-if="modalOpen" v-model:isOpen="modalOpen" title="Ajouter une configuration">
-        </ModalUiParam>
       </PageAdmin>
     </ion-content>
   </ion-page>
@@ -91,7 +89,6 @@ export default {
       axios.get(rootAPI + "uiparams")
           .then((response) => {
             this.$store.commit("setUiParameters", response.data);
-            console.log(response);
           })
           .catch(function (error) {
             // handle error

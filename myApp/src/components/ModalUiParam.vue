@@ -1,74 +1,132 @@
 <template>
   <div class="container">
     <div class="background"></div>
-      <ion-card>
-        <form v-if="buttonPushed === 'edit'" @submit.prevent="submit">
-          <ion-card-content>
-            <h1>Edition de la configuration {{index + 1}}</h1>
-            <ion-label speed>Vitesse du défilement:</ion-label>
+    <ion-card>
+      <form v-if="buttonPushed === 'edit'" @submit.prevent="submit" >
+        <ion-card-content>
+          <h1>Edition de la configuration {{index + 1}}</h1>
+          <h4> ID Neo4J : {{uiParam.id}}</h4>
+          <ion-card class=" ion-padding-vertical">
+            <ion-card-content>
+            <ion-label>Par défaut : </ion-label>
+            <ion-toggle
+                v-if="uiParam.byDefault === true"
+                checked
+            ></ion-toggle>
+            <ion-toggle
+                v-else
+                unchecked
+            ></ion-toggle>
+          </ion-card-content>
+          </ion-card>
+
+
+          <ion-card class="card-inside">
+            <ion-card-title class="ion-padding" >
+              Défilement
+            </ion-card-title>
+          <ion-item>
+            <ion-label>Activé : </ion-label>
+            <ion-toggle
+                v-if="uiParam.scrollingIsActive === true"
+                checked
+                @ionChange="uiParamForm.scrollingIsActive = !uiParamForm.scrollingIsActive"
+            ></ion-toggle>
+            <ion-toggle
+                v-else
+                unchecked
+                @ionChange="uiParamForm.scrollingIsActive = !uiParamForm.scrollingIsActive"
+
+            ></ion-toggle>
+          </ion-item>
+
+          <ion-item>
+          <ion-label speed>Vitesse :</ion-label>
+          <ion-input
+              type="number"
+              v-bind:value="scrollingSpeed"
+              v-model="uiParamForm.scrollingSpeed"
+              :required="true"
+              class="ion-padding"
+          ></ion-input>
+          <ion-label> millisecondes </ion-label>
+            </ion-item>
+            <ion-item>
+
+            <ion-label >Couleur :</ion-label>
+          <input
+              type="color"
+              v-bind:value="'#'+scrollingColor"
+              :required="true"
+              @change="changeColorForm(color, 'color', $event)"
+          >
+            </ion-item>
+
+          </ion-card>
+        </ion-card-content>
+
+        <ion-button color="medium" @click="[submit(), save()]"
+        >Enregistrer</ion-button
+        >
+        <ion-button color="medium" @click="cancel()"
+        >Annuler</ion-button
+        >
+      </form>
+
+      <form class="modalNewUiParam" v-if="buttonPushed === 'new'" @submit.prevent="submit">
+
+        <div class="ion-padding">
+          <ion-card-title>Nouvelle configuration</ion-card-title>
+        </div>
+        <ion-card class="card-inside">
+          <ion-card-title class="ion-padding" >
+            Défilement :
+          </ion-card-title>
+          <ion-card-subtitle class="ion-text-center">Le défilement est l'outil de sélection par appui d'un bouton simple.</ion-card-subtitle>
+          <ion-card-content color="secondary">
+            <ion-label>Vitesse :</ion-label>
             <ion-input
                 type="number"
-                v-model="scrollingSpeedForm"
-                v-model:placeholder="scrollingSpeed"
-                value="scrollingSpeed"
+                v-model="uiParamForm.scrollingSpeed"
+                v-bind:value="scrollingSpeed"
                 :required="true"
             ></ion-input>
-            <br>
-            <ion-label speed>Modifier le code Hexadécimal de la couleur :</ion-label>
-            <ion-input
-                type="text"
-                v-model="scrollingColorForm"
-                v-model:placeholder="scrollingColor"
-            ></ion-input>
-           </ion-card-content>
-          <ion-button color="medium" @click="[submit(), save()]"
-          >Enregistrer</ion-button
-          >
-          <ion-button color="medium" @click="cancel()"
-          >Annuler</ion-button
-          >
-        </form>
-
-        <form class="modalNewUiParam" v-if="buttonPushed === 'new'" @submit.prevent="submit">
-          <ion-card-content>
-            <h1>Nouvelle configuration</h1>
-            <ion-label lastName>Vitesse du défilement:</ion-label>
-            <ion-input
-                type="number"
-                v-model="scrollingSpeedForm"
-                v-bind:placeholder="scrollingSpeed"
+            <p>millisecondes</p>
+          </ion-card-content>
+          <ion-card-content >
+            <ion-label >Couleur :</ion-label>
+            <input
+                type="color"
+                v-bind:value="color"
                 :required="true"
-            ></ion-input>
-            <br>
-            <ion-input
-                type="text"
-                v-model="scrollingColorForm"
-                v-model:placeholder="scrollingColor"
-            ></ion-input>
+                @change="changeColorForm(color, 'color', $event)"
+            >
           </ion-card-content>
-          <ion-button color="medium" @click="[submit(), save()]"
-          >Enregistrer</ion-button
-          >
-          <ion-button color="medium" @click="cancel()"
-          >Annuler</ion-button
-          >
-        </form>
+        </ion-card>
 
-        <form  v-if="buttonPushed === 'delete'" @submit.prevent="submit">
-          <ion-card-content>
-            <h1>Supprimer la configuration {{index + 1}} ?</h1>
-            <ion-label speed>Vitesse du défilement:</ion-label>
-            <p>{{ uiParam.scrollingSpeed }}</p>
-          </ion-card-content>
-          <ion-button color="medium" @click="[submit(), save()]"
-          >Valider</ion-button
-          >
-          <ion-button color="medium" @click="cancel()"
-          >Annuler</ion-button
-          >
-        </form>
-      </ion-card>
-    </div>
+        <ion-button color="medium" @click="[submit(), save()]"
+        >Enregistrer</ion-button
+        >
+        <ion-button color="medium" @click="cancel()"
+        >Annuler</ion-button
+        >
+      </form>
+
+      <form  v-if="buttonPushed === 'delete'" @submit.prevent="submit">
+        <ion-card-content>
+          <h1>Supprimer la configuration {{index + 1}} ?</h1>
+          <ion-label>Vitesse du défilement:</ion-label>
+          <p>{{ uiParam.scrollingSpeed }}</p>
+        </ion-card-content>
+        <ion-button color="medium" @click="[submit(), save()]"
+        >Valider</ion-button
+        >
+        <ion-button color="medium" @click="cancel()"
+        >Annuler</ion-button
+        >
+      </form>
+    </ion-card>
+  </div>
 </template>
 
 <script>
@@ -77,12 +135,10 @@ import {
   IonButton,
   IonInput,
   IonCardContent,
-    IonLabel
+  IonLabel,
 } from "@ionic/vue";
 import axios from "axios";
 import {rootAPI} from "@/data.ts";
-import {vModelSelect} from "vue";
-
 
 export default {
   components: {
@@ -90,7 +146,7 @@ export default {
     IonButton,
     IonInput,
     IonCardContent,
-    IonLabel
+    IonLabel,
   },
   name: "modalUiParam",
   props: ["isOpen", "title", "uiParam","buttonPushed","index"],
@@ -98,24 +154,34 @@ export default {
   data() {
 
     return {
-      scrollingSpeedForm: 0,
-      scrollingColorForm:"",
-    };
+      uiParamForm: {
+      scrollingSpeed: 1500,
+      scrollingColor:"",
+      byDefault: false,
+        scrollingIsActive: false
+      },
+      color: '#59c7f9'
+    } ;
   },
-  beforeCreate() {
-    console.log(this.buttonPushed)
+
+  updated() {
+    this.$nextTick(function (this.uiParam, this.uiParamForm) {
+      this.uiParam ? this.uiParamForm = this.uiParam : null
+    })
   },
+
+
   computed:{
-    uiParamIndex(){
-      return this.uiParam.index;
-    },
+
     scrollingSpeed(){
-        return this.uiParam.scrollingSpeed;
+      return (this.uiParam ? this.uiParam.scrollingSpeed : 1500 );
     },
     scrollingColor(){
       return this.uiParam.scrollingColor;
     },
+
   },
+
   methods: {
     save() {
       this.$emit("update:isOpen", false);
@@ -127,8 +193,10 @@ export default {
     submit() {
       const resForm = {
         uiParameter: {
-          scrollingSpeed: this.scrollingSpeedForm,
-          scrollingColor: this.scrollingColorForm
+          scrollingSpeed: this.uiParamForm.scrollingSpeed,
+          scrollingColor: this.uiParamForm.scrollingColor,
+          byDefault : this.uiParamForm.byDefault,
+          scrollingIsActive: this.uiParamForm.isActive
         },
       };
       console.log("formData" + JSON.stringify(resForm));
@@ -171,7 +239,7 @@ export default {
             .catch((err) => {
               console.log(err);
             });
-      } else (this.buttonPushed === 'delete')
+      } else if (this.buttonPushed === 'delete')
       {
         const address = rootAPI + "uiparams/" + this.uiParam.id;
         axios({
@@ -192,11 +260,21 @@ export default {
             });
       }
   },
-  },
+    changeColorForm(color,property, event){
+      this.uiParamForm.scrollingColor = event.target.value.substring(1);
+    }
+      },
+
 };
 </script>
 
 <style scoped>
+
+h1 {
+margin: 2px 10px 10px 2px;
+  text-underline-color: #1e2023;
+}
+
 .container {
   z-index: 2;
   position: absolute;
@@ -277,8 +355,11 @@ ion-select{
   background-color: #f1faff;
 }
 
-.modalNewUiParam {
-}
+.card-inside{
+  display: grid;
+  width: 95% !important;
+  margin: 0 4px 2px 4px !important;
 
+}
 
 </style>
