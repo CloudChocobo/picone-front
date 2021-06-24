@@ -24,8 +24,8 @@
           <ButtonMenu route="" label="Fond d'écran et Police"></ButtonMenu>
           <ButtonMenu route="" label="Personnalisation photos"></ButtonMenu>
           <ButtonMenu route="" label="Blog"></ButtonMenu>
-          <ButtonMenu route="" label="À propos"></ButtonMenu>
         </div>
+          <ButtonMenu route="/about" label="À propos"></ButtonMenu>
       </ion-list>
     </ion-content>
   </ion-menu>

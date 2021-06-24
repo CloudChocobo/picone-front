@@ -9,19 +9,16 @@
               <div id="point">
                 <div
                   :id="id"
-                  @click="
-                    [clearBasket($store.basket), router.push(`/startTalking`)]
-                  "
+                  @click="doAction(card)"
                 >
+                  <!-- @click="router.push(`/recapDiscussion`)" -->
                   <img src="@/assets/affirmation.png" />
                 </div>
               </div>
               <div id="interrogation">
                 <div
                   :id="id"
-                  @click="
-                    [clearBasket($store.basket), router.push(`/startTalking`)]
-                  "
+                  @click="doAction(card)"
                 >
                   <img src="@/assets/question.png" />
                 </div>
@@ -53,11 +50,11 @@ import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import GridPonctuation from "@/components/GridPonctuation.vue";
 import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
-import Defilement from "@/plugins/defilement.js";
+// import Defilement from "@/plugins/defilement.js";
 
 export default {
   name: "Recap",
-  mixins: [Defilement],
+  // mixins: [Defilement],
   components: {
     IonPage,
     IonContent,
@@ -96,6 +93,9 @@ export default {
   },
 
   methods: {
+    // methodRouter() {
+    //   this.router.push("/recapDiscussion");
+    // },
     addItemToDialogBox(card) {
       this.$store.commit("addElementToBasket", card);
     },
@@ -104,9 +104,10 @@ export default {
     },
     doAction(card) {
       this.addItemToDialogBox(card);
-      this.switchDef();
-      this.fetchTheCardsAndStoreThem(card.id, card.word);
+      // this.switchDef();
+      // this.fetchTheCardsAndStoreThem(card.id, card.word);
       this.loading = !this.loading;
+      this.$router.push("/recapDiscussion");
       // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
     },
     fetchTheCardsAndStoreThem(id, relation) {
@@ -206,7 +207,6 @@ export default {
 }
 
 @media (min-width: 1300px) and (min-height: 1000px) {
-
   .text {
     font-size: 3.5em;
   }
@@ -231,5 +231,4 @@ export default {
     transform: translate(-50%, -50%);
   }
 }
-
 </style>

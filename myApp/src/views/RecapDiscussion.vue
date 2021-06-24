@@ -16,20 +16,20 @@
                 [clearBasket($store.basket), router.push(`/startTalking`)]
               "
             >
-              <img src="@/assets/home1.png" />
+              <img src="@/assets/home.png" />
             </div>
           </div>
         </div>
         <footer>
           <!-- <div class="rectangle_discussion"> -->
-          <Basket3>
+          <Basket class="centeringClass">
             <Card
               v-for="(card, index) in basket"
-              :image="card.image"
-              :description="card.description"
+              :image="card[imageProperty]"
+              :description="card.word"
               :key="index"
             />
-          </Basket3>
+          </Basket>
           <!-- </div> -->
         </footer>
       </PageWithSecondNavBar>
@@ -42,8 +42,8 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
-import Basket3 from "@/components/Basket3.vue";
-import { libraryCards } from "@/data.ts";
+import Basket from "@/components/Basket.vue";
+import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
 
 export default {
   name: "RecapDiscussion",
@@ -52,7 +52,8 @@ export default {
     IonContent,
     PageWithSecondNavBar,
     Card,
-    Basket3,
+    Basket,
+    
   },
   props: [],
   setup() {
@@ -62,7 +63,11 @@ export default {
 
   data: () => {
     return {
-      cards: libraryCards.recap,
+      imageProperty: "imgUrl",
+      rootIMG: rootHebergementImage,
+      rootAPI: rootAPI,
+      relation: relationTest,
+      cardJSON: [],
       currentIndex: 0,
       currentId: "",
       discussion: "basket",

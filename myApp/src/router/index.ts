@@ -6,13 +6,14 @@ import Home from "@/views/Home.vue";
 import AdminHome from "@/views/AdminHome.vue";
 import Recap from "@/views/Recap.vue";
 import StartTalking from "@/views/StartTalking.vue";
-// import RecapDiscussion from "@/views/RecapDiscussion.vue";
+import RecapDiscussion from "@/views/RecapDiscussion.vue";
 import SentenceBuild from "@/views/SentenceBuild.vue";
 import Patients from "@/views/Patients.vue";
 import Mood from "@/views/Mood.vue";
 import Register from "@/views/Register.vue";
 import Login from "@/views/Login.vue";
 import Establishment from "@/views/Establishment.vue";
+import About from "@/views/About.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -66,15 +67,20 @@ const routes: Array<RouteRecordRaw> = [
 		path: "/mood",
 		component: Mood,
 	},
-	// {
-	// 	name: "RecapDiscussion",
-	// 	path: "/recap",
-	// 	component: RecapDiscussion,
-	// }
 	{
 		name: "Recap",
 		path: "/recap",
 		component: Recap,
+	},
+	{
+		name: "RecapDiscussion",
+		path: "/recapDiscussion",
+		component: RecapDiscussion,
+	},
+		{
+		name: "About",
+		path: "/about",
+		component: About,
 	}
 ];
 

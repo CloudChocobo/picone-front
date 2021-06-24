@@ -87,6 +87,12 @@ ion-toolbar {
 }
 
 @media (max-width: 1300px) {
+  /* .BackButton {
+    position: relative;
+    bottom: 0.3em;
+    right: 27em
+  } */
+
   .image {
     top: 55%;
   }
