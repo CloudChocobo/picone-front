@@ -7,21 +7,18 @@
           <GridPonctuation class="grid">
             <div class="finPhrase">
               <div id="point">
-                <div
-                  :id="id"
+                <CardPonctuation
+                  id="10"
+                  image="boutonAffirmation.png"
                   @click="doAction(card)"
-                >
-                  <!-- @click="router.push(`/recapDiscussion`)" -->
-                  <img src="@/assets/affirmation.png" />
-                </div>
+                />
               </div>
               <div id="interrogation">
-                <div
-                  :id="id"
+                <CardPonctuation
+                  id="11"
+                  image="boutonQuestion.png"
                   @click="doAction(card)"
-                >
-                  <img src="@/assets/question.png" />
-                </div>
+                />
               </div>
             </div>
           </GridPonctuation>
@@ -47,6 +44,7 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
+import CardPonctuation from "@/components/CardPonctuation.vue";
 import BasketRecap from "@/components/BasketRecap.vue";
 import GridPonctuation from "@/components/GridPonctuation.vue";
 import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
@@ -60,6 +58,7 @@ export default {
     IonContent,
     PageWithSecondNavBar,
     Card,
+    CardPonctuation,
     BasketRecap,
     GridPonctuation,
   },
@@ -105,9 +104,9 @@ export default {
     doAction(card) {
       this.addItemToDialogBox(card);
       this.switchDef();
-      // this.fetchTheCardsAndStoreThem(card.id, card.word);
       this.loading = !this.loading;
       this.$router.push("/recapDiscussion");
+      this.fetchTheCardsAndStoreThem(card.id, card.word);
       // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
     },
     fetchTheCardsAndStoreThem(id, relation) {
