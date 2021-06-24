@@ -1,23 +1,34 @@
 <template>
   <div class="UiParameterCard">
-    <div class="info">
-      <div class="text">
-        <div class="loadingSprite" v-if="loaded === false">
-          <img src="myApp/src/assets/loading1.gif">
-        </div>
-        <h2 class="id">Configuration {{ index + 1}}</h2>
-        <div v-if="byDefault === true"> <button id="defaultSignal" ion-button color="secondary" outline>Par défaut</button></div>
-        <ion-list class="inside-ion-card">
-          <ion-list-header>Défilement</ion-list-header>
-        <ion-item v-if="scrollingIsActive === true">Défilement activé</ion-item>
-        <ion-item v-if="scrollingIsActive === false">Défilement désactivé</ion-item>
-          <ion-item >Vitesse de défilement : <ion-label>{{ scrollingSpeed }} ms</ion-label></ion-item>
-        <ion-item class="ion-align-items-end, couleurDef ">Couleur du défilement :
+    <h2 class="id">Configuration {{ index + 1 }}</h2>
+    <div v-if="byDefault === true">
+      <button id="defaultSignal" ion-button color="primary" outline>Par défaut</button>
+    </div>
+    <ion-card>
+      <ion-list-header>Défilement</ion-list-header>
+      <ion-item v-if="scrollingIsActive === true">
+        <ion-label> Défilement activé </ion-label>
+        <ion-item>
+          <div class="green-circle"></div>
+        </ion-item>
+      </ion-item>
+      <ion-item v-if="scrollingIsActive === false">
+        <ion-label> Défilement désactivé </ion-label>
+        <ion-item>
+          <div class="red-circle"></div>
+        </ion-item>
+      </ion-item>
+      <ion-item>
+        <ion-label>Vitesse de défilement :</ion-label>
+        <ion-item>{{ scrollingSpeed }} ms</ion-item>
+      </ion-item>
+      <ion-item>
+        <ion-label> Couleur du défilement : </ion-label>
+        <ion-item>
           <div :style="cssVars"></div>
         </ion-item>
-        </ion-list>
-      </div>
-    </div>
+      </ion-item>
+    </ion-card>
     <ion-button color="light" @click="modalOpen = true ; buttonPushed='edit'">Editer</ion-button>
     <ModalUiParam
         v-if="modalOpen && buttonPushed==='edit'"
@@ -26,9 +37,9 @@
         :uiParam=uiParam
         :index="index"
         :buttonPushed="'edit'"></ModalUiParam>
-
-    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='makeDefault'">Appliquer par défaut</ion-button>
-
+    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='makeDefault'">
+      Appliquer par défaut
+    </ion-button>
     <ModalUiParam
         v-if="modalOpen && buttonPushed==='makeDefault'"
         v-model:isOpen="modalOpen"
@@ -36,8 +47,8 @@
         :uiParam=uiParam
         :index="index"
         :buttonPushed="'makeDefault'"></ModalUiParam>
-
-    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='delete'">Supprimer</ion-button>
+    <ion-button v-if="byDefault === false" color="light" @click="modalOpen = true ; buttonPushed='delete'">Supprimer
+    </ion-button>
     <ModalUiParam
         v-if="modalOpen && buttonPushed==='delete'"
         v-model:isOpen="modalOpen"
@@ -45,7 +56,6 @@
         :uiParam=uiParam
         :index="index"
         :buttonPushed="'delete'"></ModalUiParam>
-
   </div>
 </template>
 
@@ -55,7 +65,7 @@ import {IonButton} from "@ionic/vue";
 
 export default {
   name: "UiParameterCard",
-  props: ["index","id","byDefault","loaded", "scrollingSpeed", "scrollingColor","scrollingByDefault","scrollingIsActive","uiParam"],
+  props: ["index", "id", "byDefault", "loaded", "scrollingSpeed", "scrollingColor", "scrollingByDefault", "scrollingIsActive", "uiParam"],
   components: {
     ModalUiParam,
     IonButton,
@@ -73,10 +83,11 @@ export default {
   computed: {
     cssVars() {
       return {
-        'background-color': '#'+ this.scrollingColor,
-        'height' : '15px',
-        'width' : '25px',
-        'float': 'right'
+        'background-color': '#' + this.scrollingColor,
+        'height': '15px',
+        'width': '25px',
+        'float': 'right',
+        'border': '1px solid #000000'
       }
     }
   }
@@ -90,6 +101,7 @@ export default {
   justify-content: center;
   flex-direction: column;
 }
+
 .UiParameterCard {
   background-color: #bdddec;
   display: flex;
@@ -100,9 +112,9 @@ export default {
   border-radius: 15px;
   gap: 10px;
   height: 100%;
-
 }
-.info{
+
+.info {
   display: flex;
   gap: 10px;
   flex-direction: row;
@@ -112,24 +124,27 @@ export default {
 .couleurDef {
   text-align: justify;
 }
-ion-button{
+
+ion-button {
   align-content: flex-end;
 }
 
-.inside-ion-card{
+.inside-ion-card {
   width: 100%;
 }
-#defaultSignal{
+
+#defaultSignal {
   text-align: right;
 }
-.text{
+
+.text {
   display: flex;
   flex-direction: column;
   align-items: inherit;
   gap: 5px;
 }
 
-ion-list  {
+ion-list {
   background-color: #b0d9ec;
   border-width: 1px;
   border-style: ridge;
@@ -137,5 +152,26 @@ ion-list  {
   border-radius: 15px;
   margin: 3px 5% 3px 5%;
 }
+
+.green-circle {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  width: 8px;
+  height: 8px;
+  background-color: #2dd36f;
+}
+
+.red-circle {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  width: 8px;
+  height: 8px;
+  background-color: #ec1c1c;
+}
+
 
 </style>
