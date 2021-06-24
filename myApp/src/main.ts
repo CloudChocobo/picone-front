@@ -10,7 +10,7 @@ import { createApp } from 'vue';
 import { createStore } from 'vuex';
 import App from './App.vue';
 import router from './router';
-
+import axios from 'axios';
 
 import { IonicVue } from '@ionic/vue';
 
@@ -32,6 +32,7 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import {rootAPI} from "@/data";
 
 //uses Vuex 4
 //keeps values from one page to another without having to import them from components to components
@@ -51,6 +52,7 @@ const store = createStore({
       mood: null,
       patients: [{}],
       establishments: [{}],
+      // default state of UiParameters list, refresh by axios fetch in the "actions" part
       uiParameters: [{
         byDefault: true,
         scrollingIsActive: false,
@@ -123,6 +125,15 @@ const store = createStore({
     uiParameters(state: any) {
       return state.uiParameters;
     },
+  },
+
+  actions: {
+    getAllUiParameters({ commit }) {
+      axios.get(rootAPI + "uiparams")
+          .then((response) => {
+            commit("setUiParameters", response.data);
+          })
+    }
   }
 })
 const app = createApp(App)

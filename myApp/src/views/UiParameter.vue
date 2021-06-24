@@ -72,9 +72,11 @@ export default {
     };
   },
   mounted() {
-    this.fetchAllUiParametersAXIOS();
+    //this.fetchAllUiParametersAXIOS();
+    this.$store.dispatch("getAllUiParameters")
   },
   methods: {
+    // those methods are not usefuls since the store VueX is used
     fetchAllUiParameters() {
       fetch(rootAPI + "uiparams")
           .then((response) => response.json())

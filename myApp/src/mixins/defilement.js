@@ -1,8 +1,10 @@
 export default {
     /*eslint-disable*/
 
-    async mounted() {
-        await this.startDefilement()
+    mounted() {
+
+            this.checkIfDefIsActivated();
+       //await this.startDefilement()
     },
     data: () => {
         return {
@@ -18,6 +20,15 @@ export default {
     },
 
     methods: {
+        checkIfDefIsActivated(){
+            console.log(this.uiParameters)
+            for (let i = 0; i < this.uiParameters.length; i++) {
+                if(this.uiParameters[i].byDefault === true && this.uiParameters[i].scrollingIsActive){
+                    this.startDefilement();
+                }
+            }
+        },
+
         listAllDivForDef() {
             let elements = document.getElementsByClassName("defFriendly");
             this.lengthDef = elements.length
@@ -144,6 +155,11 @@ export default {
         stateDef() {
             return this.$store.state.stateDefilement;
         },
+
+        uiParameters() {
+            return this.$store.state.uiParameters;
+        },
+
 
 
     }

@@ -113,6 +113,7 @@ export default {
         }
       });
     },
+
   },
 
   setup() {
@@ -125,6 +126,8 @@ export default {
 
     // this.startLoop();
     this.startEventListener();
+
+    this.$store.dispatch("getAllUiParameters")
   },
 };
 </script>
