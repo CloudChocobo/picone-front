@@ -50,7 +50,7 @@ import Card from "@/components/Card.vue";
 import BasketRecap from "@/components/BasketRecap.vue";
 import GridPonctuation from "@/components/GridPonctuation.vue";
 import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
-import Defilement from "@/plugins/defilement.js";
+import Defilement from "@/mixins/defilement.js";
 
 export default {
   name: "Recap",
