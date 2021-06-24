@@ -14,6 +14,7 @@ import Register from "@/views/Register.vue";
 import Login from "@/views/Login.vue";
 import Establishment from "@/views/Establishment.vue";
 import About from "@/views/About.vue";
+import UiParameter from "@/views/UiParameter.vue"
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -81,7 +82,12 @@ const routes: Array<RouteRecordRaw> = [
 		name: "About",
 		path: "/about",
 		component: About,
-	}
+	},
+	{
+		name: "UiParameters",
+		path: "/uiparameters",
+		component: UiParameter,
+	},
 ];
 
 	// {

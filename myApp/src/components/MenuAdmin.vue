@@ -19,6 +19,7 @@
           route="/establishment"
           label="Ajouter un établissement"
         ></ButtonMenu>
+        <ButtonMenu route="/uiparameters" label="Gérer l'interface et les fonctionnalités"></ButtonMenu>
         <div class="inactive">
           <ButtonMenu route="" label="Ajouter un mot"></ButtonMenu>
           <ButtonMenu route="" label="Affichage et Luminosité"></ButtonMenu>

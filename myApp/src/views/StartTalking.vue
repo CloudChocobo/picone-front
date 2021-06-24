@@ -53,7 +53,7 @@ import Card from "@/components/Card.vue";
 import Basket from "@/components/Basket.vue";
 import ImageGrid from "@/components/ImageGrid.vue";
 import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
-import Defilement from "@/plugins/defilement.js";
+import Defilement from "@/mixins/defilement.js";
 import GridLoader from "vue-spinner/src/GridLoader.vue";
 
 export default {
