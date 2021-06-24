@@ -3,27 +3,27 @@ export default {
 
     mounted() {
 
-            this.checkIfDefIsActivated();
        //await this.startDefilement()
     },
     data: () => {
         return {
-            currentDef: -1,
             currentInput: "",
             lengthDef: 0,
-            interval: "",
-            activeDefilement: false
         }
     },
     created() {
-
+        if( this.enabledDef === false){
+            this.checkIfDefIsActivated();
+        }
     },
 
     methods: {
         checkIfDefIsActivated(){
-            console.log(this.uiParameters)
             for (let i = 0; i < this.uiParameters.length; i++) {
+                console.log(this.uiParameters)
                 if(this.uiParameters[i].byDefault === true && this.uiParameters[i].scrollingIsActive){
+                    this.$store.commit("setStateDefilement",this.activeDefilement)
+                    this.$store.commit("setEnabledDefilement",this.activeDefilement)
                     this.startDefilement();
                 }
             }
@@ -74,8 +74,8 @@ export default {
 
         startDefilement() {
 
-            if (this.stateDef.enabledDefilement && !this.stateDef.activeDefilement && !this.activeDefilement) {
-                console.log("interval démarée")
+            if (this.stateDef.enabledDefilement && !this.stateDef.activeDefilement) {
+                console.log("interval démarrée")
                 this.stateDef.activeDefilement = !this.stateDef.activeDefilement
                 this.switchDef();
 
@@ -89,7 +89,7 @@ export default {
                     this.currentInput = "None";
 
 
-                    if (this.currentDef == this.lengthDef) {
+                    if (this.currentDef === this.lengthDef) {
                         this.stateDef.currentDefilement = 0
                         this.resetSelectedClass(this.lengthDef - 1)
                     } else {
@@ -155,6 +155,10 @@ export default {
         stateDef() {
             return this.$store.state.stateDefilement;
         },
+        enabledDef() {
+            return this.$store.state.stateDefilement.enabledDefilement;
+        },
+
 
         uiParameters() {
             return this.$store.state.uiParameters;

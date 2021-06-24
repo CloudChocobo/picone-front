@@ -44,10 +44,11 @@ const store = createStore({
       basket: [],
       stateDefilement : {
         currentDefilement: 0,
-        enabledDefilement: true,
+        enabledDefilement: false,
         activeDefilement: false,
         activeKey: 'Space',
-        speedDefilement: 1000
+        speedDefilement: 1000,
+        allDivDef: 0
       },
       mood: null,
       patients: [{}],
@@ -100,10 +101,17 @@ const store = createStore({
       state.mood = moodToSet;
     },
 
+    setStateDefilement(state: any, stateActive: boolean) {
+      state.stateDefilement.activeDefilement = stateActive;
+    },
+
+    setEnabledDefilement(state: any, stateEnabled: boolean) {
+      state.stateDefilement.enabledDefilement = true;
+    },
 
   //Mutation to erase the current mood.
     clearMood(state: any){
-      state.mood = null
+      state.state = null
     },
     setPatients(state: any, valeur: any) {
           state.patients = valeur;

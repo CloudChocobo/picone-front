@@ -1,5 +1,5 @@
 <template>
-  <div class="defContainer">
+  <div v-if="stateDef === true" class="defContainer">
     <img
       class="logo"
       id="turtle"
@@ -50,9 +50,12 @@ export default {
   },
 
   mounted() {
-    for (let i = 0; i < this.$el.children.length; i++) {
-      this.$el.children[i].classList.add("defFriendly");
+    if(this.stateDef === true){
+      for (let i = 0; i < this.$el.children.length; i++) {
+        this.$el.children[i].classList.add("defFriendly");
+      }
     }
+
 
     this.imageLapin = "./assets/vitesseLapin.png";
   },
