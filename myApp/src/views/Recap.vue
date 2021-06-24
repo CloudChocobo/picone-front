@@ -28,14 +28,14 @@
         </main>
 
         <footer>
-          <Basket class="centeringClass">
+          <BasketRecap class="centeringClass">
             <Card
               v-for="(card, index) in basket"
               :image="card[imageProperty]"
               :description="card.word"
               :key="index"
             />
-          </Basket>
+          </BasketRecap>
         </footer>
       </PageWithSecondNavBar>
     </ion-content>
@@ -47,20 +47,20 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
-import Basket from "@/components/Basket.vue";
+import BasketRecap from "@/components/BasketRecap.vue";
 import GridPonctuation from "@/components/GridPonctuation.vue";
 import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
-// import Defilement from "@/plugins/defilement.js";
+import Defilement from "@/plugins/defilement.js";
 
 export default {
   name: "Recap",
-  // mixins: [Defilement],
+  mixins: [Defilement],
   components: {
     IonPage,
     IonContent,
     PageWithSecondNavBar,
     Card,
-    Basket,
+    BasketRecap,
     GridPonctuation,
   },
 
@@ -104,7 +104,7 @@ export default {
     },
     doAction(card) {
       this.addItemToDialogBox(card);
-      // this.switchDef();
+      this.switchDef();
       // this.fetchTheCardsAndStoreThem(card.id, card.word);
       this.loading = !this.loading;
       this.$router.push("/recapDiscussion");

@@ -1,36 +1,32 @@
-    
-    <!-- View obsolete à supprimer -->
-
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
       <PageWithSecondNavBar @cancelLastAction="removeItemFromDialogBox">
-        <div class="container">
+        <main>
           <div class="text">Voici votre phrase</div>
-          <!-- div "invisibleBlockAlignment" . Empty space  used only to align the 'icone' class, creating a margin-->
-          <div class="invisibleBlockAlignment"></div>
-          <div class="home">
-            <div
-              :id="id"
-              @click="
-                [clearBasket($store.basket), router.push(`/startTalking`)]
-              "
-            >
-              <img src="@/assets/home.png" />
+          <GridPonctuation class="grid">
+            <div class="home">
+              <div
+                :id="id"
+                @click="
+                  [clearBasket($store.basket), router.push(`/startTalking`)]
+                "
+              >
+                <img id="homeIcon" src="@/assets/home.png" />
+              </div>
             </div>
-          </div>
-        </div>
+          </GridPonctuation>
+        </main>
+
         <footer>
-          <!-- <div class="rectangle_discussion"> -->
-          <Basket class="centeringClass">
+          <BasketRecap class="centeringClass">
             <Card
               v-for="(card, index) in basket"
               :image="card[imageProperty]"
               :description="card.word"
               :key="index"
             />
-          </Basket>
-          <!-- </div> -->
+          </BasketRecap>
         </footer>
       </PageWithSecondNavBar>
     </ion-content>
@@ -42,20 +38,30 @@ import { IonPage, IonContent } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import PageWithSecondNavBar from "@/components/PageWithSecondNavBar.vue";
 import Card from "@/components/Card.vue";
-import Basket from "@/components/Basket.vue";
+import BasketRecap from "@/components/BasketRecap.vue";
+import GridPonctuation from "@/components/GridPonctuation.vue";
 import { rootAPI, rootHebergementImage, relationTest } from "@/data.ts";
+import Defilement from "@/plugins/defilement.js";
 
 export default {
   name: "RecapDiscussion",
+  mixins: [Defilement],
   components: {
     IonPage,
     IonContent,
     PageWithSecondNavBar,
     Card,
-    Basket,
-    
+    BasketRecap,
+    GridPonctuation,
   },
-  props: [],
+
+  props: {
+    loadingGrid: {
+      type: String,
+      default: "loadingGrid",
+    },
+  },
+
   setup() {
     const router = useRouter();
     return { router };
@@ -71,6 +77,9 @@ export default {
       currentIndex: 0,
       currentId: "",
       discussion: "basket",
+      color: "#00b9ff",
+      loading: true,
+      size: "40px",
     };
   },
 
@@ -89,13 +98,40 @@ export default {
       this.$store.commit("removeElementFromBasket");
     },
     doAction(card) {
-      if (card.redirectsTo) {
-        this.$router.push("/" + card.redirectsTo);
-      } else {
-        this.addItemToDialogBox(card);
-      }
+      this.addItemToDialogBox(card);
+      this.switchDef();
+      // this.fetchTheCardsAndStoreThem(card.id, card.word);
+      this.loading = !this.loading;
+      this.$router.push("/recapDiscussion");
+      // TODO: Ne plus envoyer le nom de la card pour le fetch, mais le nom de la relation
+    },
+
+    fetchTheCardsAndStoreThem(id, relation) {
+      this.cardJSON = [];
+      const url = this.rootAPI + "mots/" + id + "/" + this.relation;
+      //TODO , changer this.relation par la relation réélle de l'api
+      fetch(url, {
+        method: "GET",
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((cards) => {
+          const newCards = cards.map((c) => {
+            c[this.imageProperty] = this.rootIMG + c[this.imageProperty];
+            return c;
+          });
+          this.cardJSON = newCards;
+        })
+        .then(() => {
+          this.loading = !this.loading;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
   },
+
   computed: {
     basket() {
       return this.$store.state.basket;
@@ -105,48 +141,92 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  font-size: 45px;
-  color: #536974;
-  text-align: center;
-}
-
-.invisibleBlockAlignment {
-  display: inline-block;
-  width: 2%;
-}
-img {
-  max-width: 15%;
-  margin-right: 2%;
-  border-radius: 55px;
-}
 .text {
-  display: flex;
-  font-size: 50px;
-  margin-left: 27%;
-  color: #536974;
-  position: relative;
+  font-family: "Fredoka One", cursive;
+  color: #6593aa;
+  font-size: 2.5em;
   text-align: center;
-  /* margin-top: 10px; */
+  position: relative;
+  top: 0.25em;
 }
 
-.footer {
-  margin-left: 10%;
+.home {
+  display: flex;
+  width: 7.5em;
+  position: relative;
+  left: 65%;
+  bottom: 1em;
 }
 
-.rectangle_discussion {
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2%;
+.grid {
+  justify-content: center;
+  position: relative;
+  top: 4em;
 }
 
-.invisibleBlockAlignment {
-  display: inline-block;
-  width: 2%;
+.centeringClass {
+  position: relative;
+  top: 1em;
+  margin: auto auto auto auto;
+  width: 80%;
 }
 
-.Discussion img {
-  margin-top: 1%;
-  width: 17%;
+>>> .selected img {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 0px 7px #202abb9d;
+  -webkit-box-shadow: 0px 0px 0px 7px #202abb9d;
+  -moz-box-shadow: 0px 0px 0px 7px #202abb9d;
+  border-radius: 30%;
+}
+
+@media (max-width: 1300px) {
+  img {
+    max-width: 12em;
+    position: relative;
+    right: 12%;
+    left: 0%;
+    bottom: 30%;
+    border-radius: 2em;
+  }
+
+  .grid {
+    position: relative;
+    top: 10em;
+    right: 2.2em;
+  }
+
+  .centeringClass {
+    position: fixed;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+  .text {
+    font-size: 3.5em;
+  }
+
+  img {
+    max-width: 18em;
+    position: relative;
+    left: 2%;
+    top: 0;
+    border-radius: 2em;
+  }
+
+  .grid {
+    position: relative;
+    top: 8em;
+    right: 8em;
+  }
+
+  .centeringClass {
+    position: fixed;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>

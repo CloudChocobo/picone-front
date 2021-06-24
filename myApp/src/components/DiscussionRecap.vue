@@ -1,0 +1,80 @@
+<!-- dialogue box to screen selected cards-->
+<template>
+  <div class="discussion">
+    <div class="text">
+      <div class="selection">
+        <slot></slot>
+      </div>
+      <!-- class=end means end of the sentence-->
+      <div class="end">
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+import { useRouter } from "vue-router";
+export default {
+  name: "DiscussionRecap",
+  methodRouter() {
+    this.router.push("/startTalking");
+  },
+  setup() {
+    const router = useRouter();
+    return { router };
+  },
+};
+</script>
+
+ <style scoped>
+.discussion {
+  width: 100%;
+  height: 14em ;
+  background-color: #ffffff;
+  border: 10px solid #8badbe;
+  border-radius: 15px;
+  position: relative;
+  top: 3em;
+}
+
+.selection {
+  flex: 1 0 auto;
+}
+
+.end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 0 0 10%;
+}
+
+.text {
+  display: flex;
+  height: 100%;
+}
+
+@media (max-width: 1300px) {
+  #point {
+    width: 7em;
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 1000px) {
+.discussion {
+  width: 100%;
+  height: 18.5em;
+  background-color: #ffffff;
+  border: 10px solid #8badbe;
+  border-radius: 15px;
+  position: relative;
+  top: 4em;
+}
+
+  #point {
+    width: 12.5em;
+    margin-left: 5em;
+  }
+}
+
+</style>
