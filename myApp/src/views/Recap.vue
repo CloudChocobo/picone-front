@@ -10,14 +10,14 @@
                 <CardPonctuation
                   id="10"
                   image="boutonAffirmation.png"
-                  @click="doAction(card)"
+                  @click="doAction(cardsPonctuations[1])"
                 />
               </div>
               <div id="interrogation">
                 <CardPonctuation
                   id="11"
                   image="boutonQuestion.png"
-                  @click="doAction(card)"
+                  @click="doAction(cardsPonctuations[0])"
                 />
               </div>
             </div>
@@ -88,6 +88,7 @@ export default {
       color: "#00b9ff",
       loading: true,
       size: "40px",
+      cardsPonctuations: [{id:11, word: "", imgUrl: "https://niveaubonus.fr/picone/src/icones/boutonQuestion.png"},{id:10, word: "", imgUrl: "https://niveaubonus.fr/picone/src/icones/boutonAffirmation.png"}]
     };
   },
 
@@ -125,6 +126,7 @@ export default {
             return c;
           });
           this.cardJSON = newCards;
+          console.log(this.cardJSON)
         })
         .then(() => {
           this.loading = !this.loading;

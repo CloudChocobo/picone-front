@@ -62,7 +62,7 @@ export default {
 
   computed: {
     stateDef() {
-      return this.$store.state.stateDefilement;
+      return this.$store.state.stateDefilement.activeDefilement;
     },
 
     speedDef() {

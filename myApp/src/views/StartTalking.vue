@@ -80,7 +80,10 @@ export default {
     const router = useRouter();
     return { router };
   },
-
+     
+  created() {
+    this.$store.dispatch("getAllUiParameters");
+  },
   async mounted() {
     await this.fetchTheCardsAndStoreThem("57");
     // this.clearBasket();
